@@ -1,0 +1,57 @@
+﻿-----------------------------Condiciones del funcionamiento---------------------------------------
+<<<Pantalla "Acceso al Sistema">>>
+
+El sistema va a permitir el ingreso con 2 (dos) DNI: 
+- 12345678 
+- 87654321
+La contraseña para ambos DNI es: 
+- 1234
+
+---------------------------------------------------------------------------------------------------
+<<<Pantalla "Menú Principal>>>
+
+Al ingresar al sistema, el usuario será redireccionado al menú principal donde podrá elegir una
+de las 3 opciones disponibles en pantalla. 
+
+---------------------------------------------------------------------------------------------------
+<<<Solicitud de Servicio>>>
+
+El usuario elije si el envio es internacional o nacional para poder definir la entrega.
+El usuario debe elegir 1 de los rangos de pesos presentados; a su vez, la cantidad de bultos. 
+El usuario puede elegir si la entrega tiene caracter de "Urgente" apretando el CheckBox.
+
+En caso de seleccionar envío "Internacional":
+- El usuario podrá elegir entre las 5 regiones disponibles; y en el caso de "Ciudad/Pais" podrá
+seleccionar, por el momento, lugares de Europa. 
+- En caso de seleccionar otra región que no sea Europa, en "Ciudad/Pais" se mostrará la opción "No implementado".
+
+En caso de seleccionar envío "Nacional":
+- El usuario podrá seleccionar si prefiere recepción/entrega en sucursal o a domicilio. 
+- En el caso de seleccionar "En sucursal", podrá elegir entre las 4 opciones presentadas ubicadas
+en: CABA, Río Negro, Chaco y Córdoba.
+- En caso de seleccionar "Retiro a domicilio" o "Entrega a Domicilio", el prototipo solo dejará 
+elegir "Ciudad" cuando se seleccione BUENOS AIRES en "Provincia"
+- Si se selecciona otra provincia, en "Ciudad" se mostrará "No implementado".
+
+Al presionar el botón "Cotizar":
+- El usuario visualizará una pantalla con los datos anteriormente completados, adicionando la cotización.
+- El usuario podrá clickear "Confirmar envio" o "Modificar datos".
+
+----------------------------------------------------------------------------------------------------
+<<<Consultar Estado de Servicio>>>
+
+El usuario ingresa el número de trackeo para conocer el estado del servicio. Luego de completar el 
+campo y clickear el botón "Buscar", se mostrará por pantalla el estado, el cual puede ser:
+	- Recibida
+	- En tránsito
+	- Cerrada
+---------------------------------------------------------------------------------------------------
+<<<Consultar Estado de Cuenta>>>
+
+El usuario visualizará, por el momento aleatoriamente:
+	- Nombre del cliente, pudiendo ser: Copito S.A. o EcoLogic S.R.L.
+	- Nº de CUIT.
+	- Fecha, estado y total de las facturas.
+	- El saldo de cuenta a la fecha de hoy, pudiendo tomar los siguientes valores: -$750, $250,$-102 y $123.
+
+----------------------------------------------------------------------------------------------------
