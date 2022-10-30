@@ -402,6 +402,10 @@ namespace grupoB_TP
                 cmbPaisCiudadDestino.Items.Add("NO IMPLEMENTADO");
             }
         }
-      
+
+        private void rboOrigenSucursal_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -545,7 +545,7 @@
             this.grpTipoRecepcion.Size = new System.Drawing.Size(442, 332);
             this.grpTipoRecepcion.TabIndex = 10;
             this.grpTipoRecepcion.TabStop = false;
-            this.grpTipoRecepcion.Text = "Tipo de Recepcion *";
+            this.grpTipoRecepcion.Text = "Elija el Tipo de ORIGEN *";
             this.grpTipoRecepcion.Enter += new System.EventHandler(this.groupBox5_Enter);
             // 
             // label17
@@ -663,7 +663,7 @@
             this.rboRecibeSucursal.TabStop = true;
             this.rboRecibeSucursal.Text = "En sucursal ";
             this.rboRecibeSucursal.UseVisualStyleBackColor = true;
-            this.rboRecibeSucursal.CheckedChanged += new System.EventHandler(this.rboRecibeSucursal_CheckedChanged);
+            this.rboRecibeSucursal.CheckedChanged += new System.EventHandler(this.rboOrigenSucursal_CheckedChanged);
             // 
             // label11
             // 
@@ -903,7 +903,7 @@
             this.grpTipoEnvio.Size = new System.Drawing.Size(536, 56);
             this.grpTipoEnvio.TabIndex = 14;
             this.grpTipoEnvio.TabStop = false;
-            this.grpTipoEnvio.Text = "Elija el Tipo de Entrega";
+            this.grpTipoEnvio.Text = "Elija el Tipo de DESTINO";
             // 
             // rboInternacional
             // 

@@ -17,7 +17,8 @@ namespace Clases_TP4
         public Direccion Origen { get; set; }
         public Direccion Destino { get; set; }
         public bool Urgente { get; set; }
-        public bool TipoDeEnvio{ get; set; } //NACIONAL = TRUE  y INTERNACIONAL =FALSE si es false, entonces internacional (este siempre tiene que estar en true)
+        public bool TipoDeEntrega{ get; set; } //NACIONAL = TRUE  y INTERNACIONAL =FALSE si es false,
+        public bool TipoDeRecepcion { get; set; } 
         public string RangoPeso { get; set; }
         public int CantidadBultos { get; set; }
 

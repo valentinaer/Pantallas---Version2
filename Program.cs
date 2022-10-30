@@ -9,8 +9,8 @@ namespace Version_2___Pantallas
         {
             //Repositorio: https://github.com/valentinaer/Pantallas---Version2
             ApplicationConfiguration.Initialize();
-            Application.Run(new AccesoAlSistema());
-
+            // Application.Run(new AccesoAlSistema());
+            Application.Run(new SolicitudDeServicio());
 
         }
     }
