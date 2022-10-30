@@ -8,9 +8,9 @@ namespace Clases_TP4
 {
     internal class Cliente
     {
-        public int CUIT { get; set; }
-        public string Nombre { get; set; }
-        public Direccion Id_Direccion { get; set; }
+        public int Cuit { get; set; }
+        public string RazonSocial { get; set; }
+        public Direccion DireccionFacturacion { get; set; }
 
 
     }

@@ -9,6 +9,6 @@ namespace grupoB_TP
     internal class TarifaInternacional
     {
         public Regiones Region { get; set; }
-        public Dictionary<decimal, RangoDePeso> RangoDePesos { get; set; }
+        public Dictionary<decimal, RangoDePesos> RangoDePesos { get; set; }
     }
 }

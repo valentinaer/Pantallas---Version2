@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace grupoB_TP
 {
-    class RangoDePeso
+    class RangoDePesos
     {
         public decimal PesoMinimoKg { get; set; }
         public decimal PesoMaximoKg { get; set; }

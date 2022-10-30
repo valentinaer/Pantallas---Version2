@@ -8,11 +8,11 @@ namespace Clases_TP4
 {
     internal class OrdenDeServicio
     {
-        public Cotizacion Id_Cotizacion { get; set; }
+        public int Id_Cotizacion { get; set; }
         public bool Aprobado { get; set; }
 
         public string Estado { get; set; }
-        public int NumeroTrackeo { get; set; } //Correlativo (1,2,3...)
+        public int Id_Trackeo { get; set; } //Correlativo (1,2,3...)
         public Cliente CUIT { get; set; }
         public DateTime FechaSolicitud { get; set; }
         public Direccion Origen { get; set; }

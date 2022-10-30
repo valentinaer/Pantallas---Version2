@@ -123,7 +123,7 @@
             this.Controls.Add(this.lblMenuPrincipal);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "MenuPrincipal";
-            this.Text = "Menu Principal";
+            this.Text = "|";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
