@@ -1,0 +1,1 @@
+Id_Cotizacion,NumeroTrackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,Nacional,RangoPeso,CantidadBultos,Id_Factura,Id_Direccion,Precio

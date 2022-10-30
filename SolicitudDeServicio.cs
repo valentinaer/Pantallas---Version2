@@ -17,9 +17,10 @@ namespace grupoB_TP
         {
             InitializeComponent();
         }
-        public void cotizar(string origen, string destino)
-        {
 
+        // function with all the attributes from the form solicitudDeServicio: rango de peso, cantidad de bultos, urgente, nacional /
+        public void cotizar(string origen, string destino   )
+        {
             // -------------- Escondemos elementos -----------------//
 
             btnCotizar.Visible = false;
@@ -77,6 +78,27 @@ namespace grupoB_TP
             lblDestino.Text = destino;
             lblUrgente.Text = urgente;
             lblCuitI.Text = "30-" + Usuario.DNI + "-9";
+
+            // Id_Cotizacion,NumeroTrackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,Nacional,RangoPeso,CantidadBultos,Id_Factura,Id_Direccion,Precio
+            // save the data in the file Cotizacion.txt
+            //search last id and add 1 in cotizacion.txt
+            int idCotizacion = 0;
+            string[] linesCotizacion = System.IO.File.ReadAllLines(@"Cotizacion.txt");
+            foreach (string lineCotizacion in linesCotizacion)
+            {
+                string[] words = lineCotizacion.Split(',');
+                idCotizacion = Convert.ToInt32(words[0]);
+            }
+
+            string[] fields = new string[] { Convert.ToString(idCotizacion), "1", "30-" + Usuario.DNI + "-9", DateTime.Now.ToString(), origen, destino, urgente, rboNacional.Checked.ToString(), cmbRangoPeso.Text, cmbCantidadBultosN.Text, "1", "1", lblCotizacion.Text };
+            string line = string.Join(",", fields);
+            File.AppendAllText("Cotizacion.txt", line + Environment.NewLine);
+
+            //Id_Cotizacion,CUIT,Fecha,Pagado
+            string[] fieldsFactura = new string[] { Convert.ToString(idCotizacion) , "30-" + Usuario.DNI + "-9", DateTime.Now.ToString(), "false" };
+            string lineFactura = string.Join(",", fieldsFactura);
+            File.AppendAllText("Factura.txt", lineFactura + Environment.NewLine);
+
         }
         private double calculatePrecio()
         {
@@ -267,6 +289,44 @@ namespace grupoB_TP
             int tracking = Autonumerar();
             MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
                 $" {"\n"} Su numero de trackeo es: {tracking}");
+
+
+            // destino si es nacional
+            string destino = "";
+            string origen = "";
+
+            // if sucursal show in a string the sucursal selected from dropdown, if envio a domicilio show in a string the provincia and ciudad selected from dropdown
+            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            {
+                origen = cmbSucursalOrigen.Text;
+            }
+            
+            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            {
+                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
+            }
+                                
+            
+            if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+            {
+                destino = cmbSucursalesDestino.Text;
+            }
+            else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+            {
+                destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
+            }
+            else {
+                destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
+            }
+
+            string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
+            string CUIT = "30-" + Usuario.DNI + "-9";
+            //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
+            string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), CUIT, DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
+            string line = string.Join(",", fields);
+            File.AppendAllText("OrdenDeServicio.txt", line + Environment.NewLine);
+
+
         }
         private int Autonumerar()
         {

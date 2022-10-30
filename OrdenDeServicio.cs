@@ -10,7 +10,6 @@ namespace Clases_TP4
     {
         public int Id_Cotizacion { get; set; }
         public bool Aprobado { get; set; }
-
         public string Estado { get; set; }
         public int Id_Trackeo { get; set; } //Correlativo (1,2,3...)
         public Cliente CUIT { get; set; }

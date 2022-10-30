@@ -25,9 +25,24 @@ namespace grupoB_TP
         {
             //List<int> myValues = new List<int>(new int[] { 12345678, 12435678, 11111111,75631841 });
 
+
             //CUIT (RANDOM)
             int[] x = { 12345678, 87654321, 11122223, 45286101 };
-            string result = Convert.ToString(x[(new Random()).Next(4)]);
+            //string result = Convert.ToString(x[(new Random()).Next(4)]);
+            string cuit = "30-" + Usuario.DNI + "-9";
+            string [] cliente = {};
+
+            string[] lines = File.ReadAllLines("Factura.txt");
+            int i;
+            for (i = 0; i < lines.Length; i++)
+            {
+                string[] data = lines[i].Split(',');
+                if (cuit == data[0])
+                {
+                    cliente = data;
+                }
+            }
+
 
             //SALDOS POSITIVOS O NEGATIVOS RANDOM
             string[] y = { "-$750", "$250", "$-102", "$123" };
@@ -41,7 +56,7 @@ namespace grupoB_TP
 
 
             lblNombreCliente.Text = nombre;
-            lblCuit.Text = "30" + "-" + result + "-" + "9"; ;
+            lblCuit.Text = cuit;
             lblFecha.Text = "14/10/2022";
             lblNroFactura.Text = "16-0461";
             lblEstado.Text = "Pago";

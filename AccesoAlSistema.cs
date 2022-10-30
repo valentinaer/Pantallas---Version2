@@ -19,65 +19,108 @@ namespace grupoB_TP
             string DNI = txtIngresarDNI.Text;
             string Contraseña = txtContraseña.Text;
 
-            //Validamos que esten Vacios (Flujo 1)
-
-            mensaje = Usuario.PedirVacio("El DNI", DNI);
-            mensaje += Usuario.PedirVacio(" La Contraseña", Contraseña);
-            try
+            if (File.Exists("usuarios.txt"))
             {
-                if (mensaje != "")
-                {
-                    MessageBox.Show(mensaje, "Errores");
-                }
-                //Validamos DNI debe tener 8 caracteres (Flujo 2)
-                else if (DNI.Length != 8)
-                {
-                    MessageBox.Show("El DNI debe tener 8 caracteres", "Errores");
-                }
-                //DNI no Autorizado (Flujo 3)
-                else if (DNI != "12345678" && DNI != "87654321")
-                {
-                    MessageBox.Show($"El {DNI} no se encuentra autorizado para realizar el ingreso al sistema", "Errores");
-                }
+                //Validamos que esten Vacios (Flujo 1)
 
-                //La contraseña excede los 30 caracteres (Flujo 4)
-                else if (Contraseña.Length > 30)
+                mensaje = Usuario.PedirVacio("El DNI", DNI);
+                mensaje += Usuario.PedirVacio(" La Contraseña", Contraseña);
+                try
                 {
-                    MessageBox.Show("La contraseña debe tener como máximo 30 caracteres", "Errores");
-                }
 
-                //Contraseña erronea (Flujo 5) 
-                else if (DNI == "12345678") //Con Saldo
-                {
-                    if (Contraseña != "1234")
+                    if (mensaje != "")
                     {
-                        MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
+                        MessageBox.Show(mensaje, "Errores");
                     }
-                    else
+                    //Validamos DNI debe tener 8 caracteres (Flujo 2)
+                    else if (DNI.Length != 8)
                     {
-                        this.Hide();
-                        MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
-                        new MenuPrincipal().ShowDialog();
+                        MessageBox.Show("El DNI debe tener 8 caracteres", "Errores");
+                    }
+                    //DNI no Autorizado (Flujo 3)
+                    /* else if (DNI != "12345678" && DNI != "87654321")
+                    {
+                        MessageBox.Show($"El {DNI} no se encuentra autorizado para realizar el ingreso al sistema", "Errores");
+                    } */
+
+                    //La contraseña excede los 30 caracteres (Flujo 4)
+                    else if (Contraseña.Length > 30)
+                    {
+                        MessageBox.Show("La contraseña debe tener como máximo 30 caracteres", "Errores");
+                    }
+
+                    //Contraseña erronea (Flujo 5) 
+                    /* else if (DNI == "12345678") //Con Saldo
+                    {
+                        if (Contraseña != "1234")
+                        {
+                            MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
+                        }
+                        else
+                        {
+                            this.Hide();
+                            MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
+                            new MenuPrincipal().ShowDialog();
+                        }
+                    } */
+
+                    /* else if (DNI == "87654321" && Contraseña == "1234")
+                    {
+                        if (Contraseña != "1234")
+                        {
+                            MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
+                        }
+                        else
+                        {
+                            this.Hide();
+                            MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
+                            new MenuPrincipal().ShowDialog();
+                        }
+                    } */
+
+
+                    // Flujo 3 y 5 Se encuentran en la busquedad al atchivo usuario.txt
+                    // El usuario se encuentra en la la lista dentro de usuarios.txt
+                    string[] lines = File.ReadAllLines("usuarios.txt");
+                    int i;
+                    for (i = 0; i < lines.Length; i++)
+                    {
+                        string[] data = lines[i].Split(',');
+                        if (DNI == data[0])
+                        {
+                            if (Contraseña == data[1])
+                            {
+                                MessageBox.Show("Bienvenido al Sistema");
+                                this.Hide();
+                                MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
+                                new MenuPrincipal().ShowDialog();
+                                break;
+                            }
+                            else
+                            {
+                                MessageBox.Show("Contraseña Incorrecta");
+                                break;
+                            }
+                        }
+
                     }
                 }
-                else if (DNI == "87654321" && Contraseña == "1234")
+                catch (FormatException)
                 {
-                    if (Contraseña != "1234")
-                    {
-                        MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
-                    }
-                    else
-                    {
-                        this.Hide();
-                        MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
-                        new MenuPrincipal().ShowDialog();
-                    }
+                    MessageBox.Show("FALLA DEL SISTEMA");
                 }
             }
-            catch (FormatException)
+            else
             {
-                MessageBox.Show("FALLA DEL SISTEMA");
+                MessageBox.Show("El Archivo No Existe");
             }
+
+
+
+
+
+
+
         }
 
         private void AccesoAlSistema_Load(object sender, EventArgs e)

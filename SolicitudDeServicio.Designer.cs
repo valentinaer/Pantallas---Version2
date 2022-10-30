@@ -995,7 +995,6 @@
             //----------------- Logica Extra para Cotizar -----------------//            
             string origen = "";
 
-            // if sucursal show in a string the sucursal selected from dropdown, if envio a domicilio show in a string the provincia and ciudad selected from dropdown
             if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
             {
                 origen = cmbSucursalOrigen.Text;
