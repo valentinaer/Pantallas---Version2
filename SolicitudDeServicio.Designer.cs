@@ -96,16 +96,16 @@
             this.grpTipoEnvio = new System.Windows.Forms.GroupBox();
             this.rboInternacional = new System.Windows.Forms.RadioButton();
             this.rboNacional = new System.Windows.Forms.RadioButton();
-            this.txtDirrecionNacional = new System.Windows.Forms.TextBox();
-            this.txtAlturaNacional = new System.Windows.Forms.TextBox();
-            this.txtAlturaOrigen = new System.Windows.Forms.TextBox();
-            this.txtPisoDeptoNacional = new System.Windows.Forms.TextBox();
-            this.txtPisoDepartamentoRecepcion = new System.Windows.Forms.TextBox();
+            txtDirrecionNacional = new System.Windows.Forms.TextBox();
+            txtAlturaNacional = new System.Windows.Forms.TextBox();
+            txtAlturaOrigen = new System.Windows.Forms.TextBox();
+            txtPisoDeptoNacional = new System.Windows.Forms.TextBox();
+            txtPisoDepartamentoRecepcion = new System.Windows.Forms.TextBox();
             label18 = new System.Windows.Forms.Label();
-            this.txtPisoDeptoI = new System.Windows.Forms.TextBox();
-            this.txtAlturaI = new System.Windows.Forms.TextBox();
-            this.txtDireccionI = new System.Windows.Forms.TextBox();
-            this.txtDirrecionOrigen = new System.Windows.Forms.TextBox();
+            txtPisoDeptoI = new System.Windows.Forms.TextBox();
+            txtAlturaI = new System.Windows.Forms.TextBox();
+            txtDireccionI = new System.Windows.Forms.TextBox();
+            txtDirrecionOrigen = new System.Windows.Forms.TextBox();
             this.grpCaracteristicaServicio.SuspendLayout();
             this.grpNacional.SuspendLayout();
             this.grpInternacional.SuspendLayout();
@@ -121,38 +121,38 @@
             // 
             // txtDirrecionNacional
             // 
-            this.txtDirrecionNacional.Location = new System.Drawing.Point(163, 201);
-            this.txtDirrecionNacional.Name = "txtDirrecionNacional";
-            this.txtDirrecionNacional.Size = new System.Drawing.Size(307, 29);
-            this.txtDirrecionNacional.TabIndex = 1;
+            txtDirrecionNacional.Location = new System.Drawing.Point(163, 201);
+            txtDirrecionNacional.Name = "txtDirrecionNacional";
+            txtDirrecionNacional.Size = new System.Drawing.Size(307, 29);
+            txtDirrecionNacional.TabIndex = 1;
             // 
             // txtAlturaNacional
             // 
-            this.txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
-            this.txtAlturaNacional.Name = "txtAlturaNacional";
-            this.txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
-            this.txtAlturaNacional.TabIndex = 14;
+            txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
+            txtAlturaNacional.Name = "txtAlturaNacional";
+            txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
+            txtAlturaNacional.TabIndex = 14;
             // 
             // txtAlturaOrigen
             // 
-            this.txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
-            this.txtAlturaOrigen.Name = "txtAlturaOrigen";
-            this.txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
-            this.txtAlturaOrigen.TabIndex = 14;
+            txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
+            txtAlturaOrigen.Name = "txtAlturaOrigen";
+            txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
+            txtAlturaOrigen.TabIndex = 14;
             // 
             // txtPisoDeptoNacional
             // 
-            this.txtPisoDeptoNacional.Location = new System.Drawing.Point(212, 279);
-            this.txtPisoDeptoNacional.Name = "txtPisoDeptoNacional";
-            this.txtPisoDeptoNacional.Size = new System.Drawing.Size(135, 29);
-            this.txtPisoDeptoNacional.TabIndex = 16;
+            txtPisoDeptoNacional.Location = new System.Drawing.Point(212, 279);
+            txtPisoDeptoNacional.Name = "txtPisoDeptoNacional";
+            txtPisoDeptoNacional.Size = new System.Drawing.Size(135, 29);
+            txtPisoDeptoNacional.TabIndex = 16;
             // 
             // txtPisoDepartamentoRecepcion
             // 
-            this.txtPisoDepartamentoRecepcion.Location = new System.Drawing.Point(209, 287);
-            this.txtPisoDepartamentoRecepcion.Name = "txtPisoDepartamentoRecepcion";
-            this.txtPisoDepartamentoRecepcion.Size = new System.Drawing.Size(132, 29);
-            this.txtPisoDepartamentoRecepcion.TabIndex = 17;
+            txtPisoDepartamentoRecepcion.Location = new System.Drawing.Point(209, 287);
+            txtPisoDepartamentoRecepcion.Name = "txtPisoDepartamentoRecepcion";
+            txtPisoDepartamentoRecepcion.Size = new System.Drawing.Size(132, 29);
+            txtPisoDepartamentoRecepcion.TabIndex = 17;
             // 
             // label18
             // 
@@ -160,30 +160,37 @@
             label18.Location = new System.Drawing.Point(427, 31);
             label18.Name = "label18";
             label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            label18.Size = new System.Drawing.Size(140, 21);
+            label18.Size = new System.Drawing.Size(151, 21);
             label18.TabIndex = 8;
             label18.Text = "Cantidad de bultos *";
             // 
             // txtPisoDeptoI
             // 
-            this.txtPisoDeptoI.Location = new System.Drawing.Point(239, 292);
-            this.txtPisoDeptoI.Name = "txtPisoDeptoI";
-            this.txtPisoDeptoI.Size = new System.Drawing.Size(135, 29);
-            this.txtPisoDeptoI.TabIndex = 16;
+            txtPisoDeptoI.Location = new System.Drawing.Point(239, 292);
+            txtPisoDeptoI.Name = "txtPisoDeptoI";
+            txtPisoDeptoI.Size = new System.Drawing.Size(135, 29);
+            txtPisoDeptoI.TabIndex = 16;
             // 
             // txtAlturaI
             // 
-            this.txtAlturaI.Location = new System.Drawing.Point(177, 237);
-            this.txtAlturaI.Name = "txtAlturaI";
-            this.txtAlturaI.Size = new System.Drawing.Size(111, 29);
-            this.txtAlturaI.TabIndex = 14;
+            txtAlturaI.Location = new System.Drawing.Point(177, 237);
+            txtAlturaI.Name = "txtAlturaI";
+            txtAlturaI.Size = new System.Drawing.Size(111, 29);
+            txtAlturaI.TabIndex = 14;
             // 
             // txtDireccionI
             // 
-            this.txtDireccionI.Location = new System.Drawing.Point(177, 180);
-            this.txtDireccionI.Name = "txtDireccionI";
-            this.txtDireccionI.Size = new System.Drawing.Size(307, 29);
-            this.txtDireccionI.TabIndex = 1;
+            txtDireccionI.Location = new System.Drawing.Point(177, 180);
+            txtDireccionI.Name = "txtDireccionI";
+            txtDireccionI.Size = new System.Drawing.Size(307, 29);
+            txtDireccionI.TabIndex = 1;
+            // 
+            // txtDirrecionOrigen
+            // 
+            txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
+            txtDirrecionOrigen.Name = "txtDirrecionOrigen";
+            txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
+            txtDirrecionOrigen.TabIndex = 18;
             // 
             // cmbRangoPeso
             // 
@@ -205,7 +212,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(17, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(112, 21);
+            this.label1.Size = new System.Drawing.Size(123, 21);
             this.label1.TabIndex = 2;
             this.label1.Text = "Rango de Peso *";
             this.label1.Click += new System.EventHandler(this.label1_Click);
@@ -260,18 +267,18 @@
             // grpNacional
             // 
             this.grpNacional.BackColor = System.Drawing.Color.Transparent;
-            this.grpNacional.Controls.Add(this.txtPisoDeptoNacional);
+            this.grpNacional.Controls.Add(txtPisoDeptoNacional);
             this.grpNacional.Controls.Add(this.label16);
             this.grpNacional.Controls.Add(this.rboEntregaDomicilio);
             this.grpNacional.Controls.Add(this.rboSucursalDestino);
             this.grpNacional.Controls.Add(this.label7);
-            this.grpNacional.Controls.Add(this.txtAlturaNacional);
+            this.grpNacional.Controls.Add(txtAlturaNacional);
             this.grpNacional.Controls.Add(this.cmbSucursalesDestino);
             this.grpNacional.Controls.Add(this.label2);
             this.grpNacional.Controls.Add(this.label6);
             this.grpNacional.Controls.Add(this.cmbProvinciaDestino);
             this.grpNacional.Controls.Add(this.label3);
-            this.grpNacional.Controls.Add(this.txtDirrecionNacional);
+            this.grpNacional.Controls.Add(txtDirrecionNacional);
             this.grpNacional.Controls.Add(this.cmbCiudadDestino);
             this.grpNacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpNacional.Location = new System.Drawing.Point(476, 171);
@@ -288,7 +295,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(43, 287);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(156, 21);
+            this.label16.Size = new System.Drawing.Size(153, 21);
             this.label16.TabIndex = 15;
             this.label16.Text = "Piso / Departamento";
             // 
@@ -297,7 +304,7 @@
             this.rboEntregaDomicilio.AutoSize = true;
             this.rboEntregaDomicilio.Location = new System.Drawing.Point(26, 78);
             this.rboEntregaDomicilio.Name = "rboEntregaDomicilio";
-            this.rboEntregaDomicilio.Size = new System.Drawing.Size(163, 25);
+            this.rboEntregaDomicilio.Size = new System.Drawing.Size(167, 25);
             this.rboEntregaDomicilio.TabIndex = 7;
             this.rboEntregaDomicilio.TabStop = true;
             this.rboEntregaDomicilio.Text = "Entrega a Domicilio ";
@@ -308,7 +315,7 @@
             this.rboSucursalDestino.AutoSize = true;
             this.rboSucursalDestino.Location = new System.Drawing.Point(26, 35);
             this.rboSucursalDestino.Name = "rboSucursalDestino";
-            this.rboSucursalDestino.Size = new System.Drawing.Size(113, 25);
+            this.rboSucursalDestino.Size = new System.Drawing.Size(110, 25);
             this.rboSucursalDestino.TabIndex = 6;
             this.rboSucursalDestino.TabStop = true;
             this.rboSucursalDestino.Text = "En sucursal ";
@@ -319,7 +326,7 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(43, 248);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(63, 21);
+            this.label7.Size = new System.Drawing.Size(67, 21);
             this.label7.TabIndex = 13;
             this.label7.Text = "Altura * ";
             // 
@@ -343,7 +350,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(43, 125);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 21);
+            this.label2.Size = new System.Drawing.Size(89, 21);
             this.label2.TabIndex = 1;
             this.label2.Text = "Provincia * ";
             // 
@@ -352,7 +359,7 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(43, 204);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(86, 21);
+            this.label6.Size = new System.Drawing.Size(90, 21);
             this.label6.TabIndex = 12;
             this.label6.Text = "Dirección * ";
             // 
@@ -396,7 +403,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(43, 165);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(70, 21);
+            this.label3.Size = new System.Drawing.Size(74, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ciudad * ";
             // 
@@ -416,12 +423,12 @@
             this.grpInternacional.Controls.Add(this.cmbRegionI);
             this.grpInternacional.Controls.Add(this.label20);
             this.grpInternacional.Controls.Add(this.label19);
-            this.grpInternacional.Controls.Add(this.txtPisoDeptoI);
+            this.grpInternacional.Controls.Add(txtPisoDeptoI);
             this.grpInternacional.Controls.Add(this.label4);
             this.grpInternacional.Controls.Add(this.label21);
-            this.grpInternacional.Controls.Add(this.txtAlturaI);
+            this.grpInternacional.Controls.Add(txtAlturaI);
             this.grpInternacional.Controls.Add(this.label22);
-            this.grpInternacional.Controls.Add(this.txtDireccionI);
+            this.grpInternacional.Controls.Add(txtDireccionI);
             this.grpInternacional.Controls.Add(this.cmbPaisCiudadDestino);
             this.grpInternacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpInternacional.Location = new System.Drawing.Point(476, 177);
@@ -460,7 +467,7 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(49, 122);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(100, 21);
+            this.label20.Size = new System.Drawing.Size(111, 21);
             this.label20.TabIndex = 18;
             this.label20.Text = "Ciudad / Pais *";
             this.label20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -470,7 +477,7 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(53, 59);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(59, 21);
+            this.label19.Size = new System.Drawing.Size(70, 21);
             this.label19.TabIndex = 17;
             this.label19.Text = "Region *";
             this.label19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -480,7 +487,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(53, 295);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(156, 21);
+            this.label4.Size = new System.Drawing.Size(153, 21);
             this.label4.TabIndex = 15;
             this.label4.Text = "Piso / Departamento";
             // 
@@ -519,11 +526,11 @@
             // 
             // grpTipoRecepcion
             // 
-            this.grpTipoRecepcion.Controls.Add(this.txtDirrecionOrigen);
-            this.grpTipoRecepcion.Controls.Add(this.txtPisoDepartamentoRecepcion);
+            this.grpTipoRecepcion.Controls.Add(txtDirrecionOrigen);
+            this.grpTipoRecepcion.Controls.Add(txtPisoDepartamentoRecepcion);
             this.grpTipoRecepcion.Controls.Add(this.label17);
             this.grpTipoRecepcion.Controls.Add(this.label9);
-            this.grpTipoRecepcion.Controls.Add(this.txtAlturaOrigen);
+            this.grpTipoRecepcion.Controls.Add(txtAlturaOrigen);
             this.grpTipoRecepcion.Controls.Add(this.cmbCiudadOrigen);
             this.grpTipoRecepcion.Controls.Add(this.label8);
             this.grpTipoRecepcion.Controls.Add(this.cmbSucursalOrigen);
@@ -546,7 +553,7 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(17, 290);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(156, 21);
+            this.label17.Size = new System.Drawing.Size(153, 21);
             this.label17.TabIndex = 16;
             this.label17.Text = "Piso / Departamento";
             // 
@@ -651,7 +658,7 @@
             this.rboRecibeSucursal.AutoSize = true;
             this.rboRecibeSucursal.Location = new System.Drawing.Point(6, 35);
             this.rboRecibeSucursal.Name = "rboRecibeSucursal";
-            this.rboRecibeSucursal.Size = new System.Drawing.Size(113, 25);
+            this.rboRecibeSucursal.Size = new System.Drawing.Size(110, 25);
             this.rboRecibeSucursal.TabIndex = 4;
             this.rboRecibeSucursal.TabStop = true;
             this.rboRecibeSucursal.Text = "En sucursal ";
@@ -896,7 +903,7 @@
             this.grpTipoEnvio.Size = new System.Drawing.Size(536, 56);
             this.grpTipoEnvio.TabIndex = 14;
             this.grpTipoEnvio.TabStop = false;
-            this.grpTipoEnvio.Text = "Elija el tipo de envio";
+            this.grpTipoEnvio.Text = "Elija el Tipo de Entrega";
             // 
             // rboInternacional
             // 
@@ -921,13 +928,6 @@
             this.rboNacional.Text = "Nacional";
             this.rboNacional.UseVisualStyleBackColor = true;
             this.rboNacional.CheckedChanged += new System.EventHandler(this.mostrarOcultar);
-            // 
-            // txtDirrecionOrigen
-            // 
-            this.txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
-            this.txtDirrecionOrigen.Name = "txtDirrecionOrigen";
-            this.txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
-            this.txtDirrecionOrigen.TabIndex = 18;
             // 
             // SolicitudDeServicio
             // 
