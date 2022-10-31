@@ -14,8 +14,10 @@ namespace Version_2___Pantallas
 
         public string ApellidoNombre { get; set; }
 
+        public string Contraseña { get; set; }
+
         //Archivo
-        //CUIT| DNI | Apellido y Nombre
+        //CUIT| DNI | Apellido y Nombre | Contraseña
 
     }
 }

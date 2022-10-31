@@ -10,7 +10,7 @@ namespace Clases_TP4
     {
         public int Id_Cotizacion { get; set; }
         public int NumeroTrackeo { get; set; } //Correlativo (1,2,3...)
-        public Cliente CUIT { get; set; }
+        public int CUIT { get; set; }
         public DateTime FechaSolicitud { get; set; }
         public Direccion Origen { get; set; }
         public Direccion Destino { get; set; }
@@ -18,11 +18,11 @@ namespace Clases_TP4
         public bool Nacional { get; set; } //si es false, entonces internacional (este siempre tiene que estar en true)
         public string RangoPeso { get; set; }
         public int CantidadBultos { get; set; }
-        public Factura Id_Factura { get; set; }
-        public Direccion Id_Direccion { get; set; }
+
+        public int Id_Direccion { get; set; }
         
         //hay diferenciación de precio por ser nacional / internacional?
-        public float Precio { get; set; }
+        public float PrecioCotizado { get; set; }
 
     }
 }

@@ -12,7 +12,7 @@ namespace Clases_TP4
         public bool Aprobado { get; set; }
         public string Estado { get; set; }
         public int Id_Trackeo { get; set; } //Correlativo (1,2,3...)
-        public Cliente CUIT { get; set; }
+        public int CUIT { get; set; }
         public DateTime FechaSolicitud { get; set; }
         public Direccion Origen { get; set; }
         public Direccion Destino { get; set; }
@@ -21,6 +21,7 @@ namespace Clases_TP4
         public bool TipoDeRecepcion { get; set; } 
         public string RangoPeso { get; set; }
         public int CantidadBultos { get; set; }
+        public int MontoOrdenDeServicio { get; set; }
 
     }
 }

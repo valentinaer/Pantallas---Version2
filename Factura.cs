@@ -8,10 +8,11 @@ namespace Clases_TP4
 {
     internal class Factura
     {
-        public Cotizacion Id_Cotizacion { get; set; }
-        public Cliente CUIT { get; set; }
-        public DateTime Fecha { get; set; }
+        public int Id_Factura { get; set; }
+        public int CUIT { get; set; }
+        public DateTime FechaFactura { get; set; }
         public bool Pagado { get; set; }
+        public int MontoFactura { get; set; }
 
     }
 }
