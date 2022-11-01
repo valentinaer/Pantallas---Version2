@@ -23,8 +23,8 @@ namespace grupoB_TP
             {
                 //Validamos que esten Vacios (Flujo 1)
 
-                mensaje = Usuario.PedirVacio("El DNI", DNI);
-                mensaje += Usuario.PedirVacio(" La Contraseña", Contraseña);
+                mensaje = Validador.PedirVacio("El DNI", DNI);
+                mensaje += Validador.PedirVacio(" La Contraseña", Contraseña);
                 try
                 {
 

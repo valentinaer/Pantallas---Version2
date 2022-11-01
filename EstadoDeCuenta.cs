@@ -29,7 +29,7 @@ namespace grupoB_TP
             //CUIT (RANDOM)
             int[] x = { 12345678, 87654321, 11122223, 45286101 };
             //string result = Convert.ToString(x[(new Random()).Next(4)]);
-            string cuit = "30-" + Usuario.DNI + "-9";
+            string cuit = "30-" + Validador.DNI + "-9";
             string [] cliente = {};
 
             string[] lines = File.ReadAllLines("Factura.txt");
@@ -54,7 +54,7 @@ namespace grupoB_TP
 
 
 
-
+            /*
             lblNombreCliente.Text = nombre;
             lblCuit.Text = cuit;
             lblFecha.Text = "14/10/2022";
@@ -63,13 +63,28 @@ namespace grupoB_TP
             lblTotalFactura.Text = "$875,99";
             lblSaldoTotal.Text = saldo;
             lblFechaActual.Text = Convert.ToString(DateTime.Now);
-   
+            */
         
         }
 
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
+        {
+
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

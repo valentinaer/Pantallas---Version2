@@ -77,7 +77,7 @@ namespace grupoB_TP
             lblOrigen.Text = origen;
             lblDestino.Text = destino;
             lblUrgente.Text = urgente;
-            lblCuitI.Text = "30-" + Usuario.DNI + "-9";
+            lblCuitI.Text = "30-" + Validador.DNI + "-9";
 
             // Id_Cotizacion,NumeroTrackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,Nacional,RangoPeso,CantidadBultos,Id_Factura,Id_Direccion,Precio
             // save the data in the file Cotizacion.txt
@@ -90,16 +90,21 @@ namespace grupoB_TP
                 idCotizacion = Convert.ToInt32(words[0]);
             }
 
-            string[] fields = new string[] { Convert.ToString(idCotizacion), "1", "30-" + Usuario.DNI + "-9", DateTime.Now.ToString(), origen, destino, urgente, rboNacional.Checked.ToString(), cmbRangoPeso.Text, cmbCantidadBultosN.Text, "1", "1", lblCotizacion.Text };
+            string[] fields = new string[] { Convert.ToString(idCotizacion), "1", "30-" + Validador.DNI + "-9", DateTime.Now.ToString(), origen, destino, urgente, rboNacional.Checked.ToString(), cmbRangoPeso.Text, cmbCantidadBultosN.Text, "1", "1", lblCotizacion.Text };
             string line = string.Join(",", fields);
             File.AppendAllText("Cotizacion.txt", line + Environment.NewLine);
 
             //Id_Cotizacion,CUIT,Fecha,Pagado
-            string[] fieldsFactura = new string[] { Convert.ToString(idCotizacion) , "30-" + Usuario.DNI + "-9", DateTime.Now.ToString(), "false" };
+            string[] fieldsFactura = new string[] { Convert.ToString(idCotizacion) , "30-" + Validador.DNI + "-9", DateTime.Now.ToString(), "false" };
             string lineFactura = string.Join(",", fieldsFactura);
             File.AppendAllText("Factura.txt", lineFactura + Environment.NewLine);
 
         }
+
+        // Si regionorigen != regiondestino, entonces nacional/interregional
+        //Si regionorigen = regiondestino, entonces regional
+        // Si ciudadorigen = ciudaddestion, entonces local
+        // Si ciudadorigen != ciudaddestino && provinciaorigen = provinciadestino, entonces provincial
         private double calculatePrecio()
         {
             double precio = 0;
@@ -214,7 +219,7 @@ namespace grupoB_TP
                 precioUrgente = precio * 0.2;
             }
 
-            // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
+            // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50. El 50 es el tope de urgencia
             if (precioUrgente > 50)
             {
                 precioUrgente = 50;
@@ -306,7 +311,7 @@ namespace grupoB_TP
                 origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
             }
                                 
-            
+            /*
             if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
             {
                 destino = cmbSucursalesDestino.Text;
@@ -316,11 +321,12 @@ namespace grupoB_TP
                 destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
             }
             else {
-                destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
+                destino = cmbPaisCiudadDestino.Text + " - " + cmbPaisI.Text;
             }
+            */
 
             string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
-            string CUIT = "30-" + Usuario.DNI + "-9";
+            string CUIT = "30-" + Validador.DNI + "-9";
             //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
             string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), CUIT, DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
             string line = string.Join(",", fields);
@@ -388,24 +394,238 @@ namespace grupoB_TP
         //Mostrar Internacional Destino
         private void cmbRegionI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbRegionI.Text == "Europa")
-            {
-                cmbPaisCiudadDestino.Items.Clear();
-                cmbPaisCiudadDestino.Items.Add("Madrid España");
-                cmbPaisCiudadDestino.Items.Add("Paris, Francia");
-                cmbPaisCiudadDestino.Items.Add("Roma, Italia");
-                cmbPaisCiudadDestino.Items.Add("Berlin, Alemania");
-            }
-            else if (cmbProvinciaDestino.Text != "Europa")
-            {
-                cmbPaisCiudadDestino.Items.Clear();
-                cmbPaisCiudadDestino.Items.Add("NO IMPLEMENTADO");
-            }
         }
 
         private void rboOrigenSucursal_CheckedChanged(object sender, EventArgs e)
         {
 
         }
+
+        private void SolicitudDeServicio_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mostrarOcultar(object sender, EventArgs e)
+        {
+            // Si radio button Nacional esta checkeda, mostrar el grupo Nacional
+            if (rboNacional.Checked)
+            {
+                grpNacional.Visible = true;
+                grpInternacional.Visible = false;
+            }
+            // Si radio button Internacional esta checkeda, mostrar el grupo Internacional
+            else if (rboInternacional.Checked)
+            {
+                grpInternacional.Visible = true;
+                grpNacional.Visible = false;
+            }
+        }
+
+        private void btnCotizar_Click(object sender, EventArgs e)
+        {
+
+            //----------------- Logica Extra para Cotizar -----------------//            
+            string origen = "";
+
+            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            {
+                origen = cmbSucursalOrigen.Text;
+            }
+
+            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            {
+                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
+            }
+
+            //----------------- Validaciones -----------------//
+
+
+            // Validar que sea Nacional o Internacional
+            if (!rboInternacional.Checked && !rboNacional.Checked)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de envio", "Errores");
+                return;
+            }
+
+            // Condiciones generales para todos los envios
+            if (cmbRangoPeso.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un rango de peso", "Errores");
+                return;
+            }
+            if (cmbCantidadBultosN.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar la cantidad de Bultos", "Errores");
+                return;
+            }
+
+            //valida que se haya seleccionado un tipo de envio con los radio buttons Sucursal y Domicilio
+            if (!rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de recepcion", "Errores");
+                return;
+            }
+
+            // Condiciones para el Origen
+            // Si es RETIRO a domicilio
+            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            {
+                // Validacion de Provincia en el Origen
+                string mensaje = "";
+                if (cmbProvinciaOrigen.SelectedIndex == -1)
+                {
+                    mensaje += "Debe seleccionar una provincia de ORIGEN" + "\n";
+                }
+                if (cmbCiudadOrigen.SelectedIndex == -1)
+                {
+                    mensaje += "Debe seleccionar una Ciudad de ORIGEN" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtDirrecionOrigen.Text))
+                {
+                    mensaje += "El domicilio de Retiro a Domicilio" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtAlturaOrigen.Text))
+                {
+                    mensaje += "La altura de Retiro" + "\n";
+                }
+                else
+                {
+                    mensaje += Validador.PedirEntero("Altura de Retiro", 0, 99999, txtAlturaOrigen.Text);
+                }
+
+                if (mensaje != "")
+                {
+                    MessageBox.Show(mensaje, "Errores");
+                    return;
+                }
+            }
+
+            // Si es sucursal
+            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            {
+                if (cmbSucursalOrigen.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una Sucursal de ORIGEN", "Errores");
+                    return;
+                }
+            }
+
+            // Validaciones para Envios Nacionales
+            if (rboNacional.Checked && !rboInternacional.Checked)
+            {
+
+                if (!rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+                {
+                    MessageBox.Show("Debe seleccionar el tipo de entrega", "Errores");
+                    return;
+                }
+
+                // Condiciones para el Origen de Retirmo a Domicilio
+                if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+                {
+                    //Checkear que se haya seleccionado una Provincia de origen
+                    if (cmbProvinciaOrigen.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Debe seleccionar una provincia de DESTINO", "Errores");
+                        return;
+                    }
+                    //Checkear que se haya seleccionado una Ciudad de origen
+                    else if (cmbCiudadOrigen.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Debe seleccionar una ciudad de DESTINO", "Errores");
+                        return;
+                    }
+
+                    string mensaje = "";
+                    if (string.IsNullOrEmpty(txtDirrecionNacional.Text))
+                    {
+                        mensaje += "El domicilio de Entrega a Domicilio" + "\n";
+                    }
+                    if (string.IsNullOrEmpty(txtAlturaNacional.Text))
+                    {
+                        mensaje += "La altura de Entrega" + "\n";
+                    }
+                    else
+                    {
+                        mensaje += Validador.PedirEntero("Altura de Entrega", 0, 99999, txtAlturaNacional.Text);
+                    }
+
+                    if (mensaje != "")
+                    {
+                        MessageBox.Show(mensaje, "Errores");
+                        return;
+                    }
+                }
+
+                // Condiciones para el Destino, si es envio a sucursal 
+                if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+                {
+                    //Checkear que se haya seleccionado una sucursal de destino
+                    if (cmbSucursalesDestino.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Debe seleccionar una sucursal de destino", "Errores");
+                        return;
+                    }
+                }
+
+                string destino = "";
+
+                // Mostrar informacion de cotizacion de Destino
+                if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+                {
+                    destino = cmbSucursalesDestino.Text;
+                }
+                else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+                {
+                    destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
+                }
+
+                cotizar(origen, destino);
+            }
+
+
+            // Validaciones para Envios Internacionales
+            if (rboInternacional.Checked && !rboNacional.Checked)
+            {
+                // Condiciones para el Origen
+                if (cmbPaisI.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una Region de DESTINO", "Errores");
+                    return;
+                }
+
+                /*
+                if (cmbPaisCiudadDestino.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una País y Ciudad de DESTINO", "Errores");
+                    return;
+                }
+                */
+
+                string mensaje = "";
+                if (string.IsNullOrEmpty(txtDireccionI.Text))
+                {
+                    mensaje += "El domicilio de Entrega a Domicilio Internacional" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtAlturaI.Text))
+                {
+                    mensaje += "La altura de Entrega Internacional" + "\n";
+                }
+                else
+                {
+                    mensaje += Validador.PedirEntero("Altura de Entrega Internacional ", 0, 99999, txtAlturaI.Text);
+                }
+
+                if (mensaje != "")
+                {
+                    MessageBox.Show(mensaje, "Errores");
+                    return;
+                }
+                // cotizar(origen, cmbPaisCiudadDestino.Text + " - " + cmbPaisI.Text );
+            }
+        }
+
+
     }
 }

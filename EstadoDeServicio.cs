@@ -22,8 +22,8 @@ namespace grupoB_TP
             int[] numerosdeTrackeo = { 123, 456, 789};
             string numeroTrack = txtTrackeo.Text;
             Console.WriteLine($"Código de trackeo: {numeroTrack}");
-            mensaje += Usuario.PedirVacio("El número de Tracking", numeroTrack);
-            mensaje += Usuario.PedirEntero("tracking", 0 ,9999, numeroTrack);
+            mensaje += Validador.PedirVacio("El número de Tracking", numeroTrack);
+            mensaje += Validador.PedirEntero("tracking", 0 ,9999, numeroTrack);
 
             if (mensaje != "")
             {

@@ -4,79 +4,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace grupoB_TP
+namespace Version_2___Pantallas
 {
-    static class Usuario
+    internal class Usuario
     {
-        public static string DNI = "12345678";
-        public static string DNI2 = "87654321";
-        
-        internal static string PedirEntero(string campo, int min, int max, string valor)
-        {
+        public int DNIAutorizados { get; set; }
 
-            if (int.TryParse(valor, out int result))
-            {
-                if (result >= min && result <= max)
-                {
-                    return "";
-                }
-                else
-                {
-                    return $"Debe ingresar un valor {campo} mayor a {min} y menor a {max}. \n";
-                }
-            }
-            else
-            {
-                return $"Debe ingresar un valor de {campo} numérico. \n";
-            }
-        }
+        public int CUIT { get; set; }
 
-        internal static string PedirLongitudFija(string campo, int longitud, string text)
-        {
-            if (text.Length == longitud)
-            {
-                return "";
-            }
-            else
-            {
-                return $"El valor {campo} debe tener una longitud de {longitud} caracteres. \n";
-            }
-        }
+        public string ApellidoNombre { get; set; }
 
-        internal static string PedirNumerico(string campo, string ingreso)
-        {
-            while (true)
-            {
-                bool estaOK = true;
-                foreach (char caracter in ingreso)
-                {
-                    if (caracter > '0' && caracter < '9')
-                    {
-                        return ($" El {campo} debe tener solamente números.");
-                        estaOK = false;
-                        break;
-                    }
-                }
-                if (!estaOK)
-                {
-                    continue;
-                }
-            }
+        public string Contraseña { get; set; }
 
-        }
+        //Archivo
+        //CUIT| DNI | Apellido y Nombre | Contraseña
 
-        internal static string PedirVacio(string campo, string text)
-        {
-            if (string.IsNullOrEmpty(text))
-            {
-                return $"{campo} no puede estar vacio. \n";
-            }
-            else
-            {
-                return "";
-            }
-
-        }
     }
 }
-

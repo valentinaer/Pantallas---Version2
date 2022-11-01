@@ -10,8 +10,8 @@ namespace Clases_TP4
     {
         public int Cuit { get; set; }
         public string RazonSocial { get; set; }
-        public Direccion DireccionFacturacion { get; set; }
-        public float Saldo { get; set; }
+        public string DireccionFacturacion { get; set; }
+        public float SaldoFactura { get; set; }
         
         //agrego saldo acá. Busco las facturas impagas con el ID, las sumo y obtengo el valor.
 
