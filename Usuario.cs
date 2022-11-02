@@ -10,7 +10,7 @@ namespace Version_2___Pantallas
     {
         public int DNIAutorizados { get; set; }
 
-        public int CUIT { get; set; }
+        public static int CUIT { get; set; }
 
         public string ApellidoNombre { get; set; }
 

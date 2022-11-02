@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace Version_2___Pantallas
 {
-    internal class Localidad
+    internal class CiudadadesNacionales
     {
-        public List<Localidad> Localidades { get; set; }
+        public string Ciudad { get; set; }
         public string Provincia { get; set; }
+        public string Region { get; set; }
 
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Version_2___Pantallas
 {
-    internal class PaisCiudadInternacional
+    internal class RegionesInternacionales
     {
 
-        public List<PaisCiudadInternacional> PaisCiudadInter { get; set; }
+        public List<RegionesInternacionales> PaisCiudadInter { get; set; }
         public string RegionInter { get; set; }
 
     }
