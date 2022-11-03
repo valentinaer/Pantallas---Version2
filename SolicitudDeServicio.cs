@@ -411,64 +411,7 @@ namespace grupoB_TP
 
             return precioFinal;
         }
-        private void cmbCiudad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-        private void cmbRangoPeso_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbSucursales_SelectedIndexChanged(object sender, EventArgs e)
-        {
-          
-
-        }
-
-        private void groupBox5_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtOrigen_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lblMenuPrincipal_Click(object sender, EventArgs e)
-        {
-
-        }
-        private void rboRecibeSucursal_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void grpCotizacion_Enter(object sender, EventArgs e)
-        {
-
-        }
-        private void SolicitudDeServicioNacional_Load(object sender, EventArgs e)
-        {
-
-        }
+           
          private void btnCotizar_Click(object sender, EventArgs e)
         {
 
@@ -663,12 +606,6 @@ namespace grupoB_TP
                     MessageBox.Show(mensaje, "Errores");
                     return;
                 }
-
-                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
-                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
-                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
-                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
-                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
                 cotizar(origen, txtCiudadI.Text);
             }
         }
@@ -797,11 +734,6 @@ namespace grupoB_TP
                 cmbPaisCiudadDestino.Items.Add("NO IMPLEMENTADO");
             }
             */
-        }
-
-        private void rboOrigenSucursal_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

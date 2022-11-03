@@ -275,7 +275,6 @@
             this.Controls.Add(this.label1);
             this.Name = "EstadoDeServicio";
             this.Text = "Estado del Servicio";
-            this.Load += new System.EventHandler(this.EstadoDeServicio_Load);
             this.grpDatosEstadoDeServicio.ResumeLayout(false);
             this.grpDatosEstadoDeServicio.PerformLayout();
             this.groupBox3.ResumeLayout(false);
