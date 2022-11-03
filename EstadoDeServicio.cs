@@ -19,8 +19,16 @@ namespace grupoB_TP
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string mensaje = "";
+
             int[] numerosdeTrackeo = { 123, 456, 789};
+
             string numeroTrack = txtTrackeo.Text;
+            string numeroCUIT = "";
+            string cotizacion = "";
+            bool urgente = true;
+            string destino = "";
+            string origen = "";
+
             Console.WriteLine($"Código de trackeo: {numeroTrack}");
             mensaje += Validador.PedirVacio("El número de Tracking", numeroTrack);
             mensaje += Validador.PedirEntero("tracking", 0 ,9999, numeroTrack);
