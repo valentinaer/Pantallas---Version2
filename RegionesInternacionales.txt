@@ -1,0 +1,24 @@
+Pais Iternacional|Region Internacional
+España|Europa
+Francia|Europa
+Alemania|Europa
+Suiza|Europa
+Dinamarca|Europa
+Paraguay|Limitrofes
+Brasil|Limitrofes
+Bolivia|Limitrofes
+Chile|Limitrofes
+Uruguay|Limitrofes
+EE.UU|America del Norte
+Canada|America del Norte
+Mexico|America del Norte
+India|Asia
+China|Asia
+Corea del Sur|Asia
+Japon|Asia
+Iran|Asia
+Peru|America Latina
+Colombia|America Latina
+Cuba|America Latina
+Venezuela|America Latina
+Ecuador|America Latina

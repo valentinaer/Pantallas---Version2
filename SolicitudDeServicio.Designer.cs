@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.TextBox txtDirrecionNacional;
+            /* System.Windows.Forms.TextBox txtDirrecionNacional;
             System.Windows.Forms.TextBox txtAlturaNacional;
             System.Windows.Forms.TextBox txtAlturaOrigen;
             System.Windows.Forms.TextBox txtPisoDeptoNacional;
@@ -37,7 +37,7 @@
             System.Windows.Forms.TextBox txtPisoDeptoI;
             System.Windows.Forms.TextBox txtAlturaI;
             System.Windows.Forms.TextBox txtDireccionI;
-            System.Windows.Forms.TextBox txtDirrecionOrigen;
+            System.Windows.Forms.TextBox txtDirrecionOrigen; */
             this.cmbRangoPeso = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.chkUrgente = new System.Windows.Forms.CheckBox();

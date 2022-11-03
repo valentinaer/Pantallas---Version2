@@ -19,7 +19,23 @@ namespace grupoB_TP
             InitializeComponent();
         }
 
-        // function with all the attributes from the form solicitudDeServicio: rango de peso, cantidad de bultos, urgente, nacional /
+        public void mostrarOcultar(object sender, EventArgs e)
+        {
+            // Si radio button Nacional esta checkeda, mostrar el grupo Nacional
+            if (rboNacional.Checked)
+            {
+                grpNacional.Visible = true;
+                grpInternacional.Visible = false;
+            }
+            // Si radio button Internacional esta checkeda, mostrar el grupo Internacional
+            else if (rboInternacional.Checked)
+            {
+                grpInternacional.Visible = true;
+                grpNacional.Visible = false;
+            }
+        }
+
+
         public void cotizar(string origen, string destino   )
         {
             // -------------- Escondemos elementos -----------------//
@@ -66,11 +82,11 @@ namespace grupoB_TP
             double price = 0;
             if (rboNacional.Checked)
             {
-                price = calculatePrecio();
+                price = calculatePrecioNacional();
             }
             else
             {
-                price = calculatePrecio() * 4;
+                price = calculatePrecioInternacional();
             }
 
             // Seteamos el texto de la cotizacion
@@ -101,7 +117,135 @@ namespace grupoB_TP
             File.AppendAllText("Factura.txt", lineFactura + Environment.NewLine);
 
         }
-        private double calculatePrecio()
+
+        static List<RegionesInternacionales> RegionesInternacionales = new List<RegionesInternacionales>();
+        private double calculatePrecioInternacional(){
+
+            /* using var archivoRegionesInternacionales = new StreamReader("RegionesInternacionales");
+
+            string pais = cmbPaisI.Text;
+            while (!archivoRegionesInternacionales.EndOfStream)
+            {
+                var proximoLinea = archivoRegionesInternacionales.ReadLine();
+                string[] datosSeparados = proximoLinea.Split("|");
+
+                var ciudadNacional = new RegionesInternacionales();
+                
+
+                ciudadNacional.Region = datosSeparados[2];
+
+                RegionesInternacionales.Add(ciudadNacional);
+            }
+ */
+
+            double precio = 0;
+
+            // -------------- Sobres Hasta 500g -----------------//
+            if (cmbCantidadBultosN.SelectedIndex == 0)
+            {
+
+                // ----------------- Local -----------------//
+                if (cmbPaisI.Text == "0")
+                {
+                    precio = 20;
+                }
+
+                // ----------------- Provincial -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 1)
+                {
+                    precio = 60;
+                }
+                // ----------------- Regional -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                {
+                    precio = 100;
+                }
+                // ----------------- Nacional -----------------//
+                else
+                {
+                    precio = 140;
+                }
+            }
+
+            // ----------------- Bultos hasta 10Kg -----------------//
+            else if (cmbCantidadBultosN.SelectedIndex == 1)
+            {
+                // ----------------- Local -----------------//
+                if (cmbProvinciaDestino.SelectedIndex == 0)
+                {
+                    precio = 30;
+                }
+                // ----------------- Provincial -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 1)
+                {
+                    precio = 70;
+                }
+                // ----------------- Regional -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                {
+                    precio = 110;
+                }
+                // ----------------- Nacional -----------------//
+                else
+                {
+                    precio = 150;
+                }
+            }
+
+            // ------------- Bultos hasta 20Kg --------//
+            else if (cmbCantidadBultosN.SelectedIndex == 2)
+            {
+                // ----------------- Local -----------------//
+                if (cmbProvinciaDestino.SelectedIndex == 0)
+                {
+                    precio = 40;
+                }
+                // ----------------- Provincial -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 1)
+                {
+                    precio = 80;
+                }
+                // ----------------- Regional -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                {
+                    precio = 120;
+                }
+                // ----------------- Nacional -----------------//
+                else
+                {
+                    precio = 160;
+                }
+            }
+
+            // ------------- Bultos hasta 30Kg --------//
+            else if (cmbCantidadBultosN.SelectedIndex == 3)
+            {
+                // ----------------- Local -----------------//
+                if (cmbProvinciaDestino.SelectedIndex == 0)
+                {
+                    precio = 50;
+                }
+                // ----------------- Provincial -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 1)
+                {
+                    precio = 90;
+                }
+                // ----------------- Regional -----------------//
+                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                {
+                    precio = 130;
+                }
+                // ----------------- Nacional -----------------//
+                else
+                {
+                    precio = 170;
+                }
+            }
+
+            return precio;
+        }
+
+        private double calculatePrecioNacional()
         {
             double precio = 0;
             double precioUrgente = 0;
@@ -284,9 +428,208 @@ namespace grupoB_TP
         {
 
         }
-        private void btnCotizar_Click(object sender, EventArgs e)
+         private void btnCotizar_Click(object sender, EventArgs e)
         {
 
+            //----------------- Logica Extra para Cotizar -----------------//            
+            string origen = "";
+
+            // if sucursal show in a string the sucursal selected from dropdown, if envio a domicilio show in a string the provincia and ciudad selected from dropdown
+            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            {
+                origen = cmbSucursalOrigen.Text;
+            }
+
+            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            {
+                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
+            }
+
+            //----------------- Validaciones -----------------//
+
+
+            // Validar que sea Nacional o Internacional
+            if (!rboInternacional.Checked && !rboNacional.Checked)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de envio", "Errores");
+                return;
+            }
+
+            // Condiciones generales para todos los envios
+            if (cmbRangoPeso.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un rango de peso", "Errores");
+                return;
+            }
+            if (cmbCantidadBultosN.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar la cantidad de Bultos", "Errores");
+                return;
+            }
+
+            //valida que se haya seleccionado un tipo de envio con los radio buttons Sucursal y Domicilio
+            if (!rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de recepcion", "Errores");
+                return;
+            }
+
+            // Condiciones para el Origen
+            // Si es RETIRO a domicilio
+            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            {
+                // Validacion de Provincia en el Origen
+                string mensaje = "";
+                if (cmbProvinciaOrigen.SelectedIndex == -1)
+                {
+                    mensaje += "Debe seleccionar una provincia de ORIGEN" + "\n";
+                }
+                if (cmbCiudadOrigen.SelectedIndex == -1)
+                {
+                    mensaje += "Debe seleccionar una Ciudad de ORIGEN" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtDirrecionOrigen.Text))
+                {
+                    mensaje += "El domicilio de Retiro a Domicilio" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtAlturaOrigen.Text))
+                {
+                    mensaje += "La altura de Retiro" + "\n";
+                }
+                else
+                {
+                    mensaje += Validador.PedirEntero("Altura de Retiro", 0, 99999, txtAlturaOrigen.Text);
+                }
+
+                if (mensaje != "")
+                {
+                    MessageBox.Show(mensaje, "Errores");
+                    return;
+                }
+            }
+
+            // Si es sucursal
+            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            {
+                if (cmbSucursalOrigen.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una Sucursal de ORIGEN", "Errores");
+                    return;
+                }
+            }
+
+            // Validaciones para Envios Nacionales
+            if (rboNacional.Checked && !rboInternacional.Checked)
+            {
+
+                if (!rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+                {
+                    MessageBox.Show("Debe seleccionar el tipo de entrega", "Errores");
+                    return;
+                }
+
+                // Condiciones para el Origen de Retirmo a Domicilio
+                if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+                {
+                    //Checkear que se haya seleccionado una Provincia de origen
+                    if (cmbProvinciaDestino.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Debe seleccionar una provincia de DESTINO", "Errores");
+                        return;
+                    }
+                    //Checkear que se haya seleccionado una Ciudad de origen
+                    else if (cmbCiudadDestino.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Debe seleccionar una ciudad de DESTINO", "Errores");
+                        return;
+                    }
+
+                    string mensaje = "";
+                    if (string.IsNullOrEmpty(txtDirrecionNacional.Text))
+                    {
+                        mensaje += "El domicilio de Entrega a Domicilio" + "\n";
+                    }
+                    if (string.IsNullOrEmpty(txtAlturaNacional.Text))
+                    {
+                        mensaje += "La altura de Entrega" + "\n";
+                    }
+                    else
+                    {
+                        mensaje += Validador.PedirEntero("Altura de Entrega", 0, 99999, txtAlturaNacional.Text);
+                    }
+
+                    if (mensaje != "")
+                    {
+                        MessageBox.Show(mensaje, "Errores");
+                        return;
+                    }
+                }
+
+                // Condiciones para el Destino, si es envio a sucursal 
+                if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+                {
+                    //Checkear que se haya seleccionado una sucursal de destino
+                    if (cmbSucursalesDestino.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Debe seleccionar una sucursal de destino", "Errores");
+                        return;
+                    }
+                }
+
+                string destino = "";
+
+                // Mostrar informacion de cotizacion de Destino
+                if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+                {
+                    destino = cmbSucursalesDestino.Text;
+                }
+                else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+                {
+                    destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
+                }
+
+                cotizar(origen, destino);
+            }
+
+
+            // Validaciones para Envios Internacionales
+            if (rboInternacional.Checked && !rboNacional.Checked)
+            {
+                
+
+                if (cmbPaisI.SelectedIndex == -1)
+                {
+                    MessageBox.Show("Debe seleccionar una País y Ciudad de DESTINO", "Errores");
+                    return;
+                }
+
+                string mensaje = "";
+                if (string.IsNullOrEmpty(txtDireccionI.Text))
+                {
+                    mensaje += "El domicilio de Entrega a Domicilio Internacional" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtAlturaI.Text))
+                {
+                    mensaje += "La altura de Entrega Internacional" + "\n";
+                }
+                else
+                {
+                    mensaje += Validador.PedirEntero("Altura de Entrega Internacional ", 0, 99999, txtAlturaI.Text);
+                }
+
+                if (mensaje != "")
+                {
+                    MessageBox.Show(mensaje, "Errores");
+                    return;
+                }
+
+                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
+                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
+                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
+                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
+                // ------------------- CAAAMBIAR txtciudadI por lbl correspondiente
+                cotizar(origen, txtCiudadI.Text);
+            }
         }
 
             //Boton CONFIRMACION
@@ -327,9 +670,9 @@ namespace grupoB_TP
             }
 
             string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
-            string CUIT = Usuario.CUIT(usuario);
+            //string CUIT = Usuario.CUIT(usuario);
             //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
-            string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), CUIT, DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
+            string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), "CUIT", DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
             string line = string.Join(",", fields);
             File.AppendAllText("OrdenDeServicio.txt", line + Environment.NewLine);
 
