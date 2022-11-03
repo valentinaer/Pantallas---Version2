@@ -24,11 +24,6 @@ namespace grupoB_TP
             int[] numerosdeTrackeo = { 123, 456, 789};
 
             string numeroTrack = txtTrackeo.Text;
-            string numeroCUIT = "";
-            string cotizacion = "";
-            bool urgente = true;
-            string destino = "";
-            string origen = "";
 
             Console.WriteLine($"Código de trackeo: {numeroTrack}");
             mensaje += Validador.PedirVacio("El número de Tracking", numeroTrack);
@@ -42,10 +37,22 @@ namespace grupoB_TP
             else
             {
                 string estado = Utilidades.Buscar(0, 19, numeroTrack, "./OrdenDeServicio.txt");
+                string cuit = Utilidades.Buscar(0, 2, numeroTrack, "./OrdenDeServicio.txt");
+                string calleorigen = Utilidades.Buscar(0, 7, numeroTrack, "./OrdenDeServicio.txt");
+                string alturaorigen = Utilidades.Buscar(0, 8, numeroTrack, "./OrdenDeServicio.txt");
+                string calledestino = Utilidades.Buscar(0, 13, numeroTrack, "./OrdenDeServicio.txt");
+                string alturadestino = Utilidades.Buscar(0, 14, numeroTrack, "./OrdenDeServicio.txt");
+                string urgente = Utilidades.Buscar(0, 18, numeroTrack, "./OrdenDeServicio.txt");
+                Console.WriteLine(estado);
+                lblCuitI.Text = cuit;
+                lblUrgente.Text = urgente;
+                lblDestino.Text= calleorigen + " " + alturaorigen;
+                lblOrigen.Text = calledestino + " " + alturadestino;
+                lblCotizacion.Text = estado;
 
                 if(estado != "")
                 {
-                    MessageBox.Show(estado, "Estado de servicio");
+                    
                 }
                 else
                 {
