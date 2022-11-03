@@ -216,7 +216,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Mostrar todas las facturas";
             this.radioButton1.UseVisualStyleBackColor = true;
-            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
             // 
             // groupBox2
             // 
@@ -234,7 +233,6 @@
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estado de Cuenta";
-            this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // EstadoDeCuenta
             // 

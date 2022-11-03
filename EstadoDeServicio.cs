@@ -76,10 +76,5 @@ namespace grupoB_TP
         {
             System.Windows.Forms.Application.Exit();
         }
-
-        private void EstadoDeServicio_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

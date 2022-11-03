@@ -119,37 +119,17 @@ namespace grupoB_TP
         }
 
         static List<RegionesInternacionales> RegionesInternacionales = new List<RegionesInternacionales>();
-        private string getRegion(string pais)
-        {
-            using var archivoRegionesInternacionales = new StreamReader("./RegionesInternacionales.txt");
-            while (!archivoRegionesInternacionales.EndOfStream)
-            {
-                var proximaLinea = archivoRegionesInternacionales.ReadLine();
-                
-                if (!string.IsNullOrEmpty(proximaLinea))
-                {
-                    string[] datosSeparados = proximaLinea.Split("|");
-                    if(datosSeparados[0] == pais)
-                    {
-                        return datosSeparados[1];
 
-                    }
-                }
-            }
-            return "";
-        }
         
         private double calculatePrecioInternacional(){
 
-            string region = getRegion(cmbPaisI.Text);
+            string region = Utilidades.Buscar(0,1,cmbPaisI.Text, "./RegionesInternacionales.txt");
 
             double precio = 0;
 
             // -------------- Sobres Hasta 500g -----------------//
             if (cmbCantidadBultosN.SelectedIndex == 0)
             {
-                MessageBox.Show("devolucion ===" + region);
-
                 // ----------------- Limitrofes -----------------//
                 if (region == "Limitrofes")
                 {

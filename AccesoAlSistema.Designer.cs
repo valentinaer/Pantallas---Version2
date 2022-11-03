@@ -43,7 +43,6 @@
             this.txtIngresarDNI.PlaceholderText = "Documento";
             this.txtIngresarDNI.Size = new System.Drawing.Size(181, 23);
             this.txtIngresarDNI.TabIndex = 0;
-            this.txtIngresarDNI.TextChanged += new System.EventHandler(this.txtIngresarDNI_TextChanged);
             this.txtIngresarDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // txtContraseña
@@ -97,7 +96,6 @@
             this.label1.Size = new System.Drawing.Size(221, 25);
             this.label1.TabIndex = 5;
             this.label1.Text = "¡Bienvenido/a al sistema!";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // AccesoAlSistema
             // 
@@ -113,7 +111,6 @@
             this.Controls.Add(this.txtIngresarDNI);
             this.Name = "AccesoAlSistema";
             this.Text = "Acceso al Sistema";
-            this.Load += new System.EventHandler(this.AccesoAlSistema_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
