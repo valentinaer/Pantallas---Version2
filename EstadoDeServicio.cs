@@ -41,26 +41,8 @@ namespace grupoB_TP
             
             else
             {
-               
-                string estado = "";
-                foreach (int i in numerosdeTrackeo)
-                {
-                    if (numerosdeTrackeo.Contains(int.Parse(numeroTrack)))
-                    {
-                        if (int.Parse(numeroTrack) == 123)
-                        {
-                            estado = "Recibida";
-                        }
-                        else if (int.Parse(numeroTrack) == 456)
-                        {
-                            estado = "En Tránsito";
-                        }
-                        else if(int.Parse(numeroTrack) == 789)
-                        {
-                            estado = "Cerrada";
-                        }      
-                    }
-                }
+                string estado = Utilidades.Buscar(0, 19, numeroTrack, "./OrdenDeServicio.txt");
+
                 if(estado != "")
                 {
                     MessageBox.Show(estado, "Estado de servicio");
