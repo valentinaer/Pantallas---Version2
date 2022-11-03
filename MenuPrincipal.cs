@@ -16,8 +16,6 @@ namespace grupoB_TP
         {
             InitializeComponent();
         }
-
-
         public void btnContinuar_Click(object sender, EventArgs e)
         {
             if (rboSolicitarServicio.Checked)
@@ -40,11 +38,6 @@ namespace grupoB_TP
         private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
-        }
-
-        private void MenuPrincipal_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

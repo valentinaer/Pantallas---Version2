@@ -17,9 +17,6 @@ namespace grupoB_TP
         {
             InitializeComponent();
         }
-        private void label3_Click(object sender, EventArgs e)
-        {
-        }
 
         private void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
@@ -31,7 +28,7 @@ namespace grupoB_TP
             //string result = Convert.ToString(x[(new Random()).Next(4)]);
             string cuit = "30-" + Validador.DNI + "-9";
             string [] cliente = {};
-
+            /*
             string[] lines = File.ReadAllLines("Factura.txt");
             int i;
             for (i = 0; i < lines.Length; i++)
@@ -43,7 +40,7 @@ namespace grupoB_TP
                 }
             }
 
-
+            */
             //SALDOS POSITIVOS O NEGATIVOS RANDOM
             string[] y = { "-$750", "$250", "$-102", "$123" };
             string saldo = y[(new Random()).Next(4)];
@@ -70,26 +67,6 @@ namespace grupoB_TP
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
-        }
-
-        private void monthCalendar1_DateChanged(object sender, DateRangeEventArgs e)
-        {
-
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void radioButton1_CheckedChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

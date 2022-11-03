@@ -27,10 +27,10 @@ namespace Version_2___Pantallas
                 */
             }
             ApplicationConfiguration.Initialize();
-            Application.Run(new AccesoAlSistema());
+            Application.Run(new EstadoDeCuenta());
 
             //Application.Run(new EstadoDeCuenta());
-            Application.Run(new SolicitudDeServicio());
+            //Application.Run(new SolicitudDeServicio());
             
             static void Grabar()
             {
@@ -48,7 +48,7 @@ namespace Version_2___Pantallas
 
         private static void CargarCiudadesNacionales()
         {
-            using var archivoCiudadesNacionales = new StreamReader("CiudadesNacionales");
+            using var archivoCiudadesNacionales = new StreamReader("./CiudadesNacionales.txt");
 
             while (!archivoCiudadesNacionales.EndOfStream)
             {
