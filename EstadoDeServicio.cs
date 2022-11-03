@@ -19,6 +19,7 @@ namespace grupoB_TP
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             string mensaje = "";
+            grpDatosEstadoDeServicio.Visible = true;
 
             int[] numerosdeTrackeo = { 123, 456, 789};
 
