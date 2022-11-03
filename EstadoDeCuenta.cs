@@ -22,14 +22,14 @@ namespace grupoB_TP
         {
             //List<int> myValues = new List<int>(new int[] { 12345678, 12435678, 11111111,75631841 });
 
-
+            /*
             //CUIT (RANDOM)
             int[] x = { 12345678, 87654321, 11122223, 45286101 };
             //string result = Convert.ToString(x[(new Random()).Next(4)]);
             string cuit = "30-" + Validador.DNI + "-9";
             string [] cliente = {};
-            /*
-            string[] lines = File.ReadAllLines("Factura.txt");
+            
+            string[] lines = File.ReadAllLines("./Factura.txt");
             int i;
             for (i = 0; i < lines.Length; i++)
             {
@@ -40,7 +40,6 @@ namespace grupoB_TP
                 }
             }
 
-            */
             //SALDOS POSITIVOS O NEGATIVOS RANDOM
             string[] y = { "-$750", "$250", "$-102", "$123" };
             string saldo = y[(new Random()).Next(4)];
@@ -48,8 +47,6 @@ namespace grupoB_TP
             //NOMBRES LISTA
             string[] z = { "Copito S.A.", "EcoLogic S.R.L." };
             string nombre = z[(new Random()).Next(2)];
-
-
 
             /*
             lblNombreCliente.Text = nombre;
@@ -61,7 +58,6 @@ namespace grupoB_TP
             lblSaldoTotal.Text = saldo;
             lblFechaActual.Text = Convert.ToString(DateTime.Now);
             */
-        
         }
 
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)

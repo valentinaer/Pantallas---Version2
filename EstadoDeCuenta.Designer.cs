@@ -34,7 +34,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.monthCalendar1 = new System.Windows.Forms.MonthCalendar();
             this.lblSaldoTotal = new System.Windows.Forms.Label();
             this.lblFechaActual = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -43,6 +42,10 @@
             this.lblCuit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtFechaFinal = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.txtFechaInicio = new System.Windows.Forms.TextBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -59,9 +62,9 @@
             this.grpEstadoDeCuenta.Controls.Add(this.label4);
             this.grpEstadoDeCuenta.Controls.Add(this.label5);
             this.grpEstadoDeCuenta.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpEstadoDeCuenta.Location = new System.Drawing.Point(37, 371);
+            this.grpEstadoDeCuenta.Location = new System.Drawing.Point(37, 338);
             this.grpEstadoDeCuenta.Name = "grpEstadoDeCuenta";
-            this.grpEstadoDeCuenta.Size = new System.Drawing.Size(533, 198);
+            this.grpEstadoDeCuenta.Size = new System.Drawing.Size(549, 198);
             this.grpEstadoDeCuenta.TabIndex = 0;
             this.grpEstadoDeCuenta.TabStop = false;
             this.grpEstadoDeCuenta.Text = "Detalle de facturas";
@@ -111,13 +114,6 @@
             this.label5.Size = new System.Drawing.Size(91, 21);
             this.label5.TabIndex = 5;
             this.label5.Text = "Nro Factura";
-            // 
-            // monthCalendar1
-            // 
-            this.monthCalendar1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.monthCalendar1.Location = new System.Drawing.Point(12, 28);
-            this.monthCalendar1.Name = "monthCalendar1";
-            this.monthCalendar1.TabIndex = 15;
             // 
             // lblSaldoTotal
             // 
@@ -184,21 +180,56 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtFechaFinal);
+            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.txtFechaInicio);
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Controls.Add(this.monthCalendar1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(37, 163);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(535, 202);
+            this.groupBox1.Size = new System.Drawing.Size(549, 158);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Seleccione un rango de fechas para conocer el detalle del saldo";
+            this.groupBox1.Text = "Elija un rango de fechas para conocer el detalle del saldo";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(157, 56);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(49, 21);
+            this.label9.TabIndex = 21;
+            this.label9.Text = "Hasta";
+            // 
+            // txtFechaFinal
+            // 
+            this.txtFechaFinal.Location = new System.Drawing.Point(157, 80);
+            this.txtFechaFinal.Name = "txtFechaFinal";
+            this.txtFechaFinal.Size = new System.Drawing.Size(100, 29);
+            this.txtFechaFinal.TabIndex = 20;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(16, 56);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 21);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Desde";
+            // 
+            // txtFechaInicio
+            // 
+            this.txtFechaInicio.Location = new System.Drawing.Point(16, 80);
+            this.txtFechaInicio.Name = "txtFechaInicio";
+            this.txtFechaInicio.Size = new System.Drawing.Size(100, 29);
+            this.txtFechaInicio.TabIndex = 18;
             // 
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(272, 113);
+            this.radioButton2.Location = new System.Drawing.Point(287, 97);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(261, 25);
             this.radioButton2.TabIndex = 17;
@@ -209,7 +240,7 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(272, 82);
+            this.radioButton1.Location = new System.Drawing.Point(287, 52);
             this.radioButton1.Name = "radioButton1";
             this.radioButton1.Size = new System.Drawing.Size(207, 25);
             this.radioButton1.TabIndex = 16;
@@ -229,7 +260,7 @@
             this.groupBox2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox2.Location = new System.Drawing.Point(37, 3);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(533, 128);
+            this.groupBox2.Size = new System.Drawing.Size(548, 128);
             this.groupBox2.TabIndex = 20;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estado de Cuenta";
@@ -286,10 +317,13 @@
         private Label label3;
         private Label label5;
         private RichTextBox richTextBox1;
-        private MonthCalendar monthCalendar1;
         private GroupBox groupBox1;
         private RadioButton radioButton2;
         private RadioButton radioButton1;
         private GroupBox groupBox2;
+        private Label label9;
+        private TextBox txtFechaFinal;
+        private Label label8;
+        private TextBox txtFechaInicio;
     }
 }
