@@ -99,8 +99,8 @@ namespace grupoB_TP
             // Id_Cotizacion,NumeroTrackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,Nacional,RangoPeso,CantidadBultos,Id_Factura,Id_Direccion,Precio
             // save the data in the file Cotizacion.txt
             //search last id and add 1 in cotizacion.txt
-            int idCotizacion = 0;
-            string[] linesCotizacion = System.IO.File.ReadAllLines(@"Cotizacion.txt");
+            /* int idCotizacion = 0;
+            string[] linesCotizacion = System.IO.File.ReadAllLines(@"./Cotizacion.txt");
             foreach (string lineCotizacion in linesCotizacion)
             {
                 string[] words = lineCotizacion.Split(',');
@@ -109,136 +109,197 @@ namespace grupoB_TP
 
             string[] fields = new string[] { Convert.ToString(idCotizacion), "1", "30-" + Validador.DNI + "-9", DateTime.Now.ToString(), origen, destino, urgente, rboNacional.Checked.ToString(), cmbRangoPeso.Text, cmbCantidadBultosN.Text, "1", "1", lblCotizacion.Text };
             string line = string.Join(",", fields);
-            File.AppendAllText("Cotizacion.txt", line + Environment.NewLine);
+            File.AppendAllText("./Cotizacion.txt", line + Environment.NewLine);
 
             //Id_Cotizacion,CUIT,Fecha,Pagado
             string[] fieldsFactura = new string[] { Convert.ToString(idCotizacion) , "30-" + Validador.DNI + "-9", DateTime.Now.ToString(), "false" };
             string lineFactura = string.Join(",", fieldsFactura);
-            File.AppendAllText("Factura.txt", lineFactura + Environment.NewLine);
-
+            File.AppendAllText("./Factura.txt", lineFactura + Environment.NewLine);
+ */
         }
 
         static List<RegionesInternacionales> RegionesInternacionales = new List<RegionesInternacionales>();
-        private double calculatePrecioInternacional(){
-
-            /* using var archivoRegionesInternacionales = new StreamReader("RegionesInternacionales");
-
-            string pais = cmbPaisI.Text;
+        private string getRegion(string pais)
+        {
+            using var archivoRegionesInternacionales = new StreamReader("./RegionesInternacionales.txt");
             while (!archivoRegionesInternacionales.EndOfStream)
             {
-                var proximoLinea = archivoRegionesInternacionales.ReadLine();
-                string[] datosSeparados = proximoLinea.Split("|");
-
-                var ciudadNacional = new RegionesInternacionales();
+                var proximaLinea = archivoRegionesInternacionales.ReadLine();
                 
+                if (!string.IsNullOrEmpty(proximaLinea))
+                {
+                    string[] datosSeparados = proximaLinea.Split("|");
+                    if(datosSeparados[0] == pais)
+                    {
+                        return datosSeparados[1];
 
-                ciudadNacional.Region = datosSeparados[2];
-
-                RegionesInternacionales.Add(ciudadNacional);
+                    }
+                }
             }
- */
+            return "";
+        }
+        
+        private double calculatePrecioInternacional(){
+
+            string region = getRegion(cmbPaisI.Text);
 
             double precio = 0;
 
             // -------------- Sobres Hasta 500g -----------------//
             if (cmbCantidadBultosN.SelectedIndex == 0)
             {
+                MessageBox.Show("devolucion ===" + region);
 
-                // ----------------- Local -----------------//
-                if (cmbPaisI.Text == "0")
+                // ----------------- Limitrofes -----------------//
+                if (region == "Limitrofes")
                 {
-                    precio = 20;
+                    precio = 180;
                 }
 
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
+                // ----------------- America Latina -----------------//
+                else if (region == "America Latina")
                 {
-                    precio = 60;
+                    precio = 190;
                 }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                // ----------------- America del Norte -----------------//
+                else if (region == "America del Norte")
                 {
-                    precio = 100;
+                    precio = 200;
                 }
-                // ----------------- Nacional -----------------//
+                
+                // ----------------- Europa -----------------//
+                else if (region == "Europa")
+                {
+                    precio = 210;
+                }
+
+                // ----------------- Asia -----------------//
+                else if (region == "Asia")
+                {
+                    precio = 220;
+                }
+                
                 else
                 {
-                    precio = 140;
+                    precio = 0;
+                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
                 }
             }
 
             // ----------------- Bultos hasta 10Kg -----------------//
             else if (cmbCantidadBultosN.SelectedIndex == 1)
             {
-                // ----------------- Local -----------------//
-                if (cmbProvinciaDestino.SelectedIndex == 0)
+                // ----------------- Limitrofes -----------------//
+                if (region == "Limitrofes")
                 {
-                    precio = 30;
+                    precio = 230;
                 }
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
+
+                // ----------------- America Latina -----------------//
+                else if (region == "America Latina")
                 {
-                    precio = 70;
+                    precio = 240;
                 }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                // ----------------- America del Norte -----------------//
+                else if (region == "America del Norte")
                 {
-                    precio = 110;
+                    precio = 250;
                 }
-                // ----------------- Nacional -----------------//
+                
+                // ----------------- Europa -----------------//
+                else if (region == "Europa")
+                {
+                    precio = 260;
+                }
+
+                // ----------------- Asia -----------------//
+                else if (region == "Asia")
+                {
+                    precio = 270;
+                }
+                
                 else
                 {
-                    precio = 150;
+                    precio = 0;
+                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
                 }
             }
 
             // ------------- Bultos hasta 20Kg --------//
             else if (cmbCantidadBultosN.SelectedIndex == 2)
             {
-                // ----------------- Local -----------------//
-                if (cmbProvinciaDestino.SelectedIndex == 0)
+                // ----------------- Limitrofes -----------------//
+                if (region == "Limitrofes")
                 {
-                    precio = 40;
+                    precio = 280;
                 }
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
+
+                // ----------------- America Latina -----------------//
+                else if (region == "America Latina")
                 {
-                    precio = 80;
+                    precio = 290;
                 }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                // ----------------- America del Norte -----------------//
+                else if (region == "America del Norte")
                 {
-                    precio = 120;
+                    precio = 300;
                 }
-                // ----------------- Nacional -----------------//
+                
+                // ----------------- Europa -----------------//
+                else if (region == "Europa")
+                {
+                    precio = 310;
+                }
+
+                // ----------------- Asia -----------------//
+                else if (region == "Asia")
+                {
+                    precio = 320;
+                }
+                
                 else
                 {
-                    precio = 160;
+                    precio = 0;
+                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
                 }
             }
 
             // ------------- Bultos hasta 30Kg --------//
             else if (cmbCantidadBultosN.SelectedIndex == 3)
             {
-                // ----------------- Local -----------------//
-                if (cmbProvinciaDestino.SelectedIndex == 0)
+                // ----------------- Limitrofes -----------------//
+                if (region == "Limitrofes")
                 {
-                    precio = 50;
+                    precio = 330;
                 }
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
+
+                // ----------------- America Latina -----------------//
+                else if (region == "America Latina")
                 {
-                    precio = 90;
+                    precio = 340;
                 }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                // ----------------- America del Norte -----------------//
+                else if (region == "America del Norte")
                 {
-                    precio = 130;
+                    precio = 350;
                 }
-                // ----------------- Nacional -----------------//
+                
+                // ----------------- Europa -----------------//
+                else if (region == "Europa")
+                {
+                    precio = 360;
+                }
+
+                // ----------------- Asia -----------------//
+                else if (region == "Asia")
+                {
+                    precio = 370;
+                }
+                
                 else
                 {
-                    precio = 170;
+                    precio = 0;
+                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
                 }
             }
 
@@ -672,11 +733,12 @@ namespace grupoB_TP
             string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
             //string CUIT = Usuario.CUIT(usuario);
             //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
-            string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), "CUIT", DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
+            /* string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), "CUIT", DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
             string line = string.Join(",", fields);
-            File.AppendAllText("OrdenDeServicio.txt", line + Environment.NewLine);
-
-
+            File.AppendAllText("./OrdenDeServicio.txt", line + Environment.NewLine);
+ */ 
+            string nuevaFila = "N°Trackeo|Feha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAIS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|CALLE|ALTURA|PISO DEPTO|PAIS DE DESTINO|PROVINCIA/REGION|CIUDAD DESTINO|CALLE|ALTURA|PISO DEPTO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE|ESTADO|FACTURADO";
+            Utilidades.GrabarNuevaFila("./OrdenDeServicio.txt", nuevaFila);
         }
         private int Autonumerar()
         {

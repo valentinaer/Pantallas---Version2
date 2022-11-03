@@ -442,12 +442,30 @@
             // 
             // cmbPaisI
             // 
-            this.cmbPaisI.AutoCompleteCustomSource.AddRange(new string[] {
-            "Paises limitrofes",
-            "Resto de america latina",
-            "America del norte",
-            "Europa",
-            "Asia"});
+            this.cmbPaisI.Items.AddRange(new object[] {
+            "España",
+            "Francia",
+            "Alemania",
+            "Suiza",
+            "Dinamarca",
+            "Paraguay",
+            "Brasil",
+            "Bolivia",
+            "Chile",
+            "Uruguay",
+            "EE.UU",
+            "Canada",
+            "Mexico",
+            "India",
+            "China",
+            "Corea del Sur",
+            "Japon",
+            "Iran",
+            "Peru",
+            "Colombia",
+            "Cuba",
+            "Venezuela",
+            "Ecuador"});
             this.cmbPaisI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaisI.FormattingEnabled = true;
             this.cmbPaisI.Location = new System.Drawing.Point(177, 56);

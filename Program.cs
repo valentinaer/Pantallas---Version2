@@ -48,7 +48,7 @@ namespace Version_2___Pantallas
 
         private static void CargarCiudadesNacionales()
         {
-            using var archivoCiudadesNacionales = new StreamReader("CiudadesNacionales");
+            using var archivoCiudadesNacionales = new StreamReader("./CiudadesNacionales.txt");
 
             while (!archivoCiudadesNacionales.EndOfStream)
             {

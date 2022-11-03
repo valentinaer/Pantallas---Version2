@@ -19,7 +19,7 @@ namespace grupoB_TP
             string DNI = txtIngresarDNI.Text;
             string Contraseña = txtContraseña.Text;
 
-            if (File.Exists("usuarios.txt"))
+            if (File.Exists("./usuarios.txt"))
             {
                 //Validamos que esten Vacios (Flujo 1)
 
@@ -81,7 +81,7 @@ namespace grupoB_TP
 
                     // Flujo 3 y 5 Se encuentran en la busquedad al atchivo usuario.txt
                     // El usuario se encuentra en la la lista dentro de usuarios.txt
-                    string[] lines = File.ReadAllLines("usuarios.txt");
+                    string[] lines = File.ReadAllLines("./usuarios.txt");
                     int i;
                     for (i = 0; i < lines.Length; i++)
                     {
