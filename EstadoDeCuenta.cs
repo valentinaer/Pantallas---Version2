@@ -14,9 +14,11 @@ namespace grupoB_TP
 {
     public partial class EstadoDeCuenta : Form
     {
-        public EstadoDeCuenta()
+        public EstadoDeCuenta(string CUIT)
         {
+            
             InitializeComponent();
+            MessageBox.Show("Estado de cuente"+ CUIT);
         }
 
         public void EstadoDeCuenta_Load(object sender, EventArgs e)

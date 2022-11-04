@@ -40,7 +40,7 @@ namespace grupoB_TP
             Usuario U = new Usuario();
             Usuario usuario = new Usuario();
             usuario = U.BuscarDNI(int.Parse(DNI));
-
+            
             if (usuario == null)
             {
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
@@ -57,10 +57,11 @@ namespace grupoB_TP
             }
             else
             {
+                
                 this.Hide();
                 MessageBox.Show($"Ingreso Exitoso usuario: {usuario.ApellidoNombre} " +
                     $"de la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
-                new MenuPrincipal().ShowDialog();
+                new MenuPrincipal(usuario.CUIT).ShowDialog();
             }
 
 
