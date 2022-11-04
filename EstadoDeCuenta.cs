@@ -21,17 +21,7 @@ namespace grupoB_TP
 
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
-           string CUIT = Usuario.RetornoCuit(); //La idea es traerme el CUIT de acceso al sistema para seguir trabajando acá.
-            
-
-           
-
-
-
-
-
-
-
+            string CUIT = Usuario.RetornoCuit(); //La idea es traerme el CUIT de acceso al sistema para seguir trabajando acá.
 
             //List<int> myValues = new List<int>(new int[] { 12345678, 12435678, 11111111,75631841 });
 
@@ -80,6 +70,89 @@ namespace grupoB_TP
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
+            
+        }
+        private void rboMostrarTodas_CheckedChanged(object sender, EventArgs e)
+        {
+          
+        }
+
+
+        private void rboMostrarImpagas_CheckedChanged(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void btnMostrarFacturas_Click(object sender, EventArgs e)
+        {
+            string msj = "";
+            string fechaDesde = txtFechaInicio.Text;
+            string fechaHasta = txtFechaFinal.Text;
+            DateTime fechaD;
+            DateTime fechaH;
+
+            //Valido la fecha
+
+            msj += Validador.ValidarFecha(fechaDesde, "Fecha inicio");
+            msj += Validador.ValidarFecha(fechaHasta, "FechaFinal");
+
+            if(msj !="")
+            {
+                MessageBox.Show(msj);
+
+            }
+            else if (rboMostrarTodas.Checked )
+            {
+
+                fechaD = Convert.ToDateTime(fechaDesde);
+                fechaH = Convert.ToDateTime(fechaHasta);
+
+                if (fechaD > fechaH)
+                {
+                    MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha final.");
+                }
+                else if (fechaD > DateTime.Now || fechaH > DateTime.Now) 
+                {
+                    MessageBox.Show("Las fechas ingresadas deben ser menor a la fecha actual.");
+                }
+                else
+                {
+                    //Buscar en la lista teniendo en cuenta el CUIT, TODAS LAS FACTURAS y mostrarlas en el richTextBox.
+
+
+                    richTextBox1.Text = "Fecha de las facturas: " + System.Environment.NewLine + fechaD + System.Environment.NewLine + fechaH;
+                }
+            }
+            else if (rboMostrarImpagas.Checked)
+            {
+                
+                fechaD = Convert.ToDateTime(fechaDesde);
+                fechaH = Convert.ToDateTime(fechaHasta);
+
+
+                if (fechaD > fechaH)
+                {
+                    MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha final.");
+                }
+                else if (fechaD > DateTime.Now || fechaH > DateTime.Now)
+                {
+                    MessageBox.Show("Las fechas ingresadas deben ser menor a la fecha actual.");
+                }
+                else
+                {
+                    //Buscar en la lista con el CUIT, todas las facturas IMPAGAS y mostrarlas en el richtextbox
+
+
+                    richTextBox1.Text = "Fecha de las facturas impagas: "+ System.Environment.NewLine + fechaD + System.Environment.NewLine + fechaH;
+                }
+
+            }
+            else
+            {
+                MessageBox.Show ("Debe seleccionar si quiere ver todas las facturas o solo las impagas");
+            }
+
+            
             
         }
     }
