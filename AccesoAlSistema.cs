@@ -47,7 +47,7 @@ namespace grupoB_TP
                     $" realizar el ingreso al sistema", "Errores");
             }
             //La contraseña excede los 30 caracteres (Flujo 4)
-            if (contraseña.Length > 30)
+            else if (contraseña.Length > 30)
             {
                 MessageBox.Show("La contraseña debe tener como máximo 30 caracteres", "Errores");
             }
@@ -58,14 +58,14 @@ namespace grupoB_TP
             else
             {
                 this.Hide();
-                MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
+                MessageBox.Show($"Ingreso Exitoso usuario: {usuario.ApellidoNombre} " +
+                    $"de la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
                 new MenuPrincipal().ShowDialog();
             }
-            
-            
-        
+
+
+
         }
-        
 
         private void AccesoAlSistema_FormClosing(object sender, FormClosingEventArgs e)
         {

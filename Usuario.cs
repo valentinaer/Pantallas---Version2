@@ -36,6 +36,9 @@ namespace Version_2___Pantallas
         List<Usuario> ListaUsuario = new List<Usuario>();
         public void CargarUsuarios()
         {
+            //Archivo
+            //DNI |CUIT| Apellido y Nombre | Contraseña
+
             using var archivo = new StreamReader("Usuarios.txt");
             while (!archivo.EndOfStream)
             {
@@ -57,32 +60,15 @@ namespace Version_2___Pantallas
         {
             CargarUsuarios();
             Usuario U = new Usuario();
-            foreach(var personaEnLaLista in ListaUsuario)
+            foreach(var  personaEnLaLista in ListaUsuario)
             {
                 if (personaEnLaLista.DNIAutorizados== dni)
                 {
-                    return  personaEnLaLista;
-                }
+                   return personaEnLaLista;
+                }              
             }
             return null;
         }
 
-
-
-        public static string RetornoCuit()
-        {
-
-            Usuario U = new Usuario();
-
-            
-
-
-            return U.CUIT;
-           
-        }
-
-        //Archivo
-        //DNI |CUIT| Apellido y Nombre | Contraseña
-        
     }
 }
