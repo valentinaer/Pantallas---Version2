@@ -17,7 +17,7 @@ namespace Version_2___Pantallas
         public string Contraseña { get; set; }
 
         // C O N S T R U C T O R E S //
-        public Usuario (string cuit, int dniautorizados, string apellidonombre, string contraseña)
+        public Usuario (int dniautorizados, string cuit,string apellidonombre, string contraseña)
         {
             CUIT = cuit;
             DNIAutorizados = dniautorizados;
@@ -33,6 +33,7 @@ namespace Version_2___Pantallas
         // MÉTODO CARGAR USUARIOS DE LA LISTA //
 
         List<Usuario> usuarios = new List<Usuario>();
+        
         public void CargarUsuarios()
         {
             using var archivo = new StreamReader("Usuarios.txt");
@@ -42,25 +43,35 @@ namespace Version_2___Pantallas
                 string[] datosSeparados = proximaLinea.Split("|");
 
                 Usuario usuario = new Usuario();
-                usuario.CUIT = datosSeparados[0];
-                usuario.DNIAutorizados = int.Parse(datosSeparados[1]);
+                usuario.DNIAutorizados = int.Parse(datosSeparados[0]);
+                usuario.CUIT = datosSeparados[1];
                 usuario.Contraseña = datosSeparados[2];
                 usuario.ApellidoNombre = datosSeparados[3];
 
                 usuarios.Add(usuario);
+                Console.WriteLine(usuarios);
             }
 
         }
 
         //METODO BUSCAR CUIT (Devuelve una lista) 
-
-        public Usuario BuscarCUIT(int dni)
+        public Usuario BuscarDNI(int dni)
         {
-            return usuarios.Find(usuario => usuario.DNIAutorizados == dni);
+            Usuario U = new Usuario();
+            foreach(var personaEnLaLista in usuarios)
+            {
+                MessageBox.Show(Convert.ToString(personaEnLaLista.DNIAutorizados));
+                if (personaEnLaLista.DNIAutorizados== dni)
+                {
+                    return  U;
+
+                }
+            }
+            return null;
         }
 
-       
-        
+
+
         public static string RetornoCuit()
         {
 
@@ -74,7 +85,7 @@ namespace Version_2___Pantallas
         }
 
         //Archivo
-        //CUIT| DNI | Apellido y Nombre | Contraseña
+        //DNI |CUIT| Apellido y Nombre | Contraseña
         
     }
 }

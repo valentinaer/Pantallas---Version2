@@ -11,8 +11,13 @@ namespace Version_2___Pantallas
         {
             //Repositorio: https://github.com/valentinaer/Pantallas---Version2
 
+            Usuario U = new Usuario();
+            U.CargarUsuarios();
+
             static void CargarElementos()
             {
+                
+
                 CargaOrdendeServicio();
                 CargarCiudadesNacionales();
                 CargarClientes();
