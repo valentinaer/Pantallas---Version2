@@ -119,6 +119,79 @@
             this.grpTipoEnvio.SuspendLayout();
             this.SuspendLayout();
             // 
+            // label18
+            // 
+            label18.AutoSize = true;
+            label18.Location = new System.Drawing.Point(427, 31);
+            label18.Name = "label18";
+            label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            label18.Size = new System.Drawing.Size(151, 21);
+            label18.TabIndex = 8;
+            label18.Text = "Cantidad de bultos *";
+            // 
+            // txtPisoDeptoNacional
+            // 
+            txtPisoDeptoNacional.Location = new System.Drawing.Point(212, 279);
+            txtPisoDeptoNacional.Name = "txtPisoDeptoNacional";
+            txtPisoDeptoNacional.Size = new System.Drawing.Size(135, 29);
+            txtPisoDeptoNacional.TabIndex = 16;
+            // 
+            // txtAlturaNacional
+            // 
+            txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
+            txtAlturaNacional.Name = "txtAlturaNacional";
+            txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
+            txtAlturaNacional.TabIndex = 14;
+            // 
+            // txtDirrecionNacional
+            // 
+            txtDirrecionNacional.Location = new System.Drawing.Point(163, 201);
+            txtDirrecionNacional.Name = "txtDirrecionNacional";
+            txtDirrecionNacional.Size = new System.Drawing.Size(307, 29);
+            txtDirrecionNacional.TabIndex = 1;
+            // 
+            // txtPisoDeptoI
+            // 
+            txtPisoDeptoI.Location = new System.Drawing.Point(239, 292);
+            txtPisoDeptoI.Name = "txtPisoDeptoI";
+            txtPisoDeptoI.Size = new System.Drawing.Size(135, 29);
+            txtPisoDeptoI.TabIndex = 16;
+            // 
+            // txtAlturaI
+            // 
+            txtAlturaI.Location = new System.Drawing.Point(177, 237);
+            txtAlturaI.Name = "txtAlturaI";
+            txtAlturaI.Size = new System.Drawing.Size(111, 29);
+            txtAlturaI.TabIndex = 14;
+            // 
+            // txtDireccionI
+            // 
+            txtDireccionI.Location = new System.Drawing.Point(177, 180);
+            txtDireccionI.Name = "txtDireccionI";
+            txtDireccionI.Size = new System.Drawing.Size(307, 29);
+            txtDireccionI.TabIndex = 1;
+            // 
+            // txtDirrecionOrigen
+            // 
+            txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
+            txtDirrecionOrigen.Name = "txtDirrecionOrigen";
+            txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
+            txtDirrecionOrigen.TabIndex = 18;
+            // 
+            // txtPisoDepartamentoRecepcion
+            // 
+            txtPisoDepartamentoRecepcion.Location = new System.Drawing.Point(209, 287);
+            txtPisoDepartamentoRecepcion.Name = "txtPisoDepartamentoRecepcion";
+            txtPisoDepartamentoRecepcion.Size = new System.Drawing.Size(132, 29);
+            txtPisoDepartamentoRecepcion.TabIndex = 17;
+            // 
+            // txtAlturaOrigen
+            // 
+            txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
+            txtAlturaOrigen.Name = "txtAlturaOrigen";
+            txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
+            txtAlturaOrigen.TabIndex = 14;
+            // 
             // cmbRangoPeso
             // 
             this.cmbRangoPeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -136,7 +209,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(17, 30);
+            this.label1.Location = new System.Drawing.Point(7, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 21);
             this.label1.TabIndex = 2;
@@ -188,16 +261,6 @@
             this.cmbCantidadBultosN.Size = new System.Drawing.Size(117, 29);
             this.cmbCantidadBultosN.TabIndex = 9;
             // 
-            // label18
-            // 
-            label18.AutoSize = true;
-            label18.Location = new System.Drawing.Point(427, 31);
-            label18.Name = "label18";
-            label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            label18.Size = new System.Drawing.Size(151, 21);
-            label18.TabIndex = 8;
-            label18.Text = "Cantidad de bultos *";
-            // 
             // grpNacional
             // 
             this.grpNacional.BackColor = System.Drawing.Color.Transparent;
@@ -222,13 +285,6 @@
             this.grpNacional.TabStop = false;
             this.grpNacional.Text = "NACIONAL *";
             this.grpNacional.Visible = false;
-            // 
-            // txtPisoDeptoNacional
-            // 
-            txtPisoDeptoNacional.Location = new System.Drawing.Point(212, 279);
-            txtPisoDeptoNacional.Name = "txtPisoDeptoNacional";
-            txtPisoDeptoNacional.Size = new System.Drawing.Size(135, 29);
-            txtPisoDeptoNacional.TabIndex = 16;
             // 
             // label16
             // 
@@ -269,13 +325,6 @@
             this.label7.Size = new System.Drawing.Size(67, 21);
             this.label7.TabIndex = 13;
             this.label7.Text = "Altura * ";
-            // 
-            // txtAlturaNacional
-            // 
-            txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
-            txtAlturaNacional.Name = "txtAlturaNacional";
-            txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
-            txtAlturaNacional.TabIndex = 14;
             // 
             // cmbSucursalesDestino
             // 
@@ -352,13 +401,6 @@
             this.label3.Size = new System.Drawing.Size(74, 21);
             this.label3.TabIndex = 2;
             this.label3.Text = "Ciudad * ";
-            // 
-            // txtDirrecionNacional
-            // 
-            txtDirrecionNacional.Location = new System.Drawing.Point(163, 201);
-            txtDirrecionNacional.Name = "txtDirrecionNacional";
-            txtDirrecionNacional.Size = new System.Drawing.Size(307, 29);
-            txtDirrecionNacional.TabIndex = 1;
             // 
             // cmbCiudadDestino
             // 
@@ -452,13 +494,6 @@
             this.label19.Text = "País";
             this.label19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
-            // txtPisoDeptoI
-            // 
-            txtPisoDeptoI.Location = new System.Drawing.Point(239, 292);
-            txtPisoDeptoI.Name = "txtPisoDeptoI";
-            txtPisoDeptoI.Size = new System.Drawing.Size(135, 29);
-            txtPisoDeptoI.TabIndex = 16;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -477,13 +512,6 @@
             this.label21.TabIndex = 13;
             this.label21.Text = "Altura *";
             // 
-            // txtAlturaI
-            // 
-            txtAlturaI.Location = new System.Drawing.Point(177, 237);
-            txtAlturaI.Name = "txtAlturaI";
-            txtAlturaI.Size = new System.Drawing.Size(111, 29);
-            txtAlturaI.TabIndex = 14;
-            // 
             // label22
             // 
             this.label22.AutoSize = true;
@@ -492,13 +520,6 @@
             this.label22.Size = new System.Drawing.Size(79, 21);
             this.label22.TabIndex = 12;
             this.label22.Text = "Direcion *";
-            // 
-            // txtDireccionI
-            // 
-            txtDireccionI.Location = new System.Drawing.Point(177, 180);
-            txtDireccionI.Name = "txtDireccionI";
-            txtDireccionI.Size = new System.Drawing.Size(307, 29);
-            txtDireccionI.TabIndex = 1;
             // 
             // grpTipoRecepcion
             // 
@@ -523,20 +544,6 @@
             this.grpTipoRecepcion.TabStop = false;
             this.grpTipoRecepcion.Text = "Elija el Tipo de ORIGEN *";
             // 
-            // txtDirrecionOrigen
-            // 
-            txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
-            txtDirrecionOrigen.Name = "txtDirrecionOrigen";
-            txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
-            txtDirrecionOrigen.TabIndex = 18;
-            // 
-            // txtPisoDepartamentoRecepcion
-            // 
-            txtPisoDepartamentoRecepcion.Location = new System.Drawing.Point(209, 287);
-            txtPisoDepartamentoRecepcion.Name = "txtPisoDepartamentoRecepcion";
-            txtPisoDepartamentoRecepcion.Size = new System.Drawing.Size(132, 29);
-            txtPisoDepartamentoRecepcion.TabIndex = 17;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -554,13 +561,6 @@
             this.label9.Size = new System.Drawing.Size(86, 21);
             this.label9.TabIndex = 12;
             this.label9.Text = "Dirección *";
-            // 
-            // txtAlturaOrigen
-            // 
-            txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
-            txtAlturaOrigen.Name = "txtAlturaOrigen";
-            txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
-            txtAlturaOrigen.TabIndex = 14;
             // 
             // cmbCiudadOrigen
             // 
