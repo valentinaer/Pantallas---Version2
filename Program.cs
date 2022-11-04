@@ -6,21 +6,16 @@ namespace Version_2___Pantallas
 {
     internal static class Program
     {
+
         [STAThread]
         static void Main()
         {
+
             //Repositorio: https://github.com/valentinaer/Pantallas---Version2
-
-            Usuario U = new Usuario();
-            U.CargarUsuarios();
-
-            static void CargarElementos()
-            {
-                
-
-                CargaOrdendeServicio();
-                CargarCiudadesNacionales();
-                CargarClientes();
+           
+//                CargaOrdendeServicio();
+            //    CargarCiudadesNacionales();
+             //   CargarClientes();
                 /* Tenemos que cargar    Planillas
                 Orden de Servicio
                 Usuario Factura
@@ -30,13 +25,14 @@ namespace Version_2___Pantallas
 
                 *
                 */
-            }
+            
             ApplicationConfiguration.Initialize();
+            
             Application.Run(new AccesoAlSistema());
-
+            
             //Application.Run(new EstadoDeCuenta());
             //Application.Run(new SolicitudDeServicio());
-            
+
             static void Grabar()
             {
 

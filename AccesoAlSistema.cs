@@ -15,6 +15,7 @@ namespace grupoB_TP
         
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+           
             string mensaje;
             string CUIT;
             string DNI = txtIngresarDNI.Text;
@@ -36,23 +37,21 @@ namespace grupoB_TP
             //DNI no Autorizado (Flujo 3)
             //CUIT | DNI AUTORIZADO | Contraseña | Nombre y apellido
             // 0   | 1              | 2          | 3
+            Usuario U = new Usuario();
+            Usuario usuario = new Usuario();
+            usuario = U.BuscarDNI(int.Parse(DNI));
 
-            //Usuario usuario= BuscarCUIT(int.Parse(DNI));
-            //Usuario U = U.BuscarDNI(int.Parse(DNI));
-
-            /*if (U == null)
+            if (usuario == null)
             {
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
                     $" realizar el ingreso al sistema", "Errores");
             }
-            
             //La contraseña excede los 30 caracteres (Flujo 4)
-            else if (contraseña.Length > 30)
+            if (contraseña.Length > 30)
             {
                 MessageBox.Show("La contraseña debe tener como máximo 30 caracteres", "Errores");
             }
-            MessageBox.Show(U.Contraseña);
-            if (contraseña != U.Contraseña)
+            else if (contraseña != usuario.Contraseña)
             {
                 MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
             }
@@ -62,7 +61,7 @@ namespace grupoB_TP
                 MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
                 new MenuPrincipal().ShowDialog();
             }
-            */
+            
             
         
         }
