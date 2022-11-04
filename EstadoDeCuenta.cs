@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Version_2___Pantallas;
 
 namespace grupoB_TP
 {
@@ -18,8 +19,20 @@ namespace grupoB_TP
             InitializeComponent();
         }
 
-        private void EstadoDeCuenta_Load(object sender, EventArgs e)
+        public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
+           string CUIT = Usuario.RetornoCuit(); //La idea es traerme el CUIT de acceso al sistema para seguir trabajando acá.
+            
+
+           
+
+
+
+
+
+
+
+
             //List<int> myValues = new List<int>(new int[] { 12345678, 12435678, 11111111,75631841 });
 
             /*
@@ -63,6 +76,11 @@ namespace grupoB_TP
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void groupBox2_Enter(object sender, EventArgs e)
+        {
+            
         }
     }
 }

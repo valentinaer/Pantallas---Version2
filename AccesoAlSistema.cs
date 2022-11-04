@@ -7,32 +7,17 @@ namespace grupoB_TP
 {
     public partial class AccesoAlSistema : Form
     {
-        List<Usuario> usuarios = new List<Usuario>();
+      
         public AccesoAlSistema()
         {
             InitializeComponent();
         }
-        private void CargarUsuarios()
-        {
-            using var archivo = new StreamReader("Usuarios.txt");
-            while (!archivo.EndOfStream)
-            {
-                var proximaLinea = archivo.ReadLine();
-                string[] datosSeparados = proximaLinea.Split("|");
-
-                Usuario usuario = new Usuario();
-                usuario.CUIT = datosSeparados[0];
-                usuario.DNIAutorizados = int.Parse(datosSeparados[1]);
-                usuario.Contraseña = datosSeparados[2];
-                usuario.ApellidoNombre = datosSeparados[3];
-
-                usuarios.Add(usuario);
-            }
-            
-        }
+        
         private void btnIngresar_Click(object sender, EventArgs e)
         {
-            CargarUsuarios();
+            Usuario U = new Usuario();
+
+            U.CargarUsuarios();
             string mensaje = "";
             string CUIT = "";
             string DNI = txtIngresarDNI.Text;
@@ -57,7 +42,7 @@ namespace grupoB_TP
             // 0   | 1              | 2          | 3
 
             //Usuario usuario= BuscarCUIT(int.Parse(DNI));
-            Usuario usuario = BuscarCUIT(int.Parse(DNI));
+            Usuario usuario = U.BuscarCUIT(int.Parse(DNI));
             if (usuario == null)
             {
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
@@ -80,14 +65,13 @@ namespace grupoB_TP
                 MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
                 new MenuPrincipal().ShowDialog();
             }
+
+            
         
         }
         
 
-        private Usuario BuscarCUIT(int dni)
-        {
-            return usuarios.Find(usuario => usuario.DNIAutorizados == dni);
-        }
+
 
         private void AccesoAlSistema_FormClosing(object sender, FormClosingEventArgs e)
         {

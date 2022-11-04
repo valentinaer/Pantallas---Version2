@@ -28,6 +28,9 @@
     <None Update="ProvinciaCiudad.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="RegionesInternacionales.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Usuarios.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
