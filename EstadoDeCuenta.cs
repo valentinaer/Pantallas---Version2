@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clases_TP4;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,16 +15,17 @@ namespace grupoB_TP
 {
     public partial class EstadoDeCuenta : Form
     {
-        public EstadoDeCuenta(string CUIT)
+        public EstadoDeCuenta()
         {
             
             InitializeComponent();
-            MessageBox.Show("Estado de cuente"+ CUIT);
         }
 
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
-            //string CUIT = Usuario.RetornoCuit(); //La idea es traerme el CUIT de acceso al sistema para seguir trabajando acá.
+            string CUIT = Cliente.CuitUsuarioActual;
+            MessageBox.Show("ESTADO DE CUENTA ultimo:" + CUIT);
+            //La idea es traerme el CUIT de acceso al sistema para seguir trabajando acá.
 
             //List<int> myValues = new List<int>(new int[] { 12345678, 12435678, 11111111,75631841 });
 

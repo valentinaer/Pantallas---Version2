@@ -136,9 +136,6 @@
         private RadioButton rboSolicitarServicio;
         private RadioButton rboConsultarEstadoDeCuenta;
         private RadioButton rboConsultarEstadoDeServicio;
-        private RadioButton rboS;
-        private RadioButton radioButton2;
-        private RadioButton radioButton3;
         private Label lblMenuPrincipal;
         private GroupBox groupBox1;
         private Button btnContinuar;

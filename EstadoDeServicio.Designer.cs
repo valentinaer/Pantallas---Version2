@@ -61,7 +61,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Purple;
-            this.label1.Location = new System.Drawing.Point(17, 9);
+            this.label1.Location = new System.Drawing.Point(40, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(421, 21);
             this.label1.TabIndex = 0;
@@ -71,7 +71,7 @@
             // 
             this.lblNumeroTrackeo.AutoSize = true;
             this.lblNumeroTrackeo.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblNumeroTrackeo.Location = new System.Drawing.Point(172, 42);
+            this.lblNumeroTrackeo.Location = new System.Drawing.Point(186, 42);
             this.lblNumeroTrackeo.Name = "lblNumeroTrackeo";
             this.lblNumeroTrackeo.Size = new System.Drawing.Size(108, 21);
             this.lblNumeroTrackeo.TabIndex = 1;
@@ -79,7 +79,7 @@
             // 
             // txtTrackeo
             // 
-            this.txtTrackeo.Location = new System.Drawing.Point(158, 66);
+            this.txtTrackeo.Location = new System.Drawing.Point(164, 66);
             this.txtTrackeo.Name = "txtTrackeo";
             this.txtTrackeo.Size = new System.Drawing.Size(149, 23);
             this.txtTrackeo.TabIndex = 2;

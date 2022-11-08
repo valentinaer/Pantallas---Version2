@@ -1,3 +1,4 @@
+using Clases_TP4;
 using System.IO;
 using System.Net;
 using System.Numerics;
@@ -59,6 +60,7 @@ namespace grupoB_TP
             {
                 
                 this.Hide();
+                Cliente.CrearCUITUsuarioActual(usuario.CUIT);
                 MessageBox.Show($"Ingreso Exitoso usuario: {usuario.ApellidoNombre} " +
                     $"de la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
                 new MenuPrincipal(usuario.CUIT).ShowDialog();

@@ -1,4 +1,3 @@
-PROVINCIA|CIUDAD|REGION
 Buenos Aires|Salto|Metropolina
 Buenos Aires|Quilmes|Metropolina
 Buenos Aires|Bahia Blanca|Metropolina

@@ -17,14 +17,9 @@ namespace grupoB_TP
         public MenuPrincipal(string cuit)
         {
             InitializeComponent();
-            MessageBox.Show(cuit);
-            CUIT cuitpasaje = new CUIT(cuit);      
-
         }
         public void btnContinuar_Click(object sender, EventArgs e)
         {
-            CUIT c= new CUIT();
-            string CUITpasar= c.DevolverCUIT();
 
             if (rboSolicitarServicio.Checked)
             {
@@ -39,7 +34,7 @@ namespace grupoB_TP
             if (rboConsultarEstadoDeCuenta.Checked)
             {
                
-                new EstadoDeCuenta(CUITpasar).ShowDialog();
+                new EstadoDeCuenta().ShowDialog();
             }
         }
 
