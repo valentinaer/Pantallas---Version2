@@ -197,10 +197,10 @@
             this.cmbRangoPeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRangoPeso.FormattingEnabled = true;
             this.cmbRangoPeso.Items.AddRange(new object[] {
-            "Correspondencia  de Hasta 500 gr",
-            "Encomiendas de Hasta 10 kg",
-            "Encomiendas de Hasta 20 kg",
-            "Encomiendas de Hasta 30 kg"});
+            "Sobres hasta 500g",
+            "Bultos hasta 10 Kg",
+            "Bultos hasta 20 Kg",
+            "Bultos hasta 30 Kg"});
             this.cmbRangoPeso.Location = new System.Drawing.Point(136, 26);
             this.cmbRangoPeso.Name = "cmbRangoPeso";
             this.cmbRangoPeso.Size = new System.Drawing.Size(262, 29);
