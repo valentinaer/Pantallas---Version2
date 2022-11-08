@@ -85,9 +85,37 @@ namespace grupoB_TP
 
         private decimal calculatePrecio()
         {
-            Tarifas tarifa = new Tarifas();
-            MessageBox.Show("Origen: " + cmbRangoPeso.Text + " Destino: " + cmbCantidadBultosN.Text + " Urgente: " + chkUrgente.Checked);
-            return tarifa.BuscarTarifa(cmbRangoPeso.Text, cmbCantidadBultosN.Text, chkUrgente.Checked );;
+            // look in the class Tarifa for Tarifas object by passing cmbRangoPeso.Text, cmbCantidadBultosN.Text, chkUrgente.Checked to the method BuscarTarifa
+            Tarifas tarifas = new Tarifas();
+            Tarifas tarifa = tarifas.BuscarTarifa(cmbRangoPeso.Text, cmbCantidadBultosN.Text, chkUrgente.Checked);
+            MessageBox.Show(tarifa.Precio.ToString());
+            decimal Precio = tarifa.Precio;
+            string Region = tarifa.Region;
+
+            using var recargos = new StreamReader("Recargos.txt");
+            var recargosLine = recargos.ReadLine();
+            var recargosValues = recargosLine.Split('|');
+
+            if(Region == "Paises Limitrofes" || Region == "America Latina" || Region == "America del Norte" || Region == "Europa" || Region == "Asia")
+            {
+                    // si es urgente sumamos 20% al precio
+                    decimal precioUrgente = 0;
+                    if (chkUrgente.Checked)
+                    {
+                        precioUrgente = Precio * Convert.ToDecimal(recargosValues[0]);
+                    }
+
+                    // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
+                    if (precioUrgente > (Precio  * Convert.ToDecimal(recargosValues[0])))
+                    {
+                        precioUrgente = Convert.ToDecimal(recargosValues[1]);
+                    }
+
+                    // retiro fijo es 30 y destino fijo 40
+                    Precio = Precio + precioUrgente + Convert.ToDecimal(recargosValues[2]) + Convert.ToDecimal(recargosValues[3]);
+            }
+
+            return Precio;
         }
            
          private void btnCotizar_Click(object sender, EventArgs e)

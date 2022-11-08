@@ -66,7 +66,7 @@ namespace Version_2___Pantallas
                 {
                    
                    return personaEnLaLista;
-                }              
+                }
             }
             return null;
         }
