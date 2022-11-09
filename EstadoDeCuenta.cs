@@ -22,13 +22,11 @@ namespace grupoB_TP
             InitializeComponent();
         }
 
+        List<Factura> facturasCliente = new List<Factura>();
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
-            
-            string CUIT = Cliente.CuitUsuarioActual;
-
-            Usuario U = new Usuario();
-            Usuario usuario = new Usuario();
+            //lblFechaActual.Text = DateTime.Now;
+            string CUIT = Cliente.CuitUsuarioActual; //Este es el numero de CUIT que viene desde el Acceso al Sistema
 
             Cliente c = new Cliente();
             Cliente ClienteActual = new Cliente();
@@ -37,15 +35,19 @@ namespace grupoB_TP
             lblNombreCliente.Text = ClienteActual.RazonSocial;
             lblSaldoTotal.Text = Convert.ToString(ClienteActual.SaldoFactura);
 
+            lblCuit.Text = CUIT;
+
             //Para probar si me traia los datos correctos
             MessageBox.Show(ClienteActual.DireccionFacturacion);
             MessageBox.Show(Convert.ToString(ClienteActual.SaldoFactura));
             MessageBox.Show(ClienteActual.RazonSocial);
 
-            lblCuit.Text = CUIT;
 
             
-            
+            Factura factura = new Factura();
+            facturasCliente = factura.BuscarFacturaCliente(CUIT);
+
+
         }
 
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
@@ -75,9 +77,12 @@ namespace grupoB_TP
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
+            string CUIT = Cliente.CuitUsuarioActual;
+
             string msj = "";
             string fechaDesde = txtFechaInicio.Text;
             string fechaHasta = txtFechaFinal.Text;
+            string acumulador = "";
             DateTime fechaD;
             DateTime fechaH;
 
@@ -107,10 +112,18 @@ namespace grupoB_TP
                 }
                 else
                 {
-                    //Buscar en la lista teniendo en cuenta el CUIT, TODAS LAS FACTURAS y mostrarlas en el richTextBox.
+                    foreach(Factura factura in facturasCliente) 
+                    
+                    {
+                        if (factura.CUIT == CUIT && (factura.FechaFactura >= fechaD && factura.FechaFactura <= fechaH))
+                        {
+                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "       " + factura.NroFactura + "      " + factura.Pagado + "      " + factura.MontoFactura + System.Environment.NewLine;
+                        }
 
+                    }
 
-                    richTextBox1.Text = "Fecha de las facturas: " + System.Environment.NewLine + fechaD + System.Environment.NewLine + fechaH;
+                    richTextBox1.Text = acumulador;
+
                 }
             }
             else if (rboMostrarImpagas.Checked)
@@ -139,6 +152,7 @@ namespace grupoB_TP
             }
             else
             {
+
                 MessageBox.Show("Debe seleccionar si quiere ver todas las facturas o solo las impagas", "Errores");
             }
 
