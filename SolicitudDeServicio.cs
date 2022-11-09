@@ -439,12 +439,10 @@ namespace grupoB_TP
             var C = new CiudadadesNacionales();
             ciudadesAMostrar = C.BuscarCiudades(provincia);
             MessageBox.Show(C.ToString());
-            foreach (CiudadadesNacionales ciu in ciudadesAMostrar)
+            foreach(var d in ciudadesAMostrar)
             {
-                acumulador += ciu.Ciudad + "\n";
-                //cmbCiudadDestino.Items.Add(ciu.Ciudad);       
+                cmbCiudadDestino.Items.Add(d.Ciudad);
             }
-            MessageBox.Show(acumulador);
         }
         //Mostrar Internacional Destino
         private void cmbRegionI_SelectedIndexChanged(object sender, EventArgs e)
