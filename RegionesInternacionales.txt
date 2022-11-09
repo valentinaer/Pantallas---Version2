@@ -4,11 +4,11 @@ Francia|Europa
 Alemania|Europa
 Suiza|Europa
 Dinamarca|Europa
-Paraguay|Limitrofes
-Brasil|Limitrofes
-Bolivia|Limitrofes
-Chile|Limitrofes
-Uruguay|Limitrofes
+Paraguay|Paises Limitrofes
+Brasil|Paises Limitrofes
+Bolivia|Paises Limitrofes
+Chile|Paises Limitrofes
+Uruguay|Paises Limitrofes
 EE.UU|America del Norte
 Canada|America del Norte
 Mexico|America del Norte

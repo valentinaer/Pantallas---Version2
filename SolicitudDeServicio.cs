@@ -79,18 +79,42 @@ namespace grupoB_TP
 
         }
 
+        public string calculateRegion(string pais, string origenCiudad, string destinoCiudad, string origenProvincia, string destinoProvincia) {
+            CiudadadesNacionales region = new CiudadadesNacionales();
 
-        
-        
+            string origenRegion = region.BuscarRegion(origenCiudad).Region;
+            string destinoRegion = region.BuscarRegion(destinoCiudad).Region;
+
+            
+            if(string.IsNullOrWhiteSpace(pais)) {
+                if (origenCiudad == destinoCiudad)
+                {
+                    return "Local";
+                }
+                if (origenProvincia == destinoProvincia)
+                {
+                    return "Interior";
+                }
+                if (origenRegion ==  destinoRegion )
+                {
+                    return "Regional";
+                }
+                return "Nacional";
+            }
+            else {
+                RegionesInternacionales regionesInternacionales = new RegionesInternacionales();
+                string origenRegionInternacional = regionesInternacionales.BuscarRegion(origenCiudad).Continente;
+                return origenRegionInternacional;
+            }
+        }
 
         private decimal calculatePrecio()
         {
-            // look in the class Tarifa for Tarifas object by passing cmbRangoPeso.Text, cmbCantidadBultosN.Text, chkUrgente.Checked to the method BuscarTarifa
+            MessageBox.Show(cmbPaisI.Text + cmbCiudadOrigen.Text + cmbCiudadDestino.Text + cmbProvinciaOrigen.Text +  cmbProvinciaDestino.Text);
+            string Region = calculateRegion(cmbPaisI.Text, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
             Tarifas tarifas = new Tarifas();
-            Tarifas tarifa = tarifas.BuscarTarifa(cmbRangoPeso.Text, cmbCantidadBultosN.Text, chkUrgente.Checked);
-            MessageBox.Show(tarifa.Precio.ToString());
+            Tarifas tarifa = tarifas.BuscarTarifa(cmbRangoPeso.Text, Region, chkUrgente.Checked);
             decimal Precio = tarifa.Precio;
-            string Region = tarifa.Region;
 
             using var recargos = new StreamReader("Recargos.txt");
             var recargosLine = recargos.ReadLine();
@@ -314,8 +338,7 @@ namespace grupoB_TP
                 cotizar(origen, txtCiudadI.Text);
             }
         }
-
-            //Boton CONFIRMACION
+         //Boton CONFIRMACION
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             var usuario = new Usuario();
@@ -367,8 +390,6 @@ namespace grupoB_TP
             Random r = new Random();
             return r.Next(0001, 9999);
         }
-
-
 
         //BOTON MODIFICAR
         private void btnModificar_Click(object sender, EventArgs e)

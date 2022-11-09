@@ -2,7 +2,6 @@
 {
     internal class Tarifas
     {
-
         public string Peso { get; set; }
         public string Region { get; set; }
         public decimal Precio { get; set; }
@@ -37,24 +36,20 @@
             }
         }
 
-
         public Tarifas BuscarTarifa(string peso, string region, bool urgente )
         {
-            string regionPrueba = "Local";
             CargasTarifas(urgente);
             Tarifas tarifaPrecio = new Tarifas();
             using var archivo = new StreamReader("Tarifas.txt");
             var encabezado = archivo.ReadLine();
             var regiones = encabezado.Split('|');
-            MessageBox.Show("Peso: " + peso + "Region: " + region + "Urgente: " + urgente);
             
             for (int i = 0; i < ListaTarifa.Count; i++)
             {
                 for (int j = 0; j < regiones.Length; j++)
                 {
-                    if (regiones[j] == regionPrueba)
+                    if (regiones[j] == region)
                     {
-                        MessageBox.Show("La tarifa es: " + regiones[j]);
                         if (ListaTarifa[i].Peso == peso)
                         {
                             tarifaPrecio = ListaTarifa[i];

@@ -12,26 +12,32 @@ namespace Version_2___Pantallas
         public string Provincia { get; set; }
         public string Region { get; set; }
 
-        static List<CiudadadesNacionales> CiudadesNacionales = new List<CiudadadesNacionales>();
-        public static void CargarCiudadesNacionales()
+        List<CiudadadesNacionales> ListaCiudadesNacionales = new List<CiudadadesNacionales>();
+        public void CargarCiudadesNacionales()
         {
             using var archivoCiudadesNacionales = new StreamReader("./CiudadesNacionales.txt");
 
             while (!archivoCiudadesNacionales.EndOfStream)
             {
                 var proximoLinea = archivoCiudadesNacionales.ReadLine();
-                string[] datosSeparados = proximoLinea.Split("|");
+                string[] datosSeparados = proximoLinea.Split("|");               
 
-                var ciudadNacional = new CiudadadesNacionales();
-                ciudadNacional.Ciudad = datosSeparados[0];
-
-                ciudadNacional.Provincia = datosSeparados[1];
-
-                ciudadNacional.Region = datosSeparados[2];
-
-                CiudadesNacionales.Add(ciudadNacional);
+                ListaCiudadesNacionales.Add(new CiudadadesNacionales { Ciudad = datosSeparados[1], Provincia = datosSeparados[0], Region = datosSeparados[2] });
             }
-            MessageBox.Show("El archivo Ciudades se cargo correctamente");
+        }
+
+        public CiudadadesNacionales BuscarRegion(string ciudad)
+        {
+            CargarCiudadesNacionales();
+            CiudadadesNacionales region = new CiudadadesNacionales();
+            for (int i = 0; i < ListaCiudadesNacionales.Count; i++)
+            {
+                if (ListaCiudadesNacionales[i].Ciudad == ciudad)
+                {
+                    region = ListaCiudadesNacionales[i];
+                }
+            }
+            return region;
         }
     }
 }
