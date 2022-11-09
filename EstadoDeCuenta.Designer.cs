@@ -42,6 +42,7 @@
             this.lblCuit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnMostrar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtFechaFinal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -49,7 +50,6 @@
             this.rboMostrarImpagas = new System.Windows.Forms.RadioButton();
             this.rboMostrarTodas = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnMostrar = new System.Windows.Forms.Button();
             this.grpEstadoDeCuenta.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -196,6 +196,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Elija un rango de fechas para conocer el detalle del saldo";
             // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Location = new System.Drawing.Point(354, 115);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(96, 34);
+            this.btnMostrar.TabIndex = 22;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -267,16 +277,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Estado de Cuenta";
             this.groupBox2.Enter += new System.EventHandler(this.groupBox2_Enter);
-            // 
-            // btnMostrar
-            // 
-            this.btnMostrar.Location = new System.Drawing.Point(354, 115);
-            this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(96, 34);
-            this.btnMostrar.TabIndex = 22;
-            this.btnMostrar.Text = "Mostrar";
-            this.btnMostrar.UseVisualStyleBackColor = true;
-            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // EstadoDeCuenta
             // 

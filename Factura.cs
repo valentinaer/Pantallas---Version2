@@ -17,7 +17,7 @@ namespace Clases_TP4
         List<Factura> ListaFacturas = new List<Factura>();
     public void CargarFacturas()
     {
-        using var archivo = new StreamReader("Facturas.txt");
+        using var archivo = new StreamReader("Factura.txt");
         while (!archivo.EndOfStream)
         {
             var proximaLinea = archivo.ReadLine();
@@ -25,8 +25,8 @@ namespace Clases_TP4
 
             Factura factura = new Factura();
             factura.NroFactura = int.Parse(datosSeparados[0]);
-            factura.CUIT = datosSeparados[1];
-            factura.FechaFactura = DateTime.Parse(datosSeparados[2]);
+            factura.FechaFactura = DateTime.Parse(datosSeparados[1]);
+            factura.CUIT = datosSeparados[2];
             factura.Pagado = bool.Parse(datosSeparados[3]);
             factura.MontoFactura = int.Parse(datosSeparados[4]);
 
@@ -34,8 +34,14 @@ namespace Clases_TP4
         }
 
     }
+        public List<Factura> BuscarFacturaCliente(string cuit)
+        {
+            CargarFacturas();
 
- }
+            return ListaFacturas.FindAll(f => f.CUIT == cuit);
+        }
+
+    }
 
 }
 

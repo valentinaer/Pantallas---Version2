@@ -38,8 +38,10 @@ namespace grupoB_TP
             //DNI no Autorizado (Flujo 3)
             //CUIT | DNI AUTORIZADO | Contraseña | Nombre y apellido
             // 0   | 1              | 2          | 3
+
             Usuario U = new Usuario();
             Usuario usuario = new Usuario();
+
             usuario = U.BuscarDNI(int.Parse(DNI));
             
             if (usuario == null)

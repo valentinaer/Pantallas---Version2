@@ -48,6 +48,15 @@ namespace Clases_TP4
             
         }
 
+        /*BuscarFacturasClientes (string cuit)
+        
+            Factura.CargarFacturas()
+
+
+        */
+
+        //BuscarFacturasImpagas (string cuit)
+
         public static void CrearCUITUsuarioActual(string cuit)
         {
             CuitUsuarioActual = cuit;
