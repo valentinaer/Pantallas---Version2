@@ -6,6 +6,7 @@ using System.Data;
 using System.Diagnostics.CodeAnalysis;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -23,48 +24,28 @@ namespace grupoB_TP
 
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
-            string CUIT = Cliente.CuitUsuarioActual;
-            MessageBox.Show("ESTADO DE CUENTA ultimo:" + CUIT);
-            //La idea es traerme el CUIT de acceso al sistema para seguir trabajando acá.
-
-            //List<int> myValues = new List<int>(new int[] { 12345678, 12435678, 11111111,75631841 });
-
-            /*
-            //CUIT (RANDOM)
-            int[] x = { 12345678, 87654321, 11122223, 45286101 };
-            //string result = Convert.ToString(x[(new Random()).Next(4)]);
-            string cuit = "30-" + Validador.DNI + "-9";
-            string [] cliente = {};
             
-            string[] lines = File.ReadAllLines("./Factura.txt");
-            int i;
-            for (i = 0; i < lines.Length; i++)
-            {
-                string[] data = lines[i].Split(',');
-                if (cuit == data[0])
-                {
-                    cliente = data;
-                }
-            }
+            string CUIT = Cliente.CuitUsuarioActual;
 
-            //SALDOS POSITIVOS O NEGATIVOS RANDOM
-            string[] y = { "-$750", "$250", "$-102", "$123" };
-            string saldo = y[(new Random()).Next(4)];
+            Usuario U = new Usuario();
+            Usuario usuario = new Usuario();
 
-            //NOMBRES LISTA
-            string[] z = { "Copito S.A.", "EcoLogic S.R.L." };
-            string nombre = z[(new Random()).Next(2)];
+            Cliente c = new Cliente();
+            Cliente ClienteActual = new Cliente();
 
-            /*
-            lblNombreCliente.Text = nombre;
-            lblCuit.Text = cuit;
-            lblFecha.Text = "14/10/2022";
-            lblNroFactura.Text = "16-0461";
-            lblEstado.Text = "Pago";
-            lblTotalFactura.Text = "$875,99";
-            lblSaldoTotal.Text = saldo;
-            lblFechaActual.Text = Convert.ToString(DateTime.Now);
-            */
+            ClienteActual = c.BuscarCliente(CUIT);
+            lblNombreCliente.Text = ClienteActual.RazonSocial;
+            lblSaldoTotal.Text = Convert.ToString(ClienteActual.SaldoFactura);
+
+            //Para probar si me traia los datos correctos
+            MessageBox.Show(ClienteActual.DireccionFacturacion);
+            MessageBox.Show(Convert.ToString(ClienteActual.SaldoFactura));
+            MessageBox.Show(ClienteActual.RazonSocial);
+
+            lblCuit.Text = CUIT;
+
+            
+            
         }
 
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
