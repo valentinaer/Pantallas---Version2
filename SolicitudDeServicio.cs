@@ -50,6 +50,7 @@ namespace grupoB_TP
                 grpInternacional.Visible = true;
                 grpNacional.Visible = false;
 
+                //Carga de paises al combobox.//
                 CargarPaisesComboBox();
                
 
@@ -364,7 +365,7 @@ namespace grupoB_TP
                     MessageBox.Show(mensaje, "Errores");
                     return;
                 }
-                cotizar(origen, txtCiudadI.Text);
+                cotizar(origen, cmbCiudadesI.Text);
             }
         }
         //Boton CONFIRMACION
@@ -459,15 +460,34 @@ namespace grupoB_TP
                 cmbCiudadDestino.Items.Add(c.Ciudad);
             }
         }
-     
 
+        List<CiudadesInternacionales> ciudadesInternacionalesAMostrar = new List<CiudadesInternacionales>();
+      
         //Mostrar Internacional Destino
         private void cmbPaisI_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmbCiudadesI.Items.Clear();
+            string pais = cmbPaisI.Text;
 
-            
-            //
+            var CiudadesDePaises = new CiudadesInternacionales();
+            ciudadesInternacionalesAMostrar = CiudadesDePaises.BuscarCiudades(pais);
 
+            foreach (var c in ciudadesInternacionalesAMostrar)
+            {
+                cmbCiudadesI.Items.Add(c.Ciudad);
+            }
+
+          
+
+        }
+
+        private void cmbCiudadesI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SolicitudDeServicio_Load(object sender, EventArgs e)
+        {
 
         }
     }
