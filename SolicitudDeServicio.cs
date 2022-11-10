@@ -31,7 +31,7 @@ namespace grupoB_TP
                 cmbPaisI.Items.Add(p);
 
             }
-
+            
 
         }
 
@@ -105,7 +105,7 @@ namespace grupoB_TP
         public string calculateRegion(string pais, string origenCiudad, string destinoCiudad, string origenProvincia, string destinoProvincia)
         {
             CiudadadesNacionales region = new CiudadadesNacionales();
-
+            
             string origenRegion = region.BuscarRegion(origenCiudad).Region;
             string destinoRegion = region.BuscarRegion(destinoCiudad).Region;
             
@@ -476,7 +476,7 @@ namespace grupoB_TP
             {
                 cmbCiudadesI.Items.Add(c.Ciudad);
             }
-
+            
           
 
         }
@@ -493,7 +493,12 @@ namespace grupoB_TP
 
         private void cmbSucursalOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+           grupoB_TP.Sucursales sucursales = new grupoB_TP.Sucursales();
+           List<Sucursales> listS = sucursales.PedirLista();
+           
+           MessageBox.Show(listS.First());
+            
+            
         }
 
         private void cmbSucursalesDestino_SelectedIndexChanged(object sender, EventArgs e)

@@ -36,8 +36,8 @@ namespace Version_2___Pantallas
 
             //Application.Run(new EstadoDeCuenta());
 
-            //Application.Run(new SolicitudDeServicio());
-            Application.Run(new EstadoDeServicio());
+            Application.Run(new SolicitudDeServicio());
+            //Application.Run(new EstadoDeServicio());
 
             //Application.Run(new SolicitudDeServicio());
 

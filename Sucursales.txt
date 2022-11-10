@@ -1,0 +1,96 @@
+1|Salto|Buenos Aires|Salto|Metropolitana|Sarmiento 86
+2|Quilmes|Buenos Aires|Quilmes|Metropolitana|Av. 12 de Octubre 2498
+3|Bahía Blanca|Buenos Aires|Bahía Blanca|Metropolitana|Moreno 34
+4|Mar del Plata|Buenos Aires|Mar del Plata|Metropolitana|Pedro Luro 2460
+5|Belgrano|CABA|Belgrano|Metropolitana|Cabildo 2349
+6|Palermo|CABA|Palermo|Metropolitana|Av. Córdoba 4461
+7|Saavedra|CABA|Saavedra|Metropolitana|Plaza 3855
+8|Barracas|CABA|Barracas|Metropolitana|Brandsen 2070
+9|San Fernando del Valle de Catamarca|Catamarca|San Fernando del Valle de Catamarca|Norte|San Martín 761
+10|Tinogasta|Catamarca|Tinogasta|Norte|Dr Mariano Moreno 785
+11|Antofagasta|Catamarca|Antofagasta|Norte|Antofagasta de la Sierra K4705
+12|Belén|Catamarca|Belén|Norte|Belén K4750
+13|Resistencia|Chaco|Resistencia|Norte|Av. Sarmiento 102
+14|Presidencia Roque Sáenz Peña|Chaco|Presidencia Roque Sáenz Peña|Norte|Calle Doctor Manuel Belgrano 601
+15|Barranqueras|Chaco|Barranqueras|Norte|Diagonal Eva Perón 340
+16|Chacabuco|Chaco|Chacabuco|Norte|Alberdi 57
+17|Corrientes|Corrientes|Corrientes|Norte|San Juan 1098
+18|Goya|Corrientes|Goya|Norte|Belgrano 942
+19|Bermejo|Corrientes|Bermejo|Norte|Mathus Hoyos 3600
+20|General Belgrano|Corrientes|General Belgrano|Norte|Av. Pedro Ferré 1886
+21|Formosa|Formosa|Formosa|Norte|Av 9 de julio 920
+22|Clorinda|Formosa|Clorinda|Norte|José F. Cancio 1401
+23|Las Lomitas|Formosa|Las Lomitas|Norte|Av. San Martin 118
+24|General Mosconi|Formosa|General Mosconi|Norte|20 de Febrero A4562
+25|San Salvador de Jujuy|Jujuy|San Salvador de Jujuy|Norte|General Belgrano 1136
+26|Humahuaca|Jujuy|Humahuaca|Norte|Buenos Aires 199
+27|Abra Pampa|Jujuy|Abra Pampa|Norte|Sarmiento 490
+28|Tilcara|Jujuy|Tilcara|Norte|Rivadavia 497
+29|La Rioja|La Rioja|La Rioja|Norte|Av Pte J D Perón 258
+30|Chilecito|La Rioja|Chilecito|Norte|Joaquín V. González 201
+31|Famatina|La Rioja|Famatina|Norte|Calle 9 de Abril 195
+32|Arauco|La Rioja|Arauco|Norte|Paraná 777
+33|Tucumán|Tucumán|Tucumán|Norte|Pcia de Córdoba 540
+34|Tafí del Valle|Tucumán|Tafí del Valle|Norte|Pasaje El Milagro 20
+35|San Pedro de Colalao|Tucumán|San Pedro de Colalao|Norte|Congreso 1
+36|Quilmes|Tucumán|Quilmes|Norte|Almirante Brown 780
+37|Santiago del Estero|Santiago del Estero|Santiago del Estero|Norte|Buenos Aires 252
+38|Termas de Río Hondo|Santiago del Estero|Termas de Río Hondo|Norte|Av, Juan Bautista Alberdi 766
+39|Añatuya|Santiago del Estero|Añatuya|Norte|Dr. Stemberg 85
+40|La Banda|Santiago del Estero|La Banda|Norte|Hipólito Yrigoyen Sur 555
+41|Salta|Salta|Salta|Norte|Deán Funes 160
+42|Tartagal|Salta|Tartagal|Norte|Gral Martin M Guemes 501
+43|Iruya|Salta|Iruya|Norte|Gral San Martín 4633
+44|Cafayate|Salta|Cafayate|Norte|Gral. Güemes Sur 197
+45|Posadas|Misiones|Posadas|Norte|Simon Bolivar 2112
+46|Eldorado|Misiones|Eldorado|Norte|Malvinas 1620
+47|Iberá|Misiones|Iberá|Norte|Medrano 66
+48|Iguazú|Misiones|Iguazú|Norte|Av. Victoria Aguirre 187
+49|Córdoba|Córdoba|Córdoba|Centro|Av. Colón 2547
+50|Cosquín|Córdoba|Cosquín|Centro|Tucumán 1069
+51|Villa María|Córdoba|Villa María|Centro|Catamarca 1190
+52|Río Cuarto|Córdoba|Río Cuarto|Centro|Amadeo Sabattini 1982
+53|Colón|Entre Ríos|Colón|Centro|Calle 12 de abril 431
+54|Concordia|Entre Ríos|Concordia|Centro|Carlos Pellegrini 648
+55|Gualeguaychú|Entre Ríos|Gualeguaychú|Centro|Urquiza 1036
+56|Paraná|Entre Ríos|Paraná|Centro|San Juan 1349
+67|Mendoza|Mendoza|Mendoza|Centro|Gral Gregorio Paz 501
+58|San Rafael|Mendoza|San Rafael|Centro|San Lorenzo 69
+59|Malargüe|Mendoza|Malargüe|Centro|Adolfo Puebla 203
+60|Guaymallén|Mendoza|Guaymallén|Centro|Av. Bandera de los Andes 4190
+61|San Juan|San Juan|San Juan|Centro|Av. José Ignacio de la Roza Este 223
+62|Santa Lucía|San Juan|Santa Lucía|Centro|Gorriti Sur 709
+63|Villa Santa Rosa|San Juan|Villa Santa Rosa|Centro|Av España 446
+64|Villa Barboza|San Juan|Villa Barboza|Centro|Cnel Juan Terrada 4675
+65|San Luis|San Luis|San Luis|Centro|Av. Illia 830
+66|Villa Mercedes|San Luis|Villa Mercedes|Centro|Leon Guillet 31
+67|Unión|San Luis|Unión|Centro|Av Antônio Dassa 340
+68|Merlo|San Luis|Merlo|Centro|Coronel Mercau 579
+69|Rosario|Santa Fé|Rosario|Centro|Rioja 1702
+70|Venado Tuerto|Santa Fé|Venado Tuerto|Centro|Saavedra 497
+71|Santa Fe|Santa Fé|Santa Fe|Centro|General Gregorio de Lamadrid 7699
+72|Rafaela|Santa Fé|Rafaela|Centro|Dr Mariano Moreno 104
+73|Rawson|Chubut|Rawson|Sur|Bernardo Vachina 22
+74|Puerto Madryn |Chubut|Puerto Madryn |Sur|Gobernador Alejandro Maíz 293
+75|Trelew|Chubut|Trelew|Sur|Mitre 315
+76|Comodoro Rivadavia|Chubut|Comodoro Rivadavia|Sur|Av. Alejandro Maíz 801
+77|Santa Rosa|La Pampa|Santa Rosa|Sur|Rivadavia 202
+78|General Pico|La Pampa|General Pico|Sur|C. 22 653
+79|General Acha|La Pampa|General Acha|Sur|Manuel Jorge Campos 790
+80|Victorica|La Pampa|Victorica|Sur|C. 17 996
+81|Neuquén|Neuquén|Neuquén|Sur|N2625
+82|San Martín de los Andes|Neuquén|San Martín de los Andes|Sur|Pte Gral Julio A. Roca 690
+83|Zapala|Neuquén|Zapala|Sur|Chaneton 40
+84|Rincón de los Sauces|Neuquén|Rincón de los Sauces|Sur|Gral. Enrique Mosconi 168
+85|Viedma|Río Nego|Viedma|Sur|Rivadavia 151
+86|Cipolletti|Río Nego|Cipolletti|Sur|Teniente 1Ro Ibañez 5
+87|San Carlos de Bariloche|Río Nego|San Carlos de Bariloche|Sur|Francisco Pascasio Moreno 175
+88|El Bolsón|Río Nego|El Bolsón|Sur|Onelli 230
+89|Río Gallegos|Santa Cruz|Río Gallegos|Sur|Av. Pres. Dr. Nestor C. Kirchner 893
+90|Calafate|Santa Cruz|Calafate|Sur|Av Del Libertador General San Martin 1133
+91|Caleta Olivia|Santa Cruz|Caleta Olivia|Sur|Pasaje 20 de Junio 830
+92|El Chaltén|Santa Cruz|El Chaltén|Sur|Andreas Madsen 22
+93|Ushuaia|Tierra del Fuego|Ushuaia|Sur|Gobernador Deloqui 67
+94|Rio Grande|Tierra del Fuego|Rio Grande|Sur|Carlos Moyano 25
+95|Tolhuin|Tierra del Fuego|Tolhuin|Sur|Santiago Rupatini 360
+96|Laguna Escondida|Tierra del Fuego|Laguna Escondida|Sur|Av General San Martín 309

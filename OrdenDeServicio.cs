@@ -129,9 +129,9 @@ namespace grupoB_TP
         {
             if (listaOrdenesDeServicio.Count == 0)
             {
-                
+                CargarOrdenesDeServicio();
             }
-            CargarOrdenesDeServicio();
+            
             
             OrdenDeServicio Os = new OrdenDeServicio();
             foreach(var ordenDeServicio in listaOrdenesDeServicio)
