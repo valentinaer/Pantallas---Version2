@@ -21,7 +21,7 @@ namespace grupoB_TP
             string mensaje = "";
             grpDatosEstadoDeServicio.Visible = true;
 
-            int[] numerosdeTrackeo = { 123, 456, 789};
+            //int[] numerosdeTrackeo = { 123, 456, 789};
 
             string numeroTrack = txtTrackeo.Text;
 
@@ -36,21 +36,29 @@ namespace grupoB_TP
             
             else
             {
-                string estado = Utilidades.Buscar(0, 19, numeroTrack, "./OrdenDeServicio.txt");
-                string cuit = Utilidades.Buscar(0, 2, numeroTrack, "./OrdenDeServicio.txt");
-                string calleorigen = Utilidades.Buscar(0, 7, numeroTrack, "./OrdenDeServicio.txt");
-                string alturaorigen = Utilidades.Buscar(0, 8, numeroTrack, "./OrdenDeServicio.txt");
-                string calledestino = Utilidades.Buscar(0, 13, numeroTrack, "./OrdenDeServicio.txt");
-                string alturadestino = Utilidades.Buscar(0, 14, numeroTrack, "./OrdenDeServicio.txt");
-                string urgente = Utilidades.Buscar(0, 18, numeroTrack, "./OrdenDeServicio.txt");
-                Console.WriteLine(estado);
-                lblCuitI.Text = cuit;
-                lblUrgente.Text = urgente;
-                lblDestino.Text= calleorigen + " " + alturaorigen;
-                lblOrigen.Text = calledestino + " " + alturadestino;
-                lblCotizacion.Text = estado;
+                OrdenDeServicio Os = new OrdenDeServicio();
+                OrdenDeServicio orden = new OrdenDeServicio();
+                MessageBox.Show(numeroTrack, "ingreso");
+                orden = Os.BuscarNumeroTrack(int.Parse(numeroTrack));
 
-                if(estado != "")
+                MessageBox.Show(orden.numeroTrackeo.ToString(), "Errores");
+
+                lblCuitI.Text = orden.CUIT;
+                lblUrgente.Text = orden.urgente;
+                lblCotizacion.Text = orden.estado;
+                if(orden.tipoDeEnvio == "NACIONAL"){
+                    lblDestino.Text= orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " +  orden.provinciaDestino + ", " +  orden.paisDestino;
+                    lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " +  orden.ciudadOrigen + ", " +  orden.provinciaDestino + ", " +  orden.paisOrigen;
+                }else
+                {
+                    //pais, ciudad
+                    lblDestino.Text= orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " +  orden.paisDestino;
+                    lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " +  orden.ciudadOrigen + ", " +  orden.paisOrigen;
+                }
+               
+                
+
+                if(orden.estado != "")
                 {
                     
                 }

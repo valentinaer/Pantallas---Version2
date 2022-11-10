@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases_TP4
+namespace grupoB_TP
 {
     internal class OrdenDeServicio
     {
@@ -84,7 +84,7 @@ namespace Clases_TP4
 
         List<OrdenDeServicio> listaOrdenesDeServicio = new List<OrdenDeServicio>();
 
-        public void CargarOrdenesDeServicio()
+        private void CargarOrdenesDeServicio()
         {
             //Archivo
             //N°Trackeo|Fecha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAÍS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|
@@ -129,15 +129,16 @@ namespace Clases_TP4
         {
             if (listaOrdenesDeServicio.Count == 0)
             {
-                CargarOrdenesDeServicio();
+                
             }
+            CargarOrdenesDeServicio();
             
             OrdenDeServicio Os = new OrdenDeServicio();
             foreach(var ordenDeServicio in listaOrdenesDeServicio)
             {
                 if (ordenDeServicio.numeroTrackeo == trackid)
                 {
-                    return Os;
+                    return ordenDeServicio;
                 }
             }
             return null;
