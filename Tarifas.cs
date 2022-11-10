@@ -5,12 +5,11 @@
         public string Peso { get; set; }
         public string Region { get; set; }
         public decimal Precio { get; set; }
-        public bool Urgente { get; set; }
         public bool costoFijo { get; set; }
 
 
         List<Tarifas> ListaTarifa = new List<Tarifas>();
-        public void CargasTarifas(bool urgente)
+        public void CargasTarifas()
         {
             using var recargos = new StreamReader("Recargos.txt");
             var recargosLine = recargos.ReadLine();
@@ -36,29 +35,35 @@
             }
         }
 
-        public Tarifas BuscarTarifa(string peso, string region, bool urgente )
+        public string BuscarTarifa(string peso, string region)
         {
-            CargasTarifas(urgente);
-            Tarifas tarifaPrecio = new Tarifas();
+            CargasTarifas();
+            string tarifaPrecio = "";
             using var archivo = new StreamReader("Tarifas.txt");
             var encabezado = archivo.ReadLine();
             var regiones = encabezado.Split('|');
-            
+            int regionIndex = 0;
+
+            for (int j = 0; j < regiones.Length; j++)
+            {
+                if (regiones[j].ToLower() == region.ToLower())
+                {
+                    regionIndex = j;
+                }
+            }
+
+            List<string> ListaTarifasIndividuales = new List<string>();
             for (int i = 0; i < ListaTarifa.Count; i++)
             {
-                for (int j = 0; j < regiones.Length; j++)
+
+                if (ListaTarifa[i].Peso.ToLower() == peso.ToLower())
                 {
-                    if (regiones[j] == region)
-                    {
-                        if (ListaTarifa[i].Peso == peso)
-                        {
-                            tarifaPrecio = ListaTarifa[i];
-                        }
-                    }
+                    tarifaPrecio = Convert.ToString(ListaTarifa[i].Precio);
+                    ListaTarifasIndividuales.Add(tarifaPrecio);
                 }
-                
+
             }
-            return tarifaPrecio;
+            return ListaTarifasIndividuales[regionIndex];
 
         }
     }

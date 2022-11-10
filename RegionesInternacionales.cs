@@ -27,18 +27,18 @@ namespace Version_2___Pantallas
             MessageBox.Show("El archivo RegionesInternacionales se cargo correctamente");
         }
 
-        public RegionesInternacionales BuscarRegion(string pais)
+        public string BuscarRegion(string pais)
         {
             CargarRegionesInternacionales();
             RegionesInternacionales region = new RegionesInternacionales();
             for (int i = 0; i < RegionInternacionales.Count; i++)
             {
-                if (RegionInternacionales[i].Pais == pais)
+                if (RegionInternacionales[i].Pais.ToLower() == pais.ToLower())
                 {
                     region = RegionInternacionales[i];
                 }
             }
-            return region;
+            return region.Continente;
         }
     }
 }

@@ -35,7 +35,6 @@ namespace grupoB_TP
             }
         }
 
-
         public void cotizar(string origen, string destino)
         {
             // -------------- Escondemos elementos -----------------//
@@ -75,7 +74,7 @@ namespace grupoB_TP
             lblOrigen.Text = origen;
             lblDestino.Text = destino;
             lblUrgente.Text = chkUrgente.Checked ? "Si" : "No";
-            lblCuitI.Text = "Cliente.CuitUsuarioActual";
+            lblCuitI.Text = "CUIT";
 
         }
 
@@ -84,11 +83,10 @@ namespace grupoB_TP
             CiudadadesNacionales region = new CiudadadesNacionales();
 
             string origenRegion = region.BuscarRegion(origenCiudad).Region;
-            MessageBox.Show(origenRegion);
             string destinoRegion = region.BuscarRegion(destinoCiudad).Region;
-            MessageBox.Show(destinoRegion);
+            
 
-            if (string.IsNullOrWhiteSpace(pais))
+            if (pais == "Nacional")
             {
                 if (origenCiudad == destinoCiudad)
                 {
@@ -107,7 +105,8 @@ namespace grupoB_TP
             else
             {
                 RegionesInternacionales regionesInternacionales = new RegionesInternacionales();
-                string origenRegionInternacional = regionesInternacionales.BuscarRegion(origenCiudad).Continente;
+                string origenRegionInternacional = regionesInternacionales.BuscarRegion(origenCiudad);
+                MessageBox.Show(origenRegionInternacional);
                 return origenRegionInternacional;
             }
         }
@@ -115,10 +114,13 @@ namespace grupoB_TP
         private decimal calculatePrecio()
         {
             MessageBox.Show(cmbPaisI.Text + cmbCiudadOrigen.Text + cmbCiudadDestino.Text + cmbProvinciaOrigen.Text + cmbProvinciaDestino.Text);
-            string Region = calculateRegion(cmbPaisI.Text, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
+            string pais = cmbPaisI.Text == "" ? "Nacional" : cmbPaisI.Text;
+            string Region = calculateRegion(pais, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
+            
             Tarifas tarifas = new Tarifas();
-            Tarifas tarifa = tarifas.BuscarTarifa(cmbRangoPeso.Text, Region, chkUrgente.Checked);
-            decimal Precio = tarifa.Precio;
+            decimal tarifa = Convert.ToDecimal(tarifas.BuscarTarifa(cmbRangoPeso.Text, Region));
+            
+            decimal Precio = tarifa;
 
             using var recargos = new StreamReader("Recargos.txt");
             var recargosLine = recargos.ReadLine();
@@ -126,6 +128,9 @@ namespace grupoB_TP
 
             if (Region == "Paises Limitrofes" || Region == "America Latina" || Region == "America del Norte" || Region == "Europa" || Region == "Asia")
             {
+                MessageBox.Show(Region);
+                string RegionCABA = "C.A.B.A";
+                decimal hastaBsAs = Convert.ToDecimal(tarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
                 // si es urgente sumamos 20% al precio
                 decimal precioUrgente = 0;
                 if (chkUrgente.Checked)
@@ -140,7 +145,7 @@ namespace grupoB_TP
                 }
 
                 // retiro fijo es 30 y destino fijo 40
-                Precio = Precio + precioUrgente + Convert.ToDecimal(recargosValues[2]) + Convert.ToDecimal(recargosValues[3]);
+                Precio = Precio + precioUrgente + Convert.ToDecimal(recargosValues[2]) + Convert.ToDecimal(recargosValues[3]) + hastaBsAs;
             }
 
             return Precio;
