@@ -23,6 +23,7 @@ namespace grupoB_TP
         }
 
         List<Factura> facturasCliente = new List<Factura>();
+        List<Factura> facturasImpagas = new List<Factura>();
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
             //lblFechaActual.Text = DateTime.Now;
@@ -46,6 +47,10 @@ namespace grupoB_TP
             
             Factura factura = new Factura();
             facturasCliente = factura.BuscarFacturaCliente(CUIT);
+
+            
+
+         
 
 
         }
@@ -117,7 +122,7 @@ namespace grupoB_TP
                     {
                         if (factura.CUIT == CUIT && (factura.FechaFactura >= fechaD && factura.FechaFactura <= fechaH))
                         {
-                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "       " + factura.NroFactura + "      " + factura.Pagado + "      " + factura.MontoFactura + System.Environment.NewLine;
+                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "     " + factura.NroFactura + "     " + factura.Pagado + "      " + factura.MontoFactura + System.Environment.NewLine;
                         }
 
                     }
@@ -143,8 +148,7 @@ namespace grupoB_TP
                 }
                 else
                 {
-                    //Buscar en la lista con el CUIT, todas las facturas IMPAGAS y mostrarlas en el richtextbox
-
+                    
 
                     richTextBox1.Text = "Fecha de las facturas impagas: " + System.Environment.NewLine + fechaD + System.Environment.NewLine + fechaH;
                 }

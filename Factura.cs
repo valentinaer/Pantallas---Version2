@@ -11,7 +11,7 @@ namespace Clases_TP4
         public int NroFactura { get; set; }
         public string CUIT { get; set; }
         public DateTime FechaFactura { get; set; }
-        public bool Pagado { get; set; }
+        public string Pagado { get; set; }
         public int MontoFactura { get; set; }
 
         List<Factura> ListaFacturas = new List<Factura>();
@@ -27,7 +27,7 @@ namespace Clases_TP4
             factura.NroFactura = int.Parse(datosSeparados[0]);
             factura.FechaFactura = DateTime.Parse(datosSeparados[1]);
             factura.CUIT = datosSeparados[2];
-            factura.Pagado = bool.Parse(datosSeparados[3]);
+            factura.Pagado = datosSeparados[3];
             factura.MontoFactura = int.Parse(datosSeparados[4]);
 
             ListaFacturas.Add(factura);
@@ -41,6 +41,12 @@ namespace Clases_TP4
             return ListaFacturas.FindAll(f => f.CUIT == cuit);
         }
 
+        public List<Factura> BuscarFacturasImpagas(string cuit)
+        {
+            CargarFacturas();
+
+            return ListaFacturas.FindAll(f => f.CUIT == cuit && f.Pagado == "NO PAGADO");
+        }
     }
 
 }
