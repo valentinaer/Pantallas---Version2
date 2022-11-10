@@ -490,5 +490,15 @@ namespace grupoB_TP
         {
 
         }
+
+        private void cmbSucursalOrigen_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbSucursalesDestino_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
