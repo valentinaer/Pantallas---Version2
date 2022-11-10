@@ -1,4 +1,4 @@
-|Local|Provincial|Regional|Nacional|Paises Limitrofes|America Latina|America del Norte|Europa|Asia
+                  |Local|Provincial|Regional|Nacional|Paises Limitrofes|America Latina|America del Norte|Europa|Asia
 Sobres hasta 500g|35000|55000|75000|95000|162000|290000|540000|820000|1200000
 Bultos hasta 10 Kg|350000|550000|750000|950000|1620000|2900000|5400000|8200000|12000000
 Bultos hasta 20 Kg|420000|660000|900000|1140000|1944000|3480000|6480000|9840000|14400000
