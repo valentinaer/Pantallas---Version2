@@ -47,6 +47,7 @@ namespace Clases_TP4
 
             return ListaFacturas.FindAll(f => f.CUIT == cuit && f.Pagado == "NO PAGADO");
         }
+
     }
 
 }

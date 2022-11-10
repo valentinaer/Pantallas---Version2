@@ -24,7 +24,7 @@ namespace Version_2___Pantallas
 
                 RegionInternacionales.Add(regionInternacional);
             }
-            MessageBox.Show("El archivo RegionesInternacionales se cargo correctamente");
+           // MessageBox.Show("El archivo RegionesInternacionales se cargo correctamente");
         }
 
         public string BuscarRegion(string pais)
@@ -39,6 +39,24 @@ namespace Version_2___Pantallas
                 }
             }
             return region.Continente;
+
         }
+
+        List<string> ListaPaises = new List<string>();
+
+        public List<string> SoloPaises()
+        {
+            CargarRegionesInternacionales();
+
+            foreach(RegionesInternacionales p in RegionInternacionales)
+            {
+                ListaPaises.Add(p.Pais);
+            }
+
+            return ListaPaises;
+
+        }
+
+
     }
 }

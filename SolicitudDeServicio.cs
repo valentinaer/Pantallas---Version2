@@ -19,6 +19,23 @@ namespace grupoB_TP
             InitializeComponent();
         }
 
+        public void CargarPaisesComboBox()
+        {
+            cmbPaisI.Items.Clear();
+            RegionesInternacionales r = new RegionesInternacionales();
+
+            Paises = r.SoloPaises();
+
+            foreach (string p in Paises)
+            {
+                cmbPaisI.Items.Add(p);
+
+            }
+
+
+        }
+
+        List<string> Paises = new List<string>();
         public void mostrarOcultar(object sender, EventArgs e)
         {
             // Si radio button Nacional esta checkeda, mostrar el grupo Nacional
@@ -32,7 +49,13 @@ namespace grupoB_TP
             {
                 grpInternacional.Visible = true;
                 grpNacional.Visible = false;
+
+                CargarPaisesComboBox();
+               
+
             }
+
+
         }
 
         public void cotizar(string origen, string destino)
@@ -436,24 +459,16 @@ namespace grupoB_TP
                 cmbCiudadDestino.Items.Add(c.Ciudad);
             }
         }
+     
+
         //Mostrar Internacional Destino
-        private void cmbRegionI_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbPaisI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            if (cmbRegionI.Text == "Europa")
-            {
-                cmbPaisCiudadDestino.Items.Clear();
-                cmbPaisCiudadDestino.Items.Add("Madrid España");
-                cmbPaisCiudadDestino.Items.Add("Paris, Francia");
-                cmbPaisCiudadDestino.Items.Add("Roma, Italia");
-                cmbPaisCiudadDestino.Items.Add("Berlin, Alemania");
-            }
-            else if (cmbProvinciaDestino.Text != "Europa")
-            {
-                cmbPaisCiudadDestino.Items.Clear();
-                cmbPaisCiudadDestino.Items.Add("NO IMPLEMENTADO");
-            }
-            */
+
+            
+            //
+
+
         }
     }
 }

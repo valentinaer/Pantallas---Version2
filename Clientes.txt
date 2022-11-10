@@ -1,6 +1,6 @@
 30-12345678-9|Copito S.A.|Av Fuerza Aérea Argentina 4136, Córdoba|0
 30-11223344-9|Avonis S.A.|Viamonte 1432, CABA|0
-30-13243546-9|Naturali S.R.L.|Calle 3 1307, Santa Teresita|500
-30-97867564-9|Spot S.A.|Av Don Bosco 2100, Tandil|625
-30-76757473-9|Argos S.R.L.| Entre Rios 572, Bahia Blanca|1500
-30-54916389-9|Piletazo S.A.|Rioja 3253, Santa Rosa, La Pampa|420
+30-13243546-9|Naturali S.R.L.|Calle 3 1307, Santa Teresita|0
+30-97867564-9|Spot S.A.|Av Don Bosco 2100, Tandil|0
+30-76757473-9|Argos S.R.L.| Entre Rios 572, Bahia Blanca|0
+30-54916389-9|Piletazo S.A.|Rioja 3253, Santa Rosa, La Pampa|0

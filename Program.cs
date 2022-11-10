@@ -29,17 +29,18 @@ namespace Version_2___Pantallas
             *
             */
 
+
             ApplicationConfiguration.Initialize();
 
             //Application.Run(new AccesoAlSistema());
 
             //Application.Run(new EstadoDeCuenta());
-<<<<<<< HEAD
+
             //Application.Run(new SolicitudDeServicio());
             Application.Run(new EstadoDeServicio());
-=======
+
             Application.Run(new SolicitudDeServicio());
->>>>>>> e26d9e61de41b2b98902dae60852bea2d7f0e413
+
         } 
     }
 }

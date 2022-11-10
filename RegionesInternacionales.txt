@@ -1,4 +1,3 @@
-Pais Iternacional|Region Internacional
 España|Europa
 Francia|Europa
 Alemania|Europa
