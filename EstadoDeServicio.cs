@@ -36,27 +36,35 @@ namespace grupoB_TP
             
             else
             {
+
                 OrdenDeServicio Os = new OrdenDeServicio();
                 OrdenDeServicio orden = new OrdenDeServicio();
-                MessageBox.Show(numeroTrack, "ingreso");
+               
                 orden = Os.BuscarNumeroTrack(int.Parse(numeroTrack));
 
-                MessageBox.Show(orden.numeroTrackeo.ToString(), "Errores");
-
-                lblCuitI.Text = orden.CUIT;
-                lblUrgente.Text = orden.urgente;
-                lblCotizacion.Text = orden.estado;
-                if(orden.tipoDeEnvio == "NACIONAL"){
-                    lblDestino.Text= orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " +  orden.provinciaDestino + ", " +  orden.paisDestino;
-                    lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " +  orden.ciudadOrigen + ", " +  orden.provinciaDestino + ", " +  orden.paisOrigen;
-                }else
+                if(orden == null)
                 {
-                    //pais, ciudad
-                    lblDestino.Text= orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " +  orden.paisDestino;
-                    lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " +  orden.ciudadOrigen + ", " +  orden.paisOrigen;
+                    MessageBox.Show("el numero de track no existe", "ingreso");
                 }
+                else
+                {
+                    lblCuitI.Text = orden.CUIT;
+                    lblUrgente.Text = orden.urgente;
+                    lblCotizacion.Text = orden.estado;
+                    if(orden.tipoDeEnvio == "NACIONAL"){
+                        lblDestino.Text= orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " +  orden.provinciaDestino + ", " +  orden.paisDestino;
+                        lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " +  orden.ciudadOrigen + ", " +  orden.provinciaDestino + ", " +  orden.paisOrigen;
+                    }else
+                    {
+                        //pais, ciudad
+                        lblDestino.Text= orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " +  orden.paisDestino;
+                        lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " +  orden.ciudadOrigen + ", " +  orden.paisOrigen;
+                    }
                
-                
+                }
+
+               
+                /*
 
                 if(orden.estado != "")
                 {
@@ -65,7 +73,7 @@ namespace grupoB_TP
                 else
                 {
                     MessageBox.Show("No existe un servicio con el número de trackeo ingresado.", "Estado de servicio");
-                }
+                }*/
                 
             }  
         }
