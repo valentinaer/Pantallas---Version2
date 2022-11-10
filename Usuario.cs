@@ -32,10 +32,13 @@ namespace Version_2___Pantallas
 
         // MÉTODO CARGAR USUARIOS DE LA LISTA //
 
-        List<Usuario> usuarios = new List<Usuario>();
-        
+
+        List<Usuario> ListaUsuario = new List<Usuario>();
         public void CargarUsuarios()
         {
+            //Archivo
+            //DNI |CUIT| Apellido y Nombre | Contraseña
+
             using var archivo = new StreamReader("Usuarios.txt");
             while (!archivo.EndOfStream)
             {
@@ -48,45 +51,24 @@ namespace Version_2___Pantallas
                 usuario.Contraseña = datosSeparados[2];
                 usuario.ApellidoNombre = datosSeparados[3];
 
-                usuarios.Add(usuario);
-                Console.WriteLine(usuarios);
+                ListaUsuario.Add(usuario);
             }
-
         }
 
         //METODO BUSCAR CUIT (Devuelve una lista) 
         public Usuario BuscarDNI(int dni)
         {
-            Console.WriteLine(usuarios);
             Usuario U = new Usuario();
-            foreach(var personaEnLaLista in usuarios)
+            foreach(var  personaEnLaLista in ListaUsuario)
             {
-                MessageBox.Show(Convert.ToString(personaEnLaLista.DNIAutorizados));
                 if (personaEnLaLista.DNIAutorizados== dni)
                 {
-                    return U;
+                    return  U;
 
                 }
             }
             return null;
         }
 
-
-
-        public static string RetornoCuit()
-        {
-
-            Usuario U = new Usuario();
-
-            
-
-
-            return U.CUIT;
-           
-        }
-
-        //Archivo
-        //DNI |CUIT| Apellido y Nombre | Contraseña
-        
     }
 }

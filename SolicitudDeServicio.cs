@@ -36,7 +36,7 @@ namespace grupoB_TP
         }
 
 
-        public void cotizar(string origen, string destino   )
+        public void cotizar(string origen, string destino)
         {
             // -------------- Escondemos elementos -----------------//
 
@@ -67,358 +67,91 @@ namespace grupoB_TP
                 btnCotizar.Location.Y);
 
 
-            // Si el checkbox de urgente esta marcado seteamos la variable a Urgente para utilizar como texto 
-            string urgente = "";
-            if (chkUrgente.Checked)
-            {
-                urgente = "Urgente";
-            }
-            else
-            {
-                urgente = "No Urgente";
-            }
+            decimal precio = calculatePrecio();
 
-            // Calculamos el precio y multiplicamos por 4 para obtener el precio final de envio internacional
-            double price = 0;
-            if (rboNacional.Checked)
-            {
-                price = calculatePrecioNacional();
-            }
-            else
-            {
-                price = calculatePrecioInternacional();
-            }
 
             // Seteamos el texto de la cotizacion
-            lblCotizacion.Text = "$" + price;
+            lblCotizacion.Text = "$" + precio;
             lblOrigen.Text = origen;
             lblDestino.Text = destino;
-            lblUrgente.Text = urgente;
-            lblCuitI.Text = "30-" + Validador.DNI + "-9";
+            lblUrgente.Text = chkUrgente.Checked ? "Si" : "No";
+            lblCuitI.Text = "Cliente.CuitUsuarioActual";
 
-            // Id_Cotizacion,NumeroTrackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,Nacional,RangoPeso,CantidadBultos,Id_Factura,Id_Direccion,Precio
-            // save the data in the file Cotizacion.txt
-            //search last id and add 1 in cotizacion.txt
-            /* int idCotizacion = 0;
-            string[] linesCotizacion = System.IO.File.ReadAllLines(@"./Cotizacion.txt");
-            foreach (string lineCotizacion in linesCotizacion)
-            {
-                string[] words = lineCotizacion.Split(',');
-                idCotizacion = Convert.ToInt32(words[0]);
-            }
-
-            string[] fields = new string[] { Convert.ToString(idCotizacion), "1", "30-" + Validador.DNI + "-9", DateTime.Now.ToString(), origen, destino, urgente, rboNacional.Checked.ToString(), cmbRangoPeso.Text, cmbCantidadBultosN.Text, "1", "1", lblCotizacion.Text };
-            string line = string.Join(",", fields);
-            File.AppendAllText("./Cotizacion.txt", line + Environment.NewLine);
-
-            //Id_Cotizacion,CUIT,Fecha,Pagado
-            string[] fieldsFactura = new string[] { Convert.ToString(idCotizacion) , "30-" + Validador.DNI + "-9", DateTime.Now.ToString(), "false" };
-            string lineFactura = string.Join(",", fieldsFactura);
-            File.AppendAllText("./Factura.txt", lineFactura + Environment.NewLine);
- */
         }
 
-        static List<RegionesInternacionales> RegionesInternacionales = new List<RegionesInternacionales>();
-
-        
-        private double calculatePrecioInternacional(){
-
-            string region = Utilidades.Buscar(0,1,cmbPaisI.Text, "./RegionesInternacionales.txt");
-
-            double precio = 0;
-
-            // -------------- Sobres Hasta 500g -----------------//
-            if (cmbCantidadBultosN.SelectedIndex == 0)
-            {
-                // ----------------- Limitrofes -----------------//
-                if (region == "Limitrofes")
-                {
-                    precio = 180;
-                }
-
-                // ----------------- America Latina -----------------//
-                else if (region == "America Latina")
-                {
-                    precio = 190;
-                }
-                // ----------------- America del Norte -----------------//
-                else if (region == "America del Norte")
-                {
-                    precio = 200;
-                }
-                
-                // ----------------- Europa -----------------//
-                else if (region == "Europa")
-                {
-                    precio = 210;
-                }
-
-                // ----------------- Asia -----------------//
-                else if (region == "Asia")
-                {
-                    precio = 220;
-                }
-                
-                else
-                {
-                    precio = 0;
-                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
-                }
-            }
-
-            // ----------------- Bultos hasta 10Kg -----------------//
-            else if (cmbCantidadBultosN.SelectedIndex == 1)
-            {
-                // ----------------- Limitrofes -----------------//
-                if (region == "Limitrofes")
-                {
-                    precio = 230;
-                }
-
-                // ----------------- America Latina -----------------//
-                else if (region == "America Latina")
-                {
-                    precio = 240;
-                }
-                // ----------------- America del Norte -----------------//
-                else if (region == "America del Norte")
-                {
-                    precio = 250;
-                }
-                
-                // ----------------- Europa -----------------//
-                else if (region == "Europa")
-                {
-                    precio = 260;
-                }
-
-                // ----------------- Asia -----------------//
-                else if (region == "Asia")
-                {
-                    precio = 270;
-                }
-                
-                else
-                {
-                    precio = 0;
-                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
-                }
-            }
-
-            // ------------- Bultos hasta 20Kg --------//
-            else if (cmbCantidadBultosN.SelectedIndex == 2)
-            {
-                // ----------------- Limitrofes -----------------//
-                if (region == "Limitrofes")
-                {
-                    precio = 280;
-                }
-
-                // ----------------- America Latina -----------------//
-                else if (region == "America Latina")
-                {
-                    precio = 290;
-                }
-                // ----------------- America del Norte -----------------//
-                else if (region == "America del Norte")
-                {
-                    precio = 300;
-                }
-                
-                // ----------------- Europa -----------------//
-                else if (region == "Europa")
-                {
-                    precio = 310;
-                }
-
-                // ----------------- Asia -----------------//
-                else if (region == "Asia")
-                {
-                    precio = 320;
-                }
-                
-                else
-                {
-                    precio = 0;
-                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
-                }
-            }
-
-            // ------------- Bultos hasta 30Kg --------//
-            else if (cmbCantidadBultosN.SelectedIndex == 3)
-            {
-                // ----------------- Limitrofes -----------------//
-                if (region == "Limitrofes")
-                {
-                    precio = 330;
-                }
-
-                // ----------------- America Latina -----------------//
-                else if (region == "America Latina")
-                {
-                    precio = 340;
-                }
-                // ----------------- America del Norte -----------------//
-                else if (region == "America del Norte")
-                {
-                    precio = 350;
-                }
-                
-                // ----------------- Europa -----------------//
-                else if (region == "Europa")
-                {
-                    precio = 360;
-                }
-
-                // ----------------- Asia -----------------//
-                else if (region == "Asia")
-                {
-                    precio = 370;
-                }
-                
-                else
-                {
-                    precio = 0;
-                    MessageBox.Show("Contactar a la gerencia de la gerencia de Productos y Marketing");
-                }
-            }
-
-            return precio;
-        }
-
-        private double calculatePrecioNacional()
+        public string calculateRegion(string pais, string origenCiudad, string destinoCiudad, string origenProvincia, string destinoProvincia)
         {
-            double precio = 0;
-            double precioUrgente = 0;
-            double precioFinal = 0;
+            CiudadadesNacionales region = new CiudadadesNacionales();
 
-            // -------------- Sobres Hasta 500g -----------------//
-            if (cmbCantidadBultosN.SelectedIndex == 0)
+            string origenRegion = region.BuscarRegion(origenCiudad).Region;
+            MessageBox.Show(origenRegion);
+            string destinoRegion = region.BuscarRegion(destinoCiudad).Region;
+            MessageBox.Show(destinoRegion);
+
+            if (string.IsNullOrWhiteSpace(pais))
             {
-
-                // ----------------- Local -----------------//
-                if (cmbProvinciaDestino.SelectedIndex == 0)
+                if (origenCiudad == destinoCiudad)
                 {
-                    precio = 20;
+                    return "Local";
                 }
-
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
+                if (origenProvincia == destinoProvincia)
                 {
-                    precio = 60;
+                    return "Interior";
                 }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
+                if (origenRegion == destinoRegion)
                 {
-                    precio = 100;
+                    return "Regional";
                 }
-                // ----------------- Nacional -----------------//
-                else
-                {
-                    precio = 140;
-                }
+                return "Nacional";
             }
-
-            // ----------------- Segun la cantidad de bultos -----------------//
-            else if (cmbCantidadBultosN.SelectedIndex == 1)
+            else
             {
-                // ----------------- Local -----------------//
-                if (cmbProvinciaDestino.SelectedIndex == 0)
-                {
-                    precio = 30;
-                }
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
-                {
-                    precio = 70;
-                }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
-                {
-                    precio = 110;
-                }
-                // ----------------- Nacional -----------------//
-                else
-                {
-                    precio = 150;
-                }
+                RegionesInternacionales regionesInternacionales = new RegionesInternacionales();
+                string origenRegionInternacional = regionesInternacionales.BuscarRegion(origenCiudad).Continente;
+                return origenRegionInternacional;
             }
-
-            // ------------- Bultos hasta 20Kg --------//
-            else if (cmbCantidadBultosN.SelectedIndex == 2)
-            {
-                // ----------------- Local -----------------//
-                if (cmbProvinciaDestino.SelectedIndex == 0)
-                {
-                    precio = 40;
-                }
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
-                {
-                    precio = 80;
-                }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
-                {
-                    precio = 120;
-                }
-                // ----------------- Nacional -----------------//
-                else
-                {
-                    precio = 160;
-                }
-            }
-
-            // ------------- Bultos hasta 30Kg --------//
-            else if (cmbCantidadBultosN.SelectedIndex == 3)
-            {
-                // ----------------- Local -----------------//
-                if (cmbProvinciaDestino.SelectedIndex == 0)
-                {
-                    precio = 50;
-                }
-                // ----------------- Provincial -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 1)
-                {
-                    precio = 90;
-                }
-                // ----------------- Regional -----------------//
-                else if (cmbProvinciaDestino.SelectedIndex == 2 || cmbProvinciaDestino.SelectedIndex == 3 || cmbProvinciaDestino.SelectedIndex == 4)
-                {
-                    precio = 130;
-                }
-                // ----------------- Nacional -----------------//
-                else
-                {
-                    precio = 170;
-                }
-            }
-
-            // si es urgente sumamos 20% al precio
-            if (chkUrgente.Checked)
-            {
-                precioUrgente = precio * 0.2;
-            }
-
-            // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
-            if (precioUrgente > 50)
-            {
-                precioUrgente = 50;
-            }
-
-            // retiro fijo es 30 y destino fijo 40
-            precioFinal = precio + precioUrgente + 30 + 40;
-
-            return precioFinal;
         }
-           
-         private void btnCotizar_Click(object sender, EventArgs e)
+
+        private decimal calculatePrecio()
+        {
+            MessageBox.Show(cmbPaisI.Text + cmbCiudadOrigen.Text + cmbCiudadDestino.Text + cmbProvinciaOrigen.Text + cmbProvinciaDestino.Text);
+            string Region = calculateRegion(cmbPaisI.Text, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
+            Tarifas tarifas = new Tarifas();
+            Tarifas tarifa = tarifas.BuscarTarifa(cmbRangoPeso.Text, Region, chkUrgente.Checked);
+            decimal Precio = tarifa.Precio;
+
+            using var recargos = new StreamReader("Recargos.txt");
+            var recargosLine = recargos.ReadLine();
+            var recargosValues = recargosLine.Split('|');
+
+            if (Region == "Paises Limitrofes" || Region == "America Latina" || Region == "America del Norte" || Region == "Europa" || Region == "Asia")
+            {
+                // si es urgente sumamos 20% al precio
+                decimal precioUrgente = 0;
+                if (chkUrgente.Checked)
+                {
+                    precioUrgente = Precio * Convert.ToDecimal(recargosValues[0]);
+                }
+
+                // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
+                if (precioUrgente > (Precio * Convert.ToDecimal(recargosValues[0])))
+                {
+                    precioUrgente = Convert.ToDecimal(recargosValues[1]);
+                }
+
+                // retiro fijo es 30 y destino fijo 40
+                Precio = Precio + precioUrgente + Convert.ToDecimal(recargosValues[2]) + Convert.ToDecimal(recargosValues[3]);
+            }
+
+            return Precio;
+        }
+
+        private void btnCotizar_Click(object sender, EventArgs e)
         {
 
             //----------------- Logica Extra para Cotizar -----------------//            
             string origen = "";
 
-            // if sucursal show in a string the sucursal selected from dropdown, if envio a domicilio show in a string the provincia and ciudad selected from dropdown
             if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
             {
                 origen = cmbSucursalOrigen.Text;
@@ -579,7 +312,7 @@ namespace grupoB_TP
             // Validaciones para Envios Internacionales
             if (rboInternacional.Checked && !rboNacional.Checked)
             {
-                
+
 
                 if (cmbPaisI.SelectedIndex == -1)
                 {
@@ -609,8 +342,7 @@ namespace grupoB_TP
                 cotizar(origen, txtCiudadI.Text);
             }
         }
-
-            //Boton CONFIRMACION
+        //Boton CONFIRMACION
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             var usuario = new Usuario();
@@ -628,13 +360,13 @@ namespace grupoB_TP
             {
                 origen = cmbSucursalOrigen.Text;
             }
-            
+
             if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
             {
                 origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
             }
-                                
-            
+
+
             if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
             {
                 destino = cmbSucursalesDestino.Text;
@@ -643,8 +375,9 @@ namespace grupoB_TP
             {
                 destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
             }
-            else {
-              //  destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
+            else
+            {
+                //  destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
             }
 
             string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
@@ -653,7 +386,7 @@ namespace grupoB_TP
             /* string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), "CUIT", DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
             string line = string.Join(",", fields);
             File.AppendAllText("./OrdenDeServicio.txt", line + Environment.NewLine);
- */ 
+ */
             string nuevaFila = "N°Trackeo|Feha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAIS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|CALLE|ALTURA|PISO DEPTO|PAIS DE DESTINO|PROVINCIA/REGION|CIUDAD DESTINO|CALLE|ALTURA|PISO DEPTO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE|ESTADO|FACTURADO";
             Utilidades.GrabarNuevaFila("./OrdenDeServicio.txt", nuevaFila);
         }
@@ -662,15 +395,13 @@ namespace grupoB_TP
             Random r = new Random();
             return r.Next(0001, 9999);
         }
-
-
-
+        List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
         //BOTON MODIFICAR
         private void btnModificar_Click(object sender, EventArgs e)
         {
             // -------------- Escondemos elementos -----------------//
             grpCotizacion.Visible = false;
-            
+
             lblMenuPrincipal.Visible = false;
             grpCaracteristicaServicio.Visible = true;
             grpTipoEnvio.Visible = true;
@@ -683,37 +414,28 @@ namespace grupoB_TP
         //Mostrar Provincia Origen
         private void cmbProvinciaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbProvinciaOrigen.Text == "BUENOS AIRES")
+            cmbCiudadOrigen.Items.Clear();
+            string provincia = cmbProvinciaOrigen.Text;
+
+            var CiudadesDeProvincia = new CiudadadesNacionales();
+            ciudadesAMostrar = CiudadesDeProvincia.BuscarCiudades(provincia);
+            foreach (var c in ciudadesAMostrar)
             {
-                cmbCiudadOrigen.Items.Clear();
-                cmbCiudadOrigen.Items.Add("Mar del Plata");
-                cmbCiudadOrigen.Items.Add("Quilmes");
-                cmbCiudadOrigen.Items.Add("Bahia Blanca");
-                cmbCiudadOrigen.Items.Add("Salto");
-            }
-            else if (cmbProvinciaOrigen.Text != "BUENOS AIRES")
-            {
-                cmbCiudadOrigen.Items.Clear();
-                cmbCiudadOrigen.Items.Add("NO IMPLEMENTADO");
+                cmbCiudadOrigen.Items.Add(c.Ciudad);
             }
         }
+        
         //Mostrar Provincia Destino
         private void cmbProvinciaDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
+            cmbCiudadDestino.Items.Clear();
             string provincia = cmbProvinciaDestino.Text;
 
-            if (cmbProvinciaDestino.Text == "BUENOS AIRES")
+            var CiudadesDeProvincia = new CiudadadesNacionales();
+            ciudadesAMostrar = CiudadesDeProvincia.BuscarCiudades(provincia);
+            foreach(var c in ciudadesAMostrar)
             {
-                cmbCiudadDestino.Items.Clear();
-                cmbCiudadDestino.Items.Add("Mar del Plata");
-                cmbCiudadDestino.Items.Add("Quilmes");
-                cmbCiudadDestino.Items.Add("Bahia Blanca");
-                cmbCiudadDestino.Items.Add("Salto");
-            }
-            else if (cmbProvinciaDestino.Text != "BUENOS AIRES")
-            {
-                cmbCiudadDestino.Items.Clear();
-                cmbCiudadDestino.Items.Add("NO IMPLEMENTADO");
+                cmbCiudadDestino.Items.Add(c.Ciudad);
             }
         }
         //Mostrar Internacional Destino

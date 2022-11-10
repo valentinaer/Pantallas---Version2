@@ -1,13 +1,6 @@
-30-12345678-9|Copito S.A.|Av Fuerza Aérea Argentina 4136, Córdoba|0,
-30-87654321-9|EcoLogic S.R.L.|Adolfo Alsina 168, Avellaneda|720,	
-30-11223344-9|Avonis S.A.|Viamonte 1432, CABA|0,		
-30-13243546-9|Naturali S.R.L.|Calle 3 1307, Santa Teresita|500,
-30-97867564-9|Spot S.A.|Av Don Bosco 2100, Tandil|625,
-30-56473829-9|Noga S.A.|Presidente Perón 1001, Caseros|0,
-30-98979695-9|Staedler S.A.|Exequiel Bustillo, Bariloche|525,
-30-12131415-9|Macanoa S.R.L.|Chile 368, San Juan|0,
-30-23242526-9|Sedal S.A.|9 de Julio 1290, Tucuman|250,
-30-76757473-9|Argos S.R.L.| Entre Rios 572, Bahia Blanca|0,
-30-12546378-9|EcoNomic S.A.|Esquiu 2928, Santa Fe|0,
-30-54916389-9|Piletazo S.A.|Rioja 3253, Santa Rosa, La Pampa|420,
-30-20024954-9|EnredAr S.R.L.|Junín 310, Libertad, Córdoba|630,
+30-12345678-9|Copito S.A.|Av Fuerza Aérea Argentina 4136, Córdoba|0
+30-11223344-9|Avonis S.A.|Viamonte 1432, CABA|0
+30-13243546-9|Naturali S.R.L.|Calle 3 1307, Santa Teresita|500
+30-97867564-9|Spot S.A.|Av Don Bosco 2100, Tandil|625
+30-76757473-9|Argos S.R.L.| Entre Rios 572, Bahia Blanca|1500
+30-54916389-9|Piletazo S.A.|Rioja 3253, Santa Rosa, La Pampa|420

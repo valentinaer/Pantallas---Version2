@@ -77,6 +77,24 @@ namespace grupoB_TP
             }
 
         }
+
+        internal static string ValidarFecha(string fecha, string campo)
+        {
+            string msj = "";
+            if(!DateTime.TryParse(fecha, out DateTime fechas))
+            {
+                msj = "Debe ingresar una fecha válida en el campo " + campo + System.Environment.NewLine;
+            }
+            else
+            {
+                msj += "";
+            }
+
+            return msj;
+        }
+
+
+
     }
 }
 

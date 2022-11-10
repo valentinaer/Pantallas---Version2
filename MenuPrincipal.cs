@@ -4,20 +4,23 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Version_2___Pantallas;
 
 namespace grupoB_TP
 {
-    public partial class MenuPrincipal : Form
+    internal partial class MenuPrincipal : Form
     {
-        public MenuPrincipal()
+        public MenuPrincipal(string cuit)
         {
             InitializeComponent();
         }
         public void btnContinuar_Click(object sender, EventArgs e)
         {
+
             if (rboSolicitarServicio.Checked)
             {
                 

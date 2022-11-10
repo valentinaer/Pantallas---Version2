@@ -1,3 +1,4 @@
+using Clases_TP4;
 using System.IO;
 using System.Net;
 using System.Numerics;
@@ -15,6 +16,7 @@ namespace grupoB_TP
         
         private void btnIngresar_Click(object sender, EventArgs e)
         {
+           
             string mensaje;
             string CUIT = "2042235849";
             string DNI = txtIngresarDNI.Text;
@@ -36,37 +38,39 @@ namespace grupoB_TP
             //DNI no Autorizado (Flujo 3)
             //CUIT | DNI AUTORIZADO | Contraseña | Nombre y apellido
             // 0   | 1              | 2          | 3
-            Usuario U = new Usuario(int.Parse(DNI), CUIT,"juan pedro", "1234");
-            //Usuario usuario= BuscarCUIT(int.Parse(DNI));
-            U = U.BuscarDNI(int.Parse(DNI));
 
-            if (U == null)
+            Usuario U = new Usuario();
+            Usuario usuario = new Usuario();
+
+            usuario = U.BuscarDNI(int.Parse(DNI));
+            
+            if (usuario == null)
             {
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
                     $" realizar el ingreso al sistema", "Errores");
             }
-            
             //La contraseña excede los 30 caracteres (Flujo 4)
             else if (contraseña.Length > 30)
             {
                 MessageBox.Show("La contraseña debe tener como máximo 30 caracteres", "Errores");
             }
-            MessageBox.Show(U.Contraseña);
-            if (contraseña != U.Contraseña)
+            else if (contraseña != usuario.Contraseña)
             {
                 MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
             }
             else
             {
+                
                 this.Hide();
-                MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
-                new MenuPrincipal().ShowDialog();
+                Cliente.CrearCUITUsuarioActual(usuario.CUIT);
+                MessageBox.Show($"Ingreso Exitoso usuario: {usuario.ApellidoNombre} " +
+                    $"de la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
+                new MenuPrincipal(usuario.CUIT).ShowDialog();
             }
-            
+            */
             
         
         }
-        
 
         private void AccesoAlSistema_FormClosing(object sender, FormClosingEventArgs e)
         {

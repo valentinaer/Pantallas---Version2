@@ -96,16 +96,16 @@
             this.grpTipoEnvio = new System.Windows.Forms.GroupBox();
             this.rboInternacional = new System.Windows.Forms.RadioButton();
             this.rboNacional = new System.Windows.Forms.RadioButton();
-            label18 = new System.Windows.Forms.Label();
-            txtPisoDeptoNacional = new System.Windows.Forms.TextBox();
-            txtAlturaNacional = new System.Windows.Forms.TextBox();
-            txtDirrecionNacional = new System.Windows.Forms.TextBox();
-            txtPisoDeptoI = new System.Windows.Forms.TextBox();
-            txtAlturaI = new System.Windows.Forms.TextBox();
-            txtDireccionI = new System.Windows.Forms.TextBox();
-            txtDirrecionOrigen = new System.Windows.Forms.TextBox();
-            txtPisoDepartamentoRecepcion = new System.Windows.Forms.TextBox();
-            txtAlturaOrigen = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.txtPisoDeptoNacional = new System.Windows.Forms.TextBox();
+            this.txtAlturaNacional = new System.Windows.Forms.TextBox();
+            this.txtDirrecionNacional = new System.Windows.Forms.TextBox();
+            this.txtPisoDeptoI = new System.Windows.Forms.TextBox();
+            this.txtAlturaI = new System.Windows.Forms.TextBox();
+            this.txtDireccionI = new System.Windows.Forms.TextBox();
+            this.txtDirrecionOrigen = new System.Windows.Forms.TextBox();
+            this.txtPisoDepartamentoRecepcion = new System.Windows.Forms.TextBox();
+            this.txtAlturaOrigen = new System.Windows.Forms.TextBox();
             this.grpCaracteristicaServicio.SuspendLayout();
             this.grpNacional.SuspendLayout();
             this.grpInternacional.SuspendLayout();
@@ -121,86 +121,86 @@
             // 
             // label18
             // 
-            label18.AutoSize = true;
-            label18.Location = new System.Drawing.Point(427, 31);
-            label18.Name = "label18";
-            label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            label18.Size = new System.Drawing.Size(151, 21);
-            label18.TabIndex = 8;
-            label18.Text = "Cantidad de bultos *";
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(427, 31);
+            this.label18.Name = "label18";
+            this.label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.label18.Size = new System.Drawing.Size(151, 21);
+            this.label18.TabIndex = 8;
+            this.label18.Text = "Cantidad de bultos *";
             // 
             // txtPisoDeptoNacional
             // 
-            txtPisoDeptoNacional.Location = new System.Drawing.Point(212, 279);
-            txtPisoDeptoNacional.Name = "txtPisoDeptoNacional";
-            txtPisoDeptoNacional.Size = new System.Drawing.Size(135, 29);
-            txtPisoDeptoNacional.TabIndex = 16;
+            this.txtPisoDeptoNacional.Location = new System.Drawing.Point(212, 279);
+            this.txtPisoDeptoNacional.Name = "txtPisoDeptoNacional";
+            this.txtPisoDeptoNacional.Size = new System.Drawing.Size(135, 29);
+            this.txtPisoDeptoNacional.TabIndex = 16;
             // 
             // txtAlturaNacional
             // 
-            txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
-            txtAlturaNacional.Name = "txtAlturaNacional";
-            txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
-            txtAlturaNacional.TabIndex = 14;
+            this.txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
+            this.txtAlturaNacional.Name = "txtAlturaNacional";
+            this.txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
+            this.txtAlturaNacional.TabIndex = 14;
             // 
             // txtDirrecionNacional
             // 
-            txtDirrecionNacional.Location = new System.Drawing.Point(163, 201);
-            txtDirrecionNacional.Name = "txtDirrecionNacional";
-            txtDirrecionNacional.Size = new System.Drawing.Size(307, 29);
-            txtDirrecionNacional.TabIndex = 1;
+            this.txtDirrecionNacional.Location = new System.Drawing.Point(163, 201);
+            this.txtDirrecionNacional.Name = "txtDirrecionNacional";
+            this.txtDirrecionNacional.Size = new System.Drawing.Size(307, 29);
+            this.txtDirrecionNacional.TabIndex = 1;
             // 
             // txtPisoDeptoI
             // 
-            txtPisoDeptoI.Location = new System.Drawing.Point(239, 292);
-            txtPisoDeptoI.Name = "txtPisoDeptoI";
-            txtPisoDeptoI.Size = new System.Drawing.Size(135, 29);
-            txtPisoDeptoI.TabIndex = 16;
+            this.txtPisoDeptoI.Location = new System.Drawing.Point(239, 292);
+            this.txtPisoDeptoI.Name = "txtPisoDeptoI";
+            this.txtPisoDeptoI.Size = new System.Drawing.Size(135, 29);
+            this.txtPisoDeptoI.TabIndex = 16;
             // 
             // txtAlturaI
             // 
-            txtAlturaI.Location = new System.Drawing.Point(177, 237);
-            txtAlturaI.Name = "txtAlturaI";
-            txtAlturaI.Size = new System.Drawing.Size(111, 29);
-            txtAlturaI.TabIndex = 14;
+            this.txtAlturaI.Location = new System.Drawing.Point(177, 237);
+            this.txtAlturaI.Name = "txtAlturaI";
+            this.txtAlturaI.Size = new System.Drawing.Size(111, 29);
+            this.txtAlturaI.TabIndex = 14;
             // 
             // txtDireccionI
             // 
-            txtDireccionI.Location = new System.Drawing.Point(177, 180);
-            txtDireccionI.Name = "txtDireccionI";
-            txtDireccionI.Size = new System.Drawing.Size(307, 29);
-            txtDireccionI.TabIndex = 1;
+            this.txtDireccionI.Location = new System.Drawing.Point(177, 180);
+            this.txtDireccionI.Name = "txtDireccionI";
+            this.txtDireccionI.Size = new System.Drawing.Size(307, 29);
+            this.txtDireccionI.TabIndex = 1;
             // 
             // txtDirrecionOrigen
             // 
-            txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
-            txtDirrecionOrigen.Name = "txtDirrecionOrigen";
-            txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
-            txtDirrecionOrigen.TabIndex = 18;
+            this.txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
+            this.txtDirrecionOrigen.Name = "txtDirrecionOrigen";
+            this.txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
+            this.txtDirrecionOrigen.TabIndex = 18;
             // 
             // txtPisoDepartamentoRecepcion
             // 
-            txtPisoDepartamentoRecepcion.Location = new System.Drawing.Point(209, 287);
-            txtPisoDepartamentoRecepcion.Name = "txtPisoDepartamentoRecepcion";
-            txtPisoDepartamentoRecepcion.Size = new System.Drawing.Size(132, 29);
-            txtPisoDepartamentoRecepcion.TabIndex = 17;
+            this.txtPisoDepartamentoRecepcion.Location = new System.Drawing.Point(209, 287);
+            this.txtPisoDepartamentoRecepcion.Name = "txtPisoDepartamentoRecepcion";
+            this.txtPisoDepartamentoRecepcion.Size = new System.Drawing.Size(132, 29);
+            this.txtPisoDepartamentoRecepcion.TabIndex = 17;
             // 
             // txtAlturaOrigen
             // 
-            txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
-            txtAlturaOrigen.Name = "txtAlturaOrigen";
-            txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
-            txtAlturaOrigen.TabIndex = 14;
+            this.txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
+            this.txtAlturaOrigen.Name = "txtAlturaOrigen";
+            this.txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
+            this.txtAlturaOrigen.TabIndex = 14;
             // 
             // cmbRangoPeso
             // 
             this.cmbRangoPeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRangoPeso.FormattingEnabled = true;
             this.cmbRangoPeso.Items.AddRange(new object[] {
-            "Correspondencia  de Hasta 500 gr",
-            "Encomiendas de Hasta 10 kg",
-            "Encomiendas de Hasta 20 kg",
-            "Encomiendas de Hasta 30 kg"});
+            "Sobres hasta 500g",
+            "Bultos hasta 10 Kg",
+            "Bultos hasta 20 Kg",
+            "Bultos hasta 30 Kg"});
             this.cmbRangoPeso.Location = new System.Drawing.Point(136, 26);
             this.cmbRangoPeso.Name = "cmbRangoPeso";
             this.cmbRangoPeso.Size = new System.Drawing.Size(262, 29);
@@ -228,7 +228,7 @@
             // grpCaracteristicaServicio
             // 
             this.grpCaracteristicaServicio.Controls.Add(this.cmbCantidadBultosN);
-            this.grpCaracteristicaServicio.Controls.Add(label18);
+            this.grpCaracteristicaServicio.Controls.Add(this.label18);
             this.grpCaracteristicaServicio.Controls.Add(this.label1);
             this.grpCaracteristicaServicio.Controls.Add(this.cmbRangoPeso);
             this.grpCaracteristicaServicio.Controls.Add(this.chkUrgente);
@@ -264,18 +264,18 @@
             // grpNacional
             // 
             this.grpNacional.BackColor = System.Drawing.Color.Transparent;
-            this.grpNacional.Controls.Add(txtPisoDeptoNacional);
+            this.grpNacional.Controls.Add(this.txtPisoDeptoNacional);
             this.grpNacional.Controls.Add(this.label16);
             this.grpNacional.Controls.Add(this.rboEntregaDomicilio);
             this.grpNacional.Controls.Add(this.rboSucursalDestino);
             this.grpNacional.Controls.Add(this.label7);
-            this.grpNacional.Controls.Add(txtAlturaNacional);
+            this.grpNacional.Controls.Add(this.txtAlturaNacional);
             this.grpNacional.Controls.Add(this.cmbSucursalesDestino);
             this.grpNacional.Controls.Add(this.label2);
             this.grpNacional.Controls.Add(this.label6);
             this.grpNacional.Controls.Add(this.cmbProvinciaDestino);
             this.grpNacional.Controls.Add(this.label3);
-            this.grpNacional.Controls.Add(txtDirrecionNacional);
+            this.grpNacional.Controls.Add(this.txtDirrecionNacional);
             this.grpNacional.Controls.Add(this.cmbCiudadDestino);
             this.grpNacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpNacional.Location = new System.Drawing.Point(470, 180);
@@ -364,7 +364,7 @@
             this.cmbProvinciaDestino.FormattingEnabled = true;
             this.cmbProvinciaDestino.Items.AddRange(new object[] {
             "BUENOS AIRES",
-            "CIUDAD AUTÓNOMA DE BUENOS AIRES",
+            "C.A.B.A",
             "CATAMARCA",
             "CHACO",
             "CHUBUT",
@@ -385,7 +385,7 @@
             "SANTA CRUZ",
             "SANTA FE",
             "SANTIAGO DEL ESTERO",
-            "TIERRA DEL FUEGO, ANTÁRTIDA E ISLAS DEL ATLÁNTICO SUR",
+            "TIERRA DEL FUEGO",
             "TUCUMÁN"});
             this.cmbProvinciaDestino.Location = new System.Drawing.Point(163, 121);
             this.cmbProvinciaDestino.Name = "cmbProvinciaDestino";
@@ -418,12 +418,12 @@
             this.grpInternacional.Controls.Add(this.cmbPaisI);
             this.grpInternacional.Controls.Add(this.label20);
             this.grpInternacional.Controls.Add(this.label19);
-            this.grpInternacional.Controls.Add(txtPisoDeptoI);
+            this.grpInternacional.Controls.Add(this.txtPisoDeptoI);
             this.grpInternacional.Controls.Add(this.label4);
             this.grpInternacional.Controls.Add(this.label21);
-            this.grpInternacional.Controls.Add(txtAlturaI);
+            this.grpInternacional.Controls.Add(this.txtAlturaI);
             this.grpInternacional.Controls.Add(this.label22);
-            this.grpInternacional.Controls.Add(txtDireccionI);
+            this.grpInternacional.Controls.Add(this.txtDireccionI);
             this.grpInternacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpInternacional.Location = new System.Drawing.Point(476, 177);
             this.grpInternacional.Name = "grpInternacional";
@@ -523,11 +523,11 @@
             // 
             // grpTipoRecepcion
             // 
-            this.grpTipoRecepcion.Controls.Add(txtDirrecionOrigen);
-            this.grpTipoRecepcion.Controls.Add(txtPisoDepartamentoRecepcion);
+            this.grpTipoRecepcion.Controls.Add(this.txtDirrecionOrigen);
+            this.grpTipoRecepcion.Controls.Add(this.txtPisoDepartamentoRecepcion);
             this.grpTipoRecepcion.Controls.Add(this.label17);
             this.grpTipoRecepcion.Controls.Add(this.label9);
-            this.grpTipoRecepcion.Controls.Add(txtAlturaOrigen);
+            this.grpTipoRecepcion.Controls.Add(this.txtAlturaOrigen);
             this.grpTipoRecepcion.Controls.Add(this.cmbCiudadOrigen);
             this.grpTipoRecepcion.Controls.Add(this.label8);
             this.grpTipoRecepcion.Controls.Add(this.cmbSucursalOrigen);
@@ -611,7 +611,7 @@
             this.cmbProvinciaOrigen.FormattingEnabled = true;
             this.cmbProvinciaOrigen.Items.AddRange(new object[] {
             "BUENOS AIRES",
-            "CIUDAD AUTÓNOMA DE BUENOS AIRES",
+            "C.A.B.A",
             "CATAMARCA",
             "CHACO",
             "CHUBUT",
@@ -632,7 +632,7 @@
             "SANTA CRUZ",
             "SANTA FE",
             "SANTIAGO DEL ESTERO",
-            "TIERRA DEL FUEGO, ANTÁRTIDA E ISLAS DEL ATLÁNTICO SUR",
+            "TIERRA DEL FUEGO",
             "TUCUMÁN"});
             this.cmbProvinciaOrigen.Location = new System.Drawing.Point(133, 121);
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";

@@ -27,5 +27,9 @@ namespace Clases_TP4
         {
 
         }
+        public static void CargaOrdenDeServicio()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

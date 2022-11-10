@@ -1,47 +1,65 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.IO;
-using System.Linq;
-using System.Threading.Tasks;
-using System.IO;
-
-namespace grupoB_TP
+﻿namespace Version_2___Pantallas
 {
-    internal class Tarifa
+    internal class Tarifas
     {
-        public Dictionary<decimal, RangoDePesos> RangoDePeso { get; set; }
-        public decimal RecargoUrgente { get; set; }
-        public decimal RecargoRetiroEnPuerta { get; set; }
-        public decimal RecargoEntregaEnPuerta { get; set; }
-    }
-    /*
-    public static class ArchivoTarifas
-    {
-        /*
-        private static void Cargar()
+        public string Peso { get; set; }
+        public string Region { get; set; }
+        public decimal Precio { get; set; }
+        public bool Urgente { get; set; }
+        public bool costoFijo { get; set; }
+
+
+        List<Tarifas> ListaTarifa = new List<Tarifas>();
+        public void CargasTarifas(bool urgente)
         {
-            var datosTarifa = File.ReadLines("tarifas.txt").First().Split(",");
-            tarifa = new Tarifa()
+            using var recargos = new StreamReader("Recargos.txt");
+            var recargosLine = recargos.ReadLine();
+            var recargosValues = recargosLine.Split('|');
+
+            using var archivo = new StreamReader("Tarifas.txt");
+            var encabezado = archivo.ReadLine();
+            var regiones = encabezado.Split('|');
+            while (!archivo.EndOfStream)
             {
-                RecargoUrgente = decimal.Parse(datosTarifa[0]),
-                RecargoRetiroEnPuerta = decimal.Parse(datosTarifa[1]),
-                RecargoEntregaEnPuerta = decimal.Parse(datosTarifa[2]),
-            };
-            foreach (var linea in File.ReadLines("rangodepesos.txt"))
-            {
-                var datos = linea.Split(",");
-                var min = decimal.Parse(datos[0]);
-                Tarifa.RangoDePesos[min] = new RangoDePesos
+                var line = archivo.ReadLine();
+                var values = line.Split('|');
+
+                Peso = values[0];
+
+                for (int i = 1; i < regiones.Length; i++)
                 {
-                    [TipoPrecio.Local] = decimal.Parse(datos[2]),
-                    [TipoPrecio.Provincial] = decimal.Parse(datos[3]),
-                    [TipoPrecio.Regional] = decimal.Parse(datos[4]),
-                    [TipoPrecio.Nacional] = decimal.Parse(datos[5]),
-                };
-            }*/
+                    Region = regiones[i];
+                    Precio = Convert.ToDecimal(values[i]);
+                    
+                    ListaTarifa.Add(new Tarifas { Peso = Peso, Region = Region, Precio = Precio });
+                }
+            }
+        }
+
+        public Tarifas BuscarTarifa(string peso, string region, bool urgente )
+        {
+            CargasTarifas(urgente);
+            Tarifas tarifaPrecio = new Tarifas();
+            using var archivo = new StreamReader("Tarifas.txt");
+            var encabezado = archivo.ReadLine();
+            var regiones = encabezado.Split('|');
+            
+            for (int i = 0; i < ListaTarifa.Count; i++)
+            {
+                for (int j = 0; j < regiones.Length; j++)
+                {
+                    if (regiones[j] == region)
+                    {
+                        if (ListaTarifa[i].Peso == peso)
+                        {
+                            tarifaPrecio = ListaTarifa[i];
+                        }
+                    }
+                }
+                
+            }
+            return tarifaPrecio;
+
+        }
+    }
 }
-    
-
-

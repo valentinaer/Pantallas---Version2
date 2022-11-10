@@ -1,0 +1,96 @@
+Buenos Aires|Salto|Metropolitana
+Buenos Aires|Quilmes|Metropolitana
+Buenos Aires|Bahía Blanca|Metropolitana
+Buenos Aires|Mar del Plata|Metropolitana
+C.A.B.A|Belgrano|Metropolitana
+C.A.B.A|Palermo|Metropolitana
+C.A.B.A|Saavedra|Metropolitana
+C.A.B.A|Barracas|Metropolitana
+Catamarca|San Fernando del Valle de Catamarca|Norte
+Catamarca|Tinogasta|Norte
+Catamarca|Antofagasta|Norte
+Catamarca|Belén|Norte
+Chaco|Resistencia|Norte
+Chaco|Presidencia Roque Sáenz Peña|Norte
+Chaco|Barranqueras|Norte
+Chaco|Chacabuco|Norte
+Chubut|Rawson|Sur
+Chubut|Puerto Madryn |Sur
+Chubut|Trelew|Sur
+Chubut|Comodoro Rivadavia|Sur
+Córdoba|Córdoba|Centro
+Córdoba|Cosquín|Centro
+Córdoba|Villa María|Centro
+Córdoba|Río Cuarto|Centro
+Corrientes|Corrientes|Norte
+Corrientes|Goya|Norte
+Corrientes|Bermejo|Norte
+Corrientes|General Belgrano|Norte
+Entre Ríos|Colón|Centro
+Entre Ríos|Concordia|Centro
+Entre Ríos|Gualeguaychú|Centro
+Entre Ríos|Paraná|Centro
+Formosa|Formosa|Norte
+Formosa|Clorinda|Norte
+Formosa|Las Lomitas|Norte
+Formosa|General Mosconi|Norte
+Jujuy|San Salvador de Jujuy|Norte
+Jujuy|Humahuaca|Norte
+Jujuy|Abra Pampa|Norte
+Jujuy|Tilcara|Norte
+La Pampa|Santa Rosa|Sur
+La Pampa|General Pico|Sur
+La Pampa|General Acha|Sur
+La Pampa|Victorica|Sur
+La Rioja|La Rioja|Norte
+La Rioja|Chilecito|Norte
+La Rioja|Famatina|Norte
+La Rioja|Arauco|Norte
+Mendoza|Mendoza|Centro
+Mendoza|San Rafael|Centro
+Mendoza|Malargüe|Centro
+Mendoza|Guaymallén|Centro
+Misiones|Posadas|Norte
+Misiones|Eldorado|Norte
+Misiones|Iberá|Norte
+Misiones|Iguazú|Norte
+Neuquén|Neuquén|Sur
+Neuquén|San Martín de los Andes|Sur
+Neuquén|Zapala|Sur
+Neuquén|Rincón de los Sauces|Sur
+Río Negro|Viedma|Sur
+Río Negro|Cipolletti|Sur
+Río Negro|San Carlos de Bariloche|Sur
+Río Negro|El Bolsón|Sur
+Salta|Salta|Norte
+Salta|Tartagal|Norte
+Salta|Iruya|Norte
+Salta|Cafayate|Norte
+San Juan|San Juan|Centro
+San Juan|Santa Lucía|Centro
+San Juan|Villa Santa Rosa|Centro
+San Juan|Villa Barboza|Centro
+San Luis|San Luis|Centro
+San Luis|Villa Mercedes|Centro
+San Luis|Unión|Centro
+San Luis|Merlo|Centro
+Santa Cruz|Río Gallegos|Sur
+Santa Cruz|Calafate|Sur
+Santa Cruz|Caleta Olivia|Sur
+Santa Cruz|El Chaltén|Sur
+Santa Fe|Rosario|Centro
+Santa Fé|Venado Tuerto|Centro
+Santa Fé|Santa Fe|Centro
+Santa Fé|Rafaela|Centro
+Santiago del Estero|Santiago del Estero|Norte
+Santiago del Estero|Termas de Río Hondo|Norte
+Santiago del Estero|Añatuya|Norte
+Santiago del Estero|La Banda|Norte
+Tierra del Fuego|Ushuaia|Sur
+Tierra del Fuego|Río Grande|Sur
+Tierra del Fuego|Tolhuin|Sur
+Tierra del Fuego|Laguna Escondida|Sur
+Tucumán|Tucumán|Norte
+Tucumán|Tafí del Valle|Norte
+Tucumán|San Pedro de Colalao|Norte
+Tucumán|Quilmes|Norte

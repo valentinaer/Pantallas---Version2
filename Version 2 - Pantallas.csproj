@@ -25,7 +25,7 @@
     <None Update="OrdenDeServicio.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="ProvinciaCiudad.txt">
+    <None Update="CiudadesNacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="RegionesInternacionales.txt">

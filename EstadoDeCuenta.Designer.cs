@@ -42,12 +42,13 @@
             this.lblCuit = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnMostrar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.txtFechaFinal = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtFechaInicio = new System.Windows.Forms.TextBox();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.rboMostrarImpagas = new System.Windows.Forms.RadioButton();
+            this.rboMostrarTodas = new System.Windows.Forms.RadioButton();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.grpEstadoDeCuenta.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -75,14 +76,14 @@
             this.richTextBox1.Location = new System.Drawing.Point(51, 68);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(417, 88);
+            this.richTextBox1.Size = new System.Drawing.Size(451, 88);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(387, 44);
+            this.label6.Location = new System.Drawing.Point(429, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 21);
             this.label6.TabIndex = 9;
@@ -91,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(287, 44);
+            this.label3.Location = new System.Drawing.Point(301, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 21);
             this.label3.TabIndex = 7;
@@ -109,7 +110,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(152, 44);
+            this.label5.Location = new System.Drawing.Point(166, 44);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 21);
             this.label5.TabIndex = 5;
@@ -180,12 +181,13 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnMostrar);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtFechaFinal);
             this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.txtFechaInicio);
-            this.groupBox1.Controls.Add(this.radioButton2);
-            this.groupBox1.Controls.Add(this.radioButton1);
+            this.groupBox1.Controls.Add(this.rboMostrarImpagas);
+            this.groupBox1.Controls.Add(this.rboMostrarTodas);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.groupBox1.Location = new System.Drawing.Point(37, 163);
             this.groupBox1.Name = "groupBox1";
@@ -193,6 +195,16 @@
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Elija un rango de fechas para conocer el detalle del saldo";
+            // 
+            // btnMostrar
+            // 
+            this.btnMostrar.Location = new System.Drawing.Point(354, 115);
+            this.btnMostrar.Name = "btnMostrar";
+            this.btnMostrar.Size = new System.Drawing.Size(96, 34);
+            this.btnMostrar.TabIndex = 22;
+            this.btnMostrar.Text = "Mostrar";
+            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // label9
             // 
@@ -226,27 +238,27 @@
             this.txtFechaInicio.Size = new System.Drawing.Size(100, 29);
             this.txtFechaInicio.TabIndex = 18;
             // 
-            // radioButton2
+            // rboMostrarImpagas
             // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(287, 97);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(261, 25);
-            this.radioButton2.TabIndex = 17;
-            this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Mostrar solo las facturas impagas";
-            this.radioButton2.UseVisualStyleBackColor = true;
+            this.rboMostrarImpagas.AutoSize = true;
+            this.rboMostrarImpagas.Location = new System.Drawing.Point(287, 84);
+            this.rboMostrarImpagas.Name = "rboMostrarImpagas";
+            this.rboMostrarImpagas.Size = new System.Drawing.Size(204, 25);
+            this.rboMostrarImpagas.TabIndex = 17;
+            this.rboMostrarImpagas.TabStop = true;
+            this.rboMostrarImpagas.Text = "Solo las facturas impagas";
+            this.rboMostrarImpagas.UseVisualStyleBackColor = true;
             // 
-            // radioButton1
+            // rboMostrarTodas
             // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(287, 52);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(207, 25);
-            this.radioButton1.TabIndex = 16;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "Mostrar todas las facturas";
-            this.radioButton1.UseVisualStyleBackColor = true;
+            this.rboMostrarTodas.AutoSize = true;
+            this.rboMostrarTodas.Location = new System.Drawing.Point(287, 39);
+            this.rboMostrarTodas.Name = "rboMostrarTodas";
+            this.rboMostrarTodas.Size = new System.Drawing.Size(149, 25);
+            this.rboMostrarTodas.TabIndex = 16;
+            this.rboMostrarTodas.TabStop = true;
+            this.rboMostrarTodas.Text = "Todas las facturas";
+            this.rboMostrarTodas.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -319,12 +331,13 @@
         private Label label5;
         private RichTextBox richTextBox1;
         private GroupBox groupBox1;
-        private RadioButton radioButton2;
-        private RadioButton radioButton1;
+        private RadioButton rboMostrarImpagas;
+        private RadioButton rboMostrarTodas;
         private GroupBox groupBox2;
         private Label label9;
         private TextBox txtFechaFinal;
         private Label label8;
         private TextBox txtFechaInicio;
+        private Button btnMostrar;
     }
 }
