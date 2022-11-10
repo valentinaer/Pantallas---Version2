@@ -50,33 +50,16 @@ namespace Version_2___Pantallas
         public List<CiudadadesNacionales> BuscarCiudades(string provincia)
         {
             CargarCiudadesNacionales();
-            MessageBox.Show(provincia);
             
             CiudadadesNacionales ciudades = new CiudadadesNacionales();
-            for (int i = 0; i < ListaCiudadesNacionales.Count; i++)
+            foreach (CiudadadesNacionales c in ListaCiudadesNacionales)
             {
-
-                if (ListaCiudadesNacionales[i].Provincia.ToLower() == provincia.ToLower()) 
+                if (c.Provincia.ToLower() == provincia.ToLower())
                 {
-                    ciudadesProvincia.Add(ListaCiudadesNacionales[i]);
+                    ciudadesProvincia.Add(c);
                 }
             }
             return ciudadesProvincia;
-
-
-            //CiudadadesNacionales U = new CiudadadesNacionales();
-
-            /*
-            foreach (CiudadadesNacionales c in ListaCiudadesNacionales)
-            {
-                if (c.Provincia == provincia)
-                {
-                    ciudadesProvincia.Add(c.Ciudad);
-                }
-            }
-            */
-
-            //return ListaCiudadesNacionales.FindAll(l => l.Provincia == provincia);
         }
         public override string ToString()
         {

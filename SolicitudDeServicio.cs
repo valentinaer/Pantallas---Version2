@@ -395,7 +395,7 @@ namespace grupoB_TP
             Random r = new Random();
             return r.Next(0001, 9999);
         }
-
+        List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
         //BOTON MODIFICAR
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -414,34 +414,28 @@ namespace grupoB_TP
         //Mostrar Provincia Origen
         private void cmbProvinciaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (cmbProvinciaOrigen.Text == "BUENOS AIRES")
+            cmbCiudadOrigen.Items.Clear();
+            string provincia = cmbProvinciaOrigen.Text;
+
+            var CiudadesDeProvincia = new CiudadadesNacionales();
+            ciudadesAMostrar = CiudadesDeProvincia.BuscarCiudades(provincia);
+            foreach (var c in ciudadesAMostrar)
             {
-                cmbCiudadOrigen.Items.Clear();
-                cmbCiudadOrigen.Items.Add("Mar del Plata");
-                cmbCiudadOrigen.Items.Add("Quilmes");
-                cmbCiudadOrigen.Items.Add("Bahia Blanca");
-                cmbCiudadOrigen.Items.Add("Salto");
-            }
-            else if (cmbProvinciaOrigen.Text != "BUENOS AIRES")
-            {
-                cmbCiudadOrigen.Items.Clear();
-                cmbCiudadOrigen.Items.Add("NO IMPLEMENTADO");
+                cmbCiudadOrigen.Items.Add(c.Ciudad);
             }
         }
-        List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
+        
         //Mostrar Provincia Destino
         private void cmbProvinciaDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
             cmbCiudadDestino.Items.Clear();
             string provincia = cmbProvinciaDestino.Text;
-            string acumulador = "";
 
-            var C = new CiudadadesNacionales();
-            ciudadesAMostrar = C.BuscarCiudades(provincia);
-            MessageBox.Show(C.ToString());
-            foreach(var d in ciudadesAMostrar)
+            var CiudadesDeProvincia = new CiudadadesNacionales();
+            ciudadesAMostrar = CiudadesDeProvincia.BuscarCiudades(provincia);
+            foreach(var c in ciudadesAMostrar)
             {
-                cmbCiudadDestino.Items.Add(d.Ciudad);
+                cmbCiudadDestino.Items.Add(c.Ciudad);
             }
         }
         //Mostrar Internacional Destino
