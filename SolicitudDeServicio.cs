@@ -105,15 +105,13 @@ namespace grupoB_TP
             else
             {
                 RegionesInternacionales regionesInternacionales = new RegionesInternacionales();
-                string origenRegionInternacional = regionesInternacionales.BuscarRegion(origenCiudad);
-                MessageBox.Show(origenRegionInternacional);
+                string origenRegionInternacional = regionesInternacionales.BuscarRegion(pais);
                 return origenRegionInternacional;
             }
         }
 
         private decimal calculatePrecio()
         {
-            MessageBox.Show(cmbPaisI.Text + cmbCiudadOrigen.Text + cmbCiudadDestino.Text + cmbProvinciaOrigen.Text + cmbProvinciaDestino.Text);
             string pais = cmbPaisI.Text == "" ? "Nacional" : cmbPaisI.Text;
             string Region = calculateRegion(pais, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
             
@@ -128,7 +126,6 @@ namespace grupoB_TP
 
             if (Region == "Paises Limitrofes" || Region == "America Latina" || Region == "America del Norte" || Region == "Europa" || Region == "Asia")
             {
-                MessageBox.Show(Region);
                 string RegionCABA = "C.A.B.A";
                 decimal hastaBsAs = Convert.ToDecimal(tarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
                 // si es urgente sumamos 20% al precio
@@ -388,10 +385,6 @@ namespace grupoB_TP
             string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
             //string CUIT = Usuario.CUIT(usuario);
             //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
-            /* string[] fields = new string[] { tracking.ToString(), "true", "Recibida", tracking.ToString(), "CUIT", DateTime.Now.ToString(), origen, destino, chkUrgente.Checked.ToString(), tipoEnvio, cmbRangoPeso.Text, cmbCantidadBultosN.Text };
-            string line = string.Join(",", fields);
-            File.AppendAllText("./OrdenDeServicio.txt", line + Environment.NewLine);
- */
             string nuevaFila = "N°Trackeo|Feha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAIS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|CALLE|ALTURA|PISO DEPTO|PAIS DE DESTINO|PROVINCIA/REGION|CIUDAD DESTINO|CALLE|ALTURA|PISO DEPTO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE|ESTADO|FACTURADO";
             Utilidades.GrabarNuevaFila("./OrdenDeServicio.txt", nuevaFila);
         }
