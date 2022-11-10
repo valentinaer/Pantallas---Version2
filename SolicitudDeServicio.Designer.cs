@@ -364,7 +364,7 @@
             this.cmbProvinciaDestino.FormattingEnabled = true;
             this.cmbProvinciaDestino.Items.AddRange(new object[] {
             "BUENOS AIRES",
-            "CIUDAD AUTÓNOMA DE BUENOS AIRES",
+            "C.A.B.A",
             "CATAMARCA",
             "CHACO",
             "CHUBUT",
@@ -385,7 +385,7 @@
             "SANTA CRUZ",
             "SANTA FE",
             "SANTIAGO DEL ESTERO",
-            "TIERRA DEL FUEGO, ANTÁRTIDA E ISLAS DEL ATLÁNTICO SUR",
+            "TIERRA DEL FUEGO",
             "TUCUMÁN"});
             this.cmbProvinciaDestino.Location = new System.Drawing.Point(163, 121);
             this.cmbProvinciaDestino.Name = "cmbProvinciaDestino";
@@ -611,7 +611,7 @@
             this.cmbProvinciaOrigen.FormattingEnabled = true;
             this.cmbProvinciaOrigen.Items.AddRange(new object[] {
             "BUENOS AIRES",
-            "CIUDAD AUTÓNOMA DE BUENOS AIRES",
+            "C.A.B.A",
             "CATAMARCA",
             "CHACO",
             "CHUBUT",
@@ -632,7 +632,7 @@
             "SANTA CRUZ",
             "SANTA FE",
             "SANTIAGO DEL ESTERO",
-            "TIERRA DEL FUEGO, ANTÁRTIDA E ISLAS DEL ATLÁNTICO SUR",
+            "TIERRA DEL FUEGO",
             "TUCUMÁN"});
             this.cmbProvinciaOrigen.Location = new System.Drawing.Point(133, 121);
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";
