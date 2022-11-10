@@ -145,7 +145,7 @@ namespace grupoB_TP
                 Precio = Precio + precioUrgente + Convert.ToDecimal(recargosValues[2]) + Convert.ToDecimal(recargosValues[3]) + hastaBsAs;
             }
 
-            return Precio;
+            return Precio * Convert.ToDecimal(cmbCantidadBultosN.Text);
         }
 
         private void btnCotizar_Click(object sender, EventArgs e)
