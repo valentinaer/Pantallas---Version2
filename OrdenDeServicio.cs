@@ -8,21 +8,75 @@ namespace Clases_TP4
 {
     internal class OrdenDeServicio
     {
-        public int Id_Cotizacion { get; set; }
-        public bool Aprobado { get; set; }
-        public string Estado { get; set; }
-        public int Id_Trackeo { get; set; } //Correlativo (1,2,3...)
-        public int CUIT { get; set; }
-        public DateTime FechaSolicitud { get; set; }
-        public Direccion Origen { get; set; }
-        public Direccion Destino { get; set; }
-        public bool Urgente { get; set; }
-        public bool TipoDeEntrega { get; set; } //NACIONAL = TRUE  y INTERNACIONAL =FALSE si es false,
-        public bool TipoDeRecepcion { get; set; }
-        public string RangoPeso { get; set; }
-        public int CantidadBultos { get; set; }
-        public int MontoOrdenDeServicio { get; set; }
+        public int numeroTrackeo            { get; set; }        
+        public int fecha                    { get; set; }        
+        public string CUIT                     { get; set; }        
+        public string tipoDeEnvio              { get; set; }        
+        public string paisOrigen               { get; set; }        
+        public string provinciaOrigen          { get; set; }        
+        public string ciudadOrigen             { get; set; }        
+        public string calleOrigen              { get; set; }        
+        public int alturaOrigen             { get; set; }        
+        public string pisodeptoOrigen          { get; set; }        
+        public string paisDestino              { get; set; }        
+        public string provinciaDestino         { get; set; }        
+        public string ciudadDestino            { get; set; }        
+        public string calleDestino             { get; set; }        
+        public int alturaDestino            { get; set; }        
+        public string pisodeptoDestino         { get; set; }        
+        public string rangoDePeso              { get; set; }        
+        public int cantidadDeBultos         { get; set; }        
+        public string urgente                  { get; set; }        
+        public string estado                   { get; set; }        
+        public string facturado                { get; set; }        
 
+        public OrdenDeServicio(
+            int numeroTrackeo_       ,
+            int fecha_               ,
+            string CUIT_             ,
+            string tipoDeEnvio_       ,
+            string paisOrigen_        ,
+            string provinciaOrigen_   ,
+            string ciudadOrigen_      ,
+            string calleOrigen_       ,
+            int alturaOrigen_         ,
+            string pisodeptoOrigen_   ,
+            string paisDestino_       ,
+            string provinciaDestino_  ,
+            string ciudadDestino_     ,
+            string calleDestino_      ,
+            int alturaDestino_        ,
+            string pisodeptoDestino_  ,
+            string rangoDePeso_       ,
+            int cantidadDeBultos_     ,
+            string urgente_           ,
+            string estado_            ,
+            string facturado_        
+        )
+        {
+             numeroTrackeo        =      numeroTrackeo_            ;
+             fecha                =      fecha_                    ;
+             CUIT                 =      CUIT_                     ;
+             tipoDeEnvio          =      tipoDeEnvio_              ;
+             paisOrigen           =      paisOrigen_               ;
+             provinciaOrigen      =      provinciaOrigen_          ;
+             ciudadOrigen         =      ciudadOrigen_             ;
+             calleOrigen          =      calleOrigen_              ;
+             alturaOrigen         =      alturaOrigen_                ;
+             pisodeptoOrigen      =      pisodeptoOrigen_          ;
+             paisDestino          =      paisDestino_              ;
+             provinciaDestino     =      provinciaDestino_         ;
+             ciudadDestino        =      ciudadDestino_            ;
+             calleDestino         =      calleDestino_             ;
+             alturaDestino        =      alturaDestino_               ;
+             pisodeptoDestino     =      pisodeptoDestino_         ;
+             rangoDePeso          =      rangoDePeso_              ;
+             cantidadDeBultos     =      cantidadDeBultos_            ;
+             urgente              =      urgente_                  ;
+             estado               =      estado_                   ;
+             facturado            =      facturado_                ;
+        }         
+        
         public OrdenDeServicio()
         {
 
@@ -44,37 +98,49 @@ namespace Clases_TP4
                 string[] datosSeparados = proximaLinea.Split("|");
 
                 OrdenDeServicio ordenDeServicio = new OrdenDeServicio();
-                usuario.DNIAutorizados = int.Parse(datosSeparados[0]);
-                usuario.CUIT = datosSeparados[1];
-                usuario.Contraseña = datosSeparados[2];
-                usuario.ApellidoNombre = datosSeparados[3];
+    
                 ordenDeServicio.numeroTrackeo          = int.Parse(datosSeparados[0]);
                 ordenDeServicio.fecha                  = int.Parse(datosSeparados[1]);
                 ordenDeServicio.CUIT                   = datosSeparados[2];
-                ordenDeServicio.cliente                = datosSeparados[3];
-                ordenDeServicio.tipoDeEnvio            = datosSeparados[4];
-                ordenDeServicio.paisOrigen             = datosSeparados[5];
-                ordenDeServicio.provinciaOrigen        = datosSeparados[6];
-                ordenDeServicio.ciudadOrigen           = datosSeparados[7];
-                ordenDeServicio.calleOrigen            = datosSeparados[8];
-                ordenDeServicio.alturaOrigen           = int.Parse(datosSeparados[9]);
-                ordenDeServicio.pisoOrigen             = datosSeparados[10];
-                ordenDeServicio.deptoOrigen            = datosSeparados[11];
-                ordenDeServicio.paisDestino            = datosSeparados[12];
-                ordenDeServicio.provinciaDestino       = datosSeparados[13];
-                ordenDeServicio.ciudadDestino          = datosSeparados[14];
-                ordenDeServicio.calleDestino           = datosSeparados[15];
-                ordenDeServicio.alturaDestino          = int.Parse(datosSeparados[16]);
-                ordenDeServicio.pisoDestino            = datosSeparados[17];
-                ordenDeServicio.deptoDestino           = datosSeparados[18];
-                ordenDeServicio.rangoDePeso            = datosSeparados[19];
-                ordenDeServicio.cantidadDeBultos       = int.Parse(datosSeparados[20]);
-                ordenDeServicio.urgente                = datosSeparados[21];
-                ordenDeServicio.estado                 = datosSeparados[22];
-                ordenDeServicio.facturado              = datosSeparados[23];
+                ordenDeServicio.tipoDeEnvio            = datosSeparados[3];
+                ordenDeServicio.paisOrigen             = datosSeparados[4];
+                ordenDeServicio.provinciaOrigen        = datosSeparados[5];
+                ordenDeServicio.ciudadOrigen           = datosSeparados[6];
+                ordenDeServicio.calleOrigen            = datosSeparados[7];
+                ordenDeServicio.alturaOrigen           = int.Parse(datosSeparados[8]);
+                ordenDeServicio.pisodeptoOrigen        = datosSeparados[9];
+                ordenDeServicio.paisDestino            = datosSeparados[10];
+                ordenDeServicio.provinciaDestino       = datosSeparados[11];
+                ordenDeServicio.ciudadDestino          = datosSeparados[12];
+                ordenDeServicio.calleDestino           = datosSeparados[13];
+                ordenDeServicio.alturaDestino          = int.Parse(datosSeparados[14]);
+                ordenDeServicio.pisodeptoDestino       = datosSeparados[15];
+                ordenDeServicio.rangoDePeso            = datosSeparados[16];
+                ordenDeServicio.cantidadDeBultos       = int.Parse(datosSeparados[17]);
+                ordenDeServicio.urgente                = datosSeparados[18];
+                ordenDeServicio.estado                 = datosSeparados[19];
+                ordenDeServicio.facturado              = datosSeparados[20];
             
-                ListaUsuario.Add(usuario);
+                listaOrdenesDeServicio.Add(ordenDeServicio);
             }
+        }
+         //METODO BUSCAR CUIT (Devuelve una lista) 
+        public OrdenDeServicio BuscarNumeroTrack(int trackid)
+        {
+            if (listaOrdenesDeServicio.Count == 0)
+            {
+                CargarOrdenesDeServicio();
+            }
+            
+            OrdenDeServicio Os = new OrdenDeServicio();
+            foreach(var ordenDeServicio in listaOrdenesDeServicio)
+            {
+                if (ordenDeServicio.numeroTrackeo == trackid)
+                {
+                    return Os;
+                }
+            }
+            return null;
         }
     }
 }

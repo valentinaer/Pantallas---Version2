@@ -67,7 +67,7 @@ namespace grupoB_TP
                     $"de la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
                 new MenuPrincipal(usuario.CUIT).ShowDialog();
             }
-            */
+            
             
         
         }

@@ -24,14 +24,12 @@ namespace Version_2___Pantallas
             ApellidoNombre = apellidonombre;
             Contraseña = contraseña;
         }
-   
+
+        // MÉTODO CARGAR USUARIOS DE LA LISTA //
         public Usuario()
         {
 
         }
-
-        // MÉTODO CARGAR USUARIOS DE LA LISTA //
-
 
         List<Usuario> ListaUsuario = new List<Usuario>();
         public void CargarUsuarios()
@@ -58,6 +56,7 @@ namespace Version_2___Pantallas
         //METODO BUSCAR CUIT (Devuelve una lista) 
         public Usuario BuscarDNI(int dni)
         {
+            CargarUsuarios();
             Usuario U = new Usuario();
             foreach(var  personaEnLaLista in ListaUsuario)
             {
