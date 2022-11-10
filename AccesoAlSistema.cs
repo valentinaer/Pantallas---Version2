@@ -16,7 +16,7 @@ namespace grupoB_TP
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             string mensaje;
-            string CUIT;
+            string CUIT = "2042235849";
             string DNI = txtIngresarDNI.Text;
             string contraseña = txtContraseña.Text;
             //Validamos que NO esten Vacios (Flujo 1)
@@ -36,11 +36,11 @@ namespace grupoB_TP
             //DNI no Autorizado (Flujo 3)
             //CUIT | DNI AUTORIZADO | Contraseña | Nombre y apellido
             // 0   | 1              | 2          | 3
-
+            Usuario U = new Usuario(int.Parse(DNI), CUIT,"juan pedro", "1234");
             //Usuario usuario= BuscarCUIT(int.Parse(DNI));
-            //Usuario U = U.BuscarDNI(int.Parse(DNI));
+            U = U.BuscarDNI(int.Parse(DNI));
 
-            /*if (U == null)
+            if (U == null)
             {
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
                     $" realizar el ingreso al sistema", "Errores");
@@ -62,7 +62,7 @@ namespace grupoB_TP
                 MessageBox.Show($"Ingreso Exitoso usuario con DNI: {DNI}", "Bienvenido/a");
                 new MenuPrincipal().ShowDialog();
             }
-            */
+            
             
         
         }

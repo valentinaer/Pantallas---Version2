@@ -57,13 +57,14 @@ namespace Version_2___Pantallas
         //METODO BUSCAR CUIT (Devuelve una lista) 
         public Usuario BuscarDNI(int dni)
         {
+            Console.WriteLine(usuarios);
             Usuario U = new Usuario();
             foreach(var personaEnLaLista in usuarios)
             {
                 MessageBox.Show(Convert.ToString(personaEnLaLista.DNIAutorizados));
                 if (personaEnLaLista.DNIAutorizados== dni)
                 {
-                    return  U;
+                    return U;
 
                 }
             }
