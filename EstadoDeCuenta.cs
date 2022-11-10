@@ -122,7 +122,7 @@ namespace grupoB_TP
                     {
                         if (factura.CUIT == CUIT && (factura.FechaFactura >= fechaD && factura.FechaFactura <= fechaH))
                         {
-                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t"  + factura.MontoFactura + System.Environment.NewLine;
+                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t"  + "$" +factura.MontoFactura + System.Environment.NewLine;
                         }
 
                     }
@@ -153,7 +153,7 @@ namespace grupoB_TP
                     {
                         if (factura.CUIT == CUIT && (factura.FechaFactura >= fechaD && factura.FechaFactura <= fechaH) && factura.Pagado == "NO PAGADO")
                         {
-                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t" + factura.MontoFactura + System.Environment.NewLine;
+                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t" + "$"+ factura.MontoFactura + System.Environment.NewLine;
                         }
 
                     }
