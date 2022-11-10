@@ -64,7 +64,6 @@ namespace Version_2___Pantallas
                 if (personaEnLaLista.DNIAutorizados== dni)
                 {
                     return  U;
-
                 }
             }
             return null;
