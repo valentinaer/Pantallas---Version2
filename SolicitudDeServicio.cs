@@ -380,30 +380,34 @@ namespace grupoB_TP
         }
         public decimal Recargos (decimal precio)
         {
-            decimal PrecioRecargos = 0M;
+            var totalRecargos = 0M;
+ 
             if (chkUrgente.Checked)
             {
-                var precioUrgente = PrecioRecargos * ArchivoRecargos.BuscarRecargos(0);
+                
+                var coeficienteRecargo = ArchivoRecargos.BuscarRecargos(0);
+                var precioUrgente = precio * (1 + coeficienteRecargo);
                 var TopeUrgente = ArchivoRecargos.BuscarRecargos(1);
                 if(precioUrgente >= TopeUrgente)
                 {
-                    precio = TopeUrgente;
+                    totalRecargos = TopeUrgente;
                 }
+
                 else
                 {
-                    precio = precioUrgente;
+                    totalRecargos = precioUrgente;
                 }
             }
             if (rboEntregaDomicilio.Checked)
             {
-                precio += ArchivoRecargos.BuscarRecargos(2);
+                totalRecargos += ArchivoRecargos.BuscarRecargos(2);
             }
             if (rboRetiroDomicilio.Checked)
             {
-                precio += ArchivoRecargos.BuscarRecargos(3);
+                totalRecargos += ArchivoRecargos.BuscarRecargos(3);
             }
 
-            return precio;
+            return totalRecargos;
         }           
         private int Autonumerar()
         {
