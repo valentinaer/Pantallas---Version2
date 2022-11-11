@@ -21,9 +21,7 @@ namespace Version_2___Pantallas
 
                 Factura factura = new Factura();
                 factura.NroFactura = int.Parse(datosSeparados[0]);
-
-                // ERROR ACA ENTONCES ROMPE PROGRAM, PROBABLEMENTE PORQUE NO FUNCIONA EL PARSE
-                //factura.FechaFactura = DateTime.ParseExact(datosSeparados[1],"MM/DD/YYYY",null);
+                factura.FechaFactura = DateTime.Parse(datosSeparados[1]);
                 factura.CUIT = datosSeparados[2];
                 factura.Pagado = datosSeparados[3];
                 factura.MontoFactura = int.Parse(datosSeparados[4]);
@@ -32,6 +30,9 @@ namespace Version_2___Pantallas
             }
 
         }
+        //Comentario de alguien: 
+        // ERROR ACA ENTONCES ROMPE PROGRAM, PROBABLEMENTE PORQUE NO FUNCIONA EL PARSE
+        //factura.FechaFactura = DateTime.ParseExact(datosSeparados[1],"MM/DD/YYYY",null);
 
         public static List<Factura> BuscarFacturaCliente(string cuit)
         {
