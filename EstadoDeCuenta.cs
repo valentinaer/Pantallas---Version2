@@ -27,7 +27,16 @@ namespace grupoB_TP
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
             int saldo = 0;
-            string CUIT = Cliente.CuitUsuarioActual; //Este es el numero de CUIT que viene desde el Acceso al Sistema
+            string CUIT = "";
+            if(Cliente.CuitUsuarioActual != null){
+                CUIT = Cliente.CuitUsuarioActual;
+                
+            }
+            else
+            {
+                MessageBox.Show("No se ha seleccionado un cliente");
+                this.Close();
+            } 
 
             //Cliente c = new Cliente();
             Cliente ClienteActual = new Cliente();
@@ -80,7 +89,11 @@ namespace grupoB_TP
 
         private void btnMostrar_Click(object sender, EventArgs e)
         {
-            string CUIT = Cliente.CuitUsuarioActual;
+            string CUIT = "";
+            if(Cliente.CuitUsuarioActual != null){
+                CUIT = Cliente.CuitUsuarioActual;
+            }
+            
 
             string msj = "";
             string fechaDesde = txtFechaInicio.Text;

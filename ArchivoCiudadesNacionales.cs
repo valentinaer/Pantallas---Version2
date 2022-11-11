@@ -9,8 +9,12 @@
 
             while (!archivoCiudadesNacionales.EndOfStream)
             {
-                var proximoLinea = archivoCiudadesNacionales.ReadLine();
-                string[] datosSeparados = proximoLinea.Split("|");
+                var proximaLinea = archivoCiudadesNacionales.ReadLine();
+                if(string.IsNullOrEmpty(proximaLinea)) 
+                {
+                    continue;
+                }
+                string[] datosSeparados = proximaLinea.Split("|");
 
                 var CiudadesNacional = new CiudadadesNacionales();
                 CiudadesNacional.Provincia = datosSeparados[0];
@@ -37,12 +41,17 @@
         public static List<CiudadadesNacionales> BuscarCiudades(string provincia)
         {
             CiudadadesNacionales ciudades = new CiudadadesNacionales();
-            foreach (CiudadadesNacionales c in ListaCiudadesNacionales)
+            foreach (CiudadadesNacionales ciudad in ListaCiudadesNacionales)
             {
-                if (c.Provincia.ToLower() == provincia.ToLower())
-                {
-                    ciudadesProvincia.Add(c);
+                if(ciudad.Provincia != null) {
+                    if (ciudad.Provincia.ToLower() == provincia.ToLower())
+                    {
+                        ciudadesProvincia.Add(ciudad);
+                    }
+                } else {
+                    MessageBox.Show("No se encontraron ciudades para la provincia seleccionada");
                 }
+
             }
             return ciudadesProvincia;
         }

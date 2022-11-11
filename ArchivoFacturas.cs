@@ -10,12 +10,20 @@ namespace Version_2___Pantallas
             using var archivo = new StreamReader("Factura.txt");
             while (!archivo.EndOfStream)
             {
+
                 var proximaLinea = archivo.ReadLine();
+                if(string.IsNullOrEmpty(proximaLinea)) 
+                {
+                    Console.WriteLine("Error en facturas, excepcion null"); 
+                    continue;
+                }
                 string[] datosSeparados = proximaLinea.Split("|");
 
                 Factura factura = new Factura();
                 factura.NroFactura = int.Parse(datosSeparados[0]);
-                factura.FechaFactura = DateTime.Parse(datosSeparados[1]);
+
+                // ERROR ACA ENTONCES ROMPE PROGRAM, PROBABLEMENTE PORQUE NO FUNCIONA EL PARSE
+                //factura.FechaFactura = DateTime.ParseExact(datosSeparados[1],"MM/DD/YYYY",null);
                 factura.CUIT = datosSeparados[2];
                 factura.Pagado = datosSeparados[3];
                 factura.MontoFactura = int.Parse(datosSeparados[4]);
@@ -27,16 +35,12 @@ namespace Version_2___Pantallas
 
         public static List<Factura> BuscarFacturaCliente(string cuit)
         {
-            CargarFacturas();
-
-            return ListaFacturas.FindAll(f => f.CUIT == cuit);
+            return ListaFacturas.FindAll(factura => factura.CUIT == cuit);
         }
 
         public static List<Factura> BuscarFacturasImpagas(string cuit)
         {
-            CargarFacturas();
-
-            return ListaFacturas.FindAll(f => f.CUIT == cuit && f.Pagado == "NO PAGADO");
+            return ListaFacturas.FindAll(factura => factura.CUIT == cuit && factura.Pagado == "NO PAGADO");
         }
     }
 }

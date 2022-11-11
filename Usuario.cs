@@ -26,10 +26,11 @@ namespace Version_2___Pantallas
         }
 
         // MÉTODO CARGAR USUARIOS DE LA LISTA //
-        public Usuario()
+        /* public Usuario()
         {
 
-        }
+        } */
+        
         public override string ToString()
         {
             return string.Format("{0} - {1} - {2}",

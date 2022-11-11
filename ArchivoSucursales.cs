@@ -14,6 +14,10 @@ namespace Version_2___Pantallas
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
+                if(string.IsNullOrEmpty(proximaLinea)) 
+                {
+                    continue;
+                }
                 string[] datosSeparados = proximaLinea.Split("|");
 
                 Sucursales sucursal = new Sucursales();
@@ -30,7 +34,7 @@ namespace Version_2___Pantallas
 
         public static Sucursales BuscarSucursales(int id)
         {
-            return listaSucursales.Find(c => c.Numero == id);
+            return listaSucursales.Find(sucursal => sucursal.Numero == id) ?? new Sucursales();
         }
 
         public static List<Sucursales> PedirLista()

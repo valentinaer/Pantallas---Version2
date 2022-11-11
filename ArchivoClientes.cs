@@ -7,11 +7,15 @@ namespace Version_2___Pantallas
         static List<Cliente> ListaClientes = new List<Cliente>();
         public static void CargarClientes()
         {
-            
             using var archivo = new StreamReader("Clientes.txt");
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
+                if(string.IsNullOrEmpty(proximaLinea)) 
+                {
+                    Console.WriteLine("Error en clientes, excepcion null");
+                    continue;
+                }
                 string[] datosSeparados = proximaLinea.Split("|");
 
                 Cliente cliente = new Cliente();
@@ -26,16 +30,8 @@ namespace Version_2___Pantallas
 
         public static Cliente BuscarCliente(string cuit)
         {
-            CargarClientes();
-
-            return ListaClientes!.Find(c => c.Cuit == cuit);
-
+            return ListaClientes.Find(cliente => cliente.Cuit == cuit) ?? new Cliente();
         }
-
-
-
-
-
 
     }
 }

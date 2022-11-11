@@ -10,6 +10,6 @@ namespace grupoB_TP
     {
         public decimal PesoMinimoKg { get; set; }
         public decimal PesoMaximoKg { get; set; }
-        public Dictionary<TipoPrecio, decimal> Precios{ get; set; }
+        public Dictionary<TipoPrecio, decimal>? Precios{ get; set; } 
     }
 }

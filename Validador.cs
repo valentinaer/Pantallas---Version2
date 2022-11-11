@@ -52,9 +52,8 @@ namespace grupoB_TP
                 {
                     if (caracter > '0' && caracter < '9')
                     {
-                        return ($" El {campo} debe tener solamente números.");
                         estaOK = false;
-                        break;
+                        return ($" El {campo} debe tener solamente números.");
                     }
                 }
                 if (!estaOK)

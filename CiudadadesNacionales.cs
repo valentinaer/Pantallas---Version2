@@ -9,9 +9,9 @@ namespace Version_2___Pantallas
 {
     internal class CiudadadesNacionales
     {
-        public string Ciudad { get; set; }
-        public string Provincia { get; set; }
-        public string Region { get; set; }
+        public string? Ciudad { get; set; }
+        public string? Provincia { get; set; }
+        public string? Region { get; set; }
 
         public override string ToString()
         {

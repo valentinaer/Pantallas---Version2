@@ -14,14 +14,12 @@ namespace Version_2___Pantallas
             ArchivoCiudadesNacionales.CargarCiudadesNacionales();
             ArchivoCiudadesInternacionales.CargarCiudadesInternacionales();
             ArchivoClientes.CargarClientes();
-            //ArchivoFacturas.CargarFacturas();
+            ArchivoFacturas.CargarFacturas();
             ArchivoOrdenDeServicio.CargarOrdenDeServicio();
-            ArchivoRecargos.CargarRecargos();         
             ArchivoSucursales.CargarSucursales();
             ArchivoTarifas.CargasTarifas();
-            ArchivoUsuario.CargarUsuarios();
-
-
+            ArchivoUsuario.CargarUsuarios(); 
+            archivoRegionesInternacionales.CargarRegionesInternacionales(); 
 
             ApplicationConfiguration.Initialize();
 
@@ -29,9 +27,6 @@ namespace Version_2___Pantallas
             //Application.Run(new EstadoDeCuenta());
             Application.Run(new SolicitudDeServicio());
             //Application.Run(new EstadoDeServicio());
-
-            //GRABO TODOS LOS ARCHIVOS
-
 
         } 
     }

@@ -12,11 +12,11 @@ namespace Clases_TP4
         public int NumeroTrackeo { get; set; } //Correlativo (1,2,3...)
         public int CUIT { get; set; }
         public DateTime FechaSolicitud { get; set; }
-        public Direccion Origen { get; set; }
-        public Direccion Destino { get; set; }
+        public Direccion? Origen { get; set; }
+        public Direccion? Destino { get; set; }
         public bool Urgente { get; set; }
         public bool Nacional { get; set; } //si es false, entonces internacional (este siempre tiene que estar en true)
-        public string RangoPeso { get; set; }
+        public string? RangoPeso { get; set; }
         public int CantidadBultos { get; set; }
 
         public int Id_Direccion { get; set; }

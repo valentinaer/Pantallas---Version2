@@ -9,13 +9,13 @@ namespace grupoB_TP
     internal class Sucursales
     {
         public int Numero { get; set; }
-        public string Sucursal { get; set; }
-        public string Provincia { get; set; }
-        public string Ciudad { get; set; }
-        public string Region { get; set; }
-        public string Direccion { get; set; }
+        public string Sucursal { get; set; } = string.Empty;
+        public string Provincia { get; set; } = string.Empty;
+        public string Ciudad { get; set; } = string.Empty;
+        public string Region { get; set; } = string.Empty;
+        public string Direccion { get; set; } = string.Empty;
 
-        public Sucursales(
+        /* public Sucursales(
             int _numero,
             string _sucursal,
             string _provincia,
@@ -29,7 +29,7 @@ namespace grupoB_TP
         public Sucursales()
         {
 
-        } 
+        } */
 
 
 

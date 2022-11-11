@@ -34,13 +34,13 @@ namespace grupoB_TP
         public void CargarPaisesComboBox()
         {
             cmbPaisI.Items.Clear();
-            RegionesInternacionales r = new RegionesInternacionales();
+            RegionesInternacionales region = new RegionesInternacionales();
 
-            Paises = r.SoloPaises();
+            Paises = region.SoloPaises();
 
-            foreach (string p in Paises)
+            foreach (string pais in Paises)
             {
-                cmbPaisI.Items.Add(p);
+                cmbPaisI.Items.Add(pais);
             }      
         }
 
@@ -94,9 +94,7 @@ namespace grupoB_TP
                 this.ClientSize.Width / 2 - btnCotizar.Size.Width / 2,
                 btnCotizar.Location.Y);
 
-
-            decimal precio = calculatePrecio();
-
+            decimal precio = calculatePrecio(chkUrgente.Checked);
 
             // Seteamos el texto de la cotizacion
             lblCotizacion.Text = "$" + precio;
@@ -109,9 +107,9 @@ namespace grupoB_TP
 
         public string calculateRegion(string pais, string origenCiudad, string destinoCiudad, string origenProvincia, string destinoProvincia)
         {
-
-            string origenRegion = ArchivoCiudadesNacionales.BuscarRegion(origenCiudad).Region;
-            string destinoRegion = ArchivoCiudadesNacionales.BuscarRegion(destinoCiudad).Region;
+            
+            string origenRegion = ArchivoCiudadesNacionales.BuscarRegion(origenCiudad).Region ?? "";
+            string destinoRegion = ArchivoCiudadesNacionales.BuscarRegion(destinoCiudad).Region ?? "";
             
 
             if (pais == "Nacional")
@@ -122,7 +120,7 @@ namespace grupoB_TP
                 }
                 if (origenProvincia == destinoProvincia)
                 {
-                    return "Interior";
+                    return "Provincial";
                 }
                 if (origenRegion == destinoRegion)
                 {
@@ -133,24 +131,23 @@ namespace grupoB_TP
             else
             {
                 RegionesInternacionales regionesInternacionales = new RegionesInternacionales();
-                string origenRegionInternacional = regionesInternacionales.BuscarRegion(pais);
+                string origenRegionInternacional = archivoRegionesInternacionales.BuscarRegion(pais);
                 return origenRegionInternacional;
             }
         }
 
-        private decimal calculatePrecio()
+        private decimal calculatePrecio(bool urgente)
         {
+            
             string pais = cmbPaisI.Text == "" ? "Nacional" : cmbPaisI.Text;
             string Region = calculateRegion(pais, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
-            
+            MessageBox.Show(Region);
             Tarifas tarifas = new Tarifas();
+            MessageBox.Show(Region + " " + cmbRangoPeso.Text);
             decimal tarifa = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, Region));
             
             decimal Precio = tarifa;
 
-            using var recargos = new StreamReader("ArchivoRecargos.txt");
-            var recargosLine = recargos.ReadLine();
-            var recargosValues = recargosLine.Split('|');
 
             if (Region == "Paises Limitrofes" || Region == "America Latina" || Region == "America del Norte" || Region == "Europa" || Region == "Asia")
             {
@@ -158,19 +155,20 @@ namespace grupoB_TP
                 decimal hastaBsAs = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
                 // si es urgente sumamos 20% al precio
                 decimal precioUrgente = 0;
-                if (chkUrgente.Checked)
+                if (urgente)
                 {
-                    precioUrgente = Precio * Convert.ToDecimal(recargosValues[0]);
+                    precioUrgente = Precio * ArchivoRecargos.BuscarRecargos(0);
+                    MessageBox.Show(precioUrgente.ToString());
                 }
 
                 // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
-                if (precioUrgente > (Precio * Convert.ToDecimal(recargosValues[0])))
+                if (precioUrgente > (Precio * ArchivoRecargos.BuscarRecargos(0)))
                 {
-                    precioUrgente = Convert.ToDecimal(recargosValues[1]);
+                    precioUrgente = ArchivoRecargos.BuscarRecargos(1);
                 }
 
                 // retiro fijo es 30 y destino fijo 40
-                Precio = Precio + precioUrgente + Convert.ToDecimal(recargosValues[2]) + Convert.ToDecimal(recargosValues[3]) + hastaBsAs;
+                Precio = Precio + precioUrgente + ArchivoRecargos.BuscarRecargos(2) + ArchivoRecargos.BuscarRecargos(3) + hastaBsAs;
             }
 
             return Precio * Convert.ToDecimal(cmbCantidadBultosN.Text);
@@ -375,7 +373,6 @@ namespace grupoB_TP
         //Boton CONFIRMACION
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            var usuario = new Usuario();
             int tracking = Autonumerar();
             MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
                 $" {"\n"} Su numero de trackeo es: {tracking}");

@@ -12,7 +12,7 @@ namespace grupoB_TP
     internal class Recargos
     {
         //RecargoUrgente | TopeUrgente | RecargoRetiroEnPuerta | RecargoEntregaEnPuerta
-        public Dictionary<decimal, RangoDePesos> RangoDePeso { get; set; }
+        public Dictionary<decimal, RangoDePesos>? RangoDePeso { get; set; }
         public decimal RecargoUrgente { get; set; }
         public decimal TopeUrgente { get; set; }
         public decimal RecargoRetiroEnPuerta { get; set; }

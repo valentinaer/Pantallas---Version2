@@ -8,8 +8,8 @@ namespace Version_2___Pantallas
 {
     internal class CiudadesInternacionales
     {
-        public string Pais { get; set; }
-        public string Ciudad { get; set; }
+        public string? Pais { get; set; }
+        public string? Ciudad { get; set; }
 
 
     }

@@ -28,10 +28,8 @@
         {
             foreach (var tarifa in ListaTarifa)
             {
-                
                 if (tarifa.Peso.ToLower() == peso.ToLower() && tarifa.Region.ToLower() == region.ToLower())
                 {
-                    
                     return tarifa.Precio.ToString();
                 }
             }

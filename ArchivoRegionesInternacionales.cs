@@ -1,12 +1,9 @@
-// create a class to handle attributes pais and continent from RegionesInternacionales.txt, function to load data and search for
-// the region of the country
+using grupoB_TP;
+
 namespace Version_2___Pantallas
 {
-    internal class RegionesInternacionales
+    internal static class archivoRegionesInternacionales
     {
-        public string Pais { get; set; } = string.Empty;
-        public string Continente { get; set; } = string.Empty;
-
         static List<RegionesInternacionales> RegionInternacionales = new List<RegionesInternacionales>();
         public static void CargarRegionesInternacionales()
         {
@@ -31,7 +28,7 @@ namespace Version_2___Pantallas
            // MessageBox.Show("El archivo RegionesInternacionales se cargo correctamente");
         }
 
-        public string BuscarRegion(string pais)
+        public static string BuscarRegion(string pais)
         {
             RegionesInternacionales region = new RegionesInternacionales();
             for (int i = 0; i < RegionInternacionales.Count; i++)
@@ -45,21 +42,20 @@ namespace Version_2___Pantallas
 
         }
 
-        List<string> ListaPaises = new List<string>();
+        static List<string> ListaPaises = new List<string>();
 
-        public List<string> SoloPaises()
+        public static List<string> SoloPaises()
         {
             CargarRegionesInternacionales();
 
-            foreach(RegionesInternacionales p in RegionInternacionales)
+            foreach(RegionesInternacionales pais in RegionInternacionales)
             {
-                ListaPaises.Add(p.Pais);
+                ListaPaises.Add(pais.Pais);
             }
 
             return ListaPaises;
 
         }
-
-
+        
     }
 }

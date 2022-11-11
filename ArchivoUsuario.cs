@@ -12,14 +12,18 @@
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
+                if(string.IsNullOrEmpty(proximaLinea)) 
+                {
+                    continue;
+                }
                 string[] datosSeparados = proximaLinea.Split("|");
 
-                Usuario usuario = new Usuario();
-                usuario.DNIAutorizados = int.Parse(datosSeparados[0]);
-                usuario.CUIT = datosSeparados[1];
-                usuario.Contraseña = datosSeparados[2];
-                usuario.ApellidoNombre = datosSeparados[3];
-
+                Usuario usuario = new Usuario(
+                    int.Parse(datosSeparados[0]),
+                    datosSeparados[1],
+                    datosSeparados[2],
+                    datosSeparados[3]
+                );
                 ListaUsuario.Add(usuario);
                 //MessageBox.Show(usuario.ToString();
             }

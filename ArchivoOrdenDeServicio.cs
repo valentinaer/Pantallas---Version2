@@ -16,6 +16,10 @@ namespace Version_2___Pantallas
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
+                if (string.IsNullOrEmpty(proximaLinea))
+                {
+                    continue;
+                }
                 string[] datosSeparados = proximaLinea.Split("|");
 
                 OrdenDeServicio ordenDeServicio = new OrdenDeServicio();

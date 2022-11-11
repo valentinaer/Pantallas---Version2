@@ -32,8 +32,7 @@ namespace grupoB_TP
                 MessageBox.Show("El DNI debe tener 8 caracteres", "Errores");
             }
             //DNI no Autorizado (Flujo 3)
-            Usuario usuario = new Usuario();
-            usuario = ArchivoUsuario.BuscarDNI(int.Parse(DNI));
+            Usuario usuario = ArchivoUsuario.BuscarDNI(int.Parse(DNI));
             if (usuario == null)
             {
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
