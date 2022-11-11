@@ -144,7 +144,7 @@ namespace grupoB_TP
             string Region = calculateRegion(pais, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
             
             Tarifas tarifas = new Tarifas();
-            decimal tarifa = Convert.ToDecimal(tarifas.BuscarTarifa(cmbRangoPeso.Text, Region));
+            decimal tarifa = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, Region));
             
             decimal Precio = tarifa;
 
@@ -155,7 +155,7 @@ namespace grupoB_TP
             if (Region == "Paises Limitrofes" || Region == "America Latina" || Region == "America del Norte" || Region == "Europa" || Region == "Asia")
             {
                 string RegionCABA = "C.A.B.A";
-                decimal hastaBsAs = Convert.ToDecimal(tarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
+                decimal hastaBsAs = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
                 // si es urgente sumamos 20% al precio
                 decimal precioUrgente = 0;
                 if (chkUrgente.Checked)
