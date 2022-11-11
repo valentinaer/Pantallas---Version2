@@ -294,7 +294,7 @@ namespace grupoB_TP
                     }
 
                     string mensaje = "";
-                    if (string.IsNullOrEmpty(txtDirrecionNacional.Text))
+                    if (string.IsNullOrEmpty(txtDirecionNacional.Text))
                     {
                         mensaje += "El domicilio de Entrega a Domicilio" + "\n";
                     }
