@@ -329,7 +329,6 @@
             this.cmbSucursalesDestino.Name = "cmbSucursalesDestino";
             this.cmbSucursalesDestino.Size = new System.Drawing.Size(323, 29);
             this.cmbSucursalesDestino.TabIndex = 5;
-            this.cmbSucursalesDestino.SelectedIndexChanged += new System.EventHandler(this.cmbSucursalesDestino_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -432,7 +431,6 @@
             this.cmbCiudadesI.Name = "cmbCiudadesI";
             this.cmbCiudadesI.Size = new System.Drawing.Size(199, 29);
             this.cmbCiudadesI.TabIndex = 20;
-            this.cmbCiudadesI.SelectedIndexChanged += new System.EventHandler(this.cmbCiudadesI_SelectedIndexChanged);
             // 
             // cmbPaisI
             // 
@@ -563,7 +561,6 @@
             this.cmbSucursalOrigen.Name = "cmbSucursalOrigen";
             this.cmbSucursalOrigen.Size = new System.Drawing.Size(320, 29);
             this.cmbSucursalOrigen.TabIndex = 5;
-            this.cmbSucursalOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbSucursalOrigen_SelectedIndexChanged);
             // 
             // rboRetiroDomicilio
             // 

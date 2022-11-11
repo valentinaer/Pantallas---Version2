@@ -10,36 +10,28 @@ namespace Version_2___Pantallas
         [STAThread]
         static void Main()
         {
+            //Cargo TODOS LOS ARCHIVOS
+            ArchivoCiudadesNacionales.CargarCiudadesNacionales();
+            //ArchivoCiudadesInternacionales.CargarCiudadesInternacionales();
+            //ArchivoClientes.CargarClientes();
+            //ArchivoFacturas.CargarFacturas();
+            //ArchivoOrdenDeServicio.CargarOrdenDeServicio();
+            //ArchivoRecargos.CargarRecargos();         
+            //ArchivoSucursales.CargarSucursales();
+            //ArchivoTarifas.CargasTarifas();
+            ArchivoUsuario.CargarUsuarios();
 
-            //Recargos.CargarRecargos();
-            //Tarifas.CargasTarifas();
 
-
-
-            //                CargaOrdendeServicio();
-            //    CargarCiudadesNacionales();
-            //   CargarClientes();
-            /* Tenemos que cargar    Planillas
-            Orden de Servicio
-            Usuario Factura
-
-            tarifa
-            cliente
-
-            *
-            */
-            
 
             ApplicationConfiguration.Initialize();
 
-            //Application.Run(new AccesoAlSistema());
-
+            Application.Run(new AccesoAlSistema());
             //Application.Run(new EstadoDeCuenta());
-
-            Application.Run(new SolicitudDeServicio());
+            //Application.Run(new SolicitudDeServicio());
             //Application.Run(new EstadoDeServicio());
 
-            //Application.Run(new SolicitudDeServicio());
+            //GRABO TODOS LOS ARCHIVOS
+
 
         } 
     }

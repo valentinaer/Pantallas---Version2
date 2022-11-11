@@ -79,9 +79,9 @@ Santa Cruz|Calafate|Sur
 Santa Cruz|Caleta Olivia|Sur
 Santa Cruz|El Chaltén|Sur
 Santa Fe|Rosario|Centro
-Santa Fé|Venado Tuerto|Centro
-Santa Fé|Santa Fe|Centro
-Santa Fé|Rafaela|Centro
+Santa Fe|Venado Tuerto|Centro
+Santa Fe|Santa Fe|Centro
+Santa Fe|Rafaela|Centro
 Santiago del Estero|Santiago del Estero|Norte
 Santiago del Estero|Termas de Río Hondo|Norte
 Santiago del Estero|Añatuya|Norte

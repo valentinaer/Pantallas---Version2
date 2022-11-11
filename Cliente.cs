@@ -44,7 +44,7 @@ namespace Clases_TP4
         {
             CargarClientes();
 
-            return ListaClientes.Find(c => c.Cuit == cuit);
+            return ListaClientes!.Find(c => c.Cuit == cuit);
             
         }
 

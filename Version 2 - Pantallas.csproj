@@ -28,7 +28,7 @@
     <None Update="OrdenDeServicio.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Update="CiudadesNacionales.txt">
+    <None Update="ArchivoCiudadesNacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Recargos.txt">
@@ -37,10 +37,13 @@
     <None Update="RegionesInternacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Update="Sucursales.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Tarifas.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Usuarios.txt">
+    <None Update="ArchivoUsuarios.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>

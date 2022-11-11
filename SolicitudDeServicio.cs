@@ -17,6 +17,9 @@ namespace grupoB_TP
         public SolicitudDeServicio()
         {
             InitializeComponent();
+        }
+        private void SolicitudDeServicio_Load(object sender, EventArgs e)
+        {
             Sucursales sucursales = new Sucursales();
             List<Sucursales> listS = sucursales.PedirLista();
 
@@ -25,7 +28,6 @@ namespace grupoB_TP
                 cmbSucursalOrigen.Items.Add(s.numero.ToString() + "- " + s.sucursal);
             }
         }
-
         public void CargarPaisesComboBox()
         {
             cmbPaisI.Items.Clear();
@@ -36,9 +38,7 @@ namespace grupoB_TP
             foreach (string p in Paises)
             {
                 cmbPaisI.Items.Add(p);
-
-            }
-            
+            }      
         }
 
         List<string> Paises = new List<string>();
@@ -58,11 +58,7 @@ namespace grupoB_TP
 
                 //Carga de paises al combobox.//
                 CargarPaisesComboBox();
-               
-
             }
-
-
         }
 
         public void cotizar(string origen, string destino)
@@ -110,10 +106,9 @@ namespace grupoB_TP
 
         public string calculateRegion(string pais, string origenCiudad, string destinoCiudad, string origenProvincia, string destinoProvincia)
         {
-            CiudadadesNacionales region = new CiudadadesNacionales();
-            
-            string origenRegion = region.BuscarRegion(origenCiudad).Region;
-            string destinoRegion = region.BuscarRegion(destinoCiudad).Region;
+
+            string origenRegion = ArchivoCiudadesNacionales.BuscarRegion(origenCiudad).Region;
+            string destinoRegion = ArchivoCiudadesNacionales.BuscarRegion(destinoCiudad).Region;
             
 
             if (pais == "Nacional")
@@ -423,7 +418,7 @@ namespace grupoB_TP
             Random r = new Random();
             return r.Next(0001, 9999);
         }
-        List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
+        
         //BOTON MODIFICAR
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -438,15 +433,15 @@ namespace grupoB_TP
             grpInternacional.Visible = false;
             btnCotizar.Visible = true;
         }
-
+        List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
         //Mostrar Provincia Origen
         private void cmbProvinciaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ciudadesAMostrar.Clear();
             cmbCiudadOrigen.Items.Clear();
             string provincia = cmbProvinciaOrigen.Text;
 
-            var CiudadesDeProvincia = new CiudadadesNacionales();
-            ciudadesAMostrar = CiudadesDeProvincia.BuscarCiudades(provincia);
+            ciudadesAMostrar = ArchivoCiudadesNacionales.BuscarCiudades(provincia);
             foreach (var c in ciudadesAMostrar)
             {
                 cmbCiudadOrigen.Items.Add(c.Ciudad);
@@ -456,11 +451,11 @@ namespace grupoB_TP
         //Mostrar Provincia Destino
         private void cmbProvinciaDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ciudadesAMostrar.Clear();
             cmbCiudadDestino.Items.Clear();
             string provincia = cmbProvinciaDestino.Text;
 
-            var CiudadesDeProvincia = new CiudadadesNacionales();
-            ciudadesAMostrar = CiudadesDeProvincia.BuscarCiudades(provincia);
+            ciudadesAMostrar = ArchivoCiudadesNacionales.BuscarCiudades(provincia);
             foreach(var c in ciudadesAMostrar)
             {
                 cmbCiudadDestino.Items.Add(c.Ciudad);
@@ -482,31 +477,6 @@ namespace grupoB_TP
             {
                 cmbCiudadesI.Items.Add(c.Ciudad);
             }
-            
-          
-
-        }
-
-        private void cmbCiudadesI_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SolicitudDeServicio_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmbSucursalOrigen_SelectedIndexChanged(object sender, EventArgs e)
-        {
-           
-            
-            
-        }
-
-        private void cmbSucursalesDestino_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
