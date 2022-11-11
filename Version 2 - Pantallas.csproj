@@ -31,13 +31,13 @@
     <None Update="ArchivoCiudadesNacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Recargos.txt">
+    <None Update="ArchivoRecargos.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="RegionesInternacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="Sucursales.txt">
+    <None Update="ArchivoSucursales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Tarifas.txt">

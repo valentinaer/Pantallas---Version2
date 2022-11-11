@@ -14,10 +14,6 @@ namespace grupoB_TP
 {
     public partial class SolicitudDeServicio : Form
     {
-        public SolicitudDeServicio()
-        {
-            InitializeComponent();
-        }
         private void SolicitudDeServicio_Load(object sender, EventArgs e)
         {
             List<Sucursales> listaSucursales = ArchivoSucursales.PedirLista();
@@ -30,6 +26,11 @@ namespace grupoB_TP
                 cmbSucursalesDestino.Items.Add(texto);
             }
         }
+        public SolicitudDeServicio()
+        {
+            InitializeComponent();
+        }
+
         public void CargarPaisesComboBox()
         {
             cmbPaisI.Items.Clear();

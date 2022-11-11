@@ -22,6 +22,7 @@
         }
         public static CiudadadesNacionales BuscarRegion(string ciudad)
         {
+            //CORREGIR LO HECHO EN CLASE
             CiudadadesNacionales region = new CiudadadesNacionales();
             for (int i = 0; i < ListaCiudadesNacionales.Count; i++)
             {
