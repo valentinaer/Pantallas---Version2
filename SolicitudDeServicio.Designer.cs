@@ -36,7 +36,7 @@
             this.txtAlturaI = new System.Windows.Forms.TextBox();
             this.txtDireccionI = new System.Windows.Forms.TextBox();
             this.txtDirrecionOrigen = new System.Windows.Forms.TextBox();
-            this.txtPisoDepartamentoRecepcion = new System.Windows.Forms.TextBox();
+            this.txtPisoDeptoOrigen = new System.Windows.Forms.TextBox();
             this.txtAlturaOrigen = new System.Windows.Forms.TextBox();
             this.cmbRangoPeso = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -73,7 +73,7 @@
             this.label10 = new System.Windows.Forms.Label();
             this.rboRecibeSucursal = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
-            this.lblMenuPrincipal = new System.Windows.Forms.Label();
+            this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCotizar = new System.Windows.Forms.Button();
             this.grpCotizacion = new System.Windows.Forms.GroupBox();
             this.btnModificar = new System.Windows.Forms.Button();
@@ -168,12 +168,12 @@
             this.txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
             this.txtDirrecionOrigen.TabIndex = 18;
             // 
-            // txtPisoDepartamentoRecepcion
+            // txtPisoDeptoOrigen
             // 
-            this.txtPisoDepartamentoRecepcion.Location = new System.Drawing.Point(209, 287);
-            this.txtPisoDepartamentoRecepcion.Name = "txtPisoDepartamentoRecepcion";
-            this.txtPisoDepartamentoRecepcion.Size = new System.Drawing.Size(132, 29);
-            this.txtPisoDepartamentoRecepcion.TabIndex = 17;
+            this.txtPisoDeptoOrigen.Location = new System.Drawing.Point(209, 287);
+            this.txtPisoDeptoOrigen.Name = "txtPisoDeptoOrigen";
+            this.txtPisoDeptoOrigen.Size = new System.Drawing.Size(132, 29);
+            this.txtPisoDeptoOrigen.TabIndex = 17;
             // 
             // txtAlturaOrigen
             // 
@@ -487,7 +487,7 @@
             // grpTipoRecepcion
             // 
             this.grpTipoRecepcion.Controls.Add(this.txtDirrecionOrigen);
-            this.grpTipoRecepcion.Controls.Add(this.txtPisoDepartamentoRecepcion);
+            this.grpTipoRecepcion.Controls.Add(this.txtPisoDeptoOrigen);
             this.grpTipoRecepcion.Controls.Add(this.label17);
             this.grpTipoRecepcion.Controls.Add(this.label9);
             this.grpTipoRecepcion.Controls.Add(this.txtAlturaOrigen);
@@ -627,16 +627,16 @@
             this.label11.TabIndex = 5;
             this.label11.Text = "Provincia *";
             // 
-            // lblMenuPrincipal
+            // lblTitulo
             // 
-            this.lblMenuPrincipal.AutoSize = true;
-            this.lblMenuPrincipal.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.lblMenuPrincipal.ForeColor = System.Drawing.Color.Purple;
-            this.lblMenuPrincipal.Location = new System.Drawing.Point(235, -3);
-            this.lblMenuPrincipal.Name = "lblMenuPrincipal";
-            this.lblMenuPrincipal.Size = new System.Drawing.Size(536, 25);
-            this.lblMenuPrincipal.TabIndex = 11;
-            this.lblMenuPrincipal.Text = "Ingrese los siguientes datos para realizar la cotizacion del servicio: ";
+            this.lblTitulo.AutoSize = true;
+            this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblTitulo.ForeColor = System.Drawing.Color.Purple;
+            this.lblTitulo.Location = new System.Drawing.Point(235, -3);
+            this.lblTitulo.Name = "lblTitulo";
+            this.lblTitulo.Size = new System.Drawing.Size(536, 25);
+            this.lblTitulo.TabIndex = 11;
+            this.lblTitulo.Text = "Ingrese los siguientes datos para realizar la cotizacion del servicio: ";
             // 
             // btnCotizar
             // 
@@ -866,7 +866,7 @@
             this.rboInternacional.TabStop = true;
             this.rboInternacional.Text = "Internacional";
             this.rboInternacional.UseVisualStyleBackColor = true;
-            this.rboInternacional.CheckedChanged += new System.EventHandler(this.mostrarOcultar);
+            this.rboInternacional.CheckedChanged += new System.EventHandler(this.MostrarOcultar);
             // 
             // rboNacional
             // 
@@ -878,7 +878,7 @@
             this.rboNacional.TabStop = true;
             this.rboNacional.Text = "Nacional";
             this.rboNacional.UseVisualStyleBackColor = true;
-            this.rboNacional.CheckedChanged += new System.EventHandler(this.mostrarOcultar);
+            this.rboNacional.CheckedChanged += new System.EventHandler(this.MostrarOcultar);
             // 
             // SolicitudDeServicio
             // 
@@ -889,7 +889,7 @@
             this.Controls.Add(this.grpTipoEnvio);
             this.Controls.Add(this.grpCotizacion);
             this.Controls.Add(this.btnCotizar);
-            this.Controls.Add(this.lblMenuPrincipal);
+            this.Controls.Add(this.lblTitulo);
             this.Controls.Add(this.grpTipoRecepcion);
             this.Controls.Add(this.grpNacional);
             this.Controls.Add(this.grpCaracteristicaServicio);
@@ -932,8 +932,7 @@
         private ComboBox cmbRangoPeso;
         private TextBox txtDirecionNacional;
         private TextBox txtAlturaOrigen;
-        private TextBox txtPisoDeparatamentoRecepcion;
-        private TextBox txtPisoDepartamentoRecepcion;
+        private TextBox txtPisoDeptoOrigen;
         private TextBox txtAlturaNacional;
         private TextBox txtPisoDeptoNacional;
         private TextBox txtDireccionI;
@@ -956,7 +955,7 @@
         private Label label10;
         private Label label9;
         private Label label11;
-        private Label lblMenuPrincipal;
+        private Label lblTitulo;
         private Button btnCotizar;
         private GroupBox grpCotizacion;
         private Label label15;

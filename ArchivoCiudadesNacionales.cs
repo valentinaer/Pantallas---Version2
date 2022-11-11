@@ -40,7 +40,7 @@
                 }
                 
             }*/
-            //throw new ApplicationException("Codigo de Ciudad Nacional inesperado");
+            throw new ApplicationException("Codigo de Ciudad Nacional inesperado");
         }
 
         

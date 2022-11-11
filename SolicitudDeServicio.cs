@@ -23,6 +23,7 @@ namespace grupoB_TP
         {
             InitializeComponent();
         }
+//----------------------CARGAR ELEMENTOS ------------------------------------------------------------------
         public void CargarSucursales()
         {
             List<Sucursales> listaSucursales = ArchivoSucursales.PedirLista();
@@ -49,138 +50,57 @@ namespace grupoB_TP
             }    
         }
 
-        public void mostrarOcultar(object sender, EventArgs e)
+//----------------------BOTON MODIFICAR--------------------------------------------------------
+        //Boton MODIFICAR
+        private void btnModificar_Click(object sender, EventArgs e)
         {
-            // Si radio button Nacional esta checkeda, mostrar el grupo Nacional
-            if (rboNacional.Checked)
-            {
-                grpNacional.Visible = true;
-                grpInternacional.Visible = false;
-            }
-            // Si radio button Internacional esta checkeda, mostrar el grupo Internacional
-            else if (rboInternacional.Checked)
-            {
-                grpInternacional.Visible = true;
-                grpNacional.Visible = false;
-
-                //Carga de paises al combobox.//
-                
-            }
+            MostramosElementos();
         }
 
-        public void cotizar(string origen, string destino)
+        //Boton CONFIRMACION
+        private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            // -------------- Escondemos elementos -----------------//
+            int tracking = Autonumerar();
+            MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
+                $" {"\n"} Su numero de trackeo es: {tracking}");
 
-            btnCotizar.Visible = false;
-            grpCotizacion.Visible = true;
-            lblMenuPrincipal.Visible = true;
-            grpCaracteristicaServicio.Visible = false;
-            grpTipoEnvio.Visible = false;
-            grpTipoRecepcion.Visible = false;
-            grpNacional.Visible = false;
-            grpInternacional.Visible = false;
-            grpCotizacion.Visible = true;
 
-            // -------------- Centramos el elemento de cotizacion -----------------//
-            //centra el elemento de cotizacion hoirzontalmente y verticalmente
-            grpCotizacion.Location = new Point(
-                this.ClientSize.Width / 2 - grpCotizacion.Size.Width / 2,
-                this.ClientSize.Height / 2 - grpCotizacion.Size.Height / 2);
+            // destino si es nacional
+            string destino = "";
+            string origen = "";
 
-            // centra el titulo horizontalmente
-            lblMenuPrincipal.Location = new Point(
-                this.ClientSize.Width / 2 - lblMenuPrincipal.Size.Width / 2,
-                lblMenuPrincipal.Location.Y);
-
-            // centra el boton cotizar horizontalmente
-            btnCotizar.Location = new Point(
-                this.ClientSize.Width / 2 - btnCotizar.Size.Width / 2,
-                btnCotizar.Location.Y);
-
-            decimal precio = calculatePrecio(chkUrgente.Checked);
-
-            // Seteamos el texto de la cotizacion
-            lblCotizacion.Text = "$" + precio;
-            lblOrigen.Text = origen;
-            lblDestino.Text = destino;
-            lblUrgente.Text = chkUrgente.Checked ? "Si" : "No";
-            lblCuitI.Text = "CUIT";
-
-        }
-
-        public string calculateRegion(string pais, string origenCiudad,
-            string destinoCiudad, string origenProvincia, string destinoProvincia)
-        {
-            string origenRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(origenCiudad);
-            string destinoRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(destinoCiudad);
-            
-            if (pais == "Nacional")
+            // if sucursal show in a string the sucursal selected from dropdown, if envio a domicilio show in a string the provincia and ciudad selected from dropdown
+            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
             {
-                if (origenCiudad == destinoCiudad)
-                {
-                    return "Local";
-                }
-                if (origenProvincia == destinoProvincia)
-                {
-                    return "Provincial";
-                }
-                if (origenRegion == destinoRegion)
-                {
-                    return "Regional";
-                }
-                return "Nacional";
+                origen = cmbSucursalOrigen.Text;
+            }
+
+            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            {
+                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
+            }
+
+
+            if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+            {
+                destino = cmbSucursalesDestino.Text;
+            }
+            else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+            {
+                destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
             }
             else
             {
-                string origenRegionInternacional = ArchivoCiudadesInternacionales.BuscarRegionInternacional(destinoCiudad);
-                return origenRegionInternacional;
-            }
-        }
-
-        private decimal calculatePrecio(bool urgente)
-        {
-            
-            string pais = cmbPaisI.Text == "" ? "Nacional" : cmbPaisI.Text;
-
-
-
-
-            string Region = calculateRegion(pais, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
-            
-            MessageBox.Show(Region);
-            Tarifas tarifas = new Tarifas();
-            MessageBox.Show(Region + " " + cmbRangoPeso.Text);
-            decimal tarifa = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, Region));
-            
-            decimal Precio = tarifa;
-
-
-            if (Region == "Paises Limitrofes" || Region == "America Latina" || Region == "America del Norte" || Region == "Europa" || Region == "Asia")
-            {
-                string RegionCABA = "C.A.B.A";
-                decimal hastaBsAs = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
-                // si es urgente sumamos 20% al precio
-                decimal precioUrgente = 0;
-                if (urgente)
-                {
-                    precioUrgente = Precio * ArchivoRecargos.BuscarRecargos(0);
-                    MessageBox.Show(precioUrgente.ToString());
-                }
-
-                // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
-                if (precioUrgente > (Precio * ArchivoRecargos.BuscarRecargos(0)))
-                {
-                    precioUrgente = ArchivoRecargos.BuscarRecargos(1);
-                }
-
-                // retiro fijo es 30 y destino fijo 40
-                Precio = Precio + precioUrgente + ArchivoRecargos.BuscarRecargos(2) + ArchivoRecargos.BuscarRecargos(3) + hastaBsAs;
+                //  destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
             }
 
-            return Precio * Convert.ToDecimal(cmbCantidadBultosN.Text);
+            string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
+            //string CUIT = Usuario.CUIT(usuario);
+            //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
+            string nuevaFila = "N°Trackeo|Feha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAIS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|CALLE|ALTURA|PISO DEPTO|PAIS DE DESTINO|PROVINCIA/REGION|CIUDAD DESTINO|CALLE|ALTURA|PISO DEPTO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE|ESTADO|FACTURADO";
+            Utilidades.GrabarNuevaFila("./OrdenDeServicio.txt", nuevaFila);
         }
-
+        //Boton COTIZAR
         private void btnCotizar_Click(object sender, EventArgs e)
         {
 
@@ -347,8 +267,6 @@ namespace grupoB_TP
             // Validaciones para Envios Internacionales
             if (rboInternacional.Checked && !rboNacional.Checked)
             {
-
-
                 if (cmbPaisI.SelectedIndex == -1)
                 {
                     MessageBox.Show("Debe seleccionar una País y Ciudad de DESTINO", "Errores");
@@ -377,70 +295,115 @@ namespace grupoB_TP
                 cotizar(origen, cmbCiudadesI.Text);
             }
         }
-        //Boton CONFIRMACION
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        public void cotizar(string origen, string destino)
         {
-            int tracking = Autonumerar();
-            MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
-                $" {"\n"} Su numero de trackeo es: {tracking}");
+            EscondemosElementos();
+            CentrarElementosCotizacion();
 
+            decimal precio = CalcularPrecio(chkUrgente.Checked);
 
-            // destino si es nacional
-            string destino = "";
-            string origen = "";
+            // Seteamos el texto de la cotizacion
+            lblCotizacion.Text = "$" + precio;
+            lblOrigen.Text = origen;
+            lblDestino.Text = destino;
+            lblUrgente.Text = chkUrgente.Checked ? "Si" : "No";
+            lblCuitI.Text = "CUIT";
 
-            // if sucursal show in a string the sucursal selected from dropdown, if envio a domicilio show in a string the provincia and ciudad selected from dropdown
-            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+        }
+
+        public string ObtenerRegionNacional(string origenCiudad,
+            string destinoCiudad, string origenProvincia, string destinoProvincia)
+        {
+            string origenRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(origenCiudad);
+            string destinoRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(destinoCiudad);
+            
+            if (origenCiudad == destinoCiudad)
             {
-                origen = cmbSucursalOrigen.Text;
+                return "Local";
             }
-
-            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            if (origenProvincia == destinoProvincia)
             {
-                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
+                return "Provincial";
             }
-
-
-            if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+            if (origenRegion == destinoRegion)
             {
-                destino = cmbSucursalesDestino.Text;
-            }
-            else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
-            {
-                destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
+                return "Regional";
             }
             else
             {
-                //  destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
+                return "Nacional";
+            }
+        }
+    
+        public string ObtenerRegioninternacional(string origenCiudad,
+            string destinoCiudad, string origenProvincia, string destinoProvincia)
+        {
+            string origenRegionInternacional = ArchivoCiudadesInternacionales.BuscarRegionInternacional(destinoCiudad);
+            return origenRegionInternacional;
+        }
+
+        private decimal CalcularPrecio(bool urgente)
+        {
+            string regionParaCotizar = null;
+            string DescRangoDePeso = cmbRangoPeso.Text;
+            int CantBultos = int.Parse(cmbCantidadBultosN.Text);
+
+            if (rboNacional.Checked)
+            {
+                string origenCiudadN = cmbCiudadOrigen.Text;
+                string destinoCiudadN = cmbCiudadDestino.Text;
+                string origenProvinciaN = cmbProvinciaOrigen.Text;
+                string destinoProvinciaN = cmbProvinciaDestino.Text;
+                regionParaCotizar = ObtenerRegionNacional(origenCiudadN, destinoCiudadN, origenProvinciaN, destinoProvinciaN);
+            }
+            if (rboInternacional.Checked)
+            {
+                string ciudadI = cmbCiudadesI.Text;
+                regionParaCotizar = ArchivoCiudadesInternacionales.BuscarRegionInternacional(ciudadI);
             }
 
-            string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
-            //string CUIT = Usuario.CUIT(usuario);
-            //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
-            string nuevaFila = "N°Trackeo|Feha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAIS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|CALLE|ALTURA|PISO DEPTO|PAIS DE DESTINO|PROVINCIA/REGION|CIUDAD DESTINO|CALLE|ALTURA|PISO DEPTO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE|ESTADO|FACTURADO";
-            Utilidades.GrabarNuevaFila("./OrdenDeServicio.txt", nuevaFila);
+            MessageBox.Show(regionParaCotizar);
+            MessageBox.Show(Region + " " + cmbRangoPeso.Text);
+            decimal tarifaTabla = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionParaCotizar));
+            MessageBox.Show(tarifaTabla.ToString());
+            decimal Precio = tarifaTabla;
+            //Hasta aca tenemos la TARIFA TABLA
+            //LOGICA INTERNACIONAL
+            if (regionParaCotizar == "Paises Limitrofes" || regionParaCotizar == "America Latina" || regionParaCotizar == "America del Norte" || regionParaCotizar == "Europa" || regionParaCotizar == "Asia")
+            {
+                string RegionCABA = "C.A.B.A";
+                decimal hastaBsAs = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
+                // si es urgente sumamos 20% al precio
+                decimal precioUrgente = 0;
+                if (urgente)
+                {
+                    precioUrgente = Precio * ArchivoRecargos.BuscarRecargos(0);
+                    MessageBox.Show(precioUrgente.ToString());
+                }
+
+                // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
+                if (precioUrgente > (Precio * ArchivoRecargos.BuscarRecargos(0)))
+                {
+                    precioUrgente = ArchivoRecargos.BuscarRecargos(1);
+                }
+
+                // retiro fijo es 30 y destino fijo 40
+                Precio = Precio + precioUrgente + ArchivoRecargos.BuscarRecargos(2) + ArchivoRecargos.BuscarRecargos(3) + hastaBsAs;
+            }
+
+            return Precio * CantBultos;
         }
+
+
         private int Autonumerar()
         {
             Random r = new Random();
             return r.Next(0001, 9999);
         }
         
-        //BOTON MODIFICAR
-        private void btnModificar_Click(object sender, EventArgs e)
-        {
-            // -------------- Escondemos elementos -----------------//
-            grpCotizacion.Visible = false;
 
-            lblMenuPrincipal.Visible = false;
-            grpCaracteristicaServicio.Visible = true;
-            grpTipoEnvio.Visible = true;
-            grpTipoRecepcion.Visible = true;
-            grpNacional.Visible = true;
-            grpInternacional.Visible = false;
-            btnCotizar.Visible = true;
-        }
         List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
+        List<CiudadesInternacionales> ciudadesInternacionalesAMostrar = new List<CiudadesInternacionales>();
         //Mostrar Provincia Origen
         private void cmbProvinciaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -469,7 +432,7 @@ namespace grupoB_TP
             }
         }
 
-        List<CiudadesInternacionales> ciudadesInternacionalesAMostrar = new List<CiudadesInternacionales>();
+        
       
         //Mostrar Ciudades Internacional Destino
         private void cmbPaisI_SelectedIndexChanged(object sender, EventArgs e)
@@ -485,6 +448,65 @@ namespace grupoB_TP
                 cmbCiudadesI.Items.Add(c.Ciudad);
             }
         }
+ //-----------FUNCIONALIDADES VISUALES ---------------------------------------------------------------
+        public void MostrarOcultar(object sender, EventArgs e)
+        {
+            // Si radio button Nacional esta checkeda, mostrar el grupo Nacional
+            if (rboNacional.Checked)
+            {
+                grpNacional.Visible = true;
+                grpInternacional.Visible = false;
+            }
+            // Si radio button Internacional esta checkeda, mostrar el grupo Internacional
+            else if (rboInternacional.Checked)
+            {
+                grpInternacional.Visible = true;
+                grpNacional.Visible = false;
+            }
+        }
+        public void MostramosElementos()
+        {
+            grpCotizacion.Visible = false;
+            lblTitulo.Visible = false;
+            grpCaracteristicaServicio.Visible = true;
+            grpTipoEnvio.Visible = true;
+            grpTipoRecepcion.Visible = true;
+            grpNacional.Visible = true;
+            grpInternacional.Visible = false;
+            btnCotizar.Visible = true;
+        }
 
+        public void EscondemosElementos()
+        {
+            grpCotizacion.Visible = true;
+            lblTitulo.Visible = true;
+            btnCotizar.Visible = false;
+                    
+            grpCaracteristicaServicio.Visible = false;
+            grpTipoEnvio.Visible = false;
+            grpTipoRecepcion.Visible = false;
+            grpNacional.Visible = false;
+            grpInternacional.Visible = false;
+            grpCotizacion.Visible = true;
+        }
+
+        public void CentrarElementosCotizacion()
+        {
+            // -------------- Centramos el elemento de cotizacion -----------------//
+            //centra el elemento de cotizacion hoirzontalmente y verticalmente
+            grpCotizacion.Location = new Point(
+                this.ClientSize.Width / 2 - grpCotizacion.Size.Width / 2,
+                this.ClientSize.Height / 2 - grpCotizacion.Size.Height / 2);
+
+            // centra el titulo horizontalmente
+            lblTitulo.Location = new Point(
+                this.ClientSize.Width / 2 - lblTitulo.Size.Width / 2,
+                lblTitulo.Location.Y);
+
+            // centra el boton cotizar horizontalmente
+            btnCotizar.Location = new Point(
+                this.ClientSize.Width / 2 - btnCotizar.Size.Width / 2,
+                btnCotizar.Location.Y);
+        }
     }
 }
