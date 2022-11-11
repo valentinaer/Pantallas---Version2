@@ -10,7 +10,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Update="CiudadesInternacionales.txt">
+    <None Update="ArchivoCiudadesInternacionales.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="ArchivoPaisesInternacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="Clientes.txt">
@@ -32,9 +35,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ArchivoRecargos.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Update="RegionesInternacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ArchivoSucursales.txt">

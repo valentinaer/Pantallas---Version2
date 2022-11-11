@@ -16,6 +16,15 @@ namespace grupoB_TP
     {
         private void SolicitudDeServicio_Load(object sender, EventArgs e)
         {
+            CargarPaisesComboBox();
+            CargarSucursales();
+        }
+        public SolicitudDeServicio()
+        {
+            InitializeComponent();
+        }
+        public void CargarSucursales()
+        {
             List<Sucursales> listaSucursales = ArchivoSucursales.PedirLista();
 
             foreach (Sucursales s in listaSucursales)
@@ -26,25 +35,20 @@ namespace grupoB_TP
                 cmbSucursalesDestino.Items.Add(texto);
             }
         }
-        public SolicitudDeServicio()
-        {
-            InitializeComponent();
-        }
-
         public void CargarPaisesComboBox()
         {
+            List<string> PaisesInternacionales = new List<string>();
             cmbPaisI.Items.Clear();
-            RegionesInternacionales region = new RegionesInternacionales();
+            PaisesInternacionales.Clear();
 
-            Paises = region.SoloPaises();
+            PaisesInternacionales = ArchivoPaisesInternacionales.SoloPaises();
 
-            foreach (string pais in Paises)
+            foreach (string pais in PaisesInternacionales)
             {
                 cmbPaisI.Items.Add(pais);
-            }      
+            }    
         }
 
-        List<string> Paises = new List<string>();
         public void mostrarOcultar(object sender, EventArgs e)
         {
             // Si radio button Nacional esta checkeda, mostrar el grupo Nacional
@@ -60,7 +64,7 @@ namespace grupoB_TP
                 grpNacional.Visible = false;
 
                 //Carga de paises al combobox.//
-                CargarPaisesComboBox();
+                
             }
         }
 
@@ -105,13 +109,12 @@ namespace grupoB_TP
 
         }
 
-        public string calculateRegion(string pais, string origenCiudad, string destinoCiudad, string origenProvincia, string destinoProvincia)
+        public string calculateRegion(string pais, string origenCiudad,
+            string destinoCiudad, string origenProvincia, string destinoProvincia)
         {
+            string origenRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(origenCiudad);
+            string destinoRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(destinoCiudad);
             
-            string origenRegion = ArchivoCiudadesNacionales.BuscarRegion(origenCiudad).Region ?? "";
-            string destinoRegion = ArchivoCiudadesNacionales.BuscarRegion(destinoCiudad).Region ?? "";
-            
-
             if (pais == "Nacional")
             {
                 if (origenCiudad == destinoCiudad)
@@ -130,8 +133,7 @@ namespace grupoB_TP
             }
             else
             {
-                RegionesInternacionales regionesInternacionales = new RegionesInternacionales();
-                string origenRegionInternacional = archivoRegionesInternacionales.BuscarRegion(pais);
+                string origenRegionInternacional = ArchivoCiudadesInternacionales.BuscarRegionInternacional(destinoCiudad);
                 return origenRegionInternacional;
             }
         }
@@ -140,7 +142,12 @@ namespace grupoB_TP
         {
             
             string pais = cmbPaisI.Text == "" ? "Nacional" : cmbPaisI.Text;
+
+
+
+
             string Region = calculateRegion(pais, cmbCiudadOrigen.Text, cmbCiudadDestino.Text, cmbProvinciaOrigen.Text, cmbProvinciaDestino.Text);
+            
             MessageBox.Show(Region);
             Tarifas tarifas = new Tarifas();
             MessageBox.Show(Region + " " + cmbRangoPeso.Text);
@@ -464,13 +471,13 @@ namespace grupoB_TP
 
         List<CiudadesInternacionales> ciudadesInternacionalesAMostrar = new List<CiudadesInternacionales>();
       
-        //Mostrar Internacional Destino
+        //Mostrar Ciudades Internacional Destino
         private void cmbPaisI_SelectedIndexChanged(object sender, EventArgs e)
         {
+            ciudadesInternacionalesAMostrar.Clear();
             cmbCiudadesI.Items.Clear();
             string pais = cmbPaisI.Text;
 
-            var CiudadesDePaises = new CiudadesInternacionales();
             ciudadesInternacionalesAMostrar = ArchivoCiudadesInternacionales.BuscarCiudades(pais);
 
             foreach (var c in ciudadesInternacionalesAMostrar)
@@ -478,5 +485,6 @@ namespace grupoB_TP
                 cmbCiudadesI.Items.Add(c.Ciudad);
             }
         }
+
     }
 }

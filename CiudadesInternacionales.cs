@@ -10,7 +10,6 @@ namespace Version_2___Pantallas
     {
         public string? Pais { get; set; }
         public string? Ciudad { get; set; }
-
-
+        public string? Region { get; set; }
     }
 }

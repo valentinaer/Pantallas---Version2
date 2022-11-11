@@ -1,0 +1,25 @@
+﻿España|Madrid|Europa
+España|Barcelona|Europa
+Francia|Paris|Europa
+Alemania|Munich|Europa
+Alemania|Berlin|Europa
+Suiza|Berna|Europa
+Dinamarca|Copenhague|Europa
+Paraguay|Asuncion |Limitrofes
+Brasil|Brasilia|Limitrofes
+Bolivia|La Paz|Limitrofes
+Chile|Santiago de Chile|Limitrofes
+Uruguay|Montevideo|Limitrofes
+EEUU|Washington DC|America del Norte
+Canada|Otawa|America del Norte
+Mexico|Ciudad de Mexico|America del Norte
+India|Nueva Delhi|Asia
+China|Pekin|Asia
+Corea del Sur|Seul|Asia
+Japon|Tokio|Asia
+Iran|Teheran|Asia
+Peru|Lima|America Latina
+Colombia|Bogota|America Latina
+Cuba|La Habana|America Latina
+Venezuela|Caracas|America Latina
+Ecuador|Quito|America Latina

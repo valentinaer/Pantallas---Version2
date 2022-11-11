@@ -10,11 +10,7 @@
             while (!archivoCiudadesNacionales.EndOfStream)
             {
                 var proximaLinea = archivoCiudadesNacionales.ReadLine();
-                if(string.IsNullOrEmpty(proximaLinea)) 
-                {
-                    continue;
-                }
-                string[] datosSeparados = proximaLinea.Split("|");
+                string[] datosSeparados = proximaLinea!.Split("|");
 
                 var CiudadesNacional = new CiudadadesNacionales();
                 CiudadesNacional.Provincia = datosSeparados[0];
@@ -24,36 +20,49 @@
                 ListaCiudadesNacionales.Add(CiudadesNacional);
             }
         }
-        public static CiudadadesNacionales BuscarRegion(string ciudad)
+        public static string BuscarRegionNacional(string ciudad)
         {
-            //CORREGIR LO HECHO EN CLASE
-            CiudadadesNacionales region = new CiudadadesNacionales();
+            foreach(CiudadadesNacionales lugar in ListaCiudadesNacionales)
+            {
+                if (lugar.Ciudad.ToLower() == ciudad.ToLower())
+                {
+                    return lugar.Region;
+                }
+            }
+
+            /*
             for (int i = 0; i < ListaCiudadesNacionales.Count; i++)
             {
-                if (ListaCiudadesNacionales[i].Ciudad == ciudad)
+                if (ListaCiudadesNacionales[i].Ciudad.ToLower() == ciudad.ToLower())
                 {
-                    region = ListaCiudadesNacionales[i];
+                    MessageBox.Show(ListaCiudadesNacionales[i].Region);
+                    return ListaCiudadesNacionales[i].Region;
                 }
-            }
-            return region;
+                
+            }*/
+            //throw new ApplicationException("Codigo de Ciudad Nacional inesperado");
         }
-        static List<CiudadadesNacionales> ciudadesProvincia = new List<CiudadadesNacionales>();
+
+        
         public static List<CiudadadesNacionales> BuscarCiudades(string provincia)
         {
-            CiudadadesNacionales ciudades = new CiudadadesNacionales();
-            foreach (CiudadadesNacionales ciudad in ListaCiudadesNacionales)
+            List<CiudadadesNacionales> ciudadesProvincia = new List<CiudadadesNacionales>();
+
+            foreach (CiudadadesNacionales ciudades in ListaCiudadesNacionales)
             {
-                if(ciudad.Provincia != null) {
-                    if (ciudad.Provincia.ToLower() == provincia.ToLower())
+                if(ciudades.Provincia != null) {
+                    if (ciudades.Provincia.ToLower() == provincia.ToLower())
                     {
-                        ciudadesProvincia.Add(ciudad);
+                        ciudadesProvincia.Add(ciudades);
                     }
-                } else {
+                } 
+                else 
+                {
                     MessageBox.Show("No se encontraron ciudades para la provincia seleccionada");
                 }
-
             }
             return ciudadesProvincia;
+            
         }
     }
 }

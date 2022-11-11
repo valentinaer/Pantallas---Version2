@@ -15,7 +15,7 @@ namespace Version_2___Pantallas
 
         public override string ToString()
         {
-            return string.Format("{0} - {1}", Provincia, Ciudad);
+            return string.Format("{0} - {1} - {2}", Provincia, Ciudad, Region);
         }
     }
 

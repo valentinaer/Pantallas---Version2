@@ -18,8 +18,8 @@ namespace Version_2___Pantallas
             ArchivoOrdenDeServicio.CargarOrdenDeServicio();
             ArchivoSucursales.CargarSucursales();
             ArchivoTarifas.CargasTarifas();
-            ArchivoUsuario.CargarUsuarios(); 
-            archivoRegionesInternacionales.CargarRegionesInternacionales(); 
+            ArchivoUsuario.CargarUsuarios();
+            ArchivoPaisesInternacionales.CargarPaisesInternacionales();
 
             ApplicationConfiguration.Initialize();
 

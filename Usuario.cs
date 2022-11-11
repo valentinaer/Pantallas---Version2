@@ -17,25 +17,19 @@ namespace Version_2___Pantallas
         public string Contraseña { get; set; }
 
         // C O N S T R U C T O R E S //
-        public Usuario (int dniautorizados, string cuit,string apellidonombre, string contraseña)
+        // C O N S T R U C T O R E S //
+        public Usuario(int dniautorizados, string cuit, string apellidonombre, string contraseña)
         {
             CUIT = cuit;
             DNIAutorizados = dniautorizados;
             ApellidoNombre = apellidonombre;
             Contraseña = contraseña;
         }
-
-        // MÉTODO CARGAR USUARIOS DE LA LISTA //
-        /* public Usuario()
-        {
-
-        } */
-        
         public override string ToString()
         {
-            return string.Format("{0} - {1} - {2}",
-                 
-                CUIT, 
+            return string.Format("{0} - {1} - {2} - {3}",
+
+                CUIT,
                 DNIAutorizados,
                 ApellidoNombre,
                 Contraseña);

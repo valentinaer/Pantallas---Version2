@@ -573,17 +573,17 @@
             "CATAMARCA",
             "CHACO",
             "CHUBUT",
-            "CÓRDOBA",
+            "CORDOBA",
             "CORRIENTES",
-            "ENTRE RÍOS",
+            "ENTRE RIOS",
             "FORMOSA",
             "JUJUY",
             "LA PAMPA",
             "LA RIOJA",
             "MENDOZA",
             "MISIONES",
-            "NEUQUÉN",
-            "RÍO NEGRO",
+            "NEUQUEN",
+            "RIO NEGRO",
             "SALTA",
             "SAN JUAN",
             "SAN LUIS",
@@ -591,7 +591,7 @@
             "SANTA FE",
             "SANTIAGO DEL ESTERO",
             "TIERRA DEL FUEGO",
-            "TUCUMÁN"});
+            "TUCUMAN"});
             this.cmbProvinciaOrigen.Location = new System.Drawing.Point(133, 121);
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";
             this.cmbProvinciaOrigen.Size = new System.Drawing.Size(294, 29);

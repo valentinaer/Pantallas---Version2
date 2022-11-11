@@ -15,21 +15,31 @@ namespace grupoB_TP
         public string Region { get; set; } = string.Empty;
         public string Direccion { get; set; } = string.Empty;
 
-        /* public Sucursales(
-            int _numero,
-            string _sucursal,
-            string _provincia,
-            string _ciudad,
-            string _region,
-            string _direccion
-        )
+        public Sucursales(int numero, string sucursal, string provincia,
+            string ciudad, string region, string direccion)
         {
-
+            Numero = numero;
+            Sucursal = sucursal;
+            Provincia = provincia;
+            Ciudad = ciudad;
+            Region = region;
+            Direccion = direccion;
         }
         public Sucursales()
         {
 
-        } */
+        }
+        public override string ToString()
+        {
+            return string.Format("{0} - {1} - {2} - {3} - {4} - {5} - {6}",
+
+                Numero,
+                Sucursal,
+                Provincia,
+                Ciudad,
+                Region,
+                Direccion);
+        }
 
 
 
