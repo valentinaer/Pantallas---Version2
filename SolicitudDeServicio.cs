@@ -17,6 +17,13 @@ namespace grupoB_TP
         public SolicitudDeServicio()
         {
             InitializeComponent();
+            Sucursales sucursales = new Sucursales();
+            List<Sucursales> listS = sucursales.PedirLista();
+
+            foreach (Sucursales s in listS)
+            {
+                cmbSucursalOrigen.Items.Add(s.numero.ToString() + "- " + s.sucursal);
+            }
         }
 
         public void CargarPaisesComboBox()
@@ -31,13 +38,7 @@ namespace grupoB_TP
                 cmbPaisI.Items.Add(p);
 
             }
-            Sucursales sucursales = new Sucursales();
-            List<Sucursales> listS = sucursales.PedirLista();
-
-            foreach (Sucursales s in listS)
-            {
-                cmbSucursalOrigen.Items.Add(s.numero.ToString() + "- "+ s.sucursal);
-            }
+            
         }
 
         List<string> Paises = new List<string>();
