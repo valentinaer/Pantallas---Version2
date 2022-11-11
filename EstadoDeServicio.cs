@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Version_2___Pantallas;
 
 namespace grupoB_TP
 {
@@ -36,15 +37,13 @@ namespace grupoB_TP
             
             else
             {
-
-                OrdenDeServicio Os = new OrdenDeServicio();
                 OrdenDeServicio orden = new OrdenDeServicio();
                
-                orden = Os.BuscarNumeroTrack(int.Parse(numeroTrack));
+                orden = ArchivoOrdenDeServicio.BuscarNumeroTrack(int.Parse(numeroTrack));
 
                 if(orden == null)
                 {
-                    MessageBox.Show("el numero de track no existe", "ingreso");
+                    MessageBox.Show("El numero de trackeo no existe", "Errores");
                 }
                 else
                 {

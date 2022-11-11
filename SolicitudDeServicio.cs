@@ -20,12 +20,14 @@ namespace grupoB_TP
         }
         private void SolicitudDeServicio_Load(object sender, EventArgs e)
         {
-            Sucursales sucursales = new Sucursales();
-            List<Sucursales> listS = sucursales.PedirLista();
+            List<Sucursales> listaSucursales = ArchivoSucursales.PedirLista();
 
-            foreach (Sucursales s in listS)
+            foreach (Sucursales s in listaSucursales)
             {
-                cmbSucursalOrigen.Items.Add(s.numero.ToString() + "- " + s.sucursal);
+                string texto = s.Numero.ToString() + " - " + s.Sucursal
+                    + ", " + s.Ciudad + ", " + s.Provincia;
+                cmbSucursalOrigen.Items.Add(texto);
+                cmbSucursalesDestino.Items.Add(texto);
             }
         }
         public void CargarPaisesComboBox()

@@ -320,11 +320,6 @@
             // 
             this.cmbSucursalesDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSucursalesDestino.FormattingEnabled = true;
-            this.cmbSucursalesDestino.Items.AddRange(new object[] {
-            "1 - Cordoba 6571, CABA",
-            "2 - Av. San Martín 2871, Viedma, Rio Negro",
-            "3 - Juana Azurduy 850, Resistencia, Chaco",
-            "4 - Goyeneche 724, Córdoba, Córdoba"});
             this.cmbSucursalesDestino.Location = new System.Drawing.Point(147, 31);
             this.cmbSucursalesDestino.Name = "cmbSucursalesDestino";
             this.cmbSucursalesDestino.Size = new System.Drawing.Size(323, 29);
@@ -552,11 +547,6 @@
             // 
             this.cmbSucursalOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSucursalOrigen.FormattingEnabled = true;
-            this.cmbSucursalOrigen.Items.AddRange(new object[] {
-            "1 - Cordoba 6571, CABA",
-            "2 - Av. San Martín 2871, Viedma, Rio Negro",
-            "3 - Juana Azurduy 850, Resistencia, Chaco",
-            "4 - Goyeneche 724, Córdoba, Córdoba"});
             this.cmbSucursalOrigen.Location = new System.Drawing.Point(116, 31);
             this.cmbSucursalOrigen.Name = "cmbSucursalOrigen";
             this.cmbSucursalOrigen.Size = new System.Drawing.Size(320, 29);

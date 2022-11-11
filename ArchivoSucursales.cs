@@ -1,10 +1,42 @@
-﻿namespace Version_2___Pantallas
+﻿using grupoB_TP;
+
+namespace Version_2___Pantallas
 {
     internal static class ArchivoSucursales
     {
+        static List<Sucursales> listaSucursales = new List<Sucursales>();
         internal static void CargarSucursales()
         {
-            throw new NotImplementedException();
+            //Estructura archivo:
+            //NÚMERO | SUCURSAL | PROVINCIA | CIUDAD | REGIÓN | DIRECCIÓN
+
+            using var archivo = new StreamReader("Sucursales.txt");
+            while (!archivo.EndOfStream)
+            {
+                var proximaLinea = archivo.ReadLine();
+                string[] datosSeparados = proximaLinea.Split("|");
+
+                Sucursales sucursal = new Sucursales();
+                sucursal.Numero = int.Parse(datosSeparados[0]);
+                sucursal.Sucursal = datosSeparados[1];
+                sucursal.Provincia = datosSeparados[2];
+                sucursal.Ciudad = datosSeparados[3];
+                sucursal.Region = datosSeparados[4];
+                sucursal.Direccion = datosSeparados[5];
+
+                listaSucursales.Add(sucursal);
+            }
         }
+
+        public static Sucursales BuscarSucursales(int id)
+        {
+            return listaSucursales.Find(c => c.Numero == id);
+        }
+
+        public static List<Sucursales> PedirLista()
+        {
+            return listaSucursales;
+        }
+
     }
 }

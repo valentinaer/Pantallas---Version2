@@ -1,6 +1,6 @@
 1|Salto|Buenos Aires|Salto|Metropolitana|Sarmiento 86
 2|Quilmes|Buenos Aires|Quilmes|Metropolitana|Av. 12 de Octubre 2498
-3|Bahía Blanca|Buenos Aires|Bahía Blanca|Metropolitana|Moreno 34
+3|Bahia Blanca|Buenos Aires|Bahía Blanca|Metropolitana|Moreno 34
 4|Mar del Plata|Buenos Aires|Mar del Plata|Metropolitana|Pedro Luro 2460
 5|Belgrano|CABA|Belgrano|Metropolitana|Cabildo 2349
 6|Palermo|CABA|Palermo|Metropolitana|Av. Córdoba 4461
@@ -9,7 +9,7 @@
 9|San Fernando del Valle de Catamarca|Catamarca|San Fernando del Valle de Catamarca|Norte|San Martín 761
 10|Tinogasta|Catamarca|Tinogasta|Norte|Dr Mariano Moreno 785
 11|Antofagasta|Catamarca|Antofagasta|Norte|Antofagasta de la Sierra K4705
-12|Belén|Catamarca|Belén|Norte|Belén K4750
+12|Belen|Catamarca|Belén|Norte|Belén K4750
 13|Resistencia|Chaco|Resistencia|Norte|Av. Sarmiento 102
 14|Presidencia Roque Sáenz Peña|Chaco|Presidencia Roque Sáenz Peña|Norte|Calle Doctor Manuel Belgrano 601
 15|Barranqueras|Chaco|Barranqueras|Norte|Diagonal Eva Perón 340
@@ -30,8 +30,8 @@
 30|Chilecito|La Rioja|Chilecito|Norte|Joaquín V. González 201
 31|Famatina|La Rioja|Famatina|Norte|Calle 9 de Abril 195
 32|Arauco|La Rioja|Arauco|Norte|Paraná 777
-33|Tucumán|Tucumán|Tucumán|Norte|Pcia de Córdoba 540
-34|Tafí del Valle|Tucumán|Tafí del Valle|Norte|Pasaje El Milagro 20
+33|Tucuman|Tucumán|Tucumán|Norte|Pcia de Córdoba 540
+34|Tafidel Valle|Tucumán|Tafi del Valle|Norte|Pasaje El Milagro 20
 35|San Pedro de Colalao|Tucumán|San Pedro de Colalao|Norte|Congreso 1
 36|Quilmes|Tucumán|Quilmes|Norte|Almirante Brown 780
 37|Santiago del Estero|Santiago del Estero|Santiago del Estero|Norte|Buenos Aires 252
@@ -44,8 +44,8 @@
 44|Cafayate|Salta|Cafayate|Norte|Gral. Güemes Sur 197
 45|Posadas|Misiones|Posadas|Norte|Simon Bolivar 2112
 46|Eldorado|Misiones|Eldorado|Norte|Malvinas 1620
-47|Iberá|Misiones|Iberá|Norte|Medrano 66
-48|Iguazú|Misiones|Iguazú|Norte|Av. Victoria Aguirre 187
+47|Ibera|Misiones|Iberá|Norte|Medrano 66
+48|Iguazu|Misiones|Iguazú|Norte|Av. Victoria Aguirre 187
 49|Córdoba|Córdoba|Córdoba|Centro|Av. Colón 2547
 50|Cosquín|Córdoba|Cosquín|Centro|Tucumán 1069
 51|Villa María|Córdoba|Villa María|Centro|Catamarca 1190
@@ -53,11 +53,11 @@
 53|Colón|Entre Ríos|Colón|Centro|Calle 12 de abril 431
 54|Concordia|Entre Ríos|Concordia|Centro|Carlos Pellegrini 648
 55|Gualeguaychú|Entre Ríos|Gualeguaychú|Centro|Urquiza 1036
-56|Paraná|Entre Ríos|Paraná|Centro|San Juan 1349
+56|Parana|Entre Ríos|Paraná|Centro|San Juan 1349
 67|Mendoza|Mendoza|Mendoza|Centro|Gral Gregorio Paz 501
 58|San Rafael|Mendoza|San Rafael|Centro|San Lorenzo 69
 59|Malargüe|Mendoza|Malargüe|Centro|Adolfo Puebla 203
-60|Guaymallén|Mendoza|Guaymallén|Centro|Av. Bandera de los Andes 4190
+60|Guaymallen|Mendoza|Guaymallén|Centro|Av. Bandera de los Andes 4190
 61|San Juan|San Juan|San Juan|Centro|Av. José Ignacio de la Roza Este 223
 62|Santa Lucía|San Juan|Santa Lucía|Centro|Gorriti Sur 709
 63|Villa Santa Rosa|San Juan|Villa Santa Rosa|Centro|Av España 446
@@ -78,7 +78,7 @@
 78|General Pico|La Pampa|General Pico|Sur|C. 22 653
 79|General Acha|La Pampa|General Acha|Sur|Manuel Jorge Campos 790
 80|Victorica|La Pampa|Victorica|Sur|C. 17 996
-81|Neuquén|Neuquén|Neuquén|Sur|N2625
+81|Neuquen|Neuquén|Neuquén|Sur|N2625
 82|San Martín de los Andes|Neuquén|San Martín de los Andes|Sur|Pte Gral Julio A. Roca 690
 83|Zapala|Neuquén|Zapala|Sur|Chaneton 40
 84|Rincón de los Sauces|Neuquén|Rincón de los Sauces|Sur|Gral. Enrique Mosconi 168

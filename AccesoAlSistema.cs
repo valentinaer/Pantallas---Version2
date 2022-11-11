@@ -19,7 +19,6 @@ namespace grupoB_TP
             string DNI = txtIngresarDNI.Text;
             string contraseña = txtContraseña.Text;
             //Validamos que NO esten Vacios (Flujo 1)
-            MessageBox.Show(DNI);
             mensaje = Validador.PedirVacio("El DNI", DNI);
             mensaje += Validador.PedirVacio(" La Contraseña", contraseña);
 
@@ -34,7 +33,6 @@ namespace grupoB_TP
             }
             //DNI no Autorizado (Flujo 3)
             Usuario usuario = new Usuario();
-
             usuario = ArchivoUsuario.BuscarDNI(int.Parse(DNI));
             if (usuario == null)
             {
@@ -52,11 +50,10 @@ namespace grupoB_TP
             }
             else
             {
-                
                 this.Hide();
                 Cliente.CrearCUITUsuarioActual(usuario.CUIT);
-                MessageBox.Show($"Ingreso Exitoso usuario: {usuario.ApellidoNombre} " +
-                    $"de la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
+                MessageBox.Show($"Ingreso Exitoso : {usuario.ApellidoNombre}  \n" +
+                    $"Perteneciente a la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
                 new MenuPrincipal(usuario.CUIT).ShowDialog();
             }
         }
