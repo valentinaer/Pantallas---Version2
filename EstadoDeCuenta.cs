@@ -26,24 +26,22 @@ namespace grupoB_TP
         
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
-            
+            int saldo = 0;
             string CUIT = Cliente.CuitUsuarioActual; //Este es el numero de CUIT que viene desde el Acceso al Sistema
 
-            Cliente c = new Cliente();
+            //Cliente c = new Cliente();
             Cliente ClienteActual = new Cliente();
 
-            ClienteActual = c.BuscarCliente(CUIT);
+            ClienteActual = ArchivoClientes.BuscarCliente(CUIT); //Utilizo el método de la clase ArchivoClientes para traer los datos del cliente en cuestión
 
             lblNombreCliente.Text = ClienteActual.RazonSocial;
-            //lblSaldoTotal.Text = Convert.ToString(ClienteActual.SaldoFactura);
             lblFechaActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblCuit.Text = CUIT;
 
             Factura factura = new Factura();
-            facturasCliente = factura.BuscarFacturaCliente(CUIT);
+            facturasCliente = ArchivoFacturas.BuscarFacturaCliente(CUIT); //Trae todas las facturas que coinciden con el cuit
 
-            int saldo = 0;
-
+            //Muestro el saldo --> Sale de sumar las facturas NO PAGADAS de la lista anterior
             foreach (Factura f in facturasCliente)
             {
                 if(f.CUIT == CUIT && f.Pagado == "NO PAGADO")
@@ -52,7 +50,7 @@ namespace grupoB_TP
                 }
             }
 
-            lblSaldoTotal.Text = "$" + Convert.ToString(saldo);
+            lblSaldoTotal.Text = "$" + Convert.ToString(saldo); //Muestro en pantalla el Saldo para dicho cliente
         }
 
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
@@ -117,7 +115,7 @@ namespace grupoB_TP
                 }
                 else
                 {
-                    foreach(Factura factura in facturasCliente) 
+                    foreach(Factura factura in facturasCliente) //facturasCliente devuelve un conjunto de facturas que pertenecen al CUIT
                     
                     {
                         if (factura.CUIT == CUIT && (factura.FechaFactura >= fechaD && factura.FechaFactura <= fechaH))

@@ -13,6 +13,11 @@ namespace Clases_TP4
         public string RazonSocial { get; set; }
         public string DireccionFacturacion { get; set; }
         public float SaldoFactura { get; set; }
-       
+
+        //Método que me permite obtener el CUIT del usuario que utiliza el sistema//
+        public static void CrearCUITUsuarioActual(string cuit) 
+        {
+            Cliente.CuitUsuarioActual = cuit;
+        }
     }
 }

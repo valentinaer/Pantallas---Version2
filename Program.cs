@@ -13,11 +13,11 @@ namespace Version_2___Pantallas
             //Cargo TODOS LOS ARCHIVOS
             ArchivoCiudadesNacionales.CargarCiudadesNacionales();
             //ArchivoCiudadesInternacionales.CargarCiudadesInternacionales();
-            ArchivoClientes.CargarClientes();
-            ArchivoFacturas.CargarFacturas();
+            //ArchivoClientes.CargarClientes();
+            //ArchivoFacturas.CargarFacturas();
             //ArchivoOrdenDeServicio.CargarOrdenDeServicio();
-            ArchivoRecargos.CargarRecargos();         
-            ArchivoSucursales.CargarSucursales();
+            //ArchivoRecargos.CargarRecargos();         
+            //ArchivoSucursales.CargarSucursales();
             //ArchivoTarifas.CargasTarifas();
             ArchivoUsuario.CargarUsuarios();
 

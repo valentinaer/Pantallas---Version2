@@ -32,10 +32,7 @@ namespace Version_2___Pantallas
 
         }
 
-        public static void CrearCUITUsuarioActual(string cuit)
-        {
-            Cliente.CuitUsuarioActual = cuit;
-        }
+
 
 
 
