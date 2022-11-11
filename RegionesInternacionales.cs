@@ -30,6 +30,8 @@ namespace Version_2___Pantallas
         public string BuscarRegion(string pais)
         {
             CargarRegionesInternacionales();
+            
+
             RegionesInternacionales region = new RegionesInternacionales();
             for (int i = 0; i < RegionInternacionales.Count; i++)
             {

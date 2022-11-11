@@ -28,7 +28,7 @@ namespace Version_2___Pantallas
 
             *
             */
-
+            
 
             ApplicationConfiguration.Initialize();
 

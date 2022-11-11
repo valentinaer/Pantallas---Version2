@@ -31,8 +31,13 @@ namespace grupoB_TP
                 cmbPaisI.Items.Add(p);
 
             }
-            
+            Sucursales sucursales = new Sucursales();
+            List<Sucursales> listS = sucursales.PedirLista();
 
+            foreach (Sucursales s in listS)
+            {
+                cmbSucursalOrigen.Items.Add(s.numero.ToString() + "- "+ s.sucursal);
+            }
         }
 
         List<string> Paises = new List<string>();
@@ -493,10 +498,7 @@ namespace grupoB_TP
 
         private void cmbSucursalOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
-           grupoB_TP.Sucursales sucursales = new grupoB_TP.Sucursales();
-           List<Sucursales> listS = sucursales.PedirLista();
            
-           MessageBox.Show(listS.First());
             
             
         }
