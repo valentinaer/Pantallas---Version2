@@ -23,7 +23,7 @@ namespace grupoB_TP
         {
             InitializeComponent();
         }
-//----------------------CARGAR ELEMENTOS ------------------------------------------------------------------
+        //----------------------CARGAR ELEMENTOS ------------------------------------------------------------------
         public void CargarSucursales()
         {
             List<Sucursales> listaSucursales = ArchivoSucursales.PedirLista();
@@ -47,10 +47,10 @@ namespace grupoB_TP
             foreach (string pais in PaisesInternacionales)
             {
                 cmbPaisI.Items.Add(pais);
-            }    
+            }
         }
 
-//----------------------BOTON MODIFICAR--------------------------------------------------------
+        //----------------------BOTON MODIFICAR--------------------------------------------------------
         //Boton MODIFICAR
         private void btnModificar_Click(object sender, EventArgs e)
         {
@@ -316,7 +316,7 @@ namespace grupoB_TP
         {
             string origenRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(origenCiudad);
             string destinoRegion = ArchivoCiudadesNacionales.BuscarRegionNacional(destinoCiudad);
-            
+
             if (origenCiudad == destinoCiudad)
             {
                 return "Local";
@@ -334,67 +334,77 @@ namespace grupoB_TP
                 return "Nacional";
             }
         }
-    
-        public string ObtenerRegioninternacional(string origenCiudad,
-            string destinoCiudad, string origenProvincia, string destinoProvincia)
-        {
-            string origenRegionInternacional = ArchivoCiudadesInternacionales.BuscarRegionInternacional(destinoCiudad);
-            return origenRegionInternacional;
-        }
 
         private decimal CalcularPrecio(bool urgente)
         {
             string regionParaCotizar = null;
             string DescRangoDePeso = cmbRangoPeso.Text;
+            string ciudadOrigen = cmbCiudadOrigen.Text;
+            string provinciaOrigen = cmbProvinciaOrigen.Text;
+
+
             int CantBultos = int.Parse(cmbCantidadBultosN.Text);
 
             if (rboNacional.Checked)
             {
-                string origenCiudadN = cmbCiudadOrigen.Text;
-                string destinoCiudadN = cmbCiudadDestino.Text;
-                string origenProvinciaN = cmbProvinciaOrigen.Text;
+                string ciudadDestino = cmbCiudadDestino.Text;
                 string destinoProvinciaN = cmbProvinciaDestino.Text;
-                regionParaCotizar = ObtenerRegionNacional(origenCiudadN, destinoCiudadN, origenProvinciaN, destinoProvinciaN);
+
+                regionParaCotizar = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, destinoProvinciaN);
             }
             if (rboInternacional.Checked)
             {
-                string ciudadI = cmbCiudadesI.Text;
-                regionParaCotizar = ArchivoCiudadesInternacionales.BuscarRegionInternacional(ciudadI);
+                string ciudadInternacional = cmbCiudadesI.Text;
+                regionParaCotizar = ArchivoCiudadesInternacionales.BuscarRegionInternacional(ciudadInternacional);
             }
 
+
+            decimal tarifaTabla = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionParaCotizar));
             MessageBox.Show(regionParaCotizar);
             MessageBox.Show(Region + " " + cmbRangoPeso.Text);
-            decimal tarifaTabla = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionParaCotizar));
             MessageBox.Show(tarifaTabla.ToString());
-            decimal Precio = tarifaTabla;
-            //Hasta aca tenemos la TARIFA TABLA
-            //LOGICA INTERNACIONAL
-            if (regionParaCotizar == "Paises Limitrofes" || regionParaCotizar == "America Latina" || regionParaCotizar == "America del Norte" || regionParaCotizar == "Europa" || regionParaCotizar == "Asia")
+
+            decimal tarifaAdicionalHastaCABA = 0M;
+
+            if (rboInternacional.Checked)
             {
-                string RegionCABA = "C.A.B.A";
-                decimal hastaBsAs = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(cmbRangoPeso.Text, RegionCABA));
-                // si es urgente sumamos 20% al precio
-                decimal precioUrgente = 0;
-                if (urgente)
-                {
-                    precioUrgente = Precio * ArchivoRecargos.BuscarRecargos(0);
-                    MessageBox.Show(precioUrgente.ToString());
-                }
+                string ciudadDestino = "Belgrano";
+                string destinoProvinciaN = "C.A.B.A";
 
-                // tope maximo de urgencia es 50, por eso si es mas alto sobre escribimos 50
-                if (precioUrgente > (Precio * ArchivoRecargos.BuscarRecargos(0)))
+                string regionHastaCABA = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, destinoProvinciaN);
+                tarifaAdicionalHastaCABA = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionHastaCABA));
+            }
+            decimal precioTablas = tarifaTabla + tarifaAdicionalHastaCABA;
+            var recargos = Recargos(precioTablas);
+            return (precioTablas + recargos)*CantBultos;
+        }
+        public decimal Recargos (decimal precio)
+        {
+            decimal PrecioRecargos = 0M;
+            if (chkUrgente.Checked)
+            {
+                var precioUrgente = PrecioRecargos * ArchivoRecargos.BuscarRecargos(0);
+                var TopeUrgente = ArchivoRecargos.BuscarRecargos(1);
+                if(precioUrgente >= TopeUrgente)
                 {
-                    precioUrgente = ArchivoRecargos.BuscarRecargos(1);
+                    precio = TopeUrgente;
                 }
-
-                // retiro fijo es 30 y destino fijo 40
-                Precio = Precio + precioUrgente + ArchivoRecargos.BuscarRecargos(2) + ArchivoRecargos.BuscarRecargos(3) + hastaBsAs;
+                else
+                {
+                    precio = precioUrgente;
+                }
+            }
+            if (rboEntregaDomicilio.Checked)
+            {
+                precio += ArchivoRecargos.BuscarRecargos(2);
+            }
+            if (rboRetiroDomicilio.Checked)
+            {
+                precio += ArchivoRecargos.BuscarRecargos(3);
             }
 
-            return Precio * CantBultos;
-        }
-
-
+            return precio;
+        }           
         private int Autonumerar()
         {
             Random r = new Random();
