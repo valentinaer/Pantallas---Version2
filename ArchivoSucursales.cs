@@ -10,7 +10,7 @@ namespace Version_2___Pantallas
             //Estructura archivo:
             //NÚMERO | SUCURSAL | PROVINCIA | CIUDAD | REGIÓN | DIRECCIÓN
 
-            using var archivo = new StreamReader("Sucursales.txt");
+            using var archivo = new StreamReader("ArchivoSucursales.txt");
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();

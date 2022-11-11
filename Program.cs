@@ -16,8 +16,8 @@ namespace Version_2___Pantallas
             ArchivoClientes.CargarClientes();
             ArchivoFacturas.CargarFacturas();
             //ArchivoOrdenDeServicio.CargarOrdenDeServicio();
-            //ArchivoRecargos.CargarRecargos();         
-            //ArchivoSucursales.CargarSucursales();
+            ArchivoRecargos.CargarRecargos();         
+            ArchivoSucursales.CargarSucursales();
             //ArchivoTarifas.CargasTarifas();
             ArchivoUsuario.CargarUsuarios();
 
