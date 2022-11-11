@@ -33,6 +33,7 @@ namespace grupoB_TP
             }
             //DNI no Autorizado (Flujo 3)
             Usuario usuario = ArchivoUsuario.BuscarDNI(int.Parse(DNI));
+
             if (usuario == null)
             {
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
@@ -46,6 +47,8 @@ namespace grupoB_TP
             else if (contraseña != usuario.Contraseña)
             {
                 MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
+                MessageBox.Show(usuario.Contraseña); //trae el nombrey apellido
+                MessageBox.Show(usuario.ApellidoNombre); //trae la contraseña
             }
             else
             {
