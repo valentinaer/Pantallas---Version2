@@ -148,7 +148,7 @@ namespace grupoB_TP
             
             decimal Precio = tarifa;
 
-            using var recargos = new StreamReader("Recargos.txt");
+            using var recargos = new StreamReader("ArchivoRecargos.txt");
             var recargosLine = recargos.ReadLine();
             var recargosValues = recargosLine.Split('|');
 
@@ -474,7 +474,7 @@ namespace grupoB_TP
             string pais = cmbPaisI.Text;
 
             var CiudadesDePaises = new CiudadesInternacionales();
-            ciudadesInternacionalesAMostrar = CiudadesDePaises.BuscarCiudades(pais);
+            ciudadesInternacionalesAMostrar = ArchivoCiudadesInternacionales.BuscarCiudades(pais);
 
             foreach (var c in ciudadesInternacionalesAMostrar)
             {

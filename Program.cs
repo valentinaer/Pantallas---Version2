@@ -12,22 +12,22 @@ namespace Version_2___Pantallas
         {
             //Cargo TODOS LOS ARCHIVOS
             ArchivoCiudadesNacionales.CargarCiudadesNacionales();
-            //ArchivoCiudadesInternacionales.CargarCiudadesInternacionales();
-            //ArchivoClientes.CargarClientes();
+            ArchivoCiudadesInternacionales.CargarCiudadesInternacionales();
+            ArchivoClientes.CargarClientes();
             //ArchivoFacturas.CargarFacturas();
-            //ArchivoOrdenDeServicio.CargarOrdenDeServicio();
-            //ArchivoRecargos.CargarRecargos();         
-            //ArchivoSucursales.CargarSucursales();
-            //ArchivoTarifas.CargasTarifas();
+            ArchivoOrdenDeServicio.CargarOrdenDeServicio();
+            ArchivoRecargos.CargarRecargos();         
+            ArchivoSucursales.CargarSucursales();
+            ArchivoTarifas.CargasTarifas();
             ArchivoUsuario.CargarUsuarios();
 
 
 
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new AccesoAlSistema());
+            //Application.Run(new AccesoAlSistema());
             //Application.Run(new EstadoDeCuenta());
-            //Application.Run(new SolicitudDeServicio());
+            Application.Run(new SolicitudDeServicio());
             //Application.Run(new EstadoDeServicio());
 
             //GRABO TODOS LOS ARCHIVOS

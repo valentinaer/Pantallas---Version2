@@ -5,7 +5,6 @@
         static List<Tarifas> ListaTarifa = new List<Tarifas>();
         internal static void CargasTarifas()
         {
-            
             var lineasLeer = File.ReadLines("Tarifas.txt");
             var encabezado = lineasLeer.First();
             var regiones = encabezado.Split('|');
@@ -29,12 +28,14 @@
         {
             foreach (var tarifa in ListaTarifa)
             {
+                
                 if (tarifa.Peso.ToLower() == peso.ToLower() && tarifa.Region.ToLower() == region.ToLower())
                 {
+                    
                     return tarifa.Precio.ToString();
                 }
             }
-            return "";
+            return "0";
         }
     }
 }
