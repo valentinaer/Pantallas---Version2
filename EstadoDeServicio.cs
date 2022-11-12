@@ -61,19 +61,6 @@ namespace grupoB_TP
                     }
                
                 }
-
-               
-                /*
-
-                if(orden.estado != "")
-                {
-                    
-                }
-                else
-                {
-                    MessageBox.Show("No existe un servicio con el número de trackeo ingresado.", "Estado de servicio");
-                }*/
-                
             }  
         }
 

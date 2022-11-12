@@ -113,7 +113,7 @@ namespace grupoB_TP
             solicitud.ciudadOrigen = cmbCiudadOrigen.Text;
             solicitud.calleOrigen = txtDirrecionOrigen.Text;
             
-            if(string.IsNullOrEmpty(txtAlturaOrigen.Text)) { 
+            if(!string.IsNullOrWhiteSpace(txtAlturaOrigen.Text)) { 
                 solicitud.alturaOrigen = Convert.ToInt32(txtAlturaOrigen.Text); 
             }
             else { 
@@ -135,7 +135,7 @@ namespace grupoB_TP
             solicitud.ciudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text;
             solicitud.calleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text;
 
-            if(rboNacional.Checked) { 
+            if(rboNacional.Checked && !string.IsNullOrWhiteSpace(txtAlturaNacional.Text)) { 
                 solicitud.alturaDestino = Convert.ToInt32(txtAlturaNacional.Text); 
             }
             if(rboInternacional.Checked && txtAlturaI.Text != null) { 
@@ -151,16 +151,13 @@ namespace grupoB_TP
             solicitud.estado = "INICIADO";
             solicitud.facturado = "NO";
 
-            guardarOrdentDeServicio(solicitud);            
+            guardarOrdenDeServicio(solicitud);            
         }
-        
-        private void guardarOrdentDeServicio(OrdenDeServicio solicitud)
+
+        private void guardarOrdenDeServicio(OrdenDeServicio solicitud)
         {
-            
             string datos = $"{solicitud.numeroTrackeo}|{solicitud.fecha}|{solicitud.Cuit}|{solicitud.tipoDeEnvio}|{solicitud.paisOrigen}|{solicitud.provinciaOrigen}|{solicitud.ciudadOrigen}|{solicitud.calleOrigen}|{solicitud.alturaOrigen}|{solicitud.pisodeptoOrigen}|{solicitud.paisDestino}|{solicitud.provinciaDestino}|{solicitud.ciudadDestino}|{solicitud.calleDestino}|{solicitud.alturaDestino}|{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
-            ArchivoOrdenDeServicio.GuardarAlFinal(datos);
-            //clear all the states of OrdenDeServicio class
-            
+            ArchivoOrdenDeServicio.GuardarAlFinal(datos);   
             this.Close();
         }
         //Boton COTIZAR

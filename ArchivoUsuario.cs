@@ -25,7 +25,6 @@
                     datosSeparados[3]
                 );
                 ListaUsuario.Add(usuario);
-                //MessageBox.Show(usuario.ToString();
             }
         }
         //METODO BUSCAR CUIT (Devuelve una lista) 
