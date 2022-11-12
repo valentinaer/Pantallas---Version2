@@ -13,7 +13,7 @@ namespace Version_2___Pantallas
             //CALLE ORIGEN|ALTURA ORIGEN|PISO|DPTO ORIGEN|PAÍS DE DESTINO|PROVINCIA DESTINO|CIUDAD DESTINO|CALLE DESTINO|ALTURA DESTINO|
             //PISO|DEPTO DESTINO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE (SI|NO)|ESTADO|FACTURADO (SI|NO)
 
-            using var archivo = new StreamReader("ArchivoOrdenDeServicios.txt");
+            using var archivo = new StreamReader("./ArchivoOrdenDeServicios.txt");
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
@@ -72,14 +72,41 @@ namespace Version_2___Pantallas
         }
 
         // Guardar una nueva orden de servicio al final del txt
+        /*
         public static void GuardarAlFinal(string datos)
         {
             /* using var archivo = new StreamWriter("./ArchivoOrdenDeServicios.txt", true); // true es para que adjunte al final (nueva fila) en vez de sobre escribir
             archivo.WriteLine(datos);
-            MessageBox.Show("Se guardo su Orden De Servicio correctamente ");*/
+            MessageBox.Show("Se guardo su Orden De Servicio correctamente ");
  
             // save a new line of datos in ./ArchivoOrdenDeServicios.txt at the end
             File.AppendAllText("./ArchivoOrdenDeServicios.txt", datos + Environment.NewLine);
+        }*/
+     
+        internal static void GuardarEnLista(OrdenDeServicio solicitud)
+        {
+            listaOrdenesDeServicio.Add(solicitud);
         }
+        public static void Grabar()
+        {
+            using var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
+            foreach(var solicitud in listaOrdenesDeServicio)
+            {
+                string linea = $"{solicitud.numeroTrackeo}|{solicitud.fecha}|{solicitud.Cuit}|" +
+                    $"{solicitud.tipoDeEnvio}|{solicitud.paisOrigen}|{solicitud.provinciaOrigen}|" +
+                    $"{solicitud.ciudadOrigen}|{solicitud.calleOrigen}|{solicitud.alturaOrigen}|" +
+                    $"{solicitud.pisodeptoOrigen}|{solicitud.paisDestino}|{solicitud.provinciaDestino}|" +
+                    $"{solicitud.ciudadDestino}|{solicitud.calleDestino}|{solicitud.alturaDestino}|" +
+                    $"{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
+
+                archivoOrdenServicio.WriteLine(linea);
+            }
+            MessageBox.Show("Se grabo Correctamente");
+
+            archivoOrdenServicio.Close();
+            
+        }
+
+
     }
 }

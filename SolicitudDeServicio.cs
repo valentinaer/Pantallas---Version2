@@ -180,9 +180,10 @@ namespace grupoB_TP
             solicitud.estado = "INICIADO"; // Comienza el tramite con el estado INICIADO
             solicitud.facturado = "NO"; // No se factura previo a la solicitud
 
-            guardarOrdenDeServicio(solicitud);
-        }
+            ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
 
+        }
+        /*
         // Metodo para Formatear la informacion que luego se va a guardar en el archivo de texto
         private void guardarOrdenDeServicio(OrdenDeServicio solicitud)
         {
@@ -191,6 +192,7 @@ namespace grupoB_TP
             Application.Exit();
 
         }
+        */
         
         // Boton en la pantalla del formulario para cotizar el envio
         private void btnCotizar_Click(object sender, EventArgs e)

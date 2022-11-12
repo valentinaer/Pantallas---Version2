@@ -20,7 +20,7 @@ namespace grupoB_TP
         private void EstadoDeServicio_Load(object sender, EventArgs e)
         {
             //Carga nuevamente para tener las ultimas ordenes de servicio sin cerrar el sistema
-            ArchivoOrdenDeServicios.CargarOrdenDeServicio();
+            ArchivoOrdenDeServicios.Grabar();
         }
 
         // Boton para buscar el estado de servicio

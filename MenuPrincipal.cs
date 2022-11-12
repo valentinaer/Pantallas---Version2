@@ -36,10 +36,16 @@ namespace grupoB_TP
                 new EstadoDeCuenta().ShowDialog();
             }
         }
-
-        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        private void MenuPrincipal_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            System.Windows.Forms.Application.Exit();
+            //ArchivoOrdenDeServicios.Grabar();
+            Application.Exit();
+            /*if (MessageBox.Show("quiere cerrar el formulario?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                e.Cancel = true;
+                
+            }
+            */
         }
     }
 }

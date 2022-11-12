@@ -124,6 +124,7 @@
             this.ForeColor = System.Drawing.SystemColors.WindowText;
             this.Name = "MenuPrincipal";
             this.Text = "Menú principal";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MenuPrincipal_FormClosing_1);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

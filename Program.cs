@@ -24,6 +24,7 @@ namespace Version_2___Pantallas
             ApplicationConfiguration.Initialize();
 
             Application.Run(new AccesoAlSistema());
+            
             //Application.Run(new EstadoDeCuenta());
             //Application.Run(new SolicitudDeServicio());
             //Application.Run(new EstadoDeServicio());
