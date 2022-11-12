@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Clases_TP4;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,10 +15,12 @@ namespace grupoB_TP
 {
     public partial class SolicitudDeServicio : Form
     {
-        private void SolicitudDeServicio_Load(object sender, EventArgs e)
+        string CUIT = "";
+        public void SolicitudDeServicio_Load(object sender, EventArgs e)
         {
             CargarPaisesComboBox();
             CargarSucursales();
+            CUIT = Cliente.CuitUsuarioActual!;
         }
         public SolicitudDeServicio()
         {
@@ -56,12 +59,12 @@ namespace grupoB_TP
             MostramosElementos();
         }
 
-        public void btnConfirmar_Click(object sender, EventArgs e)
+        private void btnConfirmar_Click(object sender, EventArgs e)
         {
             int tracking = Autonumerar();
             MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
                 $" {"\n"} Su numero de trackeo es: {tracking}");
-
+            
 
             // destino si es nacional
             string destino = "";
@@ -101,7 +104,7 @@ namespace grupoB_TP
             OrdenDeServicio solicitud = new OrdenDeServicio();
             solicitud.numeroTrackeo = tracking; // buscar ultimo numero de trackeo y sumarle 1
             solicitud.fecha = DateTime.Now;
-            solicitud.CUIT = "";
+            solicitud.Cuit = CUIT;
             solicitud.tipoDeEnvio = rboNacional.Text = true ? "NACIONAL" : "INTERNACIONAL";
             solicitud.paisOrigen = "ARGENTINA";
             solicitud.provinciaOrigen = cmbProvinciaOrigen.Text;

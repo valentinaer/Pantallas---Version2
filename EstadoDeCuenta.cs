@@ -29,8 +29,7 @@ namespace grupoB_TP
             int saldo = 0;
             string CUIT = "";
             if(Cliente.CuitUsuarioActual != null){
-                CUIT = Cliente.CuitUsuarioActual;
-                
+                CUIT = Cliente.CuitUsuarioActual;               
             }
             else
             {

@@ -10,7 +10,7 @@ namespace grupoB_TP
     {
         public int numeroTrackeo { get; set; }
         public DateTime fecha { get; set; }
-        public string CUIT { get; set; } = string.Empty;
+        public string Cuit { get; set; } = string.Empty;
         public string tipoDeEnvio { get; set; } = string.Empty;
         public string paisOrigen { get; set; } = string.Empty;
         public string provinciaOrigen { get; set; } = string.Empty;
