@@ -25,7 +25,7 @@ namespace grupoB_TP
         public int alturaDestino { get; set; }
         public string pisodeptoDestino { get; set; } = string.Empty;
         public string rangoDePeso { get; set; } = string.Empty;
-        public int cantidadDeBultos { get; set; } 
+        public int cantidadDeBultos { get; set; }
         public string urgente { get; set; } = string.Empty;
         public string estado { get; set; } = string.Empty;
         public string facturado { get; set; } = string.Empty;
@@ -76,7 +76,5 @@ namespace grupoB_TP
               estado               =      estado_                   ;
               facturado            =      facturado_                ;
          }  */
-
-
     }
 }

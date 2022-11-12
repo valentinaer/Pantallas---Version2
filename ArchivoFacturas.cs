@@ -4,6 +4,8 @@ namespace Version_2___Pantallas
 {
     internal static class ArchivoFacturas
     {
+
+        // Genera los objectos Facturas apartir del Archivo "ArchivoFacturas.txt" y almacena en ListaFacturas
         static List<Factura> ListaFacturas = new List<Factura>();
         public static void CargarFacturas()
         {
@@ -12,9 +14,9 @@ namespace Version_2___Pantallas
             {
 
                 var proximaLinea = archivo.ReadLine();
-                if(string.IsNullOrEmpty(proximaLinea)) 
+                if (string.IsNullOrEmpty(proximaLinea))
                 {
-                    Console.WriteLine("Error en facturas, excepcion null"); 
+                    Console.WriteLine("Error en facturas, excepcion null");
                     continue;
                 }
                 string[] datosSeparados = proximaLinea.Split("|");
@@ -30,13 +32,14 @@ namespace Version_2___Pantallas
             }
 
         }
-        
 
+        // Busca las facturas apartir del cuit ingresado
         public static List<Factura> BuscarFacturaCliente(string cuit)
         {
             return ListaFacturas.FindAll(factura => factura.CUIT == cuit);
         }
 
+        // Busca las facturas Impagas apartir del cuit ingresado
         public static List<Factura> BuscarFacturasImpagas(string cuit)
         {
             return ListaFacturas.FindAll(factura => factura.CUIT == cuit && factura.Pagado == "NO PAGADO");

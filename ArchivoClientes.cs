@@ -4,6 +4,7 @@ namespace Version_2___Pantallas
 {
     internal static class ArchivoClientes
     {
+        // Genera los objectos Clientes apartir del Archivo "ArchivoClientes.txt" y almacena en ListaClientes
         static List<Cliente> ListaClientes = new List<Cliente>();
         public static void CargarClientes()
         {
@@ -28,11 +29,13 @@ namespace Version_2___Pantallas
             }
         }
 
+        // Busca el cliente apartir del CUIT ingresado
         public static Cliente BuscarCliente(string cuit)
         {
             return ListaClientes.Find(cliente => cliente.Cuit == cuit) ?? new Cliente();
         }
 
+        // Genera el CUIT que sera utilizado dentro de la aplicacion
         public static void CrearCUITUsuarioActual(string cuit) 
         {
             Cliente.CuitUsuarioActual = cuit;

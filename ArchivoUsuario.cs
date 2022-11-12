@@ -12,7 +12,7 @@
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
-                if(string.IsNullOrEmpty(proximaLinea)) 
+                if (string.IsNullOrEmpty(proximaLinea))
                 {
                     continue;
                 }
@@ -27,14 +27,14 @@
                 ListaUsuario.Add(usuario);
             }
         }
-        //METODO BUSCAR CUIT (Devuelve una lista) 
+
+        // Busca el usuario apartir del DNI ingresado
         public static Usuario BuscarDNI(int dni)
         {
             foreach (var personaEnLaLista in ListaUsuario)
             {
                 if (personaEnLaLista.DNIAutorizados == dni)
                 {
-                    MessageBox.Show(personaEnLaLista.ToString());
                     return personaEnLaLista;
                 }
             }

@@ -3,6 +3,8 @@
     internal static class ArchivoCiudadesNacionales
     {
         static List<CiudadadesNacionales> ListaCiudadesNacionales = new List<CiudadadesNacionales>();
+
+        // Genera los objectos CiudadesInternacionales apartir del Archivo "ArchivoCiudadesNacionales.txt" y almacena en ListaCiudadesNacionales
         internal static void CargarCiudadesNacionales()
         {
             using var archivoCiudadesNacionales = new StreamReader("ArchivoCiudadesNacionales.txt");
@@ -20,39 +22,41 @@
                 ListaCiudadesNacionales.Add(CiudadesNacional);
             }
         }
+        // Busca la region de la ciudad nacional apartir de la ciudad ingresada
         public static string BuscarRegionNacional(string ciudad)
         {
-            foreach(CiudadadesNacionales lugar in ListaCiudadesNacionales)
+            foreach (CiudadadesNacionales lugar in ListaCiudadesNacionales)
             {
                 if (lugar.Ciudad.ToLower() == ciudad.ToLower())
                 {
                     return lugar.Region;
                 }
             }
-            //throw new ApplicationException("Codigo de Ciudad Nacional inesperado");
             return "";
         }
 
-        
+
+        // Busca las ciudades de una provincia y las devuelve en una lista
         public static List<CiudadadesNacionales> BuscarCiudades(string provincia)
         {
             List<CiudadadesNacionales> ciudadesProvincia = new List<CiudadadesNacionales>();
 
             foreach (CiudadadesNacionales ciudades in ListaCiudadesNacionales)
             {
-                if(ciudades.Provincia != null) {
+                if (ciudades.Provincia != null)
+                {
                     if (ciudades.Provincia.ToLower() == provincia.ToLower())
                     {
                         ciudadesProvincia.Add(ciudades);
                     }
-                } 
-                else 
+                }
+                else
                 {
                     MessageBox.Show("No se encontraron ciudades para la provincia seleccionada");
                 }
             }
             return ciudadesProvincia;
-            
+
         }
     }
 }

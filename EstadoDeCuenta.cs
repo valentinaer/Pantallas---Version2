@@ -18,26 +18,26 @@ namespace grupoB_TP
     {
         public EstadoDeCuenta()
         {
-            
+
             InitializeComponent();
         }
 
         List<Factura> facturasCliente = new List<Factura>();
-        
+
         public void EstadoDeCuenta_Load(object sender, EventArgs e)
         {
             int saldo = 0;
             string CUIT = "";
-            if(Cliente.CuitUsuarioActual != null){
-                CUIT = Cliente.CuitUsuarioActual;               
+            if (Cliente.CuitUsuarioActual != null)
+            {
+                CUIT = Cliente.CuitUsuarioActual;
             }
             else
             {
                 MessageBox.Show("No se ha seleccionado un cliente");
                 this.Close();
-            } 
+            }
 
-            //Cliente c = new Cliente();
             Cliente ClienteActual = new Cliente();
 
             ClienteActual = ArchivoClientes.BuscarCliente(CUIT); //Utilizo el método de la clase ArchivoClientes para traer los datos del cliente en cuestión
@@ -52,7 +52,7 @@ namespace grupoB_TP
             //Muestro el saldo --> Sale de sumar las facturas NO PAGADAS de la lista anterior
             foreach (Factura f in facturasCliente)
             {
-                if(f.CUIT == CUIT && f.Pagado == "NO PAGADO")
+                if (f.CUIT == CUIT && f.Pagado == "NO PAGADO")
                 {
                     saldo += f.MontoFactura;
                 }
@@ -68,17 +68,17 @@ namespace grupoB_TP
 
         private void groupBox2_Enter(object sender, EventArgs e)
         {
-            
+
         }
         private void rboMostrarTodas_CheckedChanged(object sender, EventArgs e)
         {
-          
+
         }
 
 
         private void rboMostrarImpagas_CheckedChanged(object sender, EventArgs e)
         {
-            
+
         }
 
         private void btnMostrarFacturas_Click(object sender, EventArgs e)
@@ -89,12 +89,12 @@ namespace grupoB_TP
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             string CUIT = "";
-            if(Cliente.CuitUsuarioActual != null){
+            if (Cliente.CuitUsuarioActual != null)
+            {
                 CUIT = Cliente.CuitUsuarioActual;
             }
-            
 
-            string msj = "";
+            string mensaje = "";
             string fechaDesde = txtFechaInicio.Text;
             string fechaHasta = txtFechaFinal.Text;
             string acumulador = "";
@@ -102,18 +102,15 @@ namespace grupoB_TP
             DateTime fechaH;
 
             //Valido la fecha
+            mensaje += Validador.ValidarFecha(fechaDesde, "Fecha inicio");
+            mensaje += Validador.ValidarFecha(fechaHasta, "Fecha final");
 
-            msj += Validador.ValidarFecha(fechaDesde, "Fecha inicio");
-            msj += Validador.ValidarFecha(fechaHasta, "Fecha final");
-
-            if (msj != "")
+            if (mensaje != "")
             {
-                MessageBox.Show(msj, "Errores");
-
+                MessageBox.Show(mensaje, "Errores");
             }
             else if (rboMostrarTodas.Checked)
             {
-
                 fechaD = Convert.ToDateTime(fechaDesde);
                 fechaH = Convert.ToDateTime(fechaHasta);
 
@@ -127,26 +124,20 @@ namespace grupoB_TP
                 }
                 else
                 {
-                    foreach(Factura factura in facturasCliente) //facturasCliente devuelve un conjunto de facturas que pertenecen al CUIT
-                    
+                    foreach (Factura factura in facturasCliente) //facturasCliente devuelve un conjunto de facturas que pertenecen al CUIT
                     {
                         if (factura.CUIT == CUIT && (factura.FechaFactura >= fechaD && factura.FechaFactura <= fechaH))
                         {
-                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t"  + "$" +factura.MontoFactura + System.Environment.NewLine;
+                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t" + "$" + factura.MontoFactura + System.Environment.NewLine;
                         }
-
                     }
-
                     richTextBox1.Text = acumulador;
-
                 }
             }
             else if (rboMostrarImpagas.Checked)
             {
-
                 fechaD = Convert.ToDateTime(fechaDesde);
                 fechaH = Convert.ToDateTime(fechaHasta);
-
 
                 if (fechaD > fechaH)
                 {
@@ -163,24 +154,17 @@ namespace grupoB_TP
                     {
                         if (factura.CUIT == CUIT && (factura.FechaFactura >= fechaD && factura.FechaFactura <= fechaH) && factura.Pagado == "NO PAGADO")
                         {
-                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t" + "$"+ factura.MontoFactura + System.Environment.NewLine;
+                            acumulador += factura.FechaFactura.ToString("dd/MM/yyyy") + "\t" + factura.NroFactura + "\t\t" + factura.Pagado + "\t\t" + "$" + factura.MontoFactura + System.Environment.NewLine;
                         }
-
                     }
 
                     richTextBox1.Text = acumulador;
-
                 }
-
             }
             else
             {
-                    
                 MessageBox.Show("Debe seleccionar si quiere ver todas las facturas o solo las impagas", "Errores");
             }
-
-
-
         }
 
         private void txtFechaFinal_TextChanged(object sender, EventArgs e)

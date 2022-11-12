@@ -18,6 +18,3 @@ namespace grupoB_TP
         public decimal RecargoEntregaEnPuerta { get; set; }
     }
 }
-    
-
-

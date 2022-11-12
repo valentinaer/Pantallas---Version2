@@ -4,6 +4,7 @@
     {
         static List<CiudadesInternacionales> ListaCiudadesI = new List<CiudadesInternacionales>();
 
+        // Genera los objectos CiudadesInternacionales apartir del Archivo "ArchivoCiudadesInternacionales.txt" y almacena en ListaCiudadesI
         public static void CargarCiudadesInternacionales()
         {
             using var archivoCiudadesInternacionales = new StreamReader("ArchivoCiudadesInternacionales.txt");
@@ -21,11 +22,13 @@
                 ListaCiudadesI.Add(CiudadInternacional);
             }
         }
+
+        // Busca la region de la ciudad internacional apartir de la ciudad ingresada
         public static string BuscarRegionInternacional(string ciudad)
         {
             for (int i = 0; i < ListaCiudadesI.Count; i++)
             {
-                if (ListaCiudadesI[i].Ciudad.ToLower() == ciudad.ToLower()) 
+                if (ListaCiudadesI[i].Ciudad.ToLower() == ciudad.ToLower())
                 {
                     return ListaCiudadesI[i].Region!;
                 }
@@ -33,6 +36,7 @@
             throw new ApplicationException("Codigo de Ciudad INTERNACIONAL inesperado");
         }
 
+        // Busca las ciudades Internacionales apartir de un pais ingresado 
         public static List<CiudadesInternacionales> BuscarCiudades(string pais)
         {
             var ciudadesDeUnPais = new List<CiudadesInternacionales>();
@@ -54,16 +58,5 @@
             return ciudadesDeUnPais;
 
         }
-        static List<string> ListaPaises = new List<string>();
-        /*
-        public static List<string> SoloPaises()
-        {
-            foreach (RegionesInternacionales pais in RegionInternacionales)
-            {
-                ListaPaises.Add(pais.Pais);
-            }
-            return ListaPaises;
-        }*/
-        
     }
 }

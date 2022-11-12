@@ -4,6 +4,8 @@ namespace Version_2___Pantallas
 {
     internal static class ArchivoSucursales
     {
+
+        // Genera los objectos Sucursales apartir del Archivo "ArchivoSucursales.txt" y almacena en listaSucursales
         static List<Sucursales> listaSucursales = new List<Sucursales>();
         internal static void CargarSucursales()
         {
@@ -14,7 +16,7 @@ namespace Version_2___Pantallas
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
-                if(string.IsNullOrEmpty(proximaLinea)) 
+                if (string.IsNullOrEmpty(proximaLinea))
                 {
                     continue;
                 }
@@ -26,18 +28,19 @@ namespace Version_2___Pantallas
                 sucursal.Ciudad = datosSeparados[2];
                 sucursal.Direccion = datosSeparados[3];
                 sucursal.Region = datosSeparados[4];
-                
+
 
                 listaSucursales.Add(sucursal);
             }
         }
 
 
+        // Busca las sucursales apartir del id de la provincia ingresada
         public static Sucursales BuscarSucursales(int id)
         {
-            foreach ( Sucursales sucursalBuscada in listaSucursales)
+            foreach (Sucursales sucursalBuscada in listaSucursales)
             {
-                if (sucursalBuscada.NroSucursal== id)
+                if (sucursalBuscada.NroSucursal == id)
                 {
                     return sucursalBuscada;
                 }
@@ -46,6 +49,7 @@ namespace Version_2___Pantallas
 
         }
 
+        // Devuelve el listado completo de sucursales
         public static List<Sucursales> PedirLista()
         {
             return listaSucursales;

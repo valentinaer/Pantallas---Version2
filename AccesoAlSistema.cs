@@ -12,24 +12,26 @@ namespace grupoB_TP
         {
             InitializeComponent();
         }
-        
+
         private void btnIngresar_Click(object sender, EventArgs e)
         {
             string mensaje;
             string DNI = txtIngresarDNI.Text;
             string contraseña = txtContraseña.Text;
             //Validamos que NO esten Vacios (Flujo 1)
-            mensaje = Validador.PedirEntero("El DNI",00000001,99999999, DNI);
+            mensaje = Validador.PedirEntero("El DNI", 00000001, 99999999, DNI);
             mensaje += Validador.PedirVacio(" La Contraseña", contraseña);
 
             if (mensaje != "")
             {
                 MessageBox.Show(mensaje, "Errores");
+                return;
             }
             //Validamos DNI debe tener 8 caracteres (Flujo 2)
             if (DNI.Length != 8)
             {
                 MessageBox.Show("El DNI debe tener 8 caracteres", "Errores");
+                return;
             }
             //DNI no Autorizado (Flujo 3)
             Usuario usuario = ArchivoUsuario.BuscarDNI(int.Parse(DNI));
@@ -66,5 +68,3 @@ namespace grupoB_TP
         }
     }
 }
-
-

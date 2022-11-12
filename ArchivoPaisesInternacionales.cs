@@ -2,6 +2,7 @@
 {
     internal static class ArchivoPaisesInternacionales
     {
+        // Genera los objectos PaisesInternacionales apartir del Archivo "ArchivoPaisesInternacionales.txt" y almacena en PaisesInternacionales
         static List<string> PaisesInternacionales = new List<string>();
         internal static void CargarPaisesInternacionales()
         {

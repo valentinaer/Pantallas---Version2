@@ -8,9 +8,6 @@ namespace grupoB_TP
 {
     static class Validador
     {
-        public static string DNI = "12345678";
-        public static string DNI2 = "87654321";
-        
         internal static string PedirEntero(string campo, int min, int max, string valor)
         {
 
@@ -80,7 +77,7 @@ namespace grupoB_TP
         internal static string ValidarFecha(string fecha, string campo)
         {
             string msj = "";
-            if(!DateTime.TryParse(fecha, out DateTime fechas))
+            if (!DateTime.TryParse(fecha, out DateTime fechas))
             {
                 msj = "Debe ingresar una fecha válida en el campo " + campo + System.Environment.NewLine;
             }
@@ -88,12 +85,8 @@ namespace grupoB_TP
             {
                 msj += "";
             }
-
             return msj;
         }
-
-
-
     }
 }
 

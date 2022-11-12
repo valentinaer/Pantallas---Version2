@@ -4,6 +4,7 @@ namespace Version_2___Pantallas
 {
     internal static class ArchivoRecargos
     {
+        // Busca losvalores adicionales de la tabla recargos para el calculo del precio final
         public static decimal BuscarRecargos(int indice)
         {
             using var archivoRecargos = new StreamReader("ArchivoRecargos.txt");

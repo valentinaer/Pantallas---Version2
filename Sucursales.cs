@@ -36,8 +36,5 @@ namespace grupoB_TP
                 Region,
                 Direccion);
         }
-
-
-
     }
 }

@@ -4,6 +4,7 @@ namespace Version_2___Pantallas
 {
     internal static class ArchivoOrdenDeServicios
     {
+        // Genera los objectos OrdenDeServicio apartir del Archivo "ArchivoOrdenDeServicios.txt" y almacena en ListaOrdenDeServicios
         static List<OrdenDeServicio> listaOrdenesDeServicio = new List<OrdenDeServicio>();
         internal static void CargarOrdenDeServicio()
         {
@@ -49,7 +50,8 @@ namespace Version_2___Pantallas
                 listaOrdenesDeServicio.Add(ordenDeServicio);
             }
         }
-        //METODO BUSCAR CUIT (Devuelve una lista) 
+
+        // Busca las ordenes de servicio apartir del Numero de Trackeo ingresado
         public static OrdenDeServicio BuscarNumeroTrack(int trackid)
         {
             foreach (var ordenDeServicio in listaOrdenesDeServicio)
@@ -62,18 +64,19 @@ namespace Version_2___Pantallas
             return null!;
         }
 
+        // Busca la ultima orden de servicio ingresada para conseguir el numero de trackeo
         public static int BuscarUltimoNumeroTrackeo()
         {
             var ultimaOrdenDeServicio = listaOrdenesDeServicio.Last();
             return ultimaOrdenDeServicio.numeroTrackeo;
         }
 
+        // Guardar una nueva orden de servicio al final del txt
         public static void GuardarAlFinal(string datos)
         {
             using var archivo = new StreamWriter("ArchivoOrdenDeServicios.txt", true);
             archivo.WriteLine(datos);
             MessageBox.Show("Se guardo su Orden De Servicio correctamente ");
-
         }
     }
 }
