@@ -21,7 +21,7 @@ namespace Version_2___Pantallas
 
                 Factura factura = new Factura();
                 factura.NroFactura = int.Parse(datosSeparados[0]);
-                factura.FechaFactura = DateTime.Parse(datosSeparados[1]);
+                //factura.FechaFactura = DateTime.Parse(datosSeparados[1]);
                 factura.CUIT = datosSeparados[2];
                 factura.Pagado = datosSeparados[3];
                 factura.MontoFactura = int.Parse(datosSeparados[4]);

@@ -25,7 +25,7 @@ namespace Version_2___Pantallas
                 OrdenDeServicio ordenDeServicio = new OrdenDeServicio();
 
                 ordenDeServicio.numeroTrackeo = int.Parse(datosSeparados[0]);
-                ordenDeServicio.fecha = DateTime.Parse(datosSeparados[1]);
+                //ordenDeServicio.fecha = DateTime.Parse(datosSeparados[1]);
                 ordenDeServicio.Cuit = datosSeparados[2];
                 ordenDeServicio.tipoDeEnvio = datosSeparados[3];
                 ordenDeServicio.paisOrigen = datosSeparados[4];
@@ -60,6 +60,20 @@ namespace Version_2___Pantallas
                 }
             }
             return null!;
+        }
+
+        public static int BuscarUltimoNumeroTrackeo()
+        {
+            var ultimaOrdenDeServicio = listaOrdenesDeServicio.Last();
+            return ultimaOrdenDeServicio.numeroTrackeo;
+        }
+
+        public static void GuardarAlFinal(string datos)
+        {
+            using var archivo = new StreamWriter("OrdenDeServicio.txt", true);
+            archivo.WriteLine(datos);
+            MessageBox.Show("Se guardo su Orden De Servicio correctamente ");
+
         }
     }
 }

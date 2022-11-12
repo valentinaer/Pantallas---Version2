@@ -95,46 +95,73 @@ namespace grupoB_TP
                 //  destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
             }
 
-            /* 
-            0001|13/09/2022|30-12345678-9|NACIONAL|ARGENTINA|Mendoza|Malargüe|Monroe|1230|PB|ARGENTINA|Mendoza|Malargüe|Belgrano|850|1°C|Correspondencia  de Hasta 500 gr|1|SI|INICIADO|SI
-            */
-            
-
 
             OrdenDeServicio solicitud = new OrdenDeServicio();
-            solicitud.numeroTrackeo = tracking; // buscar ultimo numero de trackeo y sumarle 1
+            solicitud.numeroTrackeo = ArchivoOrdenDeServicio.BuscarUltimoNumeroTrackeo() + 1;
             solicitud.fecha = DateTime.Now;
-            solicitud.Cuit = CUIT;
+            if(CUIT != null)
+            {
+                solicitud.Cuit = CUIT;
+            }
+            else
+            {
+                solicitud.Cuit = "";
+            }
             solicitud.tipoDeEnvio = rboNacional.Text = true ? "NACIONAL" : "INTERNACIONAL";
             solicitud.paisOrigen = "ARGENTINA";
             solicitud.provinciaOrigen = cmbProvinciaOrigen.Text;
             solicitud.ciudadOrigen = cmbCiudadOrigen.Text;
             solicitud.calleOrigen = txtDirrecionOrigen.Text;
-            solicitud.alturaOrigen = Convert.ToInt32(txtAlturaOrigen.Text);
+            
+            if(string.IsNullOrEmpty(txtAlturaOrigen.Text)) { 
+                solicitud.alturaOrigen = Convert.ToInt32(txtAlturaOrigen.Text); 
+            }
+            else { 
+                solicitud.alturaOrigen = 0; 
+            }
+
             solicitud.pisodeptoOrigen = txtPisoDeptoOrigen.Text;
-            solicitud.paisDestino = rboNacional.Text = true ? "ARGENTINA" : cmbPaisI.Text;
+            if(rboNacional.Checked) { 
+                solicitud.paisDestino = "ARGENTINA"; 
+            }
+            if(rboInternacional.Checked && cmbPaisI.Text != null) { 
+                solicitud.paisDestino = cmbPaisI.Text; 
+            }
+            else { 
+                solicitud.paisDestino = ""; 
+            }
+
             solicitud.provinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : "";
             solicitud.ciudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text;
             solicitud.calleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text;
-            solicitud.alturaDestino = Convert.ToInt32(rboNacional.Text = true ? txtAlturaNacional.Text : txtAlturaI.Text); 
+
+            if(rboNacional.Checked) { 
+                solicitud.alturaDestino = Convert.ToInt32(txtAlturaNacional.Text); 
+            }
+            if(rboInternacional.Checked && txtAlturaI.Text != null) { 
+                solicitud.alturaDestino = Convert.ToInt32(txtAlturaI.Text); 
+            }
+            else { 
+                solicitud.alturaDestino = 0; 
+            }
             solicitud.pisodeptoDestino = rboNacional.Text = true ? txtPisoDeptoNacional.Text : txtPisoDeptoI.Text;
             solicitud.rangoDePeso = cmbRangoPeso.Text;
             solicitud.cantidadDeBultos = Convert.ToInt32(cmbCantidadBultosN.Text);
             solicitud.urgente = chkUrgente.Text = true ? "SI" : "NO";
             solicitud.estado = "INICIADO";
             solicitud.facturado = "NO";
-            
-            
 
-            string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
-            // Append Solicitud object to the botton of "./OrdenDeServicio.txt" as a string Sepparated by "|"
+            guardarOrdentDeServicio(solicitud);            
+        }
+        
+        private void guardarOrdentDeServicio(OrdenDeServicio solicitud)
+        {
             
+            string datos = $"{solicitud.numeroTrackeo}|{solicitud.fecha}|{solicitud.Cuit}|{solicitud.tipoDeEnvio}|{solicitud.paisOrigen}|{solicitud.provinciaOrigen}|{solicitud.ciudadOrigen}|{solicitud.calleOrigen}|{solicitud.alturaOrigen}|{solicitud.pisodeptoOrigen}|{solicitud.paisDestino}|{solicitud.provinciaDestino}|{solicitud.ciudadDestino}|{solicitud.calleDestino}|{solicitud.alturaDestino}|{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
+            ArchivoOrdenDeServicio.GuardarAlFinal(datos);
+            //clear all the states of OrdenDeServicio class
             
-            
-            //string CUIT = Usuario.CUIT(usuario);
-            //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
-            string nuevaFila = "N°Trackeo|Feha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAIS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|CALLE|ALTURA|PISO DEPTO|PAIS DE DESTINO|PROVINCIA/REGION|CIUDAD DESTINO|CALLE|ALTURA|PISO DEPTO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE|ESTADO|FACTURADO";
-            Utilidades.GrabarNuevaFila("./OrdenDeServicio.txt", nuevaFila);
+            this.Close();
         }
         //Boton COTIZAR
         private void btnCotizar_Click(object sender, EventArgs e)
@@ -426,8 +453,6 @@ namespace grupoB_TP
 
 
             decimal tarifaTabla = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionParaCotizar));
-            MessageBox.Show(regionParaCotizar);
-            MessageBox.Show(tarifaTabla.ToString()," tarifa Tabla");
 
             decimal tarifaAdicionalHastaCABA = 0M;
 
@@ -438,10 +463,8 @@ namespace grupoB_TP
 
                 string regionHastaCABA = ObtenerRegionNacional(ciudadOrigen, ciudadDestinoFijada, provinciaOrigen, provinciaDestinoFijada);
                 tarifaAdicionalHastaCABA = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionHastaCABA));
-                MessageBox.Show(tarifaAdicionalHastaCABA.ToString(), "Tari Adicional hasta CABA");
             }
             decimal preciotarifaSinRecargo = tarifaTabla + tarifaAdicionalHastaCABA;
-            MessageBox.Show(preciotarifaSinRecargo.ToString(), " Tarifas sin Recargo");
 
             var recargos = Recargos(preciotarifaSinRecargo);
 
