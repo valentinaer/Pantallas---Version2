@@ -27,7 +27,7 @@ namespace grupoB_TP
                 MessageBox.Show(mensaje, "Errores");
             }
             //Validamos DNI debe tener 8 caracteres (Flujo 2)
-            else if (DNI.Length != 8)
+            if (DNI.Length != 8)
             {
                 MessageBox.Show("El DNI debe tener 8 caracteres", "Errores");
             }
