@@ -26,7 +26,7 @@ namespace Version_2___Pantallas
                 OrdenDeServicio ordenDeServicio = new OrdenDeServicio();
 
                 ordenDeServicio.numeroTrackeo = int.Parse(datosSeparados[0]);
-                //ordenDeServicio.fecha = DateTime.Parse(datosSeparados[1]);
+                ordenDeServicio.fecha = DateTime.Parse(datosSeparados[1]);
                 ordenDeServicio.Cuit = datosSeparados[2];
                 ordenDeServicio.tipoDeEnvio = datosSeparados[3];
                 ordenDeServicio.paisOrigen = datosSeparados[4];
