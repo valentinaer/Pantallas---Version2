@@ -33,5 +33,10 @@ namespace Version_2___Pantallas
             return ListaClientes.Find(cliente => cliente.Cuit == cuit) ?? new Cliente();
         }
 
+        public static void CrearCUITUsuarioActual(string cuit) 
+        {
+            Cliente.CuitUsuarioActual = cuit;
+        }
+
     }
 }

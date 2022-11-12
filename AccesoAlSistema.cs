@@ -53,7 +53,7 @@ namespace grupoB_TP
             else
             {
                 this.Hide();
-                Cliente.CrearCUITUsuarioActual(usuario.CUIT);
+                ArchivoClientes.CrearCUITUsuarioActual(usuario.CUIT);
                 MessageBox.Show($"Ingreso Exitoso : {usuario.ApellidoNombre}  \n" +
                     $"Perteneciente a la empresa con CUIT: {usuario.CUIT}", "Bienvenido/a");
                 new MenuPrincipal(usuario.CUIT).ShowDialog();

@@ -51,14 +51,12 @@ namespace grupoB_TP
         }
 
         //----------------------BOTON MODIFICAR--------------------------------------------------------
-        //Boton MODIFICAR
         private void btnModificar_Click(object sender, EventArgs e)
         {
             MostramosElementos();
         }
 
-        //Boton CONFIRMACION
-        private void btnConfirmar_Click(object sender, EventArgs e)
+        public void btnConfirmar_Click(object sender, EventArgs e)
         {
             int tracking = Autonumerar();
             MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
@@ -94,7 +92,42 @@ namespace grupoB_TP
                 //  destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
             }
 
+            /* 
+            0001|13/09/2022|30-12345678-9|NACIONAL|ARGENTINA|Mendoza|Malargüe|Monroe|1230|PB|ARGENTINA|Mendoza|Malargüe|Belgrano|850|1°C|Correspondencia  de Hasta 500 gr|1|SI|INICIADO|SI
+            */
+            
+
+
+            OrdenDeServicio solicitud = new OrdenDeServicio();
+            solicitud.numeroTrackeo = tracking; // buscar ultimo numero de trackeo y sumarle 1
+            solicitud.fecha = DateTime.Now;
+            solicitud.CUIT = "";
+            solicitud.tipoDeEnvio = rboNacional.Text = true ? "NACIONAL" : "INTERNACIONAL";
+            solicitud.paisOrigen = "ARGENTINA";
+            solicitud.provinciaOrigen = cmbProvinciaOrigen.Text;
+            solicitud.ciudadOrigen = cmbCiudadOrigen.Text;
+            solicitud.calleOrigen = txtDirrecionOrigen.Text;
+            solicitud.alturaOrigen = Convert.ToInt32(txtAlturaOrigen.Text);
+            solicitud.pisodeptoOrigen = txtPisoDeptoOrigen.Text;
+            solicitud.paisDestino = rboNacional.Text = true ? "ARGENTINA" : cmbPaisI.Text;
+            solicitud.provinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : "";
+            solicitud.ciudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text;
+            solicitud.calleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text;
+            solicitud.alturaDestino = Convert.ToInt32(rboNacional.Text = true ? txtAlturaNacional.Text : txtAlturaI.Text); 
+            solicitud.pisodeptoDestino = rboNacional.Text = true ? txtPisoDeptoNacional.Text : txtPisoDeptoI.Text;
+            solicitud.rangoDePeso = cmbRangoPeso.Text;
+            solicitud.cantidadDeBultos = Convert.ToInt32(cmbCantidadBultosN.Text);
+            solicitud.urgente = chkUrgente.Text = true ? "SI" : "NO";
+            solicitud.estado = "INICIADO";
+            solicitud.facturado = "NO";
+            
+            
+
             string tipoEnvio = rboNacional.Checked ? "Nacional" : "Internacional";
+            // Append Solicitud object to the botton of "./OrdenDeServicio.txt" as a string Sepparated by "|"
+            
+            
+            
             //string CUIT = Usuario.CUIT(usuario);
             //Id_Cotizacion,Aprobado,Estado,Id_Trackeo,CUIT,FechaSolicitud,Origen,Destino,Urgente,TipoDeEnvio,RangoPeso,CantidadBultos
             string nuevaFila = "N°Trackeo|Feha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAIS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|CALLE|ALTURA|PISO DEPTO|PAIS DE DESTINO|PROVINCIA/REGION|CIUDAD DESTINO|CALLE|ALTURA|PISO DEPTO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE|ESTADO|FACTURADO";
@@ -446,7 +479,6 @@ namespace grupoB_TP
             Random r = new Random();
             return r.Next(0001, 9999);
         }
-        
 
         List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
         List<CiudadesInternacionales> ciudadesInternacionalesAMostrar = new List<CiudadesInternacionales>();
@@ -477,8 +509,6 @@ namespace grupoB_TP
                 cmbCiudadDestino.Items.Add(c.Ciudad);
             }
         }
-
-        
       
         //Mostrar Ciudades Internacional Destino
         private void cmbPaisI_SelectedIndexChanged(object sender, EventArgs e)
