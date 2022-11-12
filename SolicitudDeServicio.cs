@@ -74,6 +74,19 @@ namespace grupoB_TP
             // destino si es nacional
             string destino = "";
             string origen = "";
+            Sucursales sucursalOrigen = new Sucursales();
+            Sucursales sucursalDestino = new Sucursales();
+
+            if(rboSucursalOrigen.Checked){
+                int sucursalOrigenID = cmbSucursalOrigen.SelectedIndex + 1;
+                sucursalOrigen = ArchivoSucursales.BuscarSucursales(sucursalOrigenID);
+            }
+
+            if (rboSucursalDestino.Checked)
+            {
+                int sucursalDestinoID = cmbSucursalDestino.SelectedIndex + 1;
+                sucursalDestino = ArchivoSucursales.BuscarSucursales(sucursalDestinoID);
+            }
 
             // Se obtiene el texto de la sucursal de origen en caso de marcar el Radion Button Sucursal Origen
             if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
@@ -114,9 +127,9 @@ namespace grupoB_TP
             
             solicitud.tipoDeEnvio = rboNacional.Text = true ? "NACIONAL" : "INTERNACIONAL"; // Si el radio button Nacional esta marcado se carga el valor de NACIONAL en el atributo tipo de envio Sino INTERNACIONAL
             solicitud.paisOrigen = "ARGENTINA"; // Solo los envios salen de Argentina
-            solicitud.provinciaOrigen = cmbProvinciaOrigen.Text;
-            solicitud.ciudadOrigen = cmbCiudadOrigen.Text;
-            solicitud.calleOrigen = txtDirrecionOrigen.Text;
+            solicitud.provinciaOrigen = !rboSucursalOrigen.Checked ? cmbProvinciaOrigen.Text : sucursalOrigen.Provincia;
+            solicitud.ciudadOrigen = !rboSucursalOrigen.Checked ? cmbCiudadOrigen.Text : sucursalOrigen.Ciudad;
+            solicitud.calleOrigen = !rboSucursalOrigen.Checked ? txtDirrecionOrigen.Text : sucursalOrigen.Direccion;
 
             if (!string.IsNullOrWhiteSpace(txtAlturaOrigen.Text))
             {
@@ -137,10 +150,17 @@ namespace grupoB_TP
                 solicitud.paisDestino = "";
             }
 
-            solicitud.provinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : ""; // Si el radio button Nacional esta marcado se carga el valor de la provincia en el atributo provincia destino Sino vacio
-            solicitud.ciudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text; // Si el radio button Nacional esta marcado se carga el valor de la ciudad en el atributo ciudad destino Sino el valor de la ciudad internacional
-            solicitud.calleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text; // Si el radio button Nacional esta marcado se carga el valor de la direccion nacional en el atributo calle destino Sino el valor de la direccion internacional
+            if(rboSucursalDestino.Checked){
+                solicitud.provinciaDestino = sucursalDestino.Provincia;
+                solicitud.ciudadDestino = sucursalDestino.Ciudad; 
+                solicitud.calleDestino = sucursalDestino.Direccion;
+            }
+            else{
+                solicitud.provinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : ""; // Si el radio button Nacional esta marcado se carga el valor de la provincia en el atributo provincia destino Sino vacio
+                solicitud.ciudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text; // Si el radio button Nacional esta marcado se carga el valor de la ciudad en el atributo ciudad destino Sino el valor de la ciudad internacional
+                solicitud.calleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text; // Si el radio button Nacional esta marcado se carga el valor de la direccion nacional en el atributo calle destino Sino el valor de la direccion internacional
 
+            }
             if (rboNacional.Checked && !string.IsNullOrWhiteSpace(txtAlturaNacional.Text))
             {
                 solicitud.alturaDestino = Convert.ToInt32(txtAlturaNacional.Text);
