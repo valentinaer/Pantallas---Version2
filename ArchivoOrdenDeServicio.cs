@@ -26,7 +26,7 @@ namespace Version_2___Pantallas
 
                 ordenDeServicio.numeroTrackeo = int.Parse(datosSeparados[0]);
                 ordenDeServicio.fecha = DateTime.Parse(datosSeparados[1]);
-                ordenDeServicio.CUIT = datosSeparados[2];
+                ordenDeServicio.Cuit = datosSeparados[2];
                 ordenDeServicio.tipoDeEnvio = datosSeparados[3];
                 ordenDeServicio.paisOrigen = datosSeparados[4];
                 ordenDeServicio.provinciaOrigen = datosSeparados[5];

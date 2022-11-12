@@ -47,7 +47,7 @@ namespace grupoB_TP
                 }
                 else
                 {
-                    lblCuitI.Text = orden.CUIT;
+                    lblCuitI.Text = orden.Cuit;
                     lblUrgente.Text = orden.urgente;
                     lblCotizacion.Text = orden.estado;
                     if(orden.tipoDeEnvio == "NACIONAL"){
