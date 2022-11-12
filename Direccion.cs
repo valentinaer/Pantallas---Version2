@@ -8,7 +8,6 @@ namespace Clases_TP4
 {
     internal class Direccion
     {
-
         public int Id_Direccion { get; set; } //contador. guarda en el momento 
         public string? Provincia { get; set; }
         public string? Ciudad { get; set; }

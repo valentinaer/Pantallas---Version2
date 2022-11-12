@@ -219,7 +219,7 @@
             // 
             this.txtFechaFinal.Location = new System.Drawing.Point(157, 80);
             this.txtFechaFinal.Name = "txtFechaFinal";
-            this.txtFechaFinal.PlaceholderText = "31/10/2022";
+            this.txtFechaFinal.PlaceholderText = DateTime.Now.ToString("dd/mm/yyyy");
             this.txtFechaFinal.Size = new System.Drawing.Size(100, 29);
             this.txtFechaFinal.TabIndex = 20;
             this.txtFechaFinal.TextChanged += new System.EventHandler(this.txtFechaFinal_TextChanged);

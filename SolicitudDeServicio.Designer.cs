@@ -76,6 +76,13 @@
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCotizar = new System.Windows.Forms.Button();
             this.grpCotizacion = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.lblPeso = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCantidadDeBultos = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
             this.btnModificar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.lblCuit = new System.Windows.Forms.Label();
@@ -96,26 +103,19 @@
             this.grpTipoEnvio = new System.Windows.Forms.GroupBox();
             this.rboInternacional = new System.Windows.Forms.RadioButton();
             this.rboNacional = new System.Windows.Forms.RadioButton();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.lblPeso = new System.Windows.Forms.Label();
-            this.lblCantidadDeBultos = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label25 = new System.Windows.Forms.Label();
             this.grpCaracteristicaServicio.SuspendLayout();
             this.grpNacional.SuspendLayout();
             this.grpInternacional.SuspendLayout();
             this.grpTipoRecepcion.SuspendLayout();
             this.grpCotizacion.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.grpTipoEnvio.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label18
@@ -174,7 +174,7 @@
             // 
             this.txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
             this.txtDirrecionOrigen.Name = "txtDirrecionOrigen";
-            this.txtDirrecionOrigen.Size = new System.Drawing.Size(291, 29);
+            this.txtDirrecionOrigen.Size = new System.Drawing.Size(328, 29);
             this.txtDirrecionOrigen.TabIndex = 18;
             // 
             // txtPisoDeptoOrigen
@@ -219,9 +219,9 @@
             this.chkUrgente.AutoSize = true;
             this.chkUrgente.Location = new System.Drawing.Point(747, 26);
             this.chkUrgente.Name = "chkUrgente";
-            this.chkUrgente.Size = new System.Drawing.Size(186, 25);
+            this.chkUrgente.Size = new System.Drawing.Size(195, 25);
             this.chkUrgente.TabIndex = 3;
-            this.chkUrgente.Text = "Urgente (Recargo X %)";
+            this.chkUrgente.Text = "Urgente (Recargo 50 %)";
             this.chkUrgente.UseVisualStyleBackColor = true;
             // 
             // grpCaracteristicaServicio
@@ -277,7 +277,7 @@
             this.grpNacional.Controls.Add(this.txtDirecionNacional);
             this.grpNacional.Controls.Add(this.cmbCiudadDestino);
             this.grpNacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpNacional.Location = new System.Drawing.Point(455, 171);
+            this.grpNacional.Location = new System.Drawing.Point(475, 161);
             this.grpNacional.Name = "grpNacional";
             this.grpNacional.Size = new System.Drawing.Size(491, 332);
             this.grpNacional.TabIndex = 9;
@@ -419,7 +419,7 @@
             this.grpInternacional.Controls.Add(this.label22);
             this.grpInternacional.Controls.Add(this.txtDireccionI);
             this.grpInternacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpInternacional.Location = new System.Drawing.Point(462, 177);
+            this.grpInternacional.Location = new System.Drawing.Point(475, 166);
             this.grpInternacional.Name = "grpInternacional";
             this.grpInternacional.Size = new System.Drawing.Size(489, 321);
             this.grpInternacional.TabIndex = 6;
@@ -509,9 +509,9 @@
             this.grpTipoRecepcion.Controls.Add(this.rboSucursalOrigen);
             this.grpTipoRecepcion.Controls.Add(this.label11);
             this.grpTipoRecepcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpTipoRecepcion.Location = new System.Drawing.Point(12, 177);
+            this.grpTipoRecepcion.Location = new System.Drawing.Point(2, 161);
             this.grpTipoRecepcion.Name = "grpTipoRecepcion";
-            this.grpTipoRecepcion.Size = new System.Drawing.Size(442, 332);
+            this.grpTipoRecepcion.Size = new System.Drawing.Size(467, 332);
             this.grpTipoRecepcion.TabIndex = 10;
             this.grpTipoRecepcion.TabStop = false;
             this.grpTipoRecepcion.Text = "Elija el Tipo de ORIGEN *";
@@ -540,7 +540,7 @@
             this.cmbCiudadOrigen.FormattingEnabled = true;
             this.cmbCiudadOrigen.Location = new System.Drawing.Point(133, 165);
             this.cmbCiudadOrigen.Name = "cmbCiudadOrigen";
-            this.cmbCiudadOrigen.Size = new System.Drawing.Size(294, 29);
+            this.cmbCiudadOrigen.Size = new System.Drawing.Size(328, 29);
             this.cmbCiudadOrigen.TabIndex = 8;
             // 
             // label8
@@ -558,7 +558,7 @@
             this.cmbSucursalOrigen.FormattingEnabled = true;
             this.cmbSucursalOrigen.Location = new System.Drawing.Point(116, 31);
             this.cmbSucursalOrigen.Name = "cmbSucursalOrigen";
-            this.cmbSucursalOrigen.Size = new System.Drawing.Size(320, 29);
+            this.cmbSucursalOrigen.Size = new System.Drawing.Size(351, 29);
             this.cmbSucursalOrigen.TabIndex = 5;
             // 
             // rboRetiroDomicilio
@@ -603,7 +603,7 @@
             "TUCUMAN"});
             this.cmbProvinciaOrigen.Location = new System.Drawing.Point(133, 121);
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";
-            this.cmbProvinciaOrigen.Size = new System.Drawing.Size(294, 29);
+            this.cmbProvinciaOrigen.Size = new System.Drawing.Size(328, 29);
             this.cmbProvinciaOrigen.TabIndex = 7;
             this.cmbProvinciaOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbProvinciaOrigen_SelectedIndexChanged);
             // 
@@ -686,6 +686,73 @@
             this.grpCotizacion.TabStop = false;
             this.grpCotizacion.Text = "Datos del pedido";
             this.grpCotizacion.Visible = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.lblPeso);
+            this.groupBox2.Location = new System.Drawing.Point(106, 256);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(280, 39);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 12);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(0, 25);
+            this.label25.TabIndex = 0;
+            // 
+            // lblPeso
+            // 
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Location = new System.Drawing.Point(12, 9);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(20, 25);
+            this.lblPeso.TabIndex = 22;
+            this.lblPeso.Text = "x";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblCantidadDeBultos);
+            this.groupBox1.Location = new System.Drawing.Point(164, 211);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(222, 39);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            // 
+            // lblCantidadDeBultos
+            // 
+            this.lblCantidadDeBultos.AutoSize = true;
+            this.lblCantidadDeBultos.Location = new System.Drawing.Point(6, 12);
+            this.lblCantidadDeBultos.Name = "lblCantidadDeBultos";
+            this.lblCantidadDeBultos.Size = new System.Drawing.Size(20, 25);
+            this.lblCantidadDeBultos.TabIndex = 23;
+            this.lblCantidadDeBultos.Text = "x";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label24.Location = new System.Drawing.Point(15, 228);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(143, 21);
+            this.label24.TabIndex = 21;
+            this.label24.Text = "Cantidad de Bultos:";
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(15, 269);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 21);
+            this.label23.TabIndex = 20;
+            this.label23.Text = "Peso:";
             // 
             // btnModificar
             // 
@@ -893,73 +960,6 @@
             this.rboNacional.UseVisualStyleBackColor = true;
             this.rboNacional.CheckedChanged += new System.EventHandler(this.MostrarOcultar);
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(15, 269);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(45, 21);
-            this.label23.TabIndex = 20;
-            this.label23.Text = "Peso:";
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(15, 228);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(143, 21);
-            this.label24.TabIndex = 21;
-            this.label24.Text = "Cantidad de Bultos:";
-            // 
-            // lblPeso
-            // 
-            this.lblPeso.AutoSize = true;
-            this.lblPeso.Location = new System.Drawing.Point(12, 9);
-            this.lblPeso.Name = "lblPeso";
-            this.lblPeso.Size = new System.Drawing.Size(20, 25);
-            this.lblPeso.TabIndex = 22;
-            this.lblPeso.Text = "x";
-            // 
-            // lblCantidadDeBultos
-            // 
-            this.lblCantidadDeBultos.AutoSize = true;
-            this.lblCantidadDeBultos.Location = new System.Drawing.Point(6, 12);
-            this.lblCantidadDeBultos.Name = "lblCantidadDeBultos";
-            this.lblCantidadDeBultos.Size = new System.Drawing.Size(20, 25);
-            this.lblCantidadDeBultos.TabIndex = 23;
-            this.lblCantidadDeBultos.Text = "x";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblCantidadDeBultos);
-            this.groupBox1.Location = new System.Drawing.Point(164, 211);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 39);
-            this.groupBox1.TabIndex = 24;
-            this.groupBox1.TabStop = false;
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label25);
-            this.groupBox2.Controls.Add(this.lblPeso);
-            this.groupBox2.Location = new System.Drawing.Point(106, 256);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(280, 39);
-            this.groupBox2.TabIndex = 25;
-            this.groupBox2.TabStop = false;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(6, 12);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(0, 25);
-            this.label25.TabIndex = 0;
-            // 
             // SolicitudDeServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -987,6 +987,10 @@
             this.grpTipoRecepcion.PerformLayout();
             this.grpCotizacion.ResumeLayout(false);
             this.grpCotizacion.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -999,10 +1003,6 @@
             this.groupBox6.PerformLayout();
             this.grpTipoEnvio.ResumeLayout(false);
             this.grpTipoEnvio.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

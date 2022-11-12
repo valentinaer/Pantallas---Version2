@@ -17,7 +17,6 @@ namespace Version_2___Pantallas
         public string Contraseña { get; set; }
 
         // C O N S T R U C T O R E S //
-        // C O N S T R U C T O R E S //
         public Usuario(int dniautorizados, string cuit, string apellidonombre, string contraseña)
         {
             CUIT = cuit;

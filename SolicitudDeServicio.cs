@@ -27,7 +27,7 @@ namespace grupoB_TP
             InitializeComponent();
         }
         //----------------------CARGAR ELEMENTOS ------------------------------------------------------------------
-        public void CargarSucursales()
+        private void CargarSucursales()
         {
             List<Sucursales> listaSucursales = ArchivoSucursales.PedirLista();
 
@@ -39,7 +39,7 @@ namespace grupoB_TP
                 cmbSucursalDestino.Items.Add(texto);
             }
         }
-        public void CargarPaisesComboBox()
+        private void CargarPaisesComboBox()
         {
             List<string> PaisesInternacionales = new List<string>();
             cmbPaisI.Items.Clear();
@@ -62,10 +62,12 @@ namespace grupoB_TP
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             int tracking = ArchivoOrdenDeServicio.BuscarUltimoNumeroTrackeo() + 1;
+
+
             MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
                 $" {"\n"} Su numero de trackeo es: {tracking}");
             
-
+            
             // destino si es nacional
             string destino = "";
             string origen = "";
@@ -94,8 +96,7 @@ namespace grupoB_TP
             {
                 //  destino = cmbPaisCiudadDestino.Text + " - " + cmbRegionI.Text;
             }
-
-
+            
             OrdenDeServicio solicitud = new OrdenDeServicio();
             solicitud.numeroTrackeo = tracking;
             solicitud.fecha = DateTime.Now;

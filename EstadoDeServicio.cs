@@ -17,12 +17,17 @@ namespace grupoB_TP
         {
             InitializeComponent();
         }
+        private void EstadoDeServicio_Load(object sender, EventArgs e)
+        {
+            //Carga nuevamente para tener las ultimas ordenes de servicio sin cerrar el sistema
+
+            ArchivoOrdenDeServicio.CargarOrdenDeServicio();
+        }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
+
             string mensaje = "";
             grpDatosEstadoDeServicio.Visible = true;
-
-            //int[] numerosdeTrackeo = { 123, 456, 789};
 
             string numeroTrack = txtTrackeo.Text;
 
@@ -68,5 +73,7 @@ namespace grupoB_TP
         {
             System.Windows.Forms.Application.Exit();
         }
+
+
     }
 }
