@@ -19,7 +19,7 @@ namespace grupoB_TP
             string DNI = txtIngresarDNI.Text;
             string contraseña = txtContraseña.Text;
             //Validamos que NO esten Vacios (Flujo 1)
-            mensaje = Validador.PedirVacio("El DNI", DNI);
+            mensaje = Validador.PedirEntero("El DNI",00000001,99999999, DNI);
             mensaje += Validador.PedirVacio(" La Contraseña", contraseña);
 
             if (mensaje != "")

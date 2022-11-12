@@ -9,7 +9,7 @@ namespace grupoB_TP
     internal class OrdenDeServicio
     {
         public int numeroTrackeo { get; set; }
-        public int fecha { get; set; }
+        public DateTime fecha { get; set; }
         public string CUIT { get; set; } = string.Empty;
         public string tipoDeEnvio { get; set; } = string.Empty;
         public string paisOrigen { get; set; } = string.Empty;
