@@ -61,7 +61,7 @@ namespace grupoB_TP
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            int tracking = ArchivoOrdenDeServicio.BuscarUltimoNumeroTrackeo() + 1;
+            int tracking = ArchivoOrdenDeServicios.BuscarUltimoNumeroTrackeo() + 1;
 
 
             MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
@@ -158,7 +158,7 @@ namespace grupoB_TP
         private void guardarOrdenDeServicio(OrdenDeServicio solicitud)
         {
             string datos = $"{solicitud.numeroTrackeo}|{solicitud.fecha}|{solicitud.Cuit}|{solicitud.tipoDeEnvio}|{solicitud.paisOrigen}|{solicitud.provinciaOrigen}|{solicitud.ciudadOrigen}|{solicitud.calleOrigen}|{solicitud.alturaOrigen}|{solicitud.pisodeptoOrigen}|{solicitud.paisDestino}|{solicitud.provinciaDestino}|{solicitud.ciudadDestino}|{solicitud.calleDestino}|{solicitud.alturaDestino}|{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
-            ArchivoOrdenDeServicio.GuardarAlFinal(datos);   
+            ArchivoOrdenDeServicios.GuardarAlFinal(datos);   
             this.Close();
         }
         //Boton COTIZAR

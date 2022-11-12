@@ -7,7 +7,7 @@ namespace Version_2___Pantallas
         static List<Cliente> ListaClientes = new List<Cliente>();
         public static void CargarClientes()
         {
-            using var archivo = new StreamReader("Clientes.txt");
+            using var archivo = new StreamReader("ArchivoClientes.txt");
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();

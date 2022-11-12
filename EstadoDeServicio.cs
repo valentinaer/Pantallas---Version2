@@ -21,7 +21,7 @@ namespace grupoB_TP
         {
             //Carga nuevamente para tener las ultimas ordenes de servicio sin cerrar el sistema
 
-            ArchivoOrdenDeServicio.CargarOrdenDeServicio();
+            ArchivoOrdenDeServicios.CargarOrdenDeServicio();
         }
         private void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -44,7 +44,7 @@ namespace grupoB_TP
             {
                 OrdenDeServicio orden = new OrdenDeServicio();
                
-                orden = ArchivoOrdenDeServicio.BuscarNumeroTrack(int.Parse(numeroTrack));
+                orden = ArchivoOrdenDeServicios.BuscarNumeroTrack(int.Parse(numeroTrack));
 
                 if(orden == null)
                 {

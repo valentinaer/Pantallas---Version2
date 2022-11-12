@@ -5,7 +5,7 @@
         static List<Tarifas> ListaTarifa = new List<Tarifas>();
         internal static void CargasTarifas()
         {
-            var lineasLeer = File.ReadLines("Tarifas.txt");
+            var lineasLeer = File.ReadLines("ArchivoTarifas.txt");
             var encabezado = lineasLeer.First();
             var regiones = encabezado.Split('|');
             foreach (var linea in lineasLeer.Skip(1))

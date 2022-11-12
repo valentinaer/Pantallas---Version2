@@ -15,7 +15,7 @@ namespace Version_2___Pantallas
             ArchivoCiudadesInternacionales.CargarCiudadesInternacionales();
             ArchivoClientes.CargarClientes();
             ArchivoFacturas.CargarFacturas();
-            ArchivoOrdenDeServicio.CargarOrdenDeServicio();
+            ArchivoOrdenDeServicios.CargarOrdenDeServicio();
             ArchivoSucursales.CargarSucursales();
             ArchivoTarifas.CargasTarifas();
             ArchivoUsuario.CargarUsuarios();

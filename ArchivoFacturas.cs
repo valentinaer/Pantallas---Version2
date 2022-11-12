@@ -7,7 +7,7 @@ namespace Version_2___Pantallas
         static List<Factura> ListaFacturas = new List<Factura>();
         public static void CargarFacturas()
         {
-            using var archivo = new StreamReader("Factura.txt");
+            using var archivo = new StreamReader("ArchivoFacturas.txt");
             while (!archivo.EndOfStream)
             {
 

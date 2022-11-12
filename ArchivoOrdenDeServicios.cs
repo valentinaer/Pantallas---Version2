@@ -2,7 +2,7 @@
 
 namespace Version_2___Pantallas
 {
-    internal static class ArchivoOrdenDeServicio
+    internal static class ArchivoOrdenDeServicios
     {
         static List<OrdenDeServicio> listaOrdenesDeServicio = new List<OrdenDeServicio>();
         internal static void CargarOrdenDeServicio()
@@ -12,7 +12,7 @@ namespace Version_2___Pantallas
             //CALLE ORIGEN|ALTURA ORIGEN|PISO|DPTO ORIGEN|PAÍS DE DESTINO|PROVINCIA DESTINO|CIUDAD DESTINO|CALLE DESTINO|ALTURA DESTINO|
             //PISO|DEPTO DESTINO|RANGO DE PESO|CANTIDAD DE BULTOS|URGENTE (SI|NO)|ESTADO|FACTURADO (SI|NO)
 
-            using var archivo = new StreamReader("OrdenDeServicio.txt");
+            using var archivo = new StreamReader("ArchivoOrdenDeServicios.txt");
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
@@ -70,7 +70,7 @@ namespace Version_2___Pantallas
 
         public static void GuardarAlFinal(string datos)
         {
-            using var archivo = new StreamWriter("OrdenDeServicio.txt", true);
+            using var archivo = new StreamWriter("ArchivoOrdenDeServicios.txt", true);
             archivo.WriteLine(datos);
             MessageBox.Show("Se guardo su Orden De Servicio correctamente ");
 
