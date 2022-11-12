@@ -21,20 +21,29 @@ namespace Version_2___Pantallas
                 string[] datosSeparados = proximaLinea.Split("|");
 
                 Sucursales sucursal = new Sucursales();
-                sucursal.Numero = int.Parse(datosSeparados[0]);
-                sucursal.Sucursal = datosSeparados[1];
-                sucursal.Provincia = datosSeparados[2];
-                sucursal.Ciudad = datosSeparados[3];
+                sucursal.NroSucursal = int.Parse(datosSeparados[0]);
+                sucursal.Provincia = datosSeparados[1];
+                sucursal.Ciudad = datosSeparados[2];
+                sucursal.Direccion = datosSeparados[3];
                 sucursal.Region = datosSeparados[4];
-                sucursal.Direccion = datosSeparados[5];
+                
 
                 listaSucursales.Add(sucursal);
             }
         }
 
+
         public static Sucursales BuscarSucursales(int id)
         {
-            return listaSucursales.Find(sucursal => sucursal.Numero == id) ?? new Sucursales();
+            foreach ( Sucursales sucursalBuscada in listaSucursales)
+            {
+                if (sucursalBuscada.NroSucursal== id)
+                {
+                    return sucursalBuscada;
+                }
+            }
+            throw new ApplicationException("Codigo de Sucursal inexistente");
+
         }
 
         public static List<Sucursales> PedirLista()

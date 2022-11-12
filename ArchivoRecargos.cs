@@ -4,7 +4,6 @@ namespace Version_2___Pantallas
 {
     internal static class ArchivoRecargos
     {
-        //CARGAR RECARGOS
         public static decimal BuscarRecargos(int indice)
         {
             using var archivoRecargos = new StreamReader("ArchivoRecargos.txt");

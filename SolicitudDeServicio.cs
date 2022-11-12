@@ -30,10 +30,10 @@ namespace grupoB_TP
 
             foreach (Sucursales s in listaSucursales)
             {
-                string texto = s.Numero.ToString() + " - " + s.Sucursal
-                    + ", " + s.Ciudad + ", " + s.Provincia;
+                string texto = s.NroSucursal.ToString() + " - " + s.Ciudad +
+                    ", " + s.Provincia + ", " + s.Direccion;
                 cmbSucursalOrigen.Items.Add(texto);
-                cmbSucursalesDestino.Items.Add(texto);
+                cmbSucursalDestino.Items.Add(texto);
             }
         }
         public void CargarPaisesComboBox()
@@ -70,12 +70,12 @@ namespace grupoB_TP
             string origen = "";
 
             // if sucursal show in a string the sucursal selected from dropdown, if envio a domicilio show in a string the provincia and ciudad selected from dropdown
-            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
             {
                 origen = cmbSucursalOrigen.Text;
             }
 
-            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            if (rboRetiroDomicilio.Checked && !rboSucursalOrigen.Checked)
             {
                 origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
             }
@@ -83,7 +83,7 @@ namespace grupoB_TP
 
             if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
             {
-                destino = cmbSucursalesDestino.Text;
+                destino = cmbSucursalDestino.Text;
             }
             else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
             {
@@ -107,12 +107,12 @@ namespace grupoB_TP
             //----------------- Logica Extra para Cotizar -----------------//            
             string origen = "";
 
-            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
             {
                 origen = cmbSucursalOrigen.Text;
             }
 
-            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            if (rboRetiroDomicilio.Checked && !rboSucursalOrigen.Checked)
             {
                 origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
             }
@@ -140,7 +140,7 @@ namespace grupoB_TP
             }
 
             //valida que se haya seleccionado un tipo de envio con los radio buttons Sucursal y Domicilio
-            if (!rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            if (!rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
             {
                 MessageBox.Show("Debe seleccionar un tipo de recepcion", "Errores");
                 return;
@@ -148,7 +148,7 @@ namespace grupoB_TP
 
             // Condiciones para el Origen
             // Si es RETIRO a domicilio
-            if (rboRetiroDomicilio.Checked && !rboRecibeSucursal.Checked)
+            if (rboRetiroDomicilio.Checked && !rboSucursalOrigen.Checked)
             {
                 // Validacion de Provincia en el Origen
                 string mensaje = "";
@@ -181,7 +181,7 @@ namespace grupoB_TP
             }
 
             // Si es sucursal
-            if (rboRecibeSucursal.Checked && !rboRetiroDomicilio.Checked)
+            if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
             {
                 if (cmbSucursalOrigen.SelectedIndex == -1)
                 {
@@ -241,7 +241,7 @@ namespace grupoB_TP
                 if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
                 {
                     //Checkear que se haya seleccionado una sucursal de destino
-                    if (cmbSucursalesDestino.SelectedIndex == -1)
+                    if (cmbSucursalDestino.SelectedIndex == -1)
                     {
                         MessageBox.Show("Debe seleccionar una sucursal de destino", "Errores");
                         return;
@@ -253,7 +253,7 @@ namespace grupoB_TP
                 // Mostrar informacion de cotizacion de Destino
                 if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
                 {
-                    destino = cmbSucursalesDestino.Text;
+                    destino = cmbSucursalDestino.Text;
                 }
                 else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
                 {
@@ -300,7 +300,7 @@ namespace grupoB_TP
             EscondemosElementos();
             CentrarElementosCotizacion();
 
-            decimal precio = CalcularPrecio(chkUrgente.Checked);
+            decimal precio = CalcularPrecio();
 
             // Seteamos el texto de la cotizacion
             lblCotizacion.Text = "$" + precio;
@@ -335,24 +335,56 @@ namespace grupoB_TP
             }
         }
 
-        private decimal CalcularPrecio(bool urgente)
+        private decimal CalcularPrecio()
         {
+            int CantBultos = int.Parse(cmbCantidadBultosN.Text);
             string regionParaCotizar = null;
             string DescRangoDePeso = cmbRangoPeso.Text;
-            string ciudadOrigen = cmbCiudadOrigen.Text;
-            string provinciaOrigen = cmbProvinciaOrigen.Text;
 
+            string ciudadOrigen = "";
+            string provinciaOrigen = "";
+            string ciudadDestino = "";
+            string provinciaDestino = "";
 
-            int CantBultos = int.Parse(cmbCantidadBultosN.Text);
+            //LOGICA ORIGEN SUCURSAL O RETIRO A DOMICILIO
+            if (rboSucursalOrigen.Checked)
+            {
+                int idSucursalOrigen = (cmbSucursalOrigen.SelectedIndex) + 1;
+                MessageBox.Show(idSucursalOrigen.ToString());
+                var sucursalSeleccionada = ArchivoSucursales.BuscarSucursales(idSucursalOrigen);
+                ciudadOrigen = sucursalSeleccionada.Ciudad;
+                provinciaOrigen = sucursalSeleccionada.Provincia;
+            }
+            if (rboRetiroDomicilio.Checked)
+            {
+                ciudadOrigen = cmbCiudadOrigen.Text;
+                provinciaOrigen = cmbProvinciaOrigen.Text;
+            }
+
+            //LOGICA DESTINO NACIONAL O INTERNACIONAL
 
             if (rboNacional.Checked)
             {
-                string ciudadDestino = cmbCiudadDestino.Text;
-                string destinoProvinciaN = cmbProvinciaDestino.Text;
-
-                regionParaCotizar = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, destinoProvinciaN);
+               //LOGICA NACIONAL SUCURSAL o ENTREGA A DOMICILIO
+                if (rboSucursalDestino.Checked)
+                {
+                    int idSucursalDestino = (cmbSucursalDestino.SelectedIndex)+1;
+                    MessageBox.Show(idSucursalDestino.ToString());
+                    var sucursalSeleccionada = ArchivoSucursales.BuscarSucursales(idSucursalDestino);
+                    ciudadDestino = sucursalSeleccionada.Ciudad;
+                    provinciaDestino = sucursalSeleccionada.Provincia;                    
+                }
+                if (rboEntregaDomicilio.Checked)
+                {
+                    ciudadDestino = cmbCiudadDestino.Text;
+                    provinciaDestino = cmbProvinciaDestino.Text;
+                }
+                MessageBox.Show(ciudadDestino + " " + provinciaDestino);
+                regionParaCotizar = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, provinciaDestino);
             }
-            if (rboInternacional.Checked)
+
+            //DESTINO INTERNACIONAL
+            if (rboInternacional.Checked) 
             {
                 string ciudadInternacional = cmbCiudadesI.Text;
                 regionParaCotizar = ArchivoCiudadesInternacionales.BuscarRegionInternacional(ciudadInternacional);
@@ -368,7 +400,7 @@ namespace grupoB_TP
 
             if (rboInternacional.Checked)
             {
-                string ciudadDestino = "Belgrano";
+                string ciudadDestinoFijada = "Belgrano";
                 string destinoProvinciaN = "C.A.B.A";
 
                 string regionHastaCABA = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, destinoProvinciaN);
@@ -381,10 +413,9 @@ namespace grupoB_TP
         public decimal Recargos (decimal precio)
         {
             var totalRecargos = 0M;
- 
+
             if (chkUrgente.Checked)
-            {
-                
+            {                
                 var coeficienteRecargo = ArchivoRecargos.BuscarRecargos(0);
                 var precioUrgente = precio * (1 + coeficienteRecargo);
                 var TopeUrgente = ArchivoRecargos.BuscarRecargos(1);

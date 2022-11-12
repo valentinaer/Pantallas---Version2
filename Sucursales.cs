@@ -8,18 +8,16 @@ namespace grupoB_TP
 {
     internal class Sucursales
     {
-        public int Numero { get; set; }
-        public string Sucursal { get; set; } = string.Empty;
+        public int NroSucursal { get; set; }
         public string Provincia { get; set; } = string.Empty;
         public string Ciudad { get; set; } = string.Empty;
         public string Region { get; set; } = string.Empty;
         public string Direccion { get; set; } = string.Empty;
 
-        public Sucursales(int numero, string sucursal, string provincia,
+        public Sucursales(int nroSucursal, string sucursal, string provincia,
             string ciudad, string region, string direccion)
         {
-            Numero = numero;
-            Sucursal = sucursal;
+            NroSucursal = nroSucursal;
             Provincia = provincia;
             Ciudad = ciudad;
             Region = region;
@@ -31,10 +29,8 @@ namespace grupoB_TP
         }
         public override string ToString()
         {
-            return string.Format("{0} - {1} - {2} - {3} - {4} - {5} - {6}",
-
-                Numero,
-                Sucursal,
+            return string.Format("{0} - {1} - {2} - {3} - {4} - {5} ",
+                NroSucursal,
                 Provincia,
                 Ciudad,
                 Region,

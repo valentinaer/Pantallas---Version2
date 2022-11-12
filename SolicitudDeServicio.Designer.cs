@@ -48,7 +48,7 @@
             this.rboEntregaDomicilio = new System.Windows.Forms.RadioButton();
             this.rboSucursalDestino = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
-            this.cmbSucursalesDestino = new System.Windows.Forms.ComboBox();
+            this.cmbSucursalDestino = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.cmbProvinciaDestino = new System.Windows.Forms.ComboBox();
@@ -71,7 +71,7 @@
             this.rboRetiroDomicilio = new System.Windows.Forms.RadioButton();
             this.cmbProvinciaOrigen = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.rboRecibeSucursal = new System.Windows.Forms.RadioButton();
+            this.rboSucursalOrigen = new System.Windows.Forms.RadioButton();
             this.label11 = new System.Windows.Forms.Label();
             this.lblTitulo = new System.Windows.Forms.Label();
             this.btnCotizar = new System.Windows.Forms.Button();
@@ -260,7 +260,7 @@
             this.grpNacional.Controls.Add(this.rboSucursalDestino);
             this.grpNacional.Controls.Add(this.label7);
             this.grpNacional.Controls.Add(this.txtAlturaNacional);
-            this.grpNacional.Controls.Add(this.cmbSucursalesDestino);
+            this.grpNacional.Controls.Add(this.cmbSucursalDestino);
             this.grpNacional.Controls.Add(this.label2);
             this.grpNacional.Controls.Add(this.label6);
             this.grpNacional.Controls.Add(this.cmbProvinciaDestino);
@@ -316,14 +316,14 @@
             this.label7.TabIndex = 13;
             this.label7.Text = "Altura * ";
             // 
-            // cmbSucursalesDestino
+            // cmbSucursalDestino
             // 
-            this.cmbSucursalesDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbSucursalesDestino.FormattingEnabled = true;
-            this.cmbSucursalesDestino.Location = new System.Drawing.Point(147, 31);
-            this.cmbSucursalesDestino.Name = "cmbSucursalesDestino";
-            this.cmbSucursalesDestino.Size = new System.Drawing.Size(323, 29);
-            this.cmbSucursalesDestino.TabIndex = 5;
+            this.cmbSucursalDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSucursalDestino.FormattingEnabled = true;
+            this.cmbSucursalDestino.Location = new System.Drawing.Point(147, 31);
+            this.cmbSucursalDestino.Name = "cmbSucursalDestino";
+            this.cmbSucursalDestino.Size = new System.Drawing.Size(323, 29);
+            this.cmbSucursalDestino.TabIndex = 5;
             // 
             // label2
             // 
@@ -497,7 +497,7 @@
             this.grpTipoRecepcion.Controls.Add(this.rboRetiroDomicilio);
             this.grpTipoRecepcion.Controls.Add(this.cmbProvinciaOrigen);
             this.grpTipoRecepcion.Controls.Add(this.label10);
-            this.grpTipoRecepcion.Controls.Add(this.rboRecibeSucursal);
+            this.grpTipoRecepcion.Controls.Add(this.rboSucursalOrigen);
             this.grpTipoRecepcion.Controls.Add(this.label11);
             this.grpTipoRecepcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpTipoRecepcion.Location = new System.Drawing.Point(12, 177);
@@ -607,16 +607,16 @@
             this.label10.TabIndex = 6;
             this.label10.Text = "Ciudad *";
             // 
-            // rboRecibeSucursal
+            // rboSucursalOrigen
             // 
-            this.rboRecibeSucursal.AutoSize = true;
-            this.rboRecibeSucursal.Location = new System.Drawing.Point(6, 35);
-            this.rboRecibeSucursal.Name = "rboRecibeSucursal";
-            this.rboRecibeSucursal.Size = new System.Drawing.Size(110, 25);
-            this.rboRecibeSucursal.TabIndex = 4;
-            this.rboRecibeSucursal.TabStop = true;
-            this.rboRecibeSucursal.Text = "En sucursal ";
-            this.rboRecibeSucursal.UseVisualStyleBackColor = true;
+            this.rboSucursalOrigen.AutoSize = true;
+            this.rboSucursalOrigen.Location = new System.Drawing.Point(6, 35);
+            this.rboSucursalOrigen.Name = "rboSucursalOrigen";
+            this.rboSucursalOrigen.Size = new System.Drawing.Size(110, 25);
+            this.rboSucursalOrigen.TabIndex = 4;
+            this.rboSucursalOrigen.TabStop = true;
+            this.rboSucursalOrigen.Text = "En sucursal ";
+            this.rboSucursalOrigen.UseVisualStyleBackColor = true;
             // 
             // label11
             // 
@@ -947,7 +947,7 @@
         private Label label7;
         private GroupBox grpTipoRecepcion;
         private ComboBox cmbSucursalOrigen;
-        private RadioButton rboRecibeSucursal;
+        private RadioButton rboSucursalOrigen;
         private RadioButton rboRetiroDomicilio;
         private ComboBox cmbCiudadOrigen;
         private ComboBox cmbProvinciaOrigen;
@@ -975,7 +975,7 @@
         private Label label17;
         private RadioButton rboEntregaDomicilio;
         private RadioButton rboSucursalDestino;
-        private ComboBox cmbSucursalesDestino;
+        private ComboBox cmbSucursalDestino;
         private Label label2;
         private ComboBox cmbProvinciaDestino;
         private Label label3;
