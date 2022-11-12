@@ -217,7 +217,7 @@ namespace grupoB_TP
                 return;
             }
 
-            if (rboNacional.Checked && cmbProvinciaOrigen.Text == cmbProvinciaDestino.Text && cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDirecionNacional.Text == txtDirrecionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
+            if (rboNacional.Checked && !rboSucursalOrigen.Checked && !rboSucursalDestino.Checked && cmbProvinciaOrigen.Text == cmbProvinciaDestino.Text && cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDirecionNacional.Text == txtDirrecionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
             {
                 MessageBox.Show("El destino de origen no puede ser el mismo que el de origen", "Errores");
                 return;
