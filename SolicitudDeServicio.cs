@@ -350,7 +350,6 @@ namespace grupoB_TP
             if (rboSucursalOrigen.Checked)
             {
                 int idSucursalOrigen = (cmbSucursalOrigen.SelectedIndex) + 1;
-                MessageBox.Show(idSucursalOrigen.ToString());
                 var sucursalSeleccionada = ArchivoSucursales.BuscarSucursales(idSucursalOrigen);
                 ciudadOrigen = sucursalSeleccionada.Ciudad;
                 provinciaOrigen = sucursalSeleccionada.Provincia;
@@ -369,7 +368,6 @@ namespace grupoB_TP
                 if (rboSucursalDestino.Checked)
                 {
                     int idSucursalDestino = (cmbSucursalDestino.SelectedIndex)+1;
-                    MessageBox.Show(idSucursalDestino.ToString());
                     var sucursalSeleccionada = ArchivoSucursales.BuscarSucursales(idSucursalDestino);
                     ciudadDestino = sucursalSeleccionada.Ciudad;
                     provinciaDestino = sucursalSeleccionada.Provincia;                    
@@ -379,7 +377,7 @@ namespace grupoB_TP
                     ciudadDestino = cmbCiudadDestino.Text;
                     provinciaDestino = cmbProvinciaDestino.Text;
                 }
-                MessageBox.Show(ciudadDestino + " " + provinciaDestino);
+                MessageBox.Show(ciudadDestino + " - " + provinciaDestino);
                 regionParaCotizar = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, provinciaDestino);
             }
 
@@ -393,51 +391,54 @@ namespace grupoB_TP
 
             decimal tarifaTabla = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionParaCotizar));
             MessageBox.Show(regionParaCotizar);
-            MessageBox.Show(Region + " " + cmbRangoPeso.Text);
-            MessageBox.Show(tarifaTabla.ToString());
+            MessageBox.Show(tarifaTabla.ToString()," tarifa Tabla");
 
             decimal tarifaAdicionalHastaCABA = 0M;
 
             if (rboInternacional.Checked)
             {
                 string ciudadDestinoFijada = "Belgrano";
-                string destinoProvinciaN = "C.A.B.A";
+                string provinciaDestinoFijada = "C.A.B.A";
 
-                string regionHastaCABA = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, destinoProvinciaN);
+                string regionHastaCABA = ObtenerRegionNacional(ciudadOrigen, ciudadDestinoFijada, provinciaOrigen, provinciaDestinoFijada);
                 tarifaAdicionalHastaCABA = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionHastaCABA));
+                MessageBox.Show(tarifaAdicionalHastaCABA.ToString(), "Tari Adicional hasta CABA");
             }
-            decimal precioTablas = tarifaTabla + tarifaAdicionalHastaCABA;
-            var recargos = Recargos(precioTablas);
-            return (precioTablas + recargos)*CantBultos;
+            decimal preciotarifaSinRecargo = tarifaTabla + tarifaAdicionalHastaCABA;
+            MessageBox.Show(preciotarifaSinRecargo.ToString(), " Tarifas sin Recargo");
+
+            var recargos = Recargos(preciotarifaSinRecargo);
+
+            return (preciotarifaSinRecargo + recargos)*CantBultos;
         }
-        public decimal Recargos (decimal precio)
+        public decimal Recargos (decimal preciosinRecargo)
         {
             var totalRecargos = 0M;
 
             if (chkUrgente.Checked)
             {                
                 var coeficienteRecargo = ArchivoRecargos.BuscarRecargos(0);
-                var precioUrgente = precio * (1 + coeficienteRecargo);
+                MessageBox.Show(coeficienteRecargo.ToString(), "Coef recargo");
+                var precioUrgente = preciosinRecargo * coeficienteRecargo;
+                MessageBox.Show(precioUrgente.ToString(),"precio Urgente");
                 var TopeUrgente = ArchivoRecargos.BuscarRecargos(1);
                 if(precioUrgente >= TopeUrgente)
                 {
                     totalRecargos = TopeUrgente;
                 }
-
                 else
                 {
                     totalRecargos = precioUrgente;
                 }
             }
-            if (rboEntregaDomicilio.Checked)
+            if (rboRetiroDomicilio.Checked)
             {
                 totalRecargos += ArchivoRecargos.BuscarRecargos(2);
             }
-            if (rboRetiroDomicilio.Checked)
+            if (rboEntregaDomicilio.Checked)
             {
                 totalRecargos += ArchivoRecargos.BuscarRecargos(3);
             }
-
             return totalRecargos;
         }           
         private int Autonumerar()

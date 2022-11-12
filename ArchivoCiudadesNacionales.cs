@@ -28,20 +28,9 @@
                 {
                     return lugar.Region;
                 }
-
             }
-
-            /*
-            for (int i = 0; i < ListaCiudadesNacionales.Count; i++)
-            {
-                if (ListaCiudadesNacionales[i].Ciudad.ToLower() == ciudad.ToLower())
-                {
-                    MessageBox.Show(ListaCiudadesNacionales[i].Region);
-                    return ListaCiudadesNacionales[i].Region;
-                }
-                
-            }*/
-            throw new ApplicationException("Codigo de Ciudad Nacional inesperado");
+            //throw new ApplicationException("Codigo de Ciudad Nacional inesperado");
+            return "";
         }
 
         
