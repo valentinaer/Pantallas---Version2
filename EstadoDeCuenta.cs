@@ -183,6 +183,10 @@ namespace grupoB_TP
 
 
         }
-       
+
+        private void txtFechaFinal_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

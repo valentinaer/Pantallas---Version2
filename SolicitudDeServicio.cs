@@ -307,7 +307,7 @@ namespace grupoB_TP
             lblOrigen.Text = origen;
             lblDestino.Text = destino;
             lblUrgente.Text = chkUrgente.Checked ? "Si" : "No";
-            lblCuitI.Text = "CUIT";
+            lblCuit.Text = "CUIT"; //Cambiar.
 
         }
 

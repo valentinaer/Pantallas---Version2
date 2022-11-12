@@ -78,7 +78,7 @@
             this.grpCotizacion = new System.Windows.Forms.GroupBox();
             this.btnModificar = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblCuitI = new System.Windows.Forms.Label();
+            this.lblCuit = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnConfirmar = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
@@ -96,6 +96,13 @@
             this.grpTipoEnvio = new System.Windows.Forms.GroupBox();
             this.rboInternacional = new System.Windows.Forms.RadioButton();
             this.rboNacional = new System.Windows.Forms.RadioButton();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.lblPeso = new System.Windows.Forms.Label();
+            this.lblCantidadDeBultos = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label25 = new System.Windows.Forms.Label();
             this.grpCaracteristicaServicio.SuspendLayout();
             this.grpNacional.SuspendLayout();
             this.grpInternacional.SuspendLayout();
@@ -107,6 +114,8 @@
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.grpTipoEnvio.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // label18
@@ -652,6 +661,10 @@
             // 
             // grpCotizacion
             // 
+            this.grpCotizacion.Controls.Add(this.groupBox2);
+            this.grpCotizacion.Controls.Add(this.groupBox1);
+            this.grpCotizacion.Controls.Add(this.label24);
+            this.grpCotizacion.Controls.Add(this.label23);
             this.grpCotizacion.Controls.Add(this.btnModificar);
             this.grpCotizacion.Controls.Add(this.groupBox3);
             this.grpCotizacion.Controls.Add(this.label5);
@@ -666,9 +679,9 @@
             this.grpCotizacion.Controls.Add(this.label12);
             this.grpCotizacion.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpCotizacion.ForeColor = System.Drawing.Color.Purple;
-            this.grpCotizacion.Location = new System.Drawing.Point(972, 141);
+            this.grpCotizacion.Location = new System.Drawing.Point(972, 67);
             this.grpCotizacion.Name = "grpCotizacion";
-            this.grpCotizacion.Size = new System.Drawing.Size(394, 352);
+            this.grpCotizacion.Size = new System.Drawing.Size(394, 426);
             this.grpCotizacion.TabIndex = 13;
             this.grpCotizacion.TabStop = false;
             this.grpCotizacion.Text = "Datos del pedido";
@@ -679,7 +692,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificar.Location = new System.Drawing.Point(97, 300);
+            this.btnModificar.Location = new System.Drawing.Point(97, 383);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 32);
             this.btnModificar.TabIndex = 19;
@@ -689,21 +702,21 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lblCuitI);
+            this.groupBox3.Controls.Add(this.lblCuit);
             this.groupBox3.Location = new System.Drawing.Point(106, 30);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(280, 36);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             // 
-            // lblCuitI
+            // lblCuit
             // 
-            this.lblCuitI.AutoSize = true;
-            this.lblCuitI.Location = new System.Drawing.Point(6, 11);
-            this.lblCuitI.Name = "lblCuitI";
-            this.lblCuitI.Size = new System.Drawing.Size(20, 25);
-            this.lblCuitI.TabIndex = 0;
-            this.lblCuitI.Text = "x";
+            this.lblCuit.AutoSize = true;
+            this.lblCuit.Location = new System.Drawing.Point(6, 11);
+            this.lblCuit.Name = "lblCuit";
+            this.lblCuit.Size = new System.Drawing.Size(20, 25);
+            this.lblCuit.TabIndex = 0;
+            this.lblCuit.Text = "x";
             // 
             // label5
             // 
@@ -720,7 +733,7 @@
             this.btnConfirmar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirmar.Location = new System.Drawing.Point(97, 262);
+            this.btnConfirmar.Location = new System.Drawing.Point(97, 341);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(199, 32);
             this.btnConfirmar.TabIndex = 14;
@@ -731,7 +744,7 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.lblCotizacion);
-            this.groupBox9.Location = new System.Drawing.Point(106, 207);
+            this.groupBox9.Location = new System.Drawing.Point(106, 290);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(280, 39);
             this.groupBox9.TabIndex = 7;
@@ -805,7 +818,7 @@
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label15.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label15.Location = new System.Drawing.Point(15, 226);
+            this.label15.Location = new System.Drawing.Point(15, 308);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(85, 21);
             this.label15.TabIndex = 3;
@@ -880,6 +893,73 @@
             this.rboNacional.UseVisualStyleBackColor = true;
             this.rboNacional.CheckedChanged += new System.EventHandler(this.MostrarOcultar);
             // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label23.Location = new System.Drawing.Point(15, 269);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(45, 21);
+            this.label23.TabIndex = 20;
+            this.label23.Text = "Peso:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.label24.Location = new System.Drawing.Point(15, 228);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(143, 21);
+            this.label24.TabIndex = 21;
+            this.label24.Text = "Cantidad de Bultos:";
+            // 
+            // lblPeso
+            // 
+            this.lblPeso.AutoSize = true;
+            this.lblPeso.Location = new System.Drawing.Point(12, 9);
+            this.lblPeso.Name = "lblPeso";
+            this.lblPeso.Size = new System.Drawing.Size(20, 25);
+            this.lblPeso.TabIndex = 22;
+            this.lblPeso.Text = "x";
+            // 
+            // lblCantidadDeBultos
+            // 
+            this.lblCantidadDeBultos.AutoSize = true;
+            this.lblCantidadDeBultos.Location = new System.Drawing.Point(6, 12);
+            this.lblCantidadDeBultos.Name = "lblCantidadDeBultos";
+            this.lblCantidadDeBultos.Size = new System.Drawing.Size(20, 25);
+            this.lblCantidadDeBultos.TabIndex = 23;
+            this.lblCantidadDeBultos.Text = "x";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.lblCantidadDeBultos);
+            this.groupBox1.Location = new System.Drawing.Point(164, 211);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(222, 39);
+            this.groupBox1.TabIndex = 24;
+            this.groupBox1.TabStop = false;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label25);
+            this.groupBox2.Controls.Add(this.lblPeso);
+            this.groupBox2.Location = new System.Drawing.Point(106, 256);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(280, 39);
+            this.groupBox2.TabIndex = 25;
+            this.groupBox2.TabStop = false;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 12);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(0, 25);
+            this.label25.TabIndex = 0;
+            // 
             // SolicitudDeServicio
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -919,6 +999,10 @@
             this.groupBox6.PerformLayout();
             this.grpTipoEnvio.ResumeLayout(false);
             this.grpTipoEnvio.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -982,7 +1066,7 @@
         private ComboBox cmbCiudadDestino;
         private ComboBox cmbCantidadBultosN;
         private GroupBox groupBox3;
-        private Label lblCuitI;
+        private Label lblCuit;
         private Label label5;
         private GroupBox grpInternacional;
         private ComboBox cmbPaisI;
@@ -997,5 +1081,12 @@
         private Button btnModificar;
         private Label label18;
         private ComboBox cmbCiudadesI;
+        private GroupBox groupBox2;
+        private Label label25;
+        private Label lblPeso;
+        private GroupBox groupBox1;
+        private Label lblCantidadDeBultos;
+        private Label label24;
+        private Label label23;
     }
 }
