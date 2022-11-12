@@ -61,7 +61,7 @@ namespace grupoB_TP
 
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
-            int tracking = Autonumerar();
+            int tracking = ArchivoOrdenDeServicio.BuscarUltimoNumeroTrackeo() + 1;
             MessageBox.Show($"La solicitud de servicio se registro de forma exitosa." +
                 $" {"\n"} Su numero de trackeo es: {tracking}");
             
@@ -97,7 +97,7 @@ namespace grupoB_TP
 
 
             OrdenDeServicio solicitud = new OrdenDeServicio();
-            solicitud.numeroTrackeo = ArchivoOrdenDeServicio.BuscarUltimoNumeroTrackeo() + 1;
+            solicitud.numeroTrackeo = tracking;
             solicitud.fecha = DateTime.Now;
             if(CUIT != null)
             {
@@ -199,6 +199,12 @@ namespace grupoB_TP
                 return;
             }
 
+            if(!string.IsNullOrWhiteSpace(cmbSucursalOrigen.Text) && !string.IsNullOrWhiteSpace(cmbSucursalDestino.Text) && cmbSucursalDestino.Text == cmbSucursalOrigen.Text)
+            {
+                MessageBox.Show("La sucursal de destino no puede ser la misma que la de origen", "Errores");
+                return;
+            }
+
             //valida que se haya seleccionado un tipo de envio con los radio buttons Sucursal y Domicilio
             if (!rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
             {
@@ -295,6 +301,8 @@ namespace grupoB_TP
                         MessageBox.Show(mensaje, "Errores");
                         return;
                     }
+
+                    
                 }
 
                 // Condiciones para el Destino, si es envio a sucursal 
@@ -367,7 +375,9 @@ namespace grupoB_TP
             lblOrigen.Text = origen;
             lblDestino.Text = destino;
             lblUrgente.Text = chkUrgente.Checked ? "Si" : "No";
-            lblCuit.Text = "CUIT"; //Cambiar.
+            lblPeso.Text = cmbRangoPeso.Text;
+            lblCantidadDeBultos.Text = cmbCantidadBultosN.Text;
+            lblCuit.Text = CUIT;
 
         }
 
@@ -497,11 +507,6 @@ namespace grupoB_TP
             }
             return totalRecargos;
         }           
-        private int Autonumerar()
-        {
-            Random r = new Random();
-            return r.Next(0001, 9999);
-        }
 
         List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
         List<CiudadesInternacionales> ciudadesInternacionalesAMostrar = new List<CiudadesInternacionales>();
