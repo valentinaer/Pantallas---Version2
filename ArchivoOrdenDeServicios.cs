@@ -74,9 +74,12 @@ namespace Version_2___Pantallas
         // Guardar una nueva orden de servicio al final del txt
         public static void GuardarAlFinal(string datos)
         {
-            using var archivo = new StreamWriter("./ArchivoOrdenDeServicios.txt", true); // true es para que adjunte al final (nueva fila) en vez de sobre escribir
+            /* using var archivo = new StreamWriter("./ArchivoOrdenDeServicios.txt", true); // true es para que adjunte al final (nueva fila) en vez de sobre escribir
             archivo.WriteLine(datos);
-            MessageBox.Show("Se guardo su Orden De Servicio correctamente ");
+            MessageBox.Show("Se guardo su Orden De Servicio correctamente ");*/
+ 
+            // save a new line of datos in ./ArchivoOrdenDeServicios.txt at the end
+            File.AppendAllText("./ArchivoOrdenDeServicios.txt", datos + Environment.NewLine);
         }
     }
 }
