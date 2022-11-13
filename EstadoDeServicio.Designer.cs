@@ -71,9 +71,9 @@
             // 
             this.txtTrackeo.Location = new System.Drawing.Point(235, 74);
             this.txtTrackeo.Name = "txtTrackeo";
+            this.txtTrackeo.PlaceholderText = "N°Trackeo";
             this.txtTrackeo.Size = new System.Drawing.Size(149, 23);
             this.txtTrackeo.TabIndex = 2;
-            this.txtTrackeo.Text = "N°Trackeo";
             this.txtTrackeo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
             // 
             // btnBuscar

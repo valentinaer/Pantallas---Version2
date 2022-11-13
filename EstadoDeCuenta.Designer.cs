@@ -76,7 +76,7 @@
             this.richTextBox1.Location = new System.Drawing.Point(51, 68);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(451, 88);
+            this.richTextBox1.Size = new System.Drawing.Size(451, 103);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
@@ -119,16 +119,18 @@
             // lblSaldoTotal
             // 
             this.lblSaldoTotal.AutoSize = true;
+            this.lblSaldoTotal.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lblSaldoTotal.ForeColor = System.Drawing.Color.Red;
             this.lblSaldoTotal.Location = new System.Drawing.Point(366, 95);
             this.lblSaldoTotal.Name = "lblSaldoTotal";
-            this.lblSaldoTotal.Size = new System.Drawing.Size(58, 21);
+            this.lblSaldoTotal.Size = new System.Drawing.Size(63, 21);
             this.lblSaldoTotal.TabIndex = 13;
             this.lblSaldoTotal.Text = "$XX.XX";
             // 
             // lblFechaActual
             // 
             this.lblFechaActual.AutoSize = true;
-            this.lblFechaActual.Location = new System.Drawing.Point(233, 95);
+            this.lblFechaActual.Location = new System.Drawing.Point(247, 95);
             this.lblFechaActual.Name = "lblFechaActual";
             this.lblFechaActual.Size = new System.Drawing.Size(86, 21);
             this.lblFechaActual.TabIndex = 12;
@@ -198,12 +200,14 @@
             // 
             // btnMostrar
             // 
-            this.btnMostrar.Location = new System.Drawing.Point(354, 115);
+            this.btnMostrar.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnMostrar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.btnMostrar.Location = new System.Drawing.Point(335, 115);
             this.btnMostrar.Name = "btnMostrar";
-            this.btnMostrar.Size = new System.Drawing.Size(96, 34);
+            this.btnMostrar.Size = new System.Drawing.Size(115, 34);
             this.btnMostrar.TabIndex = 22;
             this.btnMostrar.Text = "Mostrar";
-            this.btnMostrar.UseVisualStyleBackColor = true;
+            this.btnMostrar.UseVisualStyleBackColor = false;
             this.btnMostrar.Click += new System.EventHandler(this.btnMostrar_Click);
             // 
             // label9
@@ -219,7 +223,7 @@
             // 
             this.txtFechaFinal.Location = new System.Drawing.Point(157, 80);
             this.txtFechaFinal.Name = "txtFechaFinal";
-            this.txtFechaFinal.PlaceholderText = DateTime.Now.ToString("dd/MM/yyyy");
+            this.txtFechaFinal.PlaceholderText = "13/11/2022";
             this.txtFechaFinal.Size = new System.Drawing.Size(100, 29);
             this.txtFechaFinal.TabIndex = 20;
             this.txtFechaFinal.TextChanged += new System.EventHandler(this.txtFechaFinal_TextChanged);
@@ -286,7 +290,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(633, 576);
+            this.ClientSize = new System.Drawing.Size(633, 538);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.grpEstadoDeCuenta);

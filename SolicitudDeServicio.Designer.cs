@@ -140,13 +140,15 @@
             this.txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
             this.txtAlturaNacional.MaxLength = 6;
             this.txtAlturaNacional.Name = "txtAlturaNacional";
-            this.txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
+            this.txtAlturaNacional.PlaceholderText = "Solo Numeros";
+            this.txtAlturaNacional.Size = new System.Drawing.Size(133, 29);
             this.txtAlturaNacional.TabIndex = 14;
             // 
             // txtDireccionNacional
             // 
             this.txtDireccionNacional.Location = new System.Drawing.Point(163, 201);
             this.txtDireccionNacional.Name = "txtDireccionNacional";
+            this.txtDireccionNacional.PlaceholderText = "Solo Calle";
             this.txtDireccionNacional.Size = new System.Drawing.Size(307, 29);
             this.txtDireccionNacional.TabIndex = 1;
             // 
@@ -160,7 +162,9 @@
             // txtAlturaI
             // 
             this.txtAlturaI.Location = new System.Drawing.Point(177, 237);
+            this.txtAlturaI.MaxLength = 6;
             this.txtAlturaI.Name = "txtAlturaI";
+            this.txtAlturaI.PlaceholderText = "Solo Numeros";
             this.txtAlturaI.Size = new System.Drawing.Size(111, 29);
             this.txtAlturaI.TabIndex = 14;
             // 
@@ -175,6 +179,7 @@
             // 
             this.txtDireccionOrigen.Location = new System.Drawing.Point(133, 206);
             this.txtDireccionOrigen.Name = "txtDireccionOrigen";
+            this.txtDireccionOrigen.PlaceholderText = "Solo Calle";
             this.txtDireccionOrigen.Size = new System.Drawing.Size(328, 29);
             this.txtDireccionOrigen.TabIndex = 18;
             // 
@@ -190,7 +195,8 @@
             this.txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
             this.txtAlturaOrigen.MaxLength = 6;
             this.txtAlturaOrigen.Name = "txtAlturaOrigen";
-            this.txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
+            this.txtAlturaOrigen.PlaceholderText = "Solo Numeros";
+            this.txtAlturaOrigen.Size = new System.Drawing.Size(130, 29);
             this.txtAlturaOrigen.TabIndex = 14;
             // 
             // cmbRangoPeso
@@ -764,7 +770,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificar.Location = new System.Drawing.Point(112, 384);
+            this.btnModificar.Location = new System.Drawing.Point(127, 381);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 32);
             this.btnModificar.TabIndex = 19;
@@ -806,7 +812,7 @@
             this.btnConfirmar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirmar.Location = new System.Drawing.Point(112, 346);
+            this.btnConfirmar.Location = new System.Drawing.Point(127, 346);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(199, 32);
             this.btnConfirmar.TabIndex = 14;

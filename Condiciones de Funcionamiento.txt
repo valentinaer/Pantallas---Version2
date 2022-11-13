@@ -1,11 +1,5 @@
 ﻿-----------------------------Condiciones del funcionamiento---------------------------------------
-<<<Pantalla "Acceso al Sistema">>>
-
-El sistema va a permitir el ingreso con 2 (dos) DNI: 
-- 12345678 
-- 87654321
-La contraseña para ambos DNI es: 
-- 1234
+<<<Pantalla "Acceso al Sistema">>> VER ARCHIVO USUARIOS
 
 ---------------------------------------------------------------------------------------------------
 <<<Pantalla "Menú Principal>>>

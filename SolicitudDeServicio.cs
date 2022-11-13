@@ -259,14 +259,15 @@ namespace grupoB_TP
             //----------------- Logica Extra para Cotizar -----------------//            
             string origen = "";
 
-            if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
+            if (rboSucursalOrigen.Checked)
             {
                 origen = cmbSucursalOrigen.Text;
             }
 
-            if (rboRetiroDomicilio.Checked && !rboSucursalOrigen.Checked)
+            if (rboRetiroDomicilio.Checked)
             {
-                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
+                origen = txtDireccionOrigen.Text +" " + txtAlturaOrigen.Text +", "+
+                    cmbCiudadOrigen.Text + ", " + cmbProvinciaOrigen.Text;
             }
             //-------------------VALIDACIONES DE DESTINO------------------------
 
@@ -373,21 +374,23 @@ namespace grupoB_TP
                     return;
                 }
             //LOGICA PARA COTIZAR 
-            string destino = "";
+                string destino = "";
                 if (rboNacional.Checked)
                 {
-                    if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+                    if (rboSucursalDestino.Checked)
                     {
                         destino = cmbSucursalDestino.Text;
                     }
-                    else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+                    if (rboEntregaDomicilio.Checked)
                     {
-                        destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
+                        destino = txtDireccionNacional.Text + " " + txtAlturaNacional.Text + ", " +
+                        cmbCiudadDestino.Text + ", " + cmbProvinciaDestino.Text;
                     }
                 }
                 if (rboInternacional.Checked)
                 {
-                    destino = cmbPaisI.Text + " - " + cmbCiudadesI.Text;
+                    destino = txtDireccionI.Text + " " + txtAlturaI.Text + ", " +
+                        cmbCiudadesI.Text + ", " + cmbPaisI.Text;
                 }
                 // Mostrar informacion de cotizacion de Destino
                     cotizar(origen, destino);
