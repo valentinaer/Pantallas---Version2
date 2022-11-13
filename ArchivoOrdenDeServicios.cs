@@ -87,9 +87,9 @@ namespace Version_2___Pantallas
         {
             listaOrdenesDeServicio.Add(solicitud);
         }
-        public static void Grabar()
+        public static async Task Grabar()
         {
-            using var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
+            using var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt", append: true);
             foreach(var solicitud in listaOrdenesDeServicio)
             {
                 string linea = $"{solicitud.numeroTrackeo}|{solicitud.fecha}|{solicitud.Cuit}|" +
@@ -99,7 +99,7 @@ namespace Version_2___Pantallas
                     $"{solicitud.ciudadDestino}|{solicitud.calleDestino}|{solicitud.alturaDestino}|" +
                     $"{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
 
-                archivoOrdenServicio.WriteLine(linea);
+               await File.WriteAllTextAsync("ArchivoOrdenDeServicios.txt",linea);
             }
             MessageBox.Show("Se grabo Correctamente");
 
