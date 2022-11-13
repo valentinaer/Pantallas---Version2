@@ -121,7 +121,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(424, 29);
+            this.label18.Location = new System.Drawing.Point(412, 27);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label18.Size = new System.Drawing.Size(183, 21);
@@ -681,7 +681,7 @@
             this.grpCotizacion.ForeColor = System.Drawing.Color.Purple;
             this.grpCotizacion.Location = new System.Drawing.Point(972, 67);
             this.grpCotizacion.Name = "grpCotizacion";
-            this.grpCotizacion.Size = new System.Drawing.Size(394, 426);
+            this.grpCotizacion.Size = new System.Drawing.Size(580, 426);
             this.grpCotizacion.TabIndex = 13;
             this.grpCotizacion.TabStop = false;
             this.grpCotizacion.Text = "Datos del pedido";
@@ -693,7 +693,7 @@
             this.groupBox2.Controls.Add(this.lblPeso);
             this.groupBox2.Location = new System.Drawing.Point(106, 256);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(280, 39);
+            this.groupBox2.Size = new System.Drawing.Size(454, 39);
             this.groupBox2.TabIndex = 25;
             this.groupBox2.TabStop = false;
             // 
@@ -717,20 +717,21 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblCantidadDeBultos);
-            this.groupBox1.Location = new System.Drawing.Point(164, 211);
+            this.groupBox1.Location = new System.Drawing.Point(193, 211);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(222, 39);
+            this.groupBox1.Size = new System.Drawing.Size(367, 39);
             this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
             // 
             // lblCantidadDeBultos
             // 
             this.lblCantidadDeBultos.AutoSize = true;
-            this.lblCantidadDeBultos.Location = new System.Drawing.Point(6, 12);
+            this.lblCantidadDeBultos.Location = new System.Drawing.Point(66, 10);
             this.lblCantidadDeBultos.Name = "lblCantidadDeBultos";
             this.lblCantidadDeBultos.Size = new System.Drawing.Size(20, 25);
             this.lblCantidadDeBultos.TabIndex = 23;
             this.lblCantidadDeBultos.Text = "x";
+            this.lblCantidadDeBultos.Click += new System.EventHandler(this.lblCantidadDeBultos_Click);
             // 
             // label24
             // 
@@ -739,9 +740,9 @@
             this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.label24.Location = new System.Drawing.Point(15, 228);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(143, 21);
+            this.label24.Size = new System.Drawing.Size(172, 21);
             this.label24.TabIndex = 21;
-            this.label24.Text = "Cantidad de Bultos:";
+            this.label24.Text = "Cantidad de Elementos:";
             // 
             // label23
             // 
@@ -759,7 +760,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificar.Location = new System.Drawing.Point(97, 383);
+            this.btnModificar.Location = new System.Drawing.Point(195, 383);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 32);
             this.btnModificar.TabIndex = 19;
@@ -772,14 +773,14 @@
             this.groupBox3.Controls.Add(this.lblCuit);
             this.groupBox3.Location = new System.Drawing.Point(106, 30);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(280, 36);
+            this.groupBox3.Size = new System.Drawing.Size(454, 36);
             this.groupBox3.TabIndex = 18;
             this.groupBox3.TabStop = false;
             // 
             // lblCuit
             // 
             this.lblCuit.AutoSize = true;
-            this.lblCuit.Location = new System.Drawing.Point(6, 11);
+            this.lblCuit.Location = new System.Drawing.Point(38, 10);
             this.lblCuit.Name = "lblCuit";
             this.lblCuit.Size = new System.Drawing.Size(20, 25);
             this.lblCuit.TabIndex = 0;
@@ -800,7 +801,7 @@
             this.btnConfirmar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirmar.Location = new System.Drawing.Point(97, 341);
+            this.btnConfirmar.Location = new System.Drawing.Point(195, 344);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(199, 32);
             this.btnConfirmar.TabIndex = 14;
@@ -813,7 +814,7 @@
             this.groupBox9.Controls.Add(this.lblCotizacion);
             this.groupBox9.Location = new System.Drawing.Point(106, 290);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(280, 39);
+            this.groupBox9.Size = new System.Drawing.Size(448, 39);
             this.groupBox9.TabIndex = 7;
             this.groupBox9.TabStop = false;
             // 
@@ -831,7 +832,7 @@
             this.groupBox8.Controls.Add(this.lblUrgente);
             this.groupBox8.Location = new System.Drawing.Point(106, 157);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(280, 39);
+            this.groupBox8.Size = new System.Drawing.Size(454, 39);
             this.groupBox8.TabIndex = 6;
             this.groupBox8.TabStop = false;
             // 
@@ -849,7 +850,7 @@
             this.groupBox7.Controls.Add(this.lblDestino);
             this.groupBox7.Location = new System.Drawing.Point(106, 112);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(280, 39);
+            this.groupBox7.Size = new System.Drawing.Size(454, 39);
             this.groupBox7.TabIndex = 5;
             this.groupBox7.TabStop = false;
             // 
@@ -867,7 +868,7 @@
             this.groupBox6.Controls.Add(this.lblOrigen);
             this.groupBox6.Location = new System.Drawing.Point(106, 72);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(282, 39);
+            this.groupBox6.Size = new System.Drawing.Size(454, 39);
             this.groupBox6.TabIndex = 4;
             this.groupBox6.TabStop = false;
             // 
@@ -965,7 +966,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1370, 542);
+            this.ClientSize = new System.Drawing.Size(1557, 542);
             this.Controls.Add(this.grpTipoEnvio);
             this.Controls.Add(this.grpCotizacion);
             this.Controls.Add(this.btnCotizar);

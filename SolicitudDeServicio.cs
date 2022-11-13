@@ -676,5 +676,10 @@ namespace grupoB_TP
                 this.ClientSize.Width / 2 - btnCotizar.Size.Width / 2,
                 btnCotizar.Location.Y);
         }
+
+        private void lblCantidadDeBultos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

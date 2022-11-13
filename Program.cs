@@ -27,12 +27,13 @@ namespace Version_2___Pantallas
             
             ApplicationConfiguration.Initialize();
 
+            //Application.Run(new SolicitudDeServicio());
             Application.Run(new AccesoAlSistema());
 
             ArchivoOrdenDeServicios.Grabar();
             
             //Application.Run(new EstadoDeCuenta());
-            //Application.Run(new SolicitudDeServicio());
+            
             //Application.Run(new EstadoDeServicio());
         }
     }
