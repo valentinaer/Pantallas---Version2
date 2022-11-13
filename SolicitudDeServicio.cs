@@ -16,7 +16,7 @@ namespace grupoB_TP
     public partial class SolicitudDeServicio : Form
     {
         string CUIT = "";
-        // Se Buscan los datos del cliente y se cargan los valores dynamicos de los labels
+        // Se Buscan los datos del cliente y se cargan los valores dynamicos de los labels 
         public void SolicitudDeServicio_Load(object sender, EventArgs e)
         {
             CargarPaisesComboBox();
@@ -365,7 +365,7 @@ namespace grupoB_TP
                     cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDirecionNacional.Text
                     == txtDirrecionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
                 {
-                    MessageBox.Show("El DESTINO de origen no puede ser el mismo que el de ORIGEN", "Errores");
+                    MessageBox.Show("La dirección de DESTINO no puede ser el igual a la dirección de ORIGEN", "Errores");
                     return;
                 }
             //LOGICA PARA COTIZAR 
