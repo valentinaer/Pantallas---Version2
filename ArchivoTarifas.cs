@@ -22,7 +22,7 @@
                 for (int i = 1; i < datos.Length; i++)
                 {
                     var tarifa = new Tarifas();
-                    tarifa.Peso = Peso;
+                    tarifa.DescPeso = Peso;
                     tarifa.Region = regiones[i];
                     tarifa.Precio = decimal.Parse(datos[i]);
                     ListaTarifa.Add(tarifa);
@@ -35,7 +35,7 @@
         {
             foreach (var tarifa in ListaTarifa)
             {
-                if (tarifa.Peso.ToLower() == peso.ToLower() && tarifa.Region.ToLower() == region.ToLower())
+                if (tarifa.DescPeso.ToLower() == peso.ToLower() && tarifa.Region.ToLower() == region.ToLower())
                 {
                     return tarifa.Precio.ToString();
                 }

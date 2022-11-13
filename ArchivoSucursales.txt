@@ -31,8 +31,8 @@
 31|La Rioja|Famatina|Calle 9 de Abril |195|Norte
 32|La Rioja|Arauco|Parana |777|Norte
 33|Tucuman|Tucuman|Pcia de Cordoba |540|Norte
-34|Tucuman|Tafi del Valle|Pasaje El Milagro |20|Norte
-35|Tucuman|San Pedro de Colalao|Congreso |1|Norte
+34|Tucuman|Tafi del Valle|Pasaje El Milagro |30|Norte
+35|Tucuman|San Pedro de Colalao|Congreso |20|Norte
 36|Tucuman|Quilmes|Almirante Brown |780|Norte
 37|Santiago del Estero|Santiago del Estero|Buenos Aires |252|Norte
 38|Santiago del Estero|Termas de Rio Hondo|Av, Juan Bautista Alberdi |766|Norte
@@ -75,10 +75,10 @@
 75|Chubut|Trelew|Mitre|315|Sur
 76|Chubut|Comodoro Rivadavia|Av Alejandro Maiz |801|Sur
 77|La Pampa|Santa Rosa|Rivadavia |202|Sur
-78|La Pampa|General Pico|C 22 653||Sur
+78|La Pampa|General Pico|Cabildo|22653|Sur
 79|La Pampa|General Acha|Manuel Jorge Campos |790|Sur
-80|La Pampa|Victorica|C 17 996||Sur
-81|Neuquen|Neuquen|N2625||Sur
+80|La Pampa|Victorica|Cabildo |17996|Sur
+81|Neuquen|Neuquen|Nilan|2625|Sur
 82|Neuquen|San Martin de los Andes|Pte Gral Julio A Roca |690|Sur
 83|Neuquen|Zapala|Chaneton |40|Sur
 84|Neuquen|Rincon de los Sauces|Gral Enrique Mosconi |168|Sur

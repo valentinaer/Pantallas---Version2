@@ -2,7 +2,7 @@
 {
     internal class Tarifas
     {
-        public string Peso { get; set; } = string.Empty;
+        public string DescPeso { get; set; } = string.Empty;
         public string Region { get; set; } = string.Empty;
         public decimal Precio { get; set; }
 

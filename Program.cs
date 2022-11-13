@@ -20,19 +20,19 @@ namespace Version_2___Pantallas
             ArchivoClientes.CargarClientes();
             ArchivoFacturas.CargarFacturas();
             ArchivoOrdenDeServicios.CargarOrdenDeServicio();
-            //ArchivoSucursales.CargarSucursales();
+            ArchivoSucursales.CargarSucursales();
             ArchivoTarifas.CargasTarifas();
             ArchivoUsuario.CargarUsuarios();
             ArchivoPaisesInternacionales.CargarPaisesInternacionales();
             
             ApplicationConfiguration.Initialize();
 
-            //Application.Run(new AccesoAlSistema());
+            Application.Run(new AccesoAlSistema());
 
             ArchivoOrdenDeServicios.Grabar();
             
             //Application.Run(new EstadoDeCuenta());
-            Application.Run(new SolicitudDeServicio());
+            //Application.Run(new SolicitudDeServicio());
             //Application.Run(new EstadoDeServicio());
         }
     }

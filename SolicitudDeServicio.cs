@@ -186,7 +186,9 @@ namespace grupoB_TP
             solicitud.facturado = "NO"; // No se factura previo a la solicitud
 
             ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
+            this.Hide();
             new MenuPrincipal().ShowDialog();
+            
         }
         /*
         // Metodo para Formatear la informacion que luego se va a guardar en el archivo de texto
@@ -514,7 +516,7 @@ namespace grupoB_TP
 
 
             decimal tarifaTabla = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionParaCotizar));
-
+            MessageBox.Show(tarifaTabla.ToString());
             decimal tarifaAdicionalHastaCABA = 0M;
 
             if (rboInternacional.Checked)

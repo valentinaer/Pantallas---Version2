@@ -124,9 +124,9 @@
             this.label18.Location = new System.Drawing.Point(427, 31);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label18.Size = new System.Drawing.Size(151, 21);
+            this.label18.Size = new System.Drawing.Size(180, 21);
             this.label18.TabIndex = 8;
-            this.label18.Text = "Cantidad de bultos *";
+            this.label18.Text = "Cantidad de elementos *";
             // 
             // txtPisoDeptoNacional
             // 
@@ -196,10 +196,10 @@
             this.cmbRangoPeso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbRangoPeso.FormattingEnabled = true;
             this.cmbRangoPeso.Items.AddRange(new object[] {
-            "Sobres hasta 500g",
-            "Bultos hasta 10 Kg",
-            "Bultos hasta 20 Kg",
-            "Bultos hasta 30 Kg"});
+            "Correspondencia hasta 500g",
+            "Encomienda hasta 10 Kg",
+            "Encomienda hasta 20 Kg",
+            "Encomienda hasta 30 Kg"});
             this.cmbRangoPeso.Location = new System.Drawing.Point(136, 26);
             this.cmbRangoPeso.Name = "cmbRangoPeso";
             this.cmbRangoPeso.Size = new System.Drawing.Size(262, 29);
@@ -582,17 +582,17 @@
             "CATAMARCA",
             "CHACO",
             "CHUBUT",
-            "CORDOBA",
+            "CÓRDOBA",
             "CORRIENTES",
-            "ENTRE RIOS",
+            "ENTRE RÍOS",
             "FORMOSA",
             "JUJUY",
             "LA PAMPA",
             "LA RIOJA",
             "MENDOZA",
             "MISIONES",
-            "NEUQUEN",
-            "RIO NEGRO",
+            "NEUQUÉN",
+            "RÍO NEGRO",
             "SALTA",
             "SAN JUAN",
             "SAN LUIS",
@@ -600,7 +600,7 @@
             "SANTA FE",
             "SANTIAGO DEL ESTERO",
             "TIERRA DEL FUEGO",
-            "TUCUMAN"});
+            "TUCUMÁN"});
             this.cmbProvinciaOrigen.Location = new System.Drawing.Point(133, 121);
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";
             this.cmbProvinciaOrigen.Size = new System.Drawing.Size(328, 29);
