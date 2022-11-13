@@ -41,16 +41,9 @@ namespace grupoB_TP
                 MessageBox.Show($"El {DNI} no se encuentra autorizado para" +
                     $" realizar el ingreso al sistema", "Errores");
             }
-            //La contraseña excede los 30 caracteres (Flujo 4)
-            else if (contraseña.Length > 30)
-            {
-                MessageBox.Show("La contraseña debe tener como máximo 30 caracteres", "Errores");
-            }
             else if (contraseña != usuario.Contraseña)
             {
                 MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
-                MessageBox.Show(usuario.Contraseña); //trae el nombrey apellido
-                MessageBox.Show(usuario.ApellidoNombre); //trae la contraseña
             }
             else
             {

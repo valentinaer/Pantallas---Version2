@@ -100,18 +100,20 @@ namespace grupoB_TP
             }
 
 
-            orden.TipoDeEnvio = rboNacional.Text = true ? "NACIONAL" : "INTERNACIONAL"; // Si el radio button Nacional esta marcado se carga el valor de NACIONAL en el atributo tipo de envio Sino INTERNACIONAL
-            orden.PaisOrigen = "ARGENTINA"; // Solo los envios salen de Argentina
-            orden.ProvinciaOrigen = !rboSucursalOrigen.Checked ? cmbProvinciaOrigen.Text : sucursalOrigen.Provincia;
-            orden.CiudadOrigen = !rboSucursalOrigen.Checked ? cmbCiudadOrigen.Text : sucursalOrigen.Ciudad;
-            orden.CalleOrigen = !rboSucursalOrigen.Checked ? txtDirrecionOrigen.Text : sucursalOrigen.NombreCalle;
+            solicitud.TipoDeEnvio = rboNacional.Checked ? "NACIONAL" : "INTERNACIONAL"; // Si el radio button Nacional esta marcado se carga el valor de NACIONAL en el atributo tipo de envio Sino INTERNACIONAL
+            solicitud.PaisOrigen = "ARGENTINA"; // Solo los envios salen de Argentina
+            solicitud.ProvinciaOrigen = !rboSucursalOrigen.Checked ? cmbProvinciaOrigen.Text : sucursalOrigen.Provincia;
+            solicitud.CiudadOrigen = !rboSucursalOrigen.Checked ? cmbCiudadOrigen.Text : sucursalOrigen.Ciudad;
+            solicitud.CalleOrigen = !rboSucursalOrigen.Checked ? txtDirrecionOrigen.Text : sucursalOrigen.NombreCalle;
+            solicitud.AlturaOrigen = !rboSucursalOrigen.Checked ? 0 : sucursalOrigen.AlturaCalle;
+            solicitud.PisodeptoOrigen = txtPisoDeptoOrigen.Text;
 
             if (!string.IsNullOrWhiteSpace(txtAlturaOrigen.Text))
             {
                 orden.AlturaOrigen = Convert.ToInt32(txtAlturaOrigen.Text);
             }
 
-            orden.PisodeptoOrigen = txtPisoDeptoOrigen.Text;
+            solicitud.PisodeptoOrigen = txtPisoDeptoOrigen.Text;
 
             //Determino el PAIS de la solicitud
             if (rboNacional.Checked)
@@ -124,7 +126,7 @@ namespace grupoB_TP
             }
             else
             {
-                orden.PaisDestino = "";
+                solicitud.PaisDestino = "";
             }
             //Determino los datos de la provincia ciudad- calle y altura
             if (rboSucursalDestino.Checked)
@@ -136,11 +138,12 @@ namespace grupoB_TP
             }
             else
             {
-                orden.ProvinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : ""; // Si el radio button Nacional esta marcado se carga el valor de la provincia en el atributo provincia destino Sino vacio
-                orden.CiudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text; // Si el radio button Nacional esta marcado se carga el valor de la ciudad en el atributo ciudad destino Sino el valor de la ciudad internacional
-                orden.CalleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text; // Si el radio button Nacional esta marcado se carga el valor de la direccion nacional en el atributo calle destino Sino el valor de la direccion internacional
+                solicitud.ProvinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : ""; // Si el radio button Nacional esta marcado se carga el valor de la provincia en el atributo provincia destino Sino vacio
+                solicitud.CiudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text; // Si el radio button Nacional esta marcado se carga el valor de la ciudad en el atributo ciudad destino Sino el valor de la ciudad internacional
+                solicitud.CalleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text; // Si el radio button Nacional esta marcado se carga el valor de la direccion nacional en el atributo calle destino Sino el valor de la direccion internacional
 
             }
+
             if (rboNacional.Checked && !string.IsNullOrWhiteSpace(txtAlturaNacional.Text))
             {
                 orden.AlturaDestino = Convert.ToInt32(txtAlturaNacional.Text);
@@ -151,11 +154,11 @@ namespace grupoB_TP
             }
             else
             {
-                orden.AlturaDestino = 0;
+                solicitud.AlturaDestino = 0;
             }
-            orden.PisodeptoDestino = rboNacional.Text = true ? txtPisoDeptoNacional.Text : txtPisoDeptoI.Text; // Si el radio button Nacional esta marcado se carga el valor Nacional sino Internacional
-            orden.RangoDePeso = cmbRangoPeso.Text;
-            orden.CantidadDeBultos = Convert.ToInt32(cmbCantidadBultosN.Text);
+            solicitud.PisodeptoDestino = rboNacional.Text = true ? txtPisoDeptoNacional.Text : txtPisoDeptoI.Text; // Si el radio button Nacional esta marcado se carga el valor Nacional sino Internacional
+            solicitud.RangoDePeso = cmbRangoPeso.Text;
+            solicitud.CantidadDeBultos = Convert.ToInt32(cmbCantidadBultosN.Text);
             if (chkUrgente.Checked)
             {
                 orden.Urgente = "SI";
@@ -479,7 +482,6 @@ namespace grupoB_TP
                     ciudadDestino = cmbCiudadDestino.Text;
                     provinciaDestino = cmbProvinciaDestino.Text;
                 }
-                MessageBox.Show(ciudadDestino + " - " + provinciaDestino);
                 regionParaCotizar = ObtenerRegionNacional(ciudadOrigen, ciudadDestino, provinciaOrigen, provinciaDestino);
             }
 
@@ -492,7 +494,6 @@ namespace grupoB_TP
 
 
             decimal tarifaTabla = Convert.ToDecimal(ArchivoTarifas.BuscarTarifa(DescRangoDePeso, regionParaCotizar));
-            MessageBox.Show(tarifaTabla.ToString());
             decimal tarifaAdicionalHastaCABA = 0M;
 
             if (rboInternacional.Checked)
@@ -516,9 +517,7 @@ namespace grupoB_TP
             if (chkUrgente.Checked)
             {
                 var coeficienteRecargo = ArchivoRecargos.BuscarRecargos(0);
-                MessageBox.Show(coeficienteRecargo.ToString(), "Coef recargo");
                 var precioUrgente = preciosinRecargo * coeficienteRecargo;
-                MessageBox.Show(precioUrgente.ToString(), "precio Urgente");
                 var TopeUrgente = ArchivoRecargos.BuscarRecargos(1);
                 if (precioUrgente >= TopeUrgente)
                 {
@@ -645,6 +644,11 @@ namespace grupoB_TP
             btnCotizar.Location = new Point(
                 this.ClientSize.Width / 2 - btnCotizar.Size.Width / 2,
                 btnCotizar.Location.Y);
+        }
+
+        private void lblCantidadDeBultos_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
