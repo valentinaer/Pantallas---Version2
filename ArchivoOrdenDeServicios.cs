@@ -82,7 +82,6 @@ namespace Version_2___Pantallas
             archivo.WriteLine(datos);
             MessageBox.Show("Se guardo su Orden De Servicio correctamente ");
  
-            // save a new line of datos in ./ArchivoOrdenDeServicios.txt at the end
             File.AppendAllText("./ArchivoOrdenDeServicios.txt", datos + Environment.NewLine);
         }*/
 

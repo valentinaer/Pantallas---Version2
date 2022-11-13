@@ -193,9 +193,22 @@ namespace grupoB_TP
             solicitud.Estado = "INICIADO"; // Comienza el tramite con el estado INICIADO
             solicitud.Facturado = "NO"; // No se factura previo a la solicitud
 
-            ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
-            this.Hide();
+            string datos = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado} \n";
+            string datos2 = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
+            File.AppendAllText("./ArchivoOrdenDeServicios.txt", datos);
+            //ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
+            this.Close();
             new MenuPrincipal().ShowDialog();
+
+            var file = File.ReadAllLines("./Backup ArchivoOrdenDeServicios.txt");
+            File.Delete("./Backup ArchivoOrdenDeServicios.txt");
+            var newFile = new List<string>();
+            foreach (var line in file)
+            {
+                newFile.Add(line);
+            }
+            newFile.Add(datos2);
+            File.WriteAllLines("./Backup ArchivoOrdenDeServicios.txt", newFile);
             
         }
         /*

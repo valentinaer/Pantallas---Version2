@@ -29,7 +29,7 @@ namespace Version_2___Pantallas
 
             Application.Run(new AccesoAlSistema());
 
-            ArchivoOrdenDeServicios.Grabar();
+            //ArchivoOrdenDeServicios.Grabar();
             
             //Application.Run(new EstadoDeCuenta());
             //Application.Run(new SolicitudDeServicio());
