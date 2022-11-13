@@ -365,7 +365,7 @@ namespace grupoB_TP
                     cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDirecionNacional.Text
                     == txtDirrecionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
                 {
-                    MessageBox.Show("La dirección de DESTINO no puede ser el igual a la dirección de ORIGEN", "Errores");
+                    MessageBox.Show("La dirección de DESTINO no puede ser igual a la dirección de ORIGEN", "Errores");
                     return;
                 }
             //LOGICA PARA COTIZAR 
