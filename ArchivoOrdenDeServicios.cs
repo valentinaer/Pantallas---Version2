@@ -85,13 +85,14 @@ namespace Version_2___Pantallas
             // save a new line of datos in ./ArchivoOrdenDeServicios.txt at the end
             File.AppendAllText("./ArchivoOrdenDeServicios.txt", datos + Environment.NewLine);
         }*/
-     
+
         internal static void GuardarEnLista(OrdenDeServicio solicitud)
         {
             listaOrdenesDeServicio.Add(solicitud);
         }
         public static void Grabar()
         {
+            File.Delete("./ArchivoOrdenDeServicios.txt");
             var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
             foreach (var solicitud in listaOrdenesDeServicio)
             {
