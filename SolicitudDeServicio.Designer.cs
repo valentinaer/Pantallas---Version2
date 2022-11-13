@@ -31,11 +31,11 @@
             this.label18 = new System.Windows.Forms.Label();
             this.txtPisoDeptoNacional = new System.Windows.Forms.TextBox();
             this.txtAlturaNacional = new System.Windows.Forms.TextBox();
-            this.txtDirecionNacional = new System.Windows.Forms.TextBox();
+            this.txtDireccionNacional = new System.Windows.Forms.TextBox();
             this.txtPisoDeptoI = new System.Windows.Forms.TextBox();
             this.txtAlturaI = new System.Windows.Forms.TextBox();
             this.txtDireccionI = new System.Windows.Forms.TextBox();
-            this.txtDirrecionOrigen = new System.Windows.Forms.TextBox();
+            this.txtDireccionOrigen = new System.Windows.Forms.TextBox();
             this.txtPisoDeptoOrigen = new System.Windows.Forms.TextBox();
             this.txtAlturaOrigen = new System.Windows.Forms.TextBox();
             this.cmbRangoPeso = new System.Windows.Forms.ComboBox();
@@ -143,12 +143,12 @@
             this.txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
             this.txtAlturaNacional.TabIndex = 14;
             // 
-            // txtDirecionNacional
+            // txtDireccionNacional
             // 
-            this.txtDirecionNacional.Location = new System.Drawing.Point(163, 201);
-            this.txtDirecionNacional.Name = "txtDirecionNacional";
-            this.txtDirecionNacional.Size = new System.Drawing.Size(307, 29);
-            this.txtDirecionNacional.TabIndex = 1;
+            this.txtDireccionNacional.Location = new System.Drawing.Point(163, 201);
+            this.txtDireccionNacional.Name = "txtDireccionNacional";
+            this.txtDireccionNacional.Size = new System.Drawing.Size(307, 29);
+            this.txtDireccionNacional.TabIndex = 1;
             // 
             // txtPisoDeptoI
             // 
@@ -171,12 +171,12 @@
             this.txtDireccionI.Size = new System.Drawing.Size(307, 29);
             this.txtDireccionI.TabIndex = 1;
             // 
-            // txtDirrecionOrigen
+            // txtDireccionOrigen
             // 
-            this.txtDirrecionOrigen.Location = new System.Drawing.Point(133, 206);
-            this.txtDirrecionOrigen.Name = "txtDirrecionOrigen";
-            this.txtDirrecionOrigen.Size = new System.Drawing.Size(328, 29);
-            this.txtDirrecionOrigen.TabIndex = 18;
+            this.txtDireccionOrigen.Location = new System.Drawing.Point(133, 206);
+            this.txtDireccionOrigen.Name = "txtDireccionOrigen";
+            this.txtDireccionOrigen.Size = new System.Drawing.Size(328, 29);
+            this.txtDireccionOrigen.TabIndex = 18;
             // 
             // txtPisoDeptoOrigen
             // 
@@ -276,7 +276,7 @@
             this.grpNacional.Controls.Add(this.label6);
             this.grpNacional.Controls.Add(this.cmbProvinciaDestino);
             this.grpNacional.Controls.Add(this.label3);
-            this.grpNacional.Controls.Add(this.txtDirecionNacional);
+            this.grpNacional.Controls.Add(this.txtDireccionNacional);
             this.grpNacional.Controls.Add(this.cmbCiudadDestino);
             this.grpNacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpNacional.Location = new System.Drawing.Point(475, 161);
@@ -497,7 +497,7 @@
             // 
             // grpTipoRecepcion
             // 
-            this.grpTipoRecepcion.Controls.Add(this.txtDirrecionOrigen);
+            this.grpTipoRecepcion.Controls.Add(this.txtDireccionOrigen);
             this.grpTipoRecepcion.Controls.Add(this.txtPisoDeptoOrigen);
             this.grpTipoRecepcion.Controls.Add(this.label17);
             this.grpTipoRecepcion.Controls.Add(this.label9);
@@ -513,7 +513,7 @@
             this.grpTipoRecepcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpTipoRecepcion.Location = new System.Drawing.Point(2, 161);
             this.grpTipoRecepcion.Name = "grpTipoRecepcion";
-            this.grpTipoRecepcion.Size = new System.Drawing.Size(467, 332);
+            this.grpTipoRecepcion.Size = new System.Drawing.Size(477, 332);
             this.grpTipoRecepcion.TabIndex = 10;
             this.grpTipoRecepcion.TabStop = false;
             this.grpTipoRecepcion.Text = "Elija el Tipo de ORIGEN *";
@@ -764,7 +764,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificar.Location = new System.Drawing.Point(193, 384);
+            this.btnModificar.Location = new System.Drawing.Point(112, 384);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 32);
             this.btnModificar.TabIndex = 19;
@@ -806,11 +806,11 @@
             this.btnConfirmar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirmar.Location = new System.Drawing.Point(193, 346);
+            this.btnConfirmar.Location = new System.Drawing.Point(112, 346);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(199, 32);
             this.btnConfirmar.TabIndex = 14;
-            this.btnConfirmar.Text = "Confirmar envio";
+            this.btnConfirmar.Text = "Confirmar Envio";
             this.btnConfirmar.UseVisualStyleBackColor = false;
             this.btnConfirmar.Click += new System.EventHandler(this.btnConfirmar_Click);
             // 
@@ -975,7 +975,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(1557, 542);
+            this.ClientSize = new System.Drawing.Size(1370, 542);
             this.Controls.Add(this.grpTipoEnvio);
             this.Controls.Add(this.grpCotizacion);
             this.Controls.Add(this.btnCotizar);
@@ -1024,7 +1024,7 @@
         #endregion
 
         private ComboBox cmbRangoPeso;
-        private TextBox txtDirecionNacional;
+        private TextBox txtDireccionNacional;
         private TextBox txtAlturaOrigen;
         private TextBox txtPisoDeptoOrigen;
         private TextBox txtAlturaNacional;
@@ -1032,7 +1032,7 @@
         private TextBox txtDireccionI;
         private TextBox txtAlturaI;
         private TextBox txtPisoDeptoI;
-        private TextBox txtDirrecionOrigen;
+        private TextBox txtDireccionOrigen;
         private Label label1;
         private CheckBox chkUrgente;
         private GroupBox grpCaracteristicaServicio;

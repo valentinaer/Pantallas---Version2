@@ -63,7 +63,7 @@ namespace grupoB_TP
             MostramosElementos();
         }
 
-        // Button para confirmar la cotizacion actual del servicio
+// BOTON para CONFIRMAR la cotizacion actual del servicio
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             int tracking = ArchivoOrdenDeServicios.BuscarUltimoNumeroTrackeo() + 1;
@@ -100,64 +100,72 @@ namespace grupoB_TP
             }
 
             orden.TipoDeEnvio = rboNacional.Checked ? "NACIONAL" : "INTERNACIONAL"; // Si el radio button Nacional esta marcado se carga el valor de NACIONAL en el atributo tipo de envio Sino INTERNACIONAL
-            orden.PaisOrigen = "ARGENTINA"; // Solo los envios salen de Argentina
-            orden.ProvinciaOrigen = !rboSucursalOrigen.Checked ? cmbProvinciaOrigen.Text : sucursalOrigen.Provincia;
-            orden.CiudadOrigen = !rboSucursalOrigen.Checked ? cmbCiudadOrigen.Text : sucursalOrigen.Ciudad;
-            orden.CalleOrigen = !rboSucursalOrigen.Checked ? txtDirrecionOrigen.Text : sucursalOrigen.NombreCalle;
-            orden.AlturaOrigen = !rboSucursalOrigen.Checked ? 0 : sucursalOrigen.AlturaCalle;
-            orden.PisodeptoOrigen = txtPisoDeptoOrigen.Text;
-
-            if (!string.IsNullOrWhiteSpace(txtAlturaOrigen.Text))
+            
+            //DATOS DE ORIGEN
+            orden.PaisOrigen = "ARGENTINA"; // Solo los envios por ahora salen de Argentina
+            
+            if (rboSucursalOrigen.Checked)
             {
-                orden.AlturaOrigen = Convert.ToInt32(txtAlturaOrigen.Text);
+                orden.ProvinciaOrigen = sucursalOrigen.Provincia;
+                orden.CiudadOrigen = sucursalOrigen.Ciudad;
+                orden.CalleOrigen = sucursalOrigen.NombreCalle;
+                orden.AlturaOrigen = sucursalOrigen.AlturaCalle;
+                orden.PisodeptoOrigen = "NC";
+            }
+            if (rboRetiroDomicilio.Checked)
+            {
+                orden.ProvinciaOrigen = cmbProvinciaOrigen.Text;
+                orden.CiudadOrigen = cmbCiudadOrigen.Text;
+                orden.CalleOrigen = txtDireccionOrigen.Text;
+                orden.AlturaOrigen = int.Parse(txtAlturaOrigen.Text);
+                orden.PisodeptoOrigen = txtPisoDeptoOrigen.Text;
             }
 
-            orden.PisodeptoOrigen = txtPisoDeptoOrigen.Text;
+            string ciudadDestino = "";
+            string provinciaDestino = "";
+            string calleDestino = "";
+            int alturaDestino = 0;
+            string pisoDeptoDestino = "";
 
-            //Determino el PAIS de la solicitud
             if (rboNacional.Checked)
             {
                 orden.PaisDestino = "ARGENTINA";
+                //LOGICA NACIONAL SUCURSAL o ENTREGA A DOMICILIO
+                if (rboSucursalDestino.Checked)
+                {
+                    ciudadDestino = sucursalDestino.Ciudad;
+                    provinciaDestino = sucursalDestino.Provincia;
+                    calleDestino = sucursalDestino.NombreCalle;
+                    alturaDestino = sucursalDestino.AlturaCalle;
+                    pisoDeptoDestino = "NC";
+                }
+                if (rboEntregaDomicilio.Checked)
+                {
+                    ciudadDestino = cmbCiudadDestino.Text;
+                    provinciaDestino = cmbProvinciaDestino.Text;
+                    calleDestino = txtDireccionNacional.Text;
+                    alturaDestino = int.Parse(txtAlturaNacional.Text);
+                    pisoDeptoDestino = txtPisoDeptoNacional.Text;
+
+                }              
             }
-            if (rboInternacional.Checked && cmbPaisI.Text != null)
+            if (rboInternacional.Checked)
             {
                 orden.PaisDestino = cmbPaisI.Text;
-            }
-            else
-            {
-                orden.PaisDestino = "";
-            }
-            //Determino los datos de la provincia ciudad- calle y altura
-            if (rboSucursalDestino.Checked)
-            {
-                orden.ProvinciaDestino = sucursalDestino.Provincia;
-                orden.CiudadDestino = sucursalDestino.Ciudad;
-                orden.CalleDestino = sucursalDestino.NombreCalle;
-                orden.AlturaDestino = sucursalDestino.AlturaCalle;
-            }
-            else
-            {
-                orden.ProvinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : ""; // Si el radio button Nacional esta marcado se carga el valor de la provincia en el atributo provincia destino Sino vacio
-                orden.CiudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text; // Si el radio button Nacional esta marcado se carga el valor de la ciudad en el atributo ciudad destino Sino el valor de la ciudad internacional
-                orden.CalleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text; // Si el radio button Nacional esta marcado se carga el valor de la direccion nacional en el atributo calle destino Sino el valor de la direccion internacional
-
+                ciudadDestino = cmbCiudadesI.Text;
+                provinciaDestino = "";
+                calleDestino = txtDireccionI.Text;
+                alturaDestino = int.Parse(txtAlturaI.Text);
+                pisoDeptoDestino= txtPisoDeptoI.Text;
             }
 
-            if (rboNacional.Checked && !string.IsNullOrWhiteSpace(txtAlturaNacional.Text))
-            {
-                orden.AlturaDestino = Convert.ToInt32(txtAlturaNacional.Text);
-            }
-            if (rboInternacional.Checked && txtAlturaI.Text != null)
-            {
-                orden.AlturaDestino = Convert.ToInt32(txtAlturaI.Text);
-            }
-            else
-            {
-                orden.AlturaDestino = 0;
-            }
-            orden.PisodeptoDestino = rboNacional.Text = true ? txtPisoDeptoNacional.Text : txtPisoDeptoI.Text; // Si el radio button Nacional esta marcado se carga el valor Nacional sino Internacional
+            orden.CiudadDestino = ciudadDestino;
+            orden.ProvinciaDestino = provinciaDestino;
+            orden.CalleDestino = calleDestino;
+            orden.AlturaDestino = alturaDestino;
+            orden.PisodeptoDestino = pisoDeptoDestino;
             orden.RangoDePeso = cmbRangoPeso.Text;
-            orden.CantidadDeBultos = Convert.ToInt32(cmbCantidadBultosN.Text);
+            orden.CantidadDeBultos = int.Parse(cmbCantidadBultosN.Text);
             if (chkUrgente.Checked)
             {
                 orden.Urgente = "SI";
@@ -166,15 +174,11 @@ namespace grupoB_TP
             {
                 orden.Urgente = "NO";
             }
-
             orden.Estado = "INICIADO"; // Comienza el tramite con el estado INICIADO
             orden.Facturado = "NO"; // No se factura previo a la solicitud
-
-            
+           
             ArchivoOrdenDeServicios.GuardarEnLista(orden);
-            this.Hide();
-            
-            
+            this.Hide();                
         }
         
         // Boton en la pantalla del formulario para cotizar el envio
@@ -223,7 +227,7 @@ namespace grupoB_TP
                 {
                     mensaje += "Debe seleccionar una Ciudad de ORIGEN" + "\n";
                 }
-                if (string.IsNullOrEmpty(txtDirrecionOrigen.Text))
+                if (string.IsNullOrEmpty(txtDireccionOrigen.Text))
                 {
                     mensaje += "El domicilio de Retiro no puede estar vacío." + "\n";
                 }
@@ -290,7 +294,7 @@ namespace grupoB_TP
                     {
                         mensaje += "Debe seleccionar una Ciudad de DESTINO" + "\n";
                     }
-                    if (string.IsNullOrEmpty(txtDirecionNacional.Text))
+                    if (string.IsNullOrEmpty(txtDireccionNacional.Text))
                     {
                         mensaje += "El domicilio de entrega no puede estar vacío." + "\n";
                     }
@@ -362,8 +366,8 @@ namespace grupoB_TP
 
                 if (rboNacional.Checked && !rboSucursalOrigen.Checked && !rboSucursalDestino.Checked
                     && cmbProvinciaOrigen.Text == cmbProvinciaDestino.Text &&
-                    cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDirecionNacional.Text
-                    == txtDirrecionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
+                    cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDireccionNacional.Text
+                    == txtDireccionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
                 {
                     MessageBox.Show("La dirección de DESTINO no puede ser igual a la dirección de ORIGEN", "Errores");
                     return;

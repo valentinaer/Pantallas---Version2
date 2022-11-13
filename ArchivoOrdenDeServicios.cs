@@ -91,7 +91,7 @@ namespace Version_2___Pantallas
         }
         public static void Grabar()
         {
-            var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
+            using var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
             foreach (var solicitud in listaOrdenesDeServicio)
             {
                 string linea = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|" +
