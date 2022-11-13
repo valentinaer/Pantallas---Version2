@@ -32,6 +32,7 @@ namespace Version_2___Pantallas
 
                 listaSucursales.Add(sucursal);
             }
+            archivo.Close();
         }
 
 

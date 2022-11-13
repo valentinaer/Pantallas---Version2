@@ -8,6 +8,7 @@ namespace Version_2___Pantallas
         static List<OrdenDeServicio> listaOrdenesDeServicio = new List<OrdenDeServicio>();
         internal static void CargarOrdenDeServicio()
         {
+            listaOrdenesDeServicio.Clear();
             //Archivo
             //N°Trackeo|Fecha|CUIT Cliente|Tipo DE ENVIO NACIONAL O INTERNACIONAL|PAÍS DE ORIGEN|PROVINCIA ORIGEN|CIUDAD ORIGEN|
             //CALLE ORIGEN|ALTURA ORIGEN|PISO|DPTO ORIGEN|PAÍS DE DESTINO|PROVINCIA DESTINO|CIUDAD DESTINO|CALLE DESTINO|ALTURA DESTINO|
@@ -49,7 +50,9 @@ namespace Version_2___Pantallas
 
                 listaOrdenesDeServicio.Add(ordenDeServicio);
             }
+            archivo.Close();
         }
+
 
         // Busca las ordenes de servicio apartir del Numero de Trackeo ingresado
         public static OrdenDeServicio BuscarNumeroTrack(int trackid)
@@ -87,24 +90,25 @@ namespace Version_2___Pantallas
         {
             listaOrdenesDeServicio.Add(solicitud);
         }
-        public static async Task Grabar()
+        public static void Grabar()
         {
-            using var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt", append: true);
-            foreach(var solicitud in listaOrdenesDeServicio)
+            var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
+            foreach (var solicitud in listaOrdenesDeServicio)
             {
                 string linea = $"{solicitud.numeroTrackeo}|{solicitud.fecha}|{solicitud.Cuit}|" +
                     $"{solicitud.tipoDeEnvio}|{solicitud.paisOrigen}|{solicitud.provinciaOrigen}|" +
                     $"{solicitud.ciudadOrigen}|{solicitud.calleOrigen}|{solicitud.alturaOrigen}|" +
                     $"{solicitud.pisodeptoOrigen}|{solicitud.paisDestino}|{solicitud.provinciaDestino}|" +
                     $"{solicitud.ciudadDestino}|{solicitud.calleDestino}|{solicitud.alturaDestino}|" +
-                    $"{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
+                    $"{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|" +
+                    $"{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
 
-               await File.WriteAllTextAsync("ArchivoOrdenDeServicios.txt",linea);
+                archivoOrdenServicio.WriteLine(linea);
+                MessageBox.Show(linea);
             }
             MessageBox.Show("Se grabo Correctamente");
 
             archivoOrdenServicio.Close();
-            
         }
 
 

@@ -12,16 +12,18 @@ namespace grupoB_TP
         public string Provincia { get; set; } = string.Empty;
         public string Ciudad { get; set; } = string.Empty;
         public string Region { get; set; } = string.Empty;
-        public string Direccion { get; set; } = string.Empty;
+        public string NombreCalle { get; set; } = string.Empty;       
+        public int  AlturaCalle { get; set; } 
 
         public Sucursales(int nroSucursal, string sucursal, string provincia,
-            string ciudad, string region, string direccion)
+            string ciudad, string region, string direccion, int alturaCalle)
         {
             NroSucursal = nroSucursal;
             Provincia = provincia;
             Ciudad = ciudad;
             Region = region;
-            Direccion = direccion;
+            NombreCalle = direccion;
+            AlturaCalle = alturaCalle;
         }
         public Sucursales()
         {
@@ -34,7 +36,8 @@ namespace grupoB_TP
                 Provincia,
                 Ciudad,
                 Region,
-                Direccion);
+                NombreCalle,
+                AlturaCalle);
         }
     }
 }

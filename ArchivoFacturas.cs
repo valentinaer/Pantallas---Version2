@@ -30,6 +30,7 @@ namespace Version_2___Pantallas
 
                 ListaFacturas.Add(factura);
             }
+            archivo.Close();
 
         }
 

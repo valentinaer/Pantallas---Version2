@@ -26,6 +26,7 @@
                 );
                 ListaUsuario.Add(usuario);
             }
+            archivo.Close();
         }
 
         // Busca el usuario apartir del DNI ingresado

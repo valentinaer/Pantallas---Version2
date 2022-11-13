@@ -21,6 +21,7 @@
 
                 ListaCiudadesI.Add(CiudadInternacional);
             }
+            archivoCiudadesInternacionales.Close();
         }
 
         // Busca la region de la ciudad internacional apartir de la ciudad ingresada

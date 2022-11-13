@@ -21,6 +21,7 @@
 
                 ListaCiudadesNacionales.Add(CiudadesNacional);
             }
+            archivoCiudadesNacionales.Close();
         }
         // Busca la region de la ciudad nacional apartir de la ciudad ingresada
         public static string BuscarRegionNacional(string ciudad)

@@ -27,6 +27,7 @@ namespace Version_2___Pantallas
 
                 ListaClientes.Add(cliente);
             }
+            archivo.Close();
         }
 
         // Busca el cliente apartir del CUIT ingresado

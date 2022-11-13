@@ -17,6 +17,7 @@
 
                 PaisesInternacionales.Add(proximaLinea!);
             }
+            archivoPaisesInternacionales.Close();
         }
         public static List<string> SoloPaises()
         {
