@@ -39,17 +39,18 @@
             // txtIngresarDNI
             // 
             this.txtIngresarDNI.Location = new System.Drawing.Point(24, 85);
+            this.txtIngresarDNI.MaxLength = 8;
             this.txtIngresarDNI.Name = "txtIngresarDNI";
             this.txtIngresarDNI.PlaceholderText = "Documento";
             this.txtIngresarDNI.Size = new System.Drawing.Size(181, 23);
             this.txtIngresarDNI.TabIndex = 0;
             this.txtIngresarDNI.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
-            this.txtIngresarDNI.MaxLength = 8;
             // 
             // txtContraseña
             // 
             this.txtContraseña.BackColor = System.Drawing.SystemColors.Control;
             this.txtContraseña.Location = new System.Drawing.Point(24, 158);
+            this.txtContraseña.MaxLength = 30;
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.PlaceholderText = "Contraseña";
             this.txtContraseña.Size = new System.Drawing.Size(181, 23);
