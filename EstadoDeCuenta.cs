@@ -40,16 +40,16 @@ namespace grupoB_TP
 
             PadronClientes ClienteActual = new PadronClientes();
 
-            ClienteActual = ArchivoPadronClientes.BuscarCliente(CUIT); //Utilizo el método de la clase ArchivoClientes para traer los datos del cliente en cuestión
+            ClienteActual = ArchivoPadronClientes.BuscarCliente(CUIT); 
 
             lblNombreCliente.Text = ClienteActual.RazonSocial;
             lblFechaActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
             lblCuit.Text = CUIT;
 
             Factura factura = new Factura();
-            facturasCliente = ArchivoFacturas.BuscarFacturaCliente(CUIT); //Trae todas las facturas que coinciden con el cuit
+            facturasCliente = ArchivoFacturas.BuscarFacturaCliente(CUIT); 
 
-            //Muestro el saldo --> Sale de sumar las facturas NO PAGADAS de la lista anterior
+          
             foreach (Factura facturaSeleccionada in facturasCliente)
             {
                 if (facturaSeleccionada.CUIT == CUIT && facturaSeleccionada.Pagado == "NO PAGADO")
@@ -58,7 +58,7 @@ namespace grupoB_TP
                 }
             }
 
-            lblSaldoTotal.Text = "$" + Convert.ToString(saldo); //Muestro en pantalla el Saldo para dicho cliente
+            lblSaldoTotal.Text = "$" + Convert.ToString(saldo); 
         }
 
         private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
@@ -102,8 +102,8 @@ namespace grupoB_TP
             DateTime fechaH;
 
             //Valido la fecha
-            mensaje += Validador.ValidarFecha(fechaDesde, "Fecha inicio");
-            mensaje += Validador.ValidarFecha(fechaHasta, "Fecha final");
+            mensaje += Validador.ValidarFecha(fechaDesde, "de fecha inicial.");
+            mensaje += Validador.ValidarFecha(fechaHasta, "de fecha final.");
 
             if (mensaje != "")
             {
@@ -116,11 +116,11 @@ namespace grupoB_TP
 
                 if (fechaD > fechaH)
                 {
-                    MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha final.", "Errores");
+                    MessageBox.Show("La fecha de rango inferior no puede ser posterior a la fecha de rango superior.", "Errores");
                 }
                 else if (fechaD > DateTime.Now || fechaH > DateTime.Now)
                 {
-                    MessageBox.Show("Las fechas ingresadas deben ser menor a la fecha actual.", "Errores");
+                    MessageBox.Show("Las fechas ingresadas deben ser anteriores a la fecha actual.", "Errores");
                 }
                 else
                 {
@@ -132,6 +132,11 @@ namespace grupoB_TP
                         }
                     }
                     richTextBox1.Text = acumulador;
+
+                    if(string.IsNullOrEmpty(acumulador))
+                    {
+                        MessageBox.Show("No se encontraron facturas para el rango de fechas ingresado.", "Aviso");
+                    }
                 }
             }
             else if (rboMostrarImpagas.Checked)
@@ -141,11 +146,11 @@ namespace grupoB_TP
 
                 if (fechaD > fechaH)
                 {
-                    MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha final.", "Errores");
+                    MessageBox.Show("La fecha de rango inferior no puede ser posterior a la fecha de rango superior.", "Errores");
                 }
                 else if (fechaD > DateTime.Now || fechaH > DateTime.Now)
                 {
-                    MessageBox.Show("Las fechas ingresadas deben ser menor a la fecha actual.", "Errores");
+                    MessageBox.Show("Las fechas ingresadas deben ser anteriores a la fecha actual.", "Errores");
                 }
                 else
                 {
@@ -159,11 +164,16 @@ namespace grupoB_TP
                     }
 
                     richTextBox1.Text = acumulador;
+
+                    if (string.IsNullOrEmpty(acumulador))
+                    {
+                        MessageBox.Show("No se encontraron facturas impagas para el rango de fechas ingresado.", "Aviso");
+                    }
                 }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar si quiere ver todas las facturas o solo las impagas", "Errores");
+                MessageBox.Show("Debe seleccionar si desea ver todas las facturas o solo las impagas", "Errores");
             }
         }
 

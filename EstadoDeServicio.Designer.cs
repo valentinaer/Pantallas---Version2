@@ -103,7 +103,7 @@
             this.grpDatosEstadoDeServicio.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpDatosEstadoDeServicio.Location = new System.Drawing.Point(12, 135);
             this.grpDatosEstadoDeServicio.Name = "grpDatosEstadoDeServicio";
-            this.grpDatosEstadoDeServicio.Size = new System.Drawing.Size(590, 245);
+            this.grpDatosEstadoDeServicio.Size = new System.Drawing.Size(593, 253);
             this.grpDatosEstadoDeServicio.TabIndex = 4;
             this.grpDatosEstadoDeServicio.TabStop = false;
             this.grpDatosEstadoDeServicio.Text = "Datos del servicio";
@@ -270,7 +270,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(629, 418);
+            this.ClientSize = new System.Drawing.Size(621, 418);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.grpDatosEstadoDeServicio);
             this.Controls.Add(this.btnBuscar);

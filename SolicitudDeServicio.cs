@@ -300,7 +300,7 @@ namespace grupoB_TP
                     }
                     else
                     {
-                        mensaje += Validador.PedirEntero("Altura de Entrega de DESTINO", 0, 99999, txtAlturaNacional.Text);
+                        mensaje += Validador.PedirEntero("Altura de Entrega de DESTINO", 0, 999999, txtAlturaNacional.Text);
                     }
                     if (mensaje != "")
                     {
@@ -327,19 +327,19 @@ namespace grupoB_TP
                 string mensaje = "";
                 if (cmbPaisI.SelectedIndex == -1)
                 {
-                    mensaje = "Debe seleccionar una País de DESTINO Internacional" + "\n";
+                    mensaje += "Debe seleccionar un País de DESTINO Internacional." + "\n";
                 }
                 if (cmbCiudadesI.SelectedIndex == -1)
                 {
-                    mensaje = "Debe seleccionar una Ciudad de DESTINO Internacional" + "\n";
+                    mensaje += "Debe seleccionar una Ciudad de DESTINO Internacional." + "\n";
                 }
                 if (string.IsNullOrEmpty(txtDireccionI.Text))
                 {
-                    mensaje += "El domicilio de Entrega a Domicilio Internacional" + "\n";
+                    mensaje += "El domicilio de Entrega internacional no puede estar vacío." + "\n";
                 }
                 if (string.IsNullOrEmpty(txtAlturaI.Text))
                 {
-                    mensaje += "La altura de Entrega Internacional" + "\n";
+                    mensaje += "La altura de Entrega Internacional no puede estar vacía." + "\n";
                 }
                 else
                 {

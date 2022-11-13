@@ -104,7 +104,6 @@ namespace Version_2___Pantallas
 
                 archivoOrdenServicio.WriteLine(linea);
             }
-            MessageBox.Show("Se grabo Correctamente");
             archivoOrdenServicio.Close();
         }
 

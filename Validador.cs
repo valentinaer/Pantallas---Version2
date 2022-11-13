@@ -19,7 +19,7 @@ namespace grupoB_TP
                 }
                 else
                 {
-                    return $"Debe ingresar un valor {campo} mayor a {min} y menor a {max}. \n";
+                    return $"Debe ingresar un valor de {campo} mayor a {min} y menor a {max}. \n";
                 }
             }
             else

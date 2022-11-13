@@ -13,4 +13,6 @@
 13|1/1/0001 00:00:00|30-12345678-9|NACIONAL|ARGENTINA|Corrientes|Corrientes|San Juan |1098||ARGENTINA|CABA|Palermo|Av Cordoba |4461||Correspondencia hasta 500g|1|NO|INICIADO|NO
 14|1/1/0001 00:00:00|30-12345678-9|INTERNACIONAL|ARGENTINA|Corrientes|General Belgrano|Av Pedro Ferre |1886||Cuba||La Habana|Monroe|12|22|Correspondencia hasta 500g|5|SI|INICIADO|NO
 15|1/1/0001 00:00:00|30-12345678-9|NACIONAL|ARGENTINA|SAN JUAN|Santa Lucía|Mansilla|55|2|ARGENTINA|CATAMARCA|Tinogasta|Charcas|66|4|Correspondencia hasta 500g|5|NO|INICIADO|NO
-16|13/11/2022 16:06:51|30-12345678-9|NACIONAL|ARGENTINA|Formosa|Formosa|Av 9 de julio |920||ARGENTINA|CABA|Belgrano|Cabildo |2349||Encomienda hasta 10 Kg|3|SI|INICIADO|NO
+16|1/1/0001 00:00:00|30-12345678-9|NACIONAL|ARGENTINA|Formosa|Formosa|Av 9 de julio |920||ARGENTINA|CABA|Belgrano|Cabildo |2349||Encomienda hasta 10 Kg|3|SI|INICIADO|NO
+17|1/1/0001 00:00:00|30-12345678-9|INTERNACIONAL|ARGENTINA|Formosa|Las Lomitas|Av San Martin |118||Japon||||12||Encomienda hasta 20 Kg|2|SI|INICIADO|NO
+18|13/11/2022 18:58:19|30-12345678-9|INTERNACIONAL|ARGENTINA|Formosa|General Mosconi|44612|4562||Colombia||||111||Encomienda hasta 10 Kg|3|NO|INICIADO|NO

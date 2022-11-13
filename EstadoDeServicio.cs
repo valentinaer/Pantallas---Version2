@@ -33,7 +33,7 @@ namespace grupoB_TP
             string numeroTrack = txtTrackeo.Text;
 
             Console.WriteLine($"Código de trackeo: {numeroTrack}");
-            mensaje += Validador.PedirVacio("El número de Tracking", numeroTrack);
+            mensaje += Validador.PedirVacio("El número de tracking", numeroTrack);
             mensaje += Validador.PedirEntero("tracking", 0, 9999, numeroTrack);
 
             if (mensaje != "")
@@ -68,7 +68,6 @@ namespace grupoB_TP
                     }
                     else
                     {
-                        //pais, ciudad
                         lblDestino.Text = orden.CalleDestino + " " + orden.AlturaDestino + ", " + orden.CiudadDestino + ", " + orden.PaisDestino;
                         lblOrigen.Text = orden.CalleOrigen + " " + orden.AlturaOrigen + ", " + orden.CiudadOrigen + ", " + orden.PaisOrigen;
                     }

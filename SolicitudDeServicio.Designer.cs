@@ -138,6 +138,7 @@
             // txtAlturaNacional
             // 
             this.txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
+            this.txtAlturaNacional.MaxLength = 6;
             this.txtAlturaNacional.Name = "txtAlturaNacional";
             this.txtAlturaNacional.Size = new System.Drawing.Size(111, 29);
             this.txtAlturaNacional.TabIndex = 14;
@@ -187,6 +188,7 @@
             // txtAlturaOrigen
             // 
             this.txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
+            this.txtAlturaOrigen.MaxLength = 6;
             this.txtAlturaOrigen.Name = "txtAlturaOrigen";
             this.txtAlturaOrigen.Size = new System.Drawing.Size(111, 29);
             this.txtAlturaOrigen.TabIndex = 14;
@@ -679,9 +681,9 @@
             this.grpCotizacion.Controls.Add(this.label12);
             this.grpCotizacion.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpCotizacion.ForeColor = System.Drawing.Color.Purple;
-            this.grpCotizacion.Location = new System.Drawing.Point(972, 67);
+            this.grpCotizacion.Location = new System.Drawing.Point(972, 70);
             this.grpCotizacion.Name = "grpCotizacion";
-            this.grpCotizacion.Size = new System.Drawing.Size(580, 426);
+            this.grpCotizacion.Size = new System.Drawing.Size(580, 423);
             this.grpCotizacion.TabIndex = 13;
             this.grpCotizacion.TabStop = false;
             this.grpCotizacion.Text = "Datos del pedido";
@@ -691,7 +693,7 @@
             // 
             this.groupBox2.Controls.Add(this.label25);
             this.groupBox2.Controls.Add(this.lblPeso);
-            this.groupBox2.Location = new System.Drawing.Point(106, 256);
+            this.groupBox2.Location = new System.Drawing.Point(106, 249);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(454, 39);
             this.groupBox2.TabIndex = 25;
@@ -718,7 +720,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.lblCantidadDeBultos);
-            this.groupBox1.Location = new System.Drawing.Point(193, 211);
+            this.groupBox1.Location = new System.Drawing.Point(193, 203);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(367, 39);
             this.groupBox1.TabIndex = 24;
@@ -740,7 +742,7 @@
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label24.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label24.Location = new System.Drawing.Point(15, 228);
+            this.label24.Location = new System.Drawing.Point(15, 223);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(172, 21);
             this.label24.TabIndex = 21;
@@ -751,7 +753,7 @@
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label23.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.label23.Location = new System.Drawing.Point(15, 269);
+            this.label23.Location = new System.Drawing.Point(15, 265);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(45, 21);
             this.label23.TabIndex = 20;
@@ -804,7 +806,7 @@
             this.btnConfirmar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirmar.Location = new System.Drawing.Point(193, 344);
+            this.btnConfirmar.Location = new System.Drawing.Point(193, 346);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(199, 32);
             this.btnConfirmar.TabIndex = 14;
@@ -815,9 +817,9 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.lblCotizacion);
-            this.groupBox9.Location = new System.Drawing.Point(106, 290);
+            this.groupBox9.Location = new System.Drawing.Point(106, 294);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(448, 39);
+            this.groupBox9.Size = new System.Drawing.Size(454, 39);
             this.groupBox9.TabIndex = 7;
             this.groupBox9.TabStop = false;
             // 
