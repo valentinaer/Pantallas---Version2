@@ -214,18 +214,6 @@ namespace grupoB_TP
         private void btnCotizar_Click(object sender, EventArgs e)
         {
 
-            //----------------- Logica Extra para Cotizar -----------------//            
-            string origen = "";
-
-            if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
-            {
-                origen = cmbSucursalOrigen.Text;
-            }
-
-            if (rboRetiroDomicilio.Checked && !rboSucursalOrigen.Checked)
-            {
-                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
-            }
 
             //----------------- Validaciones -----------------//
 
@@ -237,40 +225,28 @@ namespace grupoB_TP
                 return;
             }
 
-            // Condiciones generales para todos los envios
+//----------------- Condiciones generales para todos los envios
+            //VALIDO RANGO DE PESO
             if (cmbRangoPeso.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar un rango de peso", "Errores");
                 return;
             }
+            //VALIDO CANTIDAD DE BULTOS
             if (cmbCantidadBultosN.SelectedIndex == -1)
             {
                 MessageBox.Show("Debe seleccionar la cantidad de Bultos", "Errores");
                 return;
             }
-
-            if (!string.IsNullOrWhiteSpace(cmbSucursalOrigen.Text) && !string.IsNullOrWhiteSpace(cmbSucursalDestino.Text) && cmbSucursalDestino.Text == cmbSucursalOrigen.Text)
-            {
-                MessageBox.Show("La sucursal de destino no puede ser la misma que la de origen", "Errores");
-                return;
-            }
-
-            if (rboNacional.Checked && !rboSucursalOrigen.Checked && !rboSucursalDestino.Checked && cmbProvinciaOrigen.Text == cmbProvinciaDestino.Text && cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDirecionNacional.Text == txtDirrecionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
-            {
-                MessageBox.Show("El destino de origen no puede ser el mismo que el de origen", "Errores");
-                return;
-            }
-
+//-------------------VALIDACIONES DE ORIGEN------------------------
             //valida que se haya seleccionado un tipo de envio con los radio buttons Sucursal y Domicilio
             if (!rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
             {
                 MessageBox.Show("Debe seleccionar un tipo de recepcion", "Errores");
                 return;
             }
-
-            // Condiciones para el Origen
             // Si es RETIRO a domicilio
-            if (rboRetiroDomicilio.Checked && !rboSucursalOrigen.Checked)
+            if (rboRetiroDomicilio.Checked)
             {
                 // Validacion de Provincia en el Origen
                 string mensaje = "";
@@ -303,7 +279,7 @@ namespace grupoB_TP
             }
 
             // Si es sucursal
-            if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
+            if (rboSucursalOrigen.Checked)
             {
                 if (cmbSucursalOrigen.SelectedIndex == -1)
                 {
@@ -311,9 +287,22 @@ namespace grupoB_TP
                     return;
                 }
             }
+            //----------------- Logica Extra para Cotizar -----------------//            
+            string origen = "";
 
-            // Validaciones para Envios Nacionales
-            if (rboNacional.Checked && !rboInternacional.Checked)
+            if (rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
+            {
+                origen = cmbSucursalOrigen.Text;
+            }
+
+            if (rboRetiroDomicilio.Checked && !rboSucursalOrigen.Checked)
+            {
+                origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
+            }
+//-------------------VALIDACIONES DE DESTINO------------------------
+
+    //------------------ ENVIOS NACIONALES
+            if (rboNacional.Checked)
             {
 
                 if (!rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
@@ -322,23 +311,20 @@ namespace grupoB_TP
                     return;
                 }
 
-                // Condiciones para el Origen de Retirmo a Domicilio
-                if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+       //-------------- Condiciones para el ENTREGA A DOMICILIO
+                if (rboEntregaDomicilio.Checked)
                 {
+                    string mensaje = "";
                     //Checkear que se haya seleccionado una Provincia de origen
                     if (cmbProvinciaDestino.SelectedIndex == -1)
                     {
-                        MessageBox.Show("Debe seleccionar una provincia de DESTINO", "Errores");
-                        return;
+                        mensaje += "Debe seleccionar una provincia de DESTINO" + "\n";
                     }
                     //Checkear que se haya seleccionado una Ciudad de origen
                     else if (cmbCiudadDestino.SelectedIndex == -1)
                     {
-                        MessageBox.Show("Debe seleccionar una ciudad de DESTINO", "Errores");
-                        return;
-                    }
-
-                    string mensaje = "";
+                        mensaje += "Debe seleccionar una CIUDAD de DESTINO" + "\n";
+                    }                                   
                     if (string.IsNullOrEmpty(txtDirecionNacional.Text))
                     {
                         mensaje += "El domicilio de Entrega a Domicilio" + "\n";
@@ -351,14 +337,11 @@ namespace grupoB_TP
                     {
                         mensaje += Validador.PedirEntero("Altura de Entrega", 0, 99999, txtAlturaNacional.Text);
                     }
-
                     if (mensaje != "")
                     {
                         MessageBox.Show(mensaje, "Errores");
                         return;
                     }
-
-
                 }
 
                 // Condiciones para el Destino, si es envio a sucursal 
@@ -371,9 +354,55 @@ namespace grupoB_TP
                         return;
                     }
                 }
+ //------------------ ENVIOS INTERNACIONALES
+                // Validaciones para Envios Internacionales
+                if (rboInternacional.Checked && !rboNacional.Checked)
+                {
+                    if (cmbPaisI.SelectedIndex == -1)
+                    {
+                        MessageBox.Show("Debe seleccionar una País y Ciudad de DESTINO", "Errores");
+                        return;
+                    }
 
+                    string mensaje = "";
+                    if (string.IsNullOrEmpty(txtDireccionI.Text))
+                    {
+                        mensaje += "El domicilio de Entrega a Domicilio Internacional" + "\n";
+                    }
+                    if (string.IsNullOrEmpty(txtAlturaI.Text))
+                    {
+                        mensaje += "La altura de Entrega Internacional" + "\n";
+                    }
+                    else
+                    {
+                        mensaje += Validador.PedirEntero("Altura de Entrega Internacional ", 0, 99999, txtAlturaI.Text);
+                    }
+
+                    if (mensaje != "")
+                    {
+                        MessageBox.Show(mensaje, "Errores");
+                        return;
+                    }
+                    cotizar(origen, cmbCiudadesI.Text);
+                }
+
+                //----------------Valido ENTREGA NO CONCIDAN CON DESTINO
+                if (!string.IsNullOrWhiteSpace(cmbSucursalOrigen.Text) && !string.IsNullOrWhiteSpace(cmbSucursalDestino.Text) && cmbSucursalDestino.Text == cmbSucursalOrigen.Text)
+                {
+                    MessageBox.Show("La sucursal de destino no puede ser la misma que la de origen", "Errores");
+                    return;
+                }
+
+                if (rboNacional.Checked && !rboSucursalOrigen.Checked && !rboSucursalDestino.Checked
+                    && cmbProvinciaOrigen.Text == cmbProvinciaDestino.Text &&
+                    cmbCiudadOrigen.Text == cmbCiudadDestino.Text && txtDirecionNacional.Text
+                    == txtDirrecionOrigen.Text && txtAlturaNacional.Text == txtAlturaOrigen.Text)
+                {
+                    MessageBox.Show("El destino de origen no puede ser el mismo que el de origen", "Errores");
+                    return;
+                }
+//LOGICA PARA COTIZAR 
                 string destino = "";
-
                 // Mostrar informacion de cotizacion de Destino
                 if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
                 {
@@ -388,36 +417,7 @@ namespace grupoB_TP
             }
 
 
-            // Validaciones para Envios Internacionales
-            if (rboInternacional.Checked && !rboNacional.Checked)
-            {
-                if (cmbPaisI.SelectedIndex == -1)
-                {
-                    MessageBox.Show("Debe seleccionar una País y Ciudad de DESTINO", "Errores");
-                    return;
-                }
 
-                string mensaje = "";
-                if (string.IsNullOrEmpty(txtDireccionI.Text))
-                {
-                    mensaje += "El domicilio de Entrega a Domicilio Internacional" + "\n";
-                }
-                if (string.IsNullOrEmpty(txtAlturaI.Text))
-                {
-                    mensaje += "La altura de Entrega Internacional" + "\n";
-                }
-                else
-                {
-                    mensaje += Validador.PedirEntero("Altura de Entrega Internacional ", 0, 99999, txtAlturaI.Text);
-                }
-
-                if (mensaje != "")
-                {
-                    MessageBox.Show(mensaje, "Errores");
-                    return;
-                }
-                cotizar(origen, cmbCiudadesI.Text);
-            }
         }
         
         // Calcular el costo del envio apartir de los datos actuales ingresados

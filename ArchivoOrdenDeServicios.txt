@@ -23,3 +23,4 @@
 23|13/11/2022 12:52:12|30-12345678-9|NACIONAL|ARGENTINA|Chaco|Barranqueras|Diagonal Eva Per�n |0|||Jujuy|Tilcara|Rivadavia |0||Encomienda hasta 20 Kg|5|NO|INICIADO|NO
 24|13/11/2022 12:53:56|30-12345678-9|NACIONAL|ARGENTINA|Formosa|Formosa|Av 9 de julio |0|||Jujuy|Humahuaca|Buenos Aires |0||Encomienda hasta 20 Kg|4|NO|INICIADO|NO
 25|13/11/2022 12:59:14|30-12345678-9|NACIONAL|ARGENTINA|Corrientes|Bermejo|Mathus Hoyos |0|||Formosa|Formosa|Av 9 de julio |0||Encomienda hasta 10 Kg|2|NO|INICIADO|NO
+26|13/11/2022 13:03:00|30-12345678-9|NACIONAL|ARGENTINA|SAN LUIS|San Luis|Monroe|3075|6°20||LA RIOJA|Famatina|Av San Martin|0|PB|Encomienda hasta 10 Kg|4|NO|INICIADO|NO
