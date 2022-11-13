@@ -299,9 +299,9 @@ namespace grupoB_TP
             {
                 origen = cmbProvinciaOrigen.Text + " - " + cmbCiudadOrigen.Text;
             }
-//-------------------VALIDACIONES DE DESTINO------------------------
+            //-------------------VALIDACIONES DE DESTINO------------------------
 
-    //------------------ ENVIOS NACIONALES
+            //------------------ ENVIOS NACIONALES
             if (rboNacional.Checked)
             {
 
@@ -311,7 +311,7 @@ namespace grupoB_TP
                     return;
                 }
 
-       //-------------- Condiciones para el ENTREGA A DOMICILIO
+                //-------------- Condiciones para el ENTREGA A DOMICILIO
                 if (rboEntregaDomicilio.Checked)
                 {
                     string mensaje = "";
@@ -324,7 +324,7 @@ namespace grupoB_TP
                     else if (cmbCiudadDestino.SelectedIndex == -1)
                     {
                         mensaje += "Debe seleccionar una CIUDAD de DESTINO" + "\n";
-                    }                                   
+                    }
                     if (string.IsNullOrEmpty(txtDirecionNacional.Text))
                     {
                         mensaje += "El domicilio de Entrega a Domicilio" + "\n";
@@ -354,39 +354,41 @@ namespace grupoB_TP
                         return;
                     }
                 }
- //------------------ ENVIOS INTERNACIONALES
-                // Validaciones para Envios Internacionales
-                if (rboInternacional.Checked && !rboNacional.Checked)
+            }
+            //------------------ ENVIOS INTERNACIONALES
+            // Validaciones para Envios Internacionales
+            if (rboInternacional.Checked && !rboNacional.Checked)
+            {
+                string mensaje = "";
+                if (cmbPaisI.SelectedIndex == -1)
                 {
-                    if (cmbPaisI.SelectedIndex == -1)
-                    {
-                        MessageBox.Show("Debe seleccionar una País y Ciudad de DESTINO", "Errores");
-                        return;
-                    }
-
-                    string mensaje = "";
-                    if (string.IsNullOrEmpty(txtDireccionI.Text))
-                    {
-                        mensaje += "El domicilio de Entrega a Domicilio Internacional" + "\n";
-                    }
-                    if (string.IsNullOrEmpty(txtAlturaI.Text))
-                    {
-                        mensaje += "La altura de Entrega Internacional" + "\n";
-                    }
-                    else
-                    {
-                        mensaje += Validador.PedirEntero("Altura de Entrega Internacional ", 0, 99999, txtAlturaI.Text);
-                    }
-
-                    if (mensaje != "")
-                    {
-                        MessageBox.Show(mensaje, "Errores");
-                        return;
-                    }
-                    cotizar(origen, cmbCiudadesI.Text);
+                    mensaje = "Debe seleccionar una PAIS de DESTINO" + "\n";
+                }
+                if (cmbCiudadesI.SelectedIndex == -1)
+                {
+                    mensaje = "Debe seleccionar una CIUDAD de DESTINO" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtDireccionI.Text))
+                {
+                    mensaje += "El domicilio de Entrega a Domicilio Internacional" + "\n";
+                }
+                if (string.IsNullOrEmpty(txtAlturaI.Text))
+                {
+                    mensaje += "La altura de Entrega Internacional" + "\n";
+                }
+                else
+                {
+                    mensaje += Validador.PedirEntero("Altura de Entrega Internacional ", 0, 99999, txtAlturaI.Text);
+                }
+                if (mensaje != "")
+                {
+                    MessageBox.Show(mensaje, "Errores");
+                    return;
                 }
 
-                //----------------Valido ENTREGA NO CONCIDAN CON DESTINO
+            }
+
+//----------------Valido ENTREGA NO CONCIDAN CON DESTINO
                 if (!string.IsNullOrWhiteSpace(cmbSucursalOrigen.Text) && !string.IsNullOrWhiteSpace(cmbSucursalDestino.Text) && cmbSucursalDestino.Text == cmbSucursalOrigen.Text)
                 {
                     MessageBox.Show("La sucursal de destino no puede ser la misma que la de origen", "Errores");
@@ -401,23 +403,25 @@ namespace grupoB_TP
                     MessageBox.Show("El destino de origen no puede ser el mismo que el de origen", "Errores");
                     return;
                 }
-//LOGICA PARA COTIZAR 
-                string destino = "";
+            //LOGICA PARA COTIZAR 
+            string destino = "";
+                if (rboNacional.Checked)
+                {
+                    if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
+                    {
+                        destino = cmbSucursalDestino.Text;
+                    }
+                    else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
+                    {
+                        destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
+                    }
+                }
+                if (rboInternacional.Checked)
+                {
+                    destino = cmbPaisI.Text + " - " + cmbCiudadesI.Text;
+                }
                 // Mostrar informacion de cotizacion de Destino
-                if (rboSucursalDestino.Checked && !rboEntregaDomicilio.Checked)
-                {
-                    destino = cmbSucursalDestino.Text;
-                }
-                else if (rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
-                {
-                    destino = cmbCiudadDestino.Text + " - " + cmbProvinciaDestino.Text;
-                }
-
-                cotizar(origen, destino);
-            }
-
-
-
+                    cotizar(origen, destino);
         }
         
         // Calcular el costo del envio apartir de los datos actuales ingresados

@@ -121,12 +121,12 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(427, 31);
+            this.label18.Location = new System.Drawing.Point(424, 29);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label18.Size = new System.Drawing.Size(180, 21);
+            this.label18.Size = new System.Drawing.Size(183, 21);
             this.label18.TabIndex = 8;
-            this.label18.Text = "Cantidad de elementos *";
+            this.label18.Text = "Cantidad de elementos: *";
             // 
             // txtPisoDeptoNacional
             // 
@@ -254,7 +254,7 @@
             "8",
             "9",
             "10"});
-            this.cmbCantidadBultosN.Location = new System.Drawing.Point(573, 27);
+            this.cmbCantidadBultosN.Location = new System.Drawing.Point(610, 24);
             this.cmbCantidadBultosN.Name = "cmbCantidadBultosN";
             this.cmbCantidadBultosN.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbCantidadBultosN.Size = new System.Drawing.Size(117, 29);
