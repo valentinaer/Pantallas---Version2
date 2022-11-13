@@ -232,9 +232,9 @@
             this.grpCaracteristicaServicio.Controls.Add(this.cmbRangoPeso);
             this.grpCaracteristicaServicio.Controls.Add(this.chkUrgente);
             this.grpCaracteristicaServicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpCaracteristicaServicio.Location = new System.Drawing.Point(12, 87);
+            this.grpCaracteristicaServicio.Location = new System.Drawing.Point(2, 87);
             this.grpCaracteristicaServicio.Name = "grpCaracteristicaServicio";
-            this.grpCaracteristicaServicio.Size = new System.Drawing.Size(939, 65);
+            this.grpCaracteristicaServicio.Size = new System.Drawing.Size(964, 65);
             this.grpCaracteristicaServicio.TabIndex = 8;
             this.grpCaracteristicaServicio.TabStop = false;
             this.grpCaracteristicaServicio.Text = "Caracteristica del Servicio";
@@ -651,7 +651,7 @@
             // 
             this.btnCotizar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCotizar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCotizar.Location = new System.Drawing.Point(373, 513);
+            this.btnCotizar.Location = new System.Drawing.Point(369, 509);
             this.btnCotizar.Name = "btnCotizar";
             this.btnCotizar.Size = new System.Drawing.Size(206, 30);
             this.btnCotizar.TabIndex = 12;
@@ -708,9 +708,10 @@
             // lblPeso
             // 
             this.lblPeso.AutoSize = true;
-            this.lblPeso.Location = new System.Drawing.Point(12, 9);
+            this.lblPeso.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblPeso.Location = new System.Drawing.Point(12, 14);
             this.lblPeso.Name = "lblPeso";
-            this.lblPeso.Size = new System.Drawing.Size(20, 25);
+            this.lblPeso.Size = new System.Drawing.Size(16, 20);
             this.lblPeso.TabIndex = 22;
             this.lblPeso.Text = "x";
             // 
@@ -726,9 +727,10 @@
             // lblCantidadDeBultos
             // 
             this.lblCantidadDeBultos.AutoSize = true;
-            this.lblCantidadDeBultos.Location = new System.Drawing.Point(66, 10);
+            this.lblCantidadDeBultos.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCantidadDeBultos.Location = new System.Drawing.Point(6, 17);
             this.lblCantidadDeBultos.Name = "lblCantidadDeBultos";
-            this.lblCantidadDeBultos.Size = new System.Drawing.Size(20, 25);
+            this.lblCantidadDeBultos.Size = new System.Drawing.Size(16, 20);
             this.lblCantidadDeBultos.TabIndex = 23;
             this.lblCantidadDeBultos.Text = "x";
             this.lblCantidadDeBultos.Click += new System.EventHandler(this.lblCantidadDeBultos_Click);
@@ -760,7 +762,7 @@
             this.btnModificar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnModificar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnModificar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnModificar.Location = new System.Drawing.Point(195, 383);
+            this.btnModificar.Location = new System.Drawing.Point(193, 384);
             this.btnModificar.Name = "btnModificar";
             this.btnModificar.Size = new System.Drawing.Size(199, 32);
             this.btnModificar.TabIndex = 19;
@@ -780,9 +782,10 @@
             // lblCuit
             // 
             this.lblCuit.AutoSize = true;
-            this.lblCuit.Location = new System.Drawing.Point(38, 10);
+            this.lblCuit.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCuit.Location = new System.Drawing.Point(12, 14);
             this.lblCuit.Name = "lblCuit";
-            this.lblCuit.Size = new System.Drawing.Size(20, 25);
+            this.lblCuit.Size = new System.Drawing.Size(16, 20);
             this.lblCuit.TabIndex = 0;
             this.lblCuit.Text = "x";
             // 
@@ -801,7 +804,7 @@
             this.btnConfirmar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnConfirmar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnConfirmar.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.btnConfirmar.Location = new System.Drawing.Point(195, 344);
+            this.btnConfirmar.Location = new System.Drawing.Point(193, 344);
             this.btnConfirmar.Name = "btnConfirmar";
             this.btnConfirmar.Size = new System.Drawing.Size(199, 32);
             this.btnConfirmar.TabIndex = 14;
@@ -821,9 +824,10 @@
             // lblCotizacion
             // 
             this.lblCotizacion.AutoSize = true;
-            this.lblCotizacion.Location = new System.Drawing.Point(6, 12);
+            this.lblCotizacion.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblCotizacion.Location = new System.Drawing.Point(12, 16);
             this.lblCotizacion.Name = "lblCotizacion";
-            this.lblCotizacion.Size = new System.Drawing.Size(20, 25);
+            this.lblCotizacion.Size = new System.Drawing.Size(16, 20);
             this.lblCotizacion.TabIndex = 0;
             this.lblCotizacion.Text = "x";
             // 
@@ -839,9 +843,10 @@
             // lblUrgente
             // 
             this.lblUrgente.AutoSize = true;
-            this.lblUrgente.Location = new System.Drawing.Point(6, 11);
+            this.lblUrgente.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblUrgente.Location = new System.Drawing.Point(12, 15);
             this.lblUrgente.Name = "lblUrgente";
-            this.lblUrgente.Size = new System.Drawing.Size(20, 25);
+            this.lblUrgente.Size = new System.Drawing.Size(16, 20);
             this.lblUrgente.TabIndex = 0;
             this.lblUrgente.Text = "x";
             // 
@@ -857,9 +862,10 @@
             // lblDestino
             // 
             this.lblDestino.AutoSize = true;
-            this.lblDestino.Location = new System.Drawing.Point(6, 11);
+            this.lblDestino.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblDestino.Location = new System.Drawing.Point(12, 13);
             this.lblDestino.Name = "lblDestino";
-            this.lblDestino.Size = new System.Drawing.Size(20, 25);
+            this.lblDestino.Size = new System.Drawing.Size(16, 20);
             this.lblDestino.TabIndex = 0;
             this.lblDestino.Text = "x";
             // 
@@ -875,9 +881,10 @@
             // lblOrigen
             // 
             this.lblOrigen.AutoSize = true;
-            this.lblOrigen.Location = new System.Drawing.Point(6, 11);
+            this.lblOrigen.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.lblOrigen.Location = new System.Drawing.Point(12, 17);
             this.lblOrigen.Name = "lblOrigen";
-            this.lblOrigen.Size = new System.Drawing.Size(20, 25);
+            this.lblOrigen.Size = new System.Drawing.Size(16, 20);
             this.lblOrigen.TabIndex = 0;
             this.lblOrigen.Text = "x";
             // 

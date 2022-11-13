@@ -80,9 +80,9 @@
             // 
             this.btnIngresar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnIngresar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnIngresar.Location = new System.Drawing.Point(51, 200);
+            this.btnIngresar.Location = new System.Drawing.Point(34, 198);
             this.btnIngresar.Name = "btnIngresar";
-            this.btnIngresar.Size = new System.Drawing.Size(143, 31);
+            this.btnIngresar.Size = new System.Drawing.Size(160, 31);
             this.btnIngresar.TabIndex = 4;
             this.btnIngresar.Text = "Ingresar al Sistema";
             this.btnIngresar.UseVisualStyleBackColor = false;
@@ -104,7 +104,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.ClientSize = new System.Drawing.Size(238, 255);
+            this.ClientSize = new System.Drawing.Size(239, 255);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnIngresar);
             this.Controls.Add(this.lblContraseña);

@@ -68,7 +68,7 @@
             this.rboConsultarEstadoDeServicio.AutoSize = true;
             this.rboConsultarEstadoDeServicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.rboConsultarEstadoDeServicio.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.rboConsultarEstadoDeServicio.Location = new System.Drawing.Point(23, 104);
+            this.rboConsultarEstadoDeServicio.Location = new System.Drawing.Point(23, 100);
             this.rboConsultarEstadoDeServicio.Name = "rboConsultarEstadoDeServicio";
             this.rboConsultarEstadoDeServicio.Size = new System.Drawing.Size(225, 25);
             this.rboConsultarEstadoDeServicio.TabIndex = 4;
@@ -98,7 +98,7 @@
             this.groupBox1.Size = new System.Drawing.Size(324, 212);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Selecciona la operación a realizar:";
+            this.groupBox1.Text = "Seleccione la operación a realizar:";
             // 
             // btnContinuar
             // 

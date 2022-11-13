@@ -225,11 +225,11 @@ namespace grupoB_TP
                 }
                 if (string.IsNullOrEmpty(txtDirrecionOrigen.Text))
                 {
-                    mensaje += "El domicilio de Retiro a Domicilio de ORIGEN" + "\n";
+                    mensaje += "El domicilio de Retiro no puede estar vacío." + "\n";
                 }
                 if (string.IsNullOrEmpty(txtAlturaOrigen.Text))
                 {
-                    mensaje += "La altura de Retiro de DESTINO" + "\n";
+                    mensaje += "La altura de Retiro a domicilio no puede estar vacia." + "\n";
                 }
                 else
                 {
@@ -283,20 +283,20 @@ namespace grupoB_TP
                     //Checkear que se haya seleccionado una Provincia de origen
                     if (cmbProvinciaDestino.SelectedIndex == -1)
                     {
-                        mensaje += "Debe seleccionar una Provincia de DESTINO" + "\n";
+                        mensaje += "Debe seleccionar una Provincia de DESTINO.." + "\n";
                     }
                     //Checkear que se haya seleccionado una Ciudad de origen
-                    else if (cmbCiudadDestino.SelectedIndex == -1)
+                    if (cmbCiudadDestino.SelectedIndex == -1)
                     {
                         mensaje += "Debe seleccionar una Ciudad de DESTINO" + "\n";
                     }
                     if (string.IsNullOrEmpty(txtDirecionNacional.Text))
                     {
-                        mensaje += "El domicilio de Entrega a Domicilio de DESTINO" + "\n";
+                        mensaje += "El domicilio de entrega no puede estar vacío." + "\n";
                     }
                     if (string.IsNullOrEmpty(txtAlturaNacional.Text))
                     {
-                        mensaje += "La altura de Entrega de DESTINO" + "\n";
+                        mensaje += "La altura de Entrega a domicilio no puede estar vacía." + "\n";
                     }
                     else
                     {

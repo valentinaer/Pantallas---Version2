@@ -19,8 +19,9 @@ namespace grupoB_TP
             string DNI = txtIngresarDNI.Text;
             string contraseña = txtContraseña.Text;
             //Validamos que NO esten Vacios (Flujo 1)----------
-            mensaje = Validador.PedirEntero("El DNI", 00000001, 99999999, DNI);
-            mensaje += Validador.PedirVacio(" La Contraseña", contraseña);
+
+            mensaje = Validador.PedirEntero("DNI", 00000001, 99999999, DNI);
+            mensaje += Validador.PedirVacio("El campo de la contraseña", contraseña);
 
             if (mensaje != "")
             {
@@ -43,7 +44,7 @@ namespace grupoB_TP
             }
             else if (contraseña != usuario.Contraseña)
             {
-                MessageBox.Show("La contraseña Ingresada es Incorrecta", "Errores");
+                MessageBox.Show("La contraseña ingresada es incorrecta", "Errores");
             }
             else
             {
