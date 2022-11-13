@@ -13,7 +13,7 @@
     <None Update="ArchivoCiudadesInternacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Update="ArchivoClientes.txt">
+    <None Update="ArchivoPadronClientes.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ArchivoFacturas.txt">
@@ -29,7 +29,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Update="ArchivoOrdenDeServicios.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="ArchivoCiudadesNacionales.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

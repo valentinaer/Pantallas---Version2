@@ -2,13 +2,13 @@
 
 namespace Version_2___Pantallas
 {
-    internal static class ArchivoClientes
+    internal static class ArchivoPadronClientes
     {
         // Genera los objectos Clientes apartir del Archivo "ArchivoClientes.txt" y almacena en ListaClientes
-        static List<Cliente> ListaClientes = new List<Cliente>();
+        static List<PadronClientes> ListaClientes = new List<PadronClientes>();
         public static void CargarClientes()
         {
-            using var archivo = new StreamReader("ArchivoClientes.txt");
+            using var archivo = new StreamReader("ArchivoPadronClientes.txt");
             while (!archivo.EndOfStream)
             {
                 var proximaLinea = archivo.ReadLine();
@@ -19,11 +19,10 @@ namespace Version_2___Pantallas
                 }
                 string[] datosSeparados = proximaLinea.Split("|");
 
-                Cliente cliente = new Cliente();
+                PadronClientes cliente = new PadronClientes();
                 cliente.Cuit = datosSeparados[0];
                 cliente.RazonSocial = datosSeparados[1];
                 cliente.DireccionFacturacion = datosSeparados[2];
-                cliente.SaldoFactura = float.Parse(datosSeparados[3]);
 
                 ListaClientes.Add(cliente);
             }
@@ -31,15 +30,15 @@ namespace Version_2___Pantallas
         }
 
         // Busca el cliente apartir del CUIT ingresado
-        public static Cliente BuscarCliente(string cuit)
+        public static PadronClientes BuscarCliente(string cuit)
         {
-            return ListaClientes.Find(cliente => cliente.Cuit == cuit) ?? new Cliente();
+            return ListaClientes.Find(cliente => cliente.Cuit == cuit) ?? new PadronClientes();
         }
 
         // Genera el CUIT que sera utilizado dentro de la aplicacion
         public static void CrearCUITUsuarioActual(string cuit) 
         {
-            Cliente.CuitUsuarioActual = cuit;
+            PadronClientes.CuitUsuarioActual = cuit;
         }
 
     }

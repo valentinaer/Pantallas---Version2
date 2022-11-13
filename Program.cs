@@ -17,7 +17,7 @@ namespace Version_2___Pantallas
             //Cargo TODOS LOS ARCHIVOS
             ArchivoCiudadesNacionales.CargarCiudadesNacionales();
             ArchivoCiudadesInternacionales.CargarCiudadesInternacionales();
-            ArchivoClientes.CargarClientes();
+            ArchivoPadronClientes.CargarClientes();
             //ArchivoFacturas.CargarFacturas();
             ArchivoOrdenDeServicios.CargarOrdenDeServicio();
             ArchivoSucursales.CargarSucursales();
@@ -29,7 +29,7 @@ namespace Version_2___Pantallas
 
             Application.Run(new AccesoAlSistema());
 
-            //ArchivoOrdenDeServicios.Grabar();
+            ArchivoOrdenDeServicios.Grabar();
             
             //Application.Run(new EstadoDeCuenta());
             //Application.Run(new SolicitudDeServicio());

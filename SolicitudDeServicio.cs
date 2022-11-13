@@ -21,7 +21,7 @@ namespace grupoB_TP
         {
             CargarPaisesComboBox();
             CargarSucursales();
-            CUIT = Cliente.CuitUsuarioActual!;
+            CUIT = PadronClientes.CuitUsuarioActual!;
         }
         public SolicitudDeServicio()
         {
@@ -77,7 +77,7 @@ namespace grupoB_TP
             Sucursales sucursalOrigen = new Sucursales();
             Sucursales sucursalDestino = new Sucursales();
 
-            if(rboSucursalOrigen.Checked){
+            if (rboSucursalOrigen.Checked) {
                 int sucursalOrigenID = cmbSucursalOrigen.SelectedIndex + 1;
                 sucursalOrigen = ArchivoSucursales.BuscarSucursales(sucursalOrigenID);
             }
@@ -124,7 +124,7 @@ namespace grupoB_TP
                 solicitud.Cuit = "";
             }
 
-            
+
             solicitud.TipoDeEnvio = rboNacional.Text = true ? "NACIONAL" : "INTERNACIONAL"; // Si el radio button Nacional esta marcado se carga el valor de NACIONAL en el atributo tipo de envio Sino INTERNACIONAL
             solicitud.PaisOrigen = "ARGENTINA"; // Solo los envios salen de Argentina
             solicitud.ProvinciaOrigen = !rboSucursalOrigen.Checked ? cmbProvinciaOrigen.Text : sucursalOrigen.Provincia;
@@ -137,7 +137,7 @@ namespace grupoB_TP
             }
 
             solicitud.PisodeptoOrigen = txtPisoDeptoOrigen.Text;
-            
+
             //Determino el PAIS de la solicitud
             if (rboNacional.Checked)
             {
@@ -152,10 +152,10 @@ namespace grupoB_TP
                 solicitud.PaisDestino = "";
             }
             //Determino los datos de la provincia ciudad- calle y altura
-            if(rboSucursalDestino.Checked)
+            if (rboSucursalDestino.Checked)
             {
                 solicitud.ProvinciaDestino = sucursalDestino.Provincia;
-                solicitud.CiudadDestino = sucursalDestino.Ciudad; 
+                solicitud.CiudadDestino = sucursalDestino.Ciudad;
                 solicitud.CalleDestino = sucursalDestino.NombreCalle;
                 solicitud.AlturaDestino = sucursalDestino.AlturaCalle;
             }
@@ -193,12 +193,8 @@ namespace grupoB_TP
             solicitud.Estado = "INICIADO"; // Comienza el tramite con el estado INICIADO
             solicitud.Facturado = "NO"; // No se factura previo a la solicitud
 
-            string datos = "{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
-            //string datos = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
             
             ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
-            using var archivo = new StreamWriter("./ArchivoOrdenDeServicios.txt", true); // true es para que adjunte al final (nueva fila) en vez de sobre escribir
-            archivo.WriteLine(datos);
             this.Hide();
             
             

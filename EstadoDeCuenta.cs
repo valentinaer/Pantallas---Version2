@@ -28,9 +28,9 @@ namespace grupoB_TP
         {
             int saldo = 0;
             string CUIT = "";
-            if (Cliente.CuitUsuarioActual != null)
+            if (PadronClientes.CuitUsuarioActual != null)
             {
-                CUIT = Cliente.CuitUsuarioActual;
+                CUIT = PadronClientes.CuitUsuarioActual;
             }
             else
             {
@@ -38,9 +38,9 @@ namespace grupoB_TP
                 this.Close();
             }
 
-            Cliente ClienteActual = new Cliente();
+            PadronClientes ClienteActual = new PadronClientes();
 
-            ClienteActual = ArchivoClientes.BuscarCliente(CUIT); //Utilizo el método de la clase ArchivoClientes para traer los datos del cliente en cuestión
+            ClienteActual = ArchivoPadronClientes.BuscarCliente(CUIT); //Utilizo el método de la clase ArchivoClientes para traer los datos del cliente en cuestión
 
             lblNombreCliente.Text = ClienteActual.RazonSocial;
             lblFechaActual.Text = DateTime.Now.ToString("dd/MM/yyyy");
@@ -50,11 +50,11 @@ namespace grupoB_TP
             facturasCliente = ArchivoFacturas.BuscarFacturaCliente(CUIT); //Trae todas las facturas que coinciden con el cuit
 
             //Muestro el saldo --> Sale de sumar las facturas NO PAGADAS de la lista anterior
-            foreach (Factura f in facturasCliente)
+            foreach (Factura facturaSeleccionada in facturasCliente)
             {
-                if (f.CUIT == CUIT && f.Pagado == "NO PAGADO")
+                if (facturaSeleccionada.CUIT == CUIT && facturaSeleccionada.Pagado == "NO PAGADO")
                 {
-                    saldo += f.MontoFactura;
+                    saldo += facturaSeleccionada.MontoFactura;
                 }
             }
 
@@ -89,9 +89,9 @@ namespace grupoB_TP
         private void btnMostrar_Click(object sender, EventArgs e)
         {
             string CUIT = "";
-            if (Cliente.CuitUsuarioActual != null)
+            if (PadronClientes.CuitUsuarioActual != null)
             {
-                CUIT = Cliente.CuitUsuarioActual;
+                CUIT = PadronClientes.CuitUsuarioActual;
             }
 
             string mensaje = "";
