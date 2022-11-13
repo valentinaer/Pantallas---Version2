@@ -36,7 +36,7 @@ namespace grupoB_TP
             foreach (Sucursales s in listaSucursales)
             {
                 string texto = s.NroSucursal.ToString() + " - " + s.Ciudad +
-                    ", " + s.Provincia + ", " + s.Direccion;
+                    ", " + s.Provincia + ", " + s.NombreCalle + " , " + s.AlturaCalle;
                 cmbSucursalOrigen.Items.Add(texto);
                 cmbSucursalDestino.Items.Add(texto);
             }
@@ -129,7 +129,7 @@ namespace grupoB_TP
             solicitud.paisOrigen = "ARGENTINA"; // Solo los envios salen de Argentina
             solicitud.provinciaOrigen = !rboSucursalOrigen.Checked ? cmbProvinciaOrigen.Text : sucursalOrigen.Provincia;
             solicitud.ciudadOrigen = !rboSucursalOrigen.Checked ? cmbCiudadOrigen.Text : sucursalOrigen.Ciudad;
-            solicitud.calleOrigen = !rboSucursalOrigen.Checked ? txtDirrecionOrigen.Text : sucursalOrigen.Direccion;
+            solicitud.calleOrigen = !rboSucursalOrigen.Checked ? txtDirrecionOrigen.Text : sucursalOrigen.NombreCalle;
 
             if (!string.IsNullOrWhiteSpace(txtAlturaOrigen.Text))
             {
@@ -137,6 +137,8 @@ namespace grupoB_TP
             }
 
             solicitud.pisodeptoOrigen = txtPisoDeptoOrigen.Text;
+            
+            //Determino el PAIS de la solicitud
             if (rboNacional.Checked)
             {
                 solicitud.paisDestino = "ARGENTINA";
@@ -149,13 +151,16 @@ namespace grupoB_TP
             {
                 solicitud.paisDestino = "";
             }
-
-            if(rboSucursalDestino.Checked){
+            //Determino los datos de la provincia ciudad- calle y altura
+            if(rboSucursalDestino.Checked)
+            {
                 solicitud.provinciaDestino = sucursalDestino.Provincia;
                 solicitud.ciudadDestino = sucursalDestino.Ciudad; 
-                solicitud.calleDestino = sucursalDestino.Direccion;
+                solicitud.calleDestino = sucursalDestino.NombreCalle;
+                solicitud.alturaDestino = sucursalDestino.AlturaCalle;
             }
-            else{
+            else
+            {
                 solicitud.provinciaDestino = rboNacional.Text = true ? cmbProvinciaDestino.Text : ""; // Si el radio button Nacional esta marcado se carga el valor de la provincia en el atributo provincia destino Sino vacio
                 solicitud.ciudadDestino = rboNacional.Text = true ? cmbCiudadDestino.Text : cmbCiudadesI.Text; // Si el radio button Nacional esta marcado se carga el valor de la ciudad en el atributo ciudad destino Sino el valor de la ciudad internacional
                 solicitud.calleDestino = rboNacional.Text = true ? txtDirecionNacional.Text : txtDireccionI.Text; // Si el radio button Nacional esta marcado se carga el valor de la direccion nacional en el atributo calle destino Sino el valor de la direccion internacional
@@ -181,7 +186,7 @@ namespace grupoB_TP
             solicitud.facturado = "NO"; // No se factura previo a la solicitud
 
             ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
-
+            new MenuPrincipal().ShowDialog();
         }
         /*
         // Metodo para Formatear la informacion que luego se va a guardar en el archivo de texto
@@ -622,7 +627,7 @@ namespace grupoB_TP
         public void MostramosElementos()
         {
             grpCotizacion.Visible = false;
-            lblTitulo.Visible = false;
+            lblTitulo.Visible = true;
             grpCaracteristicaServicio.Visible = true;
             grpTipoEnvio.Visible = true;
             grpTipoRecepcion.Visible = true;
@@ -634,7 +639,7 @@ namespace grupoB_TP
         public void EscondemosElementos()
         {
             grpCotizacion.Visible = true;
-            lblTitulo.Visible = true;
+            lblTitulo.Visible = false;
             btnCotizar.Visible = false;
 
             grpCaracteristicaServicio.Visible = false;

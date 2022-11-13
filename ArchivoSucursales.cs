@@ -26,8 +26,9 @@ namespace Version_2___Pantallas
                 sucursal.NroSucursal = int.Parse(datosSeparados[0]);
                 sucursal.Provincia = datosSeparados[1];
                 sucursal.Ciudad = datosSeparados[2];
-                sucursal.Direccion = datosSeparados[3];
-                sucursal.Region = datosSeparados[4];
+                sucursal.NombreCalle = datosSeparados[3];
+                sucursal.AlturaCalle = int.Parse(datosSeparados[4]);
+                sucursal.Region = datosSeparados[5];
 
 
                 listaSucursales.Add(sucursal);

@@ -14,7 +14,7 @@ namespace grupoB_TP
 {
     internal partial class MenuPrincipal : Form
     {
-        public MenuPrincipal(string cuit)
+        public MenuPrincipal()
         {
             InitializeComponent();
         }
