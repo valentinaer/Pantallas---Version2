@@ -8,27 +8,27 @@ namespace grupoB_TP
 {
     internal class OrdenDeServicio
     {
-        public int numeroTrackeo { get; set; }
-        public DateTime fecha { get; set; }
+        public int NumeroTrackeo { get; set; }
+        public DateTime Fecha { get; set; }
         public string Cuit { get; set; } = string.Empty;
-        public string tipoDeEnvio { get; set; } = string.Empty;
-        public string paisOrigen { get; set; } = string.Empty;
-        public string provinciaOrigen { get; set; } = string.Empty;
-        public string ciudadOrigen { get; set; } = string.Empty;
-        public string calleOrigen { get; set; } = string.Empty;
-        public int alturaOrigen { get; set; }
-        public string pisodeptoOrigen { get; set; } = string.Empty;
-        public string paisDestino { get; set; } = string.Empty;
-        public string provinciaDestino { get; set; } = string.Empty;
-        public string ciudadDestino { get; set; } = string.Empty;
-        public string calleDestino { get; set; } = string.Empty;
-        public int alturaDestino { get; set; }
-        public string pisodeptoDestino { get; set; } = string.Empty;
-        public string rangoDePeso { get; set; } = string.Empty;
-        public int cantidadDeBultos { get; set; }
-        public string urgente { get; set; } = string.Empty;
-        public string estado { get; set; } = string.Empty;
-        public string facturado { get; set; } = string.Empty;
+        public string TipoDeEnvio { get; set; } = string.Empty;
+        public string PaisOrigen { get; set; } = string.Empty;
+        public string ProvinciaOrigen { get; set; } = string.Empty;
+        public string CiudadOrigen { get; set; } = string.Empty;
+        public string CalleOrigen { get; set; } = string.Empty;
+        public int AlturaOrigen { get; set; }
+        public string PisodeptoOrigen { get; set; } = string.Empty;
+        public string PaisDestino { get; set; } = string.Empty;
+        public string ProvinciaDestino { get; set; } = string.Empty;
+        public string CiudadDestino { get; set; } = string.Empty;
+        public string CalleDestino { get; set; } = string.Empty;
+        public int AlturaDestino { get; set; }
+        public string PisodeptoDestino { get; set; } = string.Empty;
+        public string RangoDePeso { get; set; } = string.Empty;
+        public int CantidadDeBultos { get; set; }
+        public string Urgente { get; set; } = string.Empty;
+        public string Estado { get; set; } = string.Empty;
+        public string Facturado { get; set; } = string.Empty;
 
         /*  public OrdenDeServicio(
              int numeroTrackeo_       ,

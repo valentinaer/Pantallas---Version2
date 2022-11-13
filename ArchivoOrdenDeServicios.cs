@@ -26,27 +26,27 @@ namespace Version_2___Pantallas
 
                 OrdenDeServicio ordenDeServicio = new OrdenDeServicio();
 
-                ordenDeServicio.numeroTrackeo = int.Parse(datosSeparados[0]);
-                ordenDeServicio.fecha = DateTime.Parse(datosSeparados[1]);
+                ordenDeServicio.NumeroTrackeo = int.Parse(datosSeparados[0]);
+                ordenDeServicio.Fecha = DateTime.Parse(datosSeparados[1]);
                 ordenDeServicio.Cuit = datosSeparados[2];
-                ordenDeServicio.tipoDeEnvio = datosSeparados[3];
-                ordenDeServicio.paisOrigen = datosSeparados[4];
-                ordenDeServicio.provinciaOrigen = datosSeparados[5];
-                ordenDeServicio.ciudadOrigen = datosSeparados[6];
-                ordenDeServicio.calleOrigen = datosSeparados[7];
-                ordenDeServicio.alturaOrigen = int.Parse(datosSeparados[8]);
-                ordenDeServicio.pisodeptoOrigen = datosSeparados[9];
-                ordenDeServicio.paisDestino = datosSeparados[10];
-                ordenDeServicio.provinciaDestino = datosSeparados[11];
-                ordenDeServicio.ciudadDestino = datosSeparados[12];
-                ordenDeServicio.calleDestino = datosSeparados[13];
-                ordenDeServicio.alturaDestino = int.Parse(datosSeparados[14]);
-                ordenDeServicio.pisodeptoDestino = datosSeparados[15];
-                ordenDeServicio.rangoDePeso = datosSeparados[16];
-                ordenDeServicio.cantidadDeBultos = int.Parse(datosSeparados[17]);
-                ordenDeServicio.urgente = datosSeparados[18];
-                ordenDeServicio.estado = datosSeparados[19];
-                ordenDeServicio.facturado = datosSeparados[20];
+                ordenDeServicio.TipoDeEnvio = datosSeparados[3];
+                ordenDeServicio.PaisOrigen = datosSeparados[4];
+                ordenDeServicio.ProvinciaOrigen = datosSeparados[5];
+                ordenDeServicio.CiudadOrigen = datosSeparados[6];
+                ordenDeServicio.CalleOrigen = datosSeparados[7];
+                ordenDeServicio.AlturaOrigen = int.Parse(datosSeparados[8]);
+                ordenDeServicio.PisodeptoOrigen = datosSeparados[9];
+                ordenDeServicio.PaisDestino = datosSeparados[10];
+                ordenDeServicio.ProvinciaDestino = datosSeparados[11];
+                ordenDeServicio.CiudadDestino = datosSeparados[12];
+                ordenDeServicio.CalleDestino = datosSeparados[13];
+                ordenDeServicio.AlturaDestino = int.Parse(datosSeparados[14]);
+                ordenDeServicio.PisodeptoDestino = datosSeparados[15];
+                ordenDeServicio.RangoDePeso = datosSeparados[16];
+                ordenDeServicio.CantidadDeBultos = int.Parse(datosSeparados[17]);
+                ordenDeServicio.Urgente = datosSeparados[18];
+                ordenDeServicio.Estado = datosSeparados[19];
+                ordenDeServicio.Facturado = datosSeparados[20];
 
                 listaOrdenesDeServicio.Add(ordenDeServicio);
             }
@@ -59,7 +59,7 @@ namespace Version_2___Pantallas
         {
             foreach (var ordenDeServicio in listaOrdenesDeServicio)
             {
-                if (ordenDeServicio.numeroTrackeo == trackid)
+                if (ordenDeServicio.NumeroTrackeo == trackid)
                 {
                     return ordenDeServicio;
                 }
@@ -71,7 +71,7 @@ namespace Version_2___Pantallas
         public static int BuscarUltimoNumeroTrackeo()
         {
             var ultimaOrdenDeServicio = listaOrdenesDeServicio.Last();
-            return ultimaOrdenDeServicio.numeroTrackeo;
+            return ultimaOrdenDeServicio.NumeroTrackeo;
         }
 
         // Guardar una nueva orden de servicio al final del txt
@@ -95,13 +95,13 @@ namespace Version_2___Pantallas
             var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
             foreach (var solicitud in listaOrdenesDeServicio)
             {
-                string linea = $"{solicitud.numeroTrackeo}|{solicitud.fecha}|{solicitud.Cuit}|" +
-                    $"{solicitud.tipoDeEnvio}|{solicitud.paisOrigen}|{solicitud.provinciaOrigen}|" +
-                    $"{solicitud.ciudadOrigen}|{solicitud.calleOrigen}|{solicitud.alturaOrigen}|" +
-                    $"{solicitud.pisodeptoOrigen}|{solicitud.paisDestino}|{solicitud.provinciaDestino}|" +
-                    $"{solicitud.ciudadDestino}|{solicitud.calleDestino}|{solicitud.alturaDestino}|" +
-                    $"{solicitud.pisodeptoDestino}|{solicitud.rangoDePeso}|{solicitud.cantidadDeBultos}|" +
-                    $"{solicitud.urgente}|{solicitud.estado}|{solicitud.facturado}";
+                string linea = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|" +
+                    $"{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|" +
+                    $"{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|" +
+                    $"{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|" +
+                    $"{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|" +
+                    $"{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|" +
+                    $"{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
 
                 archivoOrdenServicio.WriteLine(linea);
                 MessageBox.Show(linea);

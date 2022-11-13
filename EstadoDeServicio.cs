@@ -54,18 +54,23 @@ namespace grupoB_TP
                 else
                 {
                     lblCuitI.Text = orden.Cuit;
-                    lblUrgente.Text = orden.urgente;
-                    lblCotizacion.Text = orden.estado;
-                    if (orden.tipoDeEnvio == "NACIONAL")
+                    lblUrgente.Text = orden.Urgente;
+                    lblCotizacion.Text = orden.Estado;
+                    if (orden.TipoDeEnvio == "NACIONAL")
                     {
-                        lblDestino.Text = orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " + orden.provinciaDestino + ", " + orden.paisDestino;
-                        lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " + orden.ciudadOrigen + ", " + orden.provinciaDestino + ", " + orden.paisOrigen;
+                        lblDestino.Text = orden.CalleDestino + " " + orden.AlturaDestino +
+                            ", " + orden.CiudadDestino + ", " + orden.ProvinciaDestino + ", " 
+                            + orden.PaisDestino;
+
+                        lblOrigen.Text = orden.CalleOrigen + " " + orden.AlturaOrigen + ", "
+                            + orden.CiudadOrigen + ", " + orden.ProvinciaDestino + ", " + 
+                            orden.PaisOrigen;
                     }
                     else
                     {
                         //pais, ciudad
-                        lblDestino.Text = orden.calleDestino + " " + orden.alturaDestino + ", " + orden.ciudadDestino + ", " + orden.paisDestino;
-                        lblOrigen.Text = orden.calleOrigen + " " + orden.alturaOrigen + ", " + orden.ciudadOrigen + ", " + orden.paisOrigen;
+                        lblDestino.Text = orden.CalleDestino + " " + orden.AlturaDestino + ", " + orden.CiudadDestino + ", " + orden.PaisDestino;
+                        lblOrigen.Text = orden.CalleOrigen + " " + orden.AlturaOrigen + ", " + orden.CiudadOrigen + ", " + orden.PaisOrigen;
                     }
 
                 }
