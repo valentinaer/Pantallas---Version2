@@ -207,7 +207,7 @@ namespace grupoB_TP
             //valida que se haya seleccionado un tipo de envio con los radio buttons Sucursal y Domicilio
             if (!rboSucursalOrigen.Checked && !rboRetiroDomicilio.Checked)
             {
-                MessageBox.Show("Debe seleccionar un tipo de recepcion", "Errores");
+                MessageBox.Show("Debe seleccionar un tipo de origen: " + "\n" + "Sucursal o Retiro a Domicilio.", "Errores");
                 return;
             }
             // Si es RETIRO a domicilio
@@ -272,7 +272,7 @@ namespace grupoB_TP
 
                 if (!rboEntregaDomicilio.Checked && !rboSucursalDestino.Checked)
                 {
-                    MessageBox.Show("Debe seleccionar el Tipo de Entrega", "Errores");
+                    MessageBox.Show("Debe seleccionar el Tipo de Entrega: " + "\n" + "En sucursal o Entrega a Domicilio.", "Errores");
                     return;
                 }
 
