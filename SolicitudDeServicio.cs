@@ -193,22 +193,14 @@ namespace grupoB_TP
             solicitud.Estado = "INICIADO"; // Comienza el tramite con el estado INICIADO
             solicitud.Facturado = "NO"; // No se factura previo a la solicitud
 
-            string datos = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado} \n";
-            string datos2 = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
-            File.AppendAllText("./ArchivoOrdenDeServicios.txt", datos);
-            //ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
-            this.Close();
-            new MenuPrincipal().ShowDialog();
-
-            var file = File.ReadAllLines("./Backup ArchivoOrdenDeServicios.txt");
-            File.Delete("./Backup ArchivoOrdenDeServicios.txt");
-            var newFile = new List<string>();
-            foreach (var line in file)
-            {
-                newFile.Add(line);
-            }
-            newFile.Add(datos2);
-            File.WriteAllLines("./Backup ArchivoOrdenDeServicios.txt", newFile);
+            string datos = "{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
+            //string datos = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
+            
+            ArchivoOrdenDeServicios.GuardarEnLista(solicitud);
+            using var archivo = new StreamWriter("./ArchivoOrdenDeServicios.txt", true); // true es para que adjunte al final (nueva fila) en vez de sobre escribir
+            archivo.WriteLine(datos);
+            this.Hide();
+            
             
         }
         /*
