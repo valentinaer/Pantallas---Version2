@@ -27,7 +27,7 @@ namespace Version_2___Pantallas
                 OrdenDeServicio ordenDeServicio = new OrdenDeServicio();
 
                 ordenDeServicio.NumeroTrackeo = int.Parse(datosSeparados[0]);
-                ordenDeServicio.Fecha = DateTime.Parse(datosSeparados[1]);
+                //ordenDeServicio.Fecha = DateTime.Parse(datosSeparados[1]);
                 ordenDeServicio.Cuit = datosSeparados[2];
                 ordenDeServicio.TipoDeEnvio = datosSeparados[3];
                 ordenDeServicio.PaisOrigen = datosSeparados[4];
@@ -94,6 +94,7 @@ namespace Version_2___Pantallas
         {
             File.Delete("./ArchivoOrdenDeServicios.txt");
             var archivoOrdenServicio = new StreamWriter("ArchivoOrdenDeServicios.txt");
+            string lineas = "";
             foreach (var solicitud in listaOrdenesDeServicio)
             {
                 string linea = $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|" +
@@ -104,10 +105,19 @@ namespace Version_2___Pantallas
                     $"{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|" +
                     $"{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado}";
 
+                    lineas += $"{solicitud.NumeroTrackeo}|{solicitud.Fecha}|{solicitud.Cuit}|" +
+                    $"{solicitud.TipoDeEnvio}|{solicitud.PaisOrigen}|{solicitud.ProvinciaOrigen}|" +
+                    $"{solicitud.CiudadOrigen}|{solicitud.CalleOrigen}|{solicitud.AlturaOrigen}|" +
+                    $"{solicitud.PisodeptoOrigen}|{solicitud.PaisDestino}|{solicitud.ProvinciaDestino}|" +
+                    $"{solicitud.CiudadDestino}|{solicitud.CalleDestino}|{solicitud.AlturaDestino}|" +
+                    $"{solicitud.PisodeptoDestino}|{solicitud.RangoDePeso}|{solicitud.CantidadDeBultos}|" +
+                    $"{solicitud.Urgente}|{solicitud.Estado}|{solicitud.Facturado} \n";
+
                 archivoOrdenServicio.WriteLine(linea);
                 MessageBox.Show(linea);
             }
             MessageBox.Show("Se grabo Correctamente");
+            File.WriteAllText("Backup ArchivoOrdenDeServicios.txt", lineas);
 
             archivoOrdenServicio.Close();
         }
