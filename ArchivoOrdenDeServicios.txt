@@ -20,3 +20,5 @@
 20|1/1/0001 00:00:00|30-12345678-9|INTERNACIONAL|ARGENTINA|Chaco|Resistencia|Av Sarmiento|102|NC|España||Madrid|Monroe|258||Correspondencia hasta 500g|3|NO|INICIADO|NO
 21|1/1/0001 00:00:00|30-12345678-9|NACIONAL|ARGENTINA|Corrientes|Bermejo|Mathus Hoyos|3600|NC|ARGENTINA|Corrientes|Goya|Belgrano|942|NC|Correspondencia hasta 500g|2|NO|INICIADO|NO
 22|1/1/0001 00:00:00|30-12345678-9|NACIONAL|ARGENTINA|C.A.B.A|Belgrano|monroe|2500|5/B|ARGENTINA|TIERRA DEL FUEGO|Río Grande|Tagle|152|PB|Encomienda hasta 10 Kg|2|NO|INICIADO|NO
+23|1/1/0001 00:00:00|30-12345678-9|INTERNACIONAL|ARGENTINA|Formosa|Formosa|Av 9 de julio|920|NC|Cuba||La Habana|Pedro Quinquela|3161||Correspondencia hasta 500g|1|NO|INICIADO|NO
+24|14/11/2022 18:57:00|30-12345678-9|NACIONAL|ARGENTINA|Corrientes|Goya|Belgrano|942|NC|ARGENTINA|Corrientes|General Belgrano|Av Pedro Ferre|1886|NC|Encomienda hasta 10 Kg|1|NO|INICIADO|NO

@@ -612,15 +612,12 @@ namespace grupoB_TP
             {
                 grpNacional.Visible = true;
                 grpInternacional.Visible = false;
-                grpNacional.Location = new Point(569,161);
-
             }
             // Si radio button Internacional esta checkeda, mostrar el grupo Internacional
             else if (rboInternacional.Checked)
             {
                 grpInternacional.Visible = true;
                 grpNacional.Visible = false;
-                grpInternacional.Location = new Point(569, 161);
             }
         }
         public void MostramosElementos()
