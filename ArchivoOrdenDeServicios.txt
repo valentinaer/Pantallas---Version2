@@ -18,3 +18,4 @@
 18|1/1/0001 00:00:00|30-12345678-9|INTERNACIONAL|ARGENTINA|Formosa|General Mosconi|44612|4562||Colombia||||111||Encomienda hasta 10 Kg|3|NO|INICIADO|NO
 19|1/1/0001 00:00:00|30-12345678-9|NACIONAL|ARGENTINA|Santiago del Estero|Quimil�|Bautista Alberdi|766|NC|ARGENTINA|Formosa|Las Lomitas|Av San Martin|118|NC|Correspondencia hasta 500g|3|NO|INICIADO|NO
 20|1/1/0001 00:00:00|30-12345678-9|INTERNACIONAL|ARGENTINA|Chaco|Resistencia|Av Sarmiento|102|NC|España||Madrid|Monroe|258||Correspondencia hasta 500g|3|NO|INICIADO|NO
+21|1/1/0001 00:00:00|30-12345678-9|NACIONAL|ARGENTINA|Corrientes|Bermejo|Mathus Hoyos|3600|NC|ARGENTINA|Corrientes|Goya|Belgrano|942|NC|Correspondencia hasta 500g|2|NO|INICIADO|NO
