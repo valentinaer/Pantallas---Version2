@@ -1,4 +1,9 @@
 ﻿-----------------------------Condiciones del funcionamiento---------------------------------------
+
+>>> EJECUTAR EL SISTEMA UTILIZANDO "dotnet run" EN LA TERMINAL <<<
+
+--------------------------------------------------------------------------------------------------
+
 <<<Pantalla "Acceso al Sistema">>> 
 Se requiere utilizar alguno de los usuarios que se encuentran disponibles en el archivo "ArchivoUsuarios.txt".
 Cada usuario tiene una contraseña y un CUIT asociado.

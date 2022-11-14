@@ -73,17 +73,17 @@
             // richTextBox1
             // 
             this.richTextBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.richTextBox1.Location = new System.Drawing.Point(51, 68);
+            this.richTextBox1.Location = new System.Drawing.Point(41, 68);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.ReadOnly = true;
-            this.richTextBox1.Size = new System.Drawing.Size(451, 103);
+            this.richTextBox1.Size = new System.Drawing.Size(474, 120);
             this.richTextBox1.TabIndex = 14;
             this.richTextBox1.Text = "";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(429, 44);
+            this.label6.Location = new System.Drawing.Point(449, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 21);
             this.label6.TabIndex = 9;
@@ -92,7 +92,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(301, 44);
+            this.label3.Location = new System.Drawing.Point(314, 44);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 21);
             this.label3.TabIndex = 7;
@@ -101,7 +101,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(66, 44);
+            this.label4.Location = new System.Drawing.Point(56, 44);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(50, 21);
             this.label4.TabIndex = 5;
