@@ -1,5 +1,7 @@
 ﻿-----------------------------Condiciones del funcionamiento---------------------------------------
-<<<Pantalla "Acceso al Sistema">>> VER ARCHIVO USUARIOS
+<<<Pantalla "Acceso al Sistema">>> 
+Se requiere utilizar alguno de los usuarios que se encuentran disponibles en el archivo "ArchivoUsuarios.txt".
+Cada usuario tiene una contraseña y un CUIT asociado.
 
 ---------------------------------------------------------------------------------------------------
 <<<Pantalla "Menú Principal>>>
@@ -11,41 +13,54 @@ de las 3 opciones disponibles en pantalla.
 <<<Solicitud de Servicio>>>
 
 El usuario elije si el envio es internacional o nacional para poder definir la entrega.
-El usuario debe elegir 1 de los rangos de pesos presentados; a su vez, la cantidad de bultos. 
-El usuario puede elegir si la entrega tiene caracter de "Urgente" apretando el CheckBox.
+El usuario debe elegir 1 de los rangos de pesos presentados; a su vez, la cantidad de elementos.
+El usuario puede elegir si la entrega tiene caracter de "Urgente" seleccionando el CheckBox.
+
+- El usuario debe seleccionar el tipo de origen, el cual puede ser: En sucursal o Retiro a domicilio
+	>En caso de seleccionar en sucursal, se debe elegir 1 de las opciones presentadas.
+	>En caso de seleccionar retiro a domicilio, se debe seleccionar una de las provincias; posteriormente la
+ciudad; y por último completar direccion, altura y piso/departamento (si corresponde).
 
 En caso de seleccionar envío "Internacional":
-- El usuario podrá elegir entre las 5 regiones disponibles; y en el caso de "Ciudad/Pais" podrá
-seleccionar, por el momento, lugares de Europa. 
-- En caso de seleccionar otra región que no sea Europa, en "Ciudad/Pais" se mostrará la opción "No implementado".
+- El usuario podrá elegir entre los paises disponibles; posteriormente la ciudad; y por último 
+completar los campos de dirección, altura y piso/departamento (si corresponde)
 
 En caso de seleccionar envío "Nacional":
-- El usuario podrá seleccionar si prefiere recepción/entrega en sucursal o a domicilio. 
-- En el caso de seleccionar "En sucursal", podrá elegir entre las 4 opciones presentadas ubicadas
-en: CABA, Río Negro, Chaco y Córdoba.
-- En caso de seleccionar "Retiro a domicilio" o "Entrega a Domicilio", el prototipo solo dejará 
-elegir "Ciudad" cuando se seleccione BUENOS AIRES en "Provincia"
-- Si se selecciona otra provincia, en "Ciudad" se mostrará "No implementado".
+- El usuario debe seleccionar el tipo de entrega, la cual puede ser: En sucursarl o Entrega a Domicilio.
+	> En caso de seleccionar "En sucursal", se debe elegir 1 de las opciones presentadas.
+	> En caso de seleccionar "Entrega a Domicilio" se debe seleccionar una de las provincias; posteriormente la
+ciudad; y por último completar direccion, altura y piso/departamento (si corresponde).
 
 Al presionar el botón "Cotizar":
-- El usuario visualizará una pantalla con los datos anteriormente completados, adicionando la cotización.
+- El usuario visualizará una pantalla con una serie de datos que corresponde a lo anteriormente completado, 
+adicionando la cotización.
 - El usuario podrá clickear "Confirmar envio" o "Modificar datos".
+- Al clickear "Confirmar envio" al usuario se le brindará un número de trackeo para luego hacer la consulta
+del estado de servicio.
 
 ----------------------------------------------------------------------------------------------------
 <<<Consultar Estado de Servicio>>>
 
 El usuario ingresa el número de trackeo para conocer el estado del servicio. Luego de completar el 
 campo y clickear el botón "Buscar", se mostrará por pantalla el estado, el cual puede ser:
-	- Recibida
-	- En tránsito
-	- Cerrada
+	- Iniciado
+	- Recibido en sucursal
+	- En centro de distribución
+	- En sucursal para retirar
+	- Entregado
 ---------------------------------------------------------------------------------------------------
 <<<Consultar Estado de Cuenta>>>
 
 El usuario visualizará, por el momento aleatoriamente:
-	- Nombre del cliente, pudiendo ser: Copito S.A. o EcoLogic S.R.L.
-	- Nº de CUIT.
-	- Fecha, estado y total de las facturas.
-	- El saldo de cuenta a la fecha de hoy, pudiendo tomar los siguientes valores: -$750, $250,$-102 y $123.
+	- Razón Social
+	- Nº de CUIT
+	- Saldo a la fecha de hoy
+
+El usuario podrá ingresar un rango de fechas y posteriormente seleccionar si desea conocer:
+	- Todas las facturas, o
+	- Solo las facturas impagas
+
+Al clickear el botón "Mostrar", se mostrará en el detalle las facturas que coincidan con la búsqueda.
+En caso de no encontrar facturas que coincidan, se le mostrará por pantalla al usuario un aviso.
 
 ----------------------------------------------------------------------------------------------------
