@@ -55,10 +55,5 @@ namespace grupoB_TP
                 new MenuPrincipal().ShowDialog();
             }
         }
-
-        private void AccesoAlSistema_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
-        }
     }
 }

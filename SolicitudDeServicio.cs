@@ -35,8 +35,8 @@ namespace grupoB_TP
 
             foreach (Sucursales s in listaSucursales)
             {
-                string texto = s.NroSucursal.ToString() + " - " + s.Ciudad +
-                    ", " + s.Provincia + ", " + s.NombreCalle + " , " + s.AlturaCalle;
+                string texto = s.NroSucursal.ToString() + "- " + s.Ciudad +
+                    ", " + s.Provincia + ", " + s.NombreCalle + " " + s.AlturaCalle;
                 cmbSucursalOrigen.Items.Add(texto);
                 cmbSucursalDestino.Items.Add(texto);
             }
@@ -56,20 +56,19 @@ namespace grupoB_TP
             }
         }
 
-
-        // En la pantalla de confirmacion se puede retroceder para cambiar los datos de la cotizacion
+// BOTON para MODIFICAR en la pantalla del formulario
         private void btnModificar_Click(object sender, EventArgs e)
         {
             MostramosElementos();
         }
 
-// BOTON para CONFIRMAR la cotizacion actual del servicio
+// BOTON para CONFIRMAR en la pantalla del formulario
         private void btnConfirmar_Click(object sender, EventArgs e)
         {
             int tracking = ArchivoOrdenDeServicios.BuscarUltimoNumeroTrackeo() + 1;
 
-            MessageBox.Show($"La ORDEN de servicio se registro de forma exitosa." +
-                $"{"\n"}Su numero de trackeo es: {tracking}");
+            MessageBox.Show($"La Orden de Servicio se registro de forma exitosa." +
+                $"{"\n"}Su numero de trackeo es: {tracking}", "Orden Generada Correctamente");
 
             // destino si es nacional
 
@@ -181,7 +180,7 @@ namespace grupoB_TP
             this.Hide();                
         }
         
-        // Boton en la pantalla del formulario para cotizar el envio
+// Boton para COTIZAR en la pantalla del formulario
         private void btnCotizar_Click(object sender, EventArgs e)
         {
             //----------------- Validaciones -----------------//
@@ -393,11 +392,11 @@ namespace grupoB_TP
                         cmbCiudadesI.Text + ", " + cmbPaisI.Text;
                 }
                 // Mostrar informacion de cotizacion de Destino
-                    cotizar(origen, destino);
+                    Cotizar(origen, destino);
         }
         
         // Calcular el costo del envio apartir de los datos actuales ingresados
-        public void cotizar(string origen, string destino)
+        public void Cotizar(string origen, string destino)
         {
             EscondemosElementos();
             CentrarElementosCotizacion();
@@ -445,7 +444,7 @@ namespace grupoB_TP
             }
         }
 
-        // Calcula el precio buscando en el archivo de tarifas y agregando los recargos
+        // Calcula el precio buscando en el archivo de tarifas y agrega los recargos
         private decimal CalcularPrecio()
         {
             int CantBultos = int.Parse(cmbCantidadBultosN.Text);
@@ -516,6 +515,8 @@ namespace grupoB_TP
 
             return (preciotarifaSinRecargo + recargos) * CantBultos;
         }
+
+        //Define los Recargos a Aplicar
         public decimal Recargos(decimal preciosinRecargo)
         {
             var totalRecargos = 0M;
@@ -545,6 +546,7 @@ namespace grupoB_TP
             return totalRecargos;
         }
 
+//---------------------FILTRADO DE MUESTRAS-----------------------
         List<CiudadadesNacionales> ciudadesAMostrar = new List<CiudadadesNacionales>();
         List<CiudadesInternacionales> ciudadesInternacionalesAMostrar = new List<CiudadesInternacionales>();
         
@@ -591,7 +593,7 @@ namespace grupoB_TP
             }
         }
         
-        //-----------FUNCIONALIDADES VISUALES ---------------------------------------------------------------
+//-----------FUNCIONALIDADES VISUALES ---------------------------------------------------------------
         public void MostrarOcultar(object sender, EventArgs e)
         {
             // Si radio button Nacional esta checkeda, mostrar el grupo Nacional
@@ -599,12 +601,15 @@ namespace grupoB_TP
             {
                 grpNacional.Visible = true;
                 grpInternacional.Visible = false;
+                grpNacional.Location = new Point(569,161);
+
             }
             // Si radio button Internacional esta checkeda, mostrar el grupo Internacional
             else if (rboInternacional.Checked)
             {
                 grpInternacional.Visible = true;
                 grpNacional.Visible = false;
+                grpInternacional.Location = new Point(569, 161);
             }
         }
         public void MostramosElementos()
@@ -652,9 +657,5 @@ namespace grupoB_TP
                 btnCotizar.Location.Y);
         }
 
-        private void lblCantidadDeBultos_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

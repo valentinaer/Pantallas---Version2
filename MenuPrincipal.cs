@@ -38,14 +38,7 @@ namespace grupoB_TP
         }
         private void MenuPrincipal_FormClosing_1(object sender, FormClosingEventArgs e)
         {
-            //ArchivoOrdenDeServicios.Grabar();
             Application.Exit();
-            /*if (MessageBox.Show("quiere cerrar el formulario?", "", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                e.Cancel = true;
-                
-            }
-            */
         }
     }
 }

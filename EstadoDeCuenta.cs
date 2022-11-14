@@ -18,7 +18,6 @@ namespace grupoB_TP
     {
         public EstadoDeCuenta()
         {
-
             InitializeComponent();
         }
 
@@ -59,31 +58,6 @@ namespace grupoB_TP
             }
 
             lblSaldoTotal.Text = "$" + Convert.ToString(saldo); 
-        }
-
-        private void EstadoDeCuenta_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            System.Windows.Forms.Application.Exit();
-        }
-
-        private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-        private void rboMostrarTodas_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void rboMostrarImpagas_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnMostrarFacturas_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void btnMostrar_Click(object sender, EventArgs e)
@@ -175,11 +149,6 @@ namespace grupoB_TP
             {
                 MessageBox.Show("Debe seleccionar si desea ver todas las facturas o solo las impagas", "Errores");
             }
-        }
-
-        private void txtFechaFinal_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

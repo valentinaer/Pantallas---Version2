@@ -48,7 +48,7 @@
             // 
             // txtContraseña
             // 
-            this.txtContraseña.BackColor = System.Drawing.SystemColors.Control;
+            this.txtContraseña.BackColor = System.Drawing.SystemColors.Window;
             this.txtContraseña.Location = new System.Drawing.Point(24, 158);
             this.txtContraseña.MaxLength = 30;
             this.txtContraseña.Name = "txtContraseña";

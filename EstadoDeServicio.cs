@@ -59,11 +59,11 @@ namespace grupoB_TP
                     if (orden.TipoDeEnvio == "NACIONAL")
                     {
                         lblDestino.Text = orden.CalleDestino + " " + orden.AlturaDestino +
-                            ", " + orden.CiudadDestino + ", " + orden.ProvinciaDestino + ", " 
+                            ", " + orden.CiudadDestino + ", " + orden.ProvinciaDestino + ", "
                             + orden.PaisDestino;
 
                         lblOrigen.Text = orden.CalleOrigen + " " + orden.AlturaOrigen + ", "
-                            + orden.CiudadOrigen + ", " + orden.ProvinciaDestino + ", " + 
+                            + orden.CiudadOrigen + ", " + orden.ProvinciaDestino + ", " +
                             orden.PaisOrigen;
                     }
                     else

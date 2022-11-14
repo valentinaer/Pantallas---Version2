@@ -46,6 +46,7 @@ campo y clickear el botón "Buscar", se mostrará por pantalla el estado, el cua
 	- Iniciado
 	- Recibido en sucursal
 	- En centro de distribución
+	- En Distribuccion
 	- En sucursal para retirar
 	- Entregado
 ---------------------------------------------------------------------------------------------------

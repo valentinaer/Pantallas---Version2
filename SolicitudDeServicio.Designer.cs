@@ -121,7 +121,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(412, 27);
+            this.label18.Location = new System.Drawing.Point(501, 28);
             this.label18.Name = "label18";
             this.label18.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.label18.Size = new System.Drawing.Size(183, 21);
@@ -130,14 +130,14 @@
             // 
             // txtPisoDeptoNacional
             // 
-            this.txtPisoDeptoNacional.Location = new System.Drawing.Point(212, 279);
+            this.txtPisoDeptoNacional.Location = new System.Drawing.Point(363, 268);
             this.txtPisoDeptoNacional.Name = "txtPisoDeptoNacional";
             this.txtPisoDeptoNacional.Size = new System.Drawing.Size(135, 29);
             this.txtPisoDeptoNacional.TabIndex = 16;
             // 
             // txtAlturaNacional
             // 
-            this.txtAlturaNacional.Location = new System.Drawing.Point(163, 240);
+            this.txtAlturaNacional.Location = new System.Drawing.Point(116, 268);
             this.txtAlturaNacional.MaxLength = 6;
             this.txtAlturaNacional.Name = "txtAlturaNacional";
             this.txtAlturaNacional.PlaceholderText = "Solo Numeros";
@@ -149,19 +149,19 @@
             this.txtDireccionNacional.Location = new System.Drawing.Point(163, 201);
             this.txtDireccionNacional.Name = "txtDireccionNacional";
             this.txtDireccionNacional.PlaceholderText = "Solo Calle";
-            this.txtDireccionNacional.Size = new System.Drawing.Size(307, 29);
+            this.txtDireccionNacional.Size = new System.Drawing.Size(400, 29);
             this.txtDireccionNacional.TabIndex = 1;
             // 
             // txtPisoDeptoI
             // 
-            this.txtPisoDeptoI.Location = new System.Drawing.Point(239, 292);
+            this.txtPisoDeptoI.Location = new System.Drawing.Point(260, 244);
             this.txtPisoDeptoI.Name = "txtPisoDeptoI";
-            this.txtPisoDeptoI.Size = new System.Drawing.Size(135, 29);
+            this.txtPisoDeptoI.Size = new System.Drawing.Size(144, 29);
             this.txtPisoDeptoI.TabIndex = 16;
             // 
             // txtAlturaI
             // 
-            this.txtAlturaI.Location = new System.Drawing.Point(177, 237);
+            this.txtAlturaI.Location = new System.Drawing.Point(82, 244);
             this.txtAlturaI.MaxLength = 6;
             this.txtAlturaI.Name = "txtAlturaI";
             this.txtAlturaI.PlaceholderText = "Solo Numeros";
@@ -170,7 +170,7 @@
             // 
             // txtDireccionI
             // 
-            this.txtDireccionI.Location = new System.Drawing.Point(177, 180);
+            this.txtDireccionI.Location = new System.Drawing.Point(140, 158);
             this.txtDireccionI.Name = "txtDireccionI";
             this.txtDireccionI.Size = new System.Drawing.Size(307, 29);
             this.txtDireccionI.TabIndex = 1;
@@ -180,19 +180,19 @@
             this.txtDireccionOrigen.Location = new System.Drawing.Point(133, 206);
             this.txtDireccionOrigen.Name = "txtDireccionOrigen";
             this.txtDireccionOrigen.PlaceholderText = "Solo Calle";
-            this.txtDireccionOrigen.Size = new System.Drawing.Size(328, 29);
+            this.txtDireccionOrigen.Size = new System.Drawing.Size(422, 29);
             this.txtDireccionOrigen.TabIndex = 18;
             // 
             // txtPisoDeptoOrigen
             // 
-            this.txtPisoDeptoOrigen.Location = new System.Drawing.Point(209, 287);
+            this.txtPisoDeptoOrigen.Location = new System.Drawing.Point(300, 275);
             this.txtPisoDeptoOrigen.Name = "txtPisoDeptoOrigen";
             this.txtPisoDeptoOrigen.Size = new System.Drawing.Size(132, 29);
             this.txtPisoDeptoOrigen.TabIndex = 17;
             // 
             // txtAlturaOrigen
             // 
-            this.txtAlturaOrigen.Location = new System.Drawing.Point(133, 245);
+            this.txtAlturaOrigen.Location = new System.Drawing.Point(83, 275);
             this.txtAlturaOrigen.MaxLength = 6;
             this.txtAlturaOrigen.Name = "txtAlturaOrigen";
             this.txtAlturaOrigen.PlaceholderText = "Solo Numeros";
@@ -225,7 +225,7 @@
             // chkUrgente
             // 
             this.chkUrgente.AutoSize = true;
-            this.chkUrgente.Location = new System.Drawing.Point(747, 26);
+            this.chkUrgente.Location = new System.Drawing.Point(827, 28);
             this.chkUrgente.Name = "chkUrgente";
             this.chkUrgente.Size = new System.Drawing.Size(195, 25);
             this.chkUrgente.TabIndex = 3;
@@ -240,9 +240,9 @@
             this.grpCaracteristicaServicio.Controls.Add(this.cmbRangoPeso);
             this.grpCaracteristicaServicio.Controls.Add(this.chkUrgente);
             this.grpCaracteristicaServicio.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpCaracteristicaServicio.Location = new System.Drawing.Point(2, 87);
+            this.grpCaracteristicaServicio.Location = new System.Drawing.Point(33, 90);
             this.grpCaracteristicaServicio.Name = "grpCaracteristicaServicio";
-            this.grpCaracteristicaServicio.Size = new System.Drawing.Size(964, 65);
+            this.grpCaracteristicaServicio.Size = new System.Drawing.Size(1028, 65);
             this.grpCaracteristicaServicio.TabIndex = 8;
             this.grpCaracteristicaServicio.TabStop = false;
             this.grpCaracteristicaServicio.Text = "Caracteristica del Servicio";
@@ -262,7 +262,7 @@
             "8",
             "9",
             "10"});
-            this.cmbCantidadBultosN.Location = new System.Drawing.Point(610, 24);
+            this.cmbCantidadBultosN.Location = new System.Drawing.Point(690, 26);
             this.cmbCantidadBultosN.Name = "cmbCantidadBultosN";
             this.cmbCantidadBultosN.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cmbCantidadBultosN.Size = new System.Drawing.Size(117, 29);
@@ -285,9 +285,9 @@
             this.grpNacional.Controls.Add(this.txtDireccionNacional);
             this.grpNacional.Controls.Add(this.cmbCiudadDestino);
             this.grpNacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpNacional.Location = new System.Drawing.Point(475, 161);
+            this.grpNacional.Location = new System.Drawing.Point(910, 9);
             this.grpNacional.Name = "grpNacional";
-            this.grpNacional.Size = new System.Drawing.Size(491, 332);
+            this.grpNacional.Size = new System.Drawing.Size(584, 314);
             this.grpNacional.TabIndex = 9;
             this.grpNacional.TabStop = false;
             this.grpNacional.Text = "NACIONAL *";
@@ -296,7 +296,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(43, 287);
+            this.label16.Location = new System.Drawing.Point(354, 246);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(153, 21);
             this.label16.TabIndex = 15;
@@ -305,7 +305,7 @@
             // rboEntregaDomicilio
             // 
             this.rboEntregaDomicilio.AutoSize = true;
-            this.rboEntregaDomicilio.Location = new System.Drawing.Point(26, 78);
+            this.rboEntregaDomicilio.Location = new System.Drawing.Point(18, 80);
             this.rboEntregaDomicilio.Name = "rboEntregaDomicilio";
             this.rboEntregaDomicilio.Size = new System.Drawing.Size(167, 25);
             this.rboEntregaDomicilio.TabIndex = 7;
@@ -316,7 +316,7 @@
             // rboSucursalDestino
             // 
             this.rboSucursalDestino.AutoSize = true;
-            this.rboSucursalDestino.Location = new System.Drawing.Point(26, 35);
+            this.rboSucursalDestino.Location = new System.Drawing.Point(18, 36);
             this.rboSucursalDestino.Name = "rboSucursalDestino";
             this.rboSucursalDestino.Size = new System.Drawing.Size(110, 25);
             this.rboSucursalDestino.TabIndex = 6;
@@ -327,7 +327,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(43, 248);
+            this.label7.Location = new System.Drawing.Point(148, 244);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(67, 21);
             this.label7.TabIndex = 13;
@@ -337,9 +337,9 @@
             // 
             this.cmbSucursalDestino.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSucursalDestino.FormattingEnabled = true;
-            this.cmbSucursalDestino.Location = new System.Drawing.Point(147, 31);
+            this.cmbSucursalDestino.Location = new System.Drawing.Point(129, 31);
             this.cmbSucursalDestino.Name = "cmbSucursalDestino";
-            this.cmbSucursalDestino.Size = new System.Drawing.Size(323, 29);
+            this.cmbSucursalDestino.Size = new System.Drawing.Size(439, 29);
             this.cmbSucursalDestino.TabIndex = 5;
             // 
             // label2
@@ -391,7 +391,7 @@
             "TUCUMÁN"});
             this.cmbProvinciaDestino.Location = new System.Drawing.Point(163, 121);
             this.cmbProvinciaDestino.Name = "cmbProvinciaDestino";
-            this.cmbProvinciaDestino.Size = new System.Drawing.Size(307, 29);
+            this.cmbProvinciaDestino.Size = new System.Drawing.Size(400, 29);
             this.cmbProvinciaDestino.TabIndex = 3;
             this.cmbProvinciaDestino.SelectedIndexChanged += new System.EventHandler(this.cmbProvinciaDestino_SelectedIndexChanged);
             // 
@@ -410,7 +410,7 @@
             this.cmbCiudadDestino.FormattingEnabled = true;
             this.cmbCiudadDestino.Location = new System.Drawing.Point(163, 160);
             this.cmbCiudadDestino.Name = "cmbCiudadDestino";
-            this.cmbCiudadDestino.Size = new System.Drawing.Size(307, 29);
+            this.cmbCiudadDestino.Size = new System.Drawing.Size(400, 29);
             this.cmbCiudadDestino.TabIndex = 4;
             // 
             // grpInternacional
@@ -427,9 +427,9 @@
             this.grpInternacional.Controls.Add(this.label22);
             this.grpInternacional.Controls.Add(this.txtDireccionI);
             this.grpInternacional.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpInternacional.Location = new System.Drawing.Point(475, 166);
+            this.grpInternacional.Location = new System.Drawing.Point(569, 161);
             this.grpInternacional.Name = "grpInternacional";
-            this.grpInternacional.Size = new System.Drawing.Size(489, 321);
+            this.grpInternacional.Size = new System.Drawing.Size(489, 314);
             this.grpInternacional.TabIndex = 6;
             this.grpInternacional.TabStop = false;
             this.grpInternacional.Text = "INTERNACIONAL";
@@ -439,45 +439,45 @@
             // 
             this.cmbCiudadesI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbCiudadesI.FormattingEnabled = true;
-            this.cmbCiudadesI.Location = new System.Drawing.Point(175, 111);
+            this.cmbCiudadesI.Location = new System.Drawing.Point(139, 92);
             this.cmbCiudadesI.Name = "cmbCiudadesI";
-            this.cmbCiudadesI.Size = new System.Drawing.Size(199, 29);
+            this.cmbCiudadesI.Size = new System.Drawing.Size(308, 29);
             this.cmbCiudadesI.TabIndex = 20;
             // 
             // cmbPaisI
             // 
             this.cmbPaisI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPaisI.FormattingEnabled = true;
-            this.cmbPaisI.Location = new System.Drawing.Point(177, 56);
+            this.cmbPaisI.Location = new System.Drawing.Point(139, 34);
             this.cmbPaisI.Name = "cmbPaisI";
-            this.cmbPaisI.Size = new System.Drawing.Size(197, 29);
+            this.cmbPaisI.Size = new System.Drawing.Size(306, 29);
             this.cmbPaisI.TabIndex = 19;
             this.cmbPaisI.SelectedIndexChanged += new System.EventHandler(this.cmbPaisI_SelectedIndexChanged);
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(49, 122);
+            this.label20.Location = new System.Drawing.Point(39, 100);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(63, 21);
+            this.label20.Size = new System.Drawing.Size(70, 21);
             this.label20.TabIndex = 18;
-            this.label20.Text = "Ciudad ";
+            this.label20.Text = "Ciudad *";
             this.label20.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(53, 59);
+            this.label19.Location = new System.Drawing.Point(43, 37);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(37, 21);
+            this.label19.Size = new System.Drawing.Size(48, 21);
             this.label19.TabIndex = 17;
-            this.label19.Text = "País";
+            this.label19.Text = "País *";
             this.label19.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(53, 295);
+            this.label4.Location = new System.Drawing.Point(260, 219);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(153, 21);
             this.label4.TabIndex = 15;
@@ -486,7 +486,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(53, 245);
+            this.label21.Location = new System.Drawing.Point(100, 217);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(63, 21);
             this.label21.TabIndex = 13;
@@ -495,7 +495,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(53, 188);
+            this.label22.Location = new System.Drawing.Point(43, 166);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(79, 21);
             this.label22.TabIndex = 12;
@@ -519,7 +519,7 @@
             this.grpTipoRecepcion.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpTipoRecepcion.Location = new System.Drawing.Point(2, 161);
             this.grpTipoRecepcion.Name = "grpTipoRecepcion";
-            this.grpTipoRecepcion.Size = new System.Drawing.Size(477, 332);
+            this.grpTipoRecepcion.Size = new System.Drawing.Size(561, 314);
             this.grpTipoRecepcion.TabIndex = 10;
             this.grpTipoRecepcion.TabStop = false;
             this.grpTipoRecepcion.Text = "Elija el Tipo de ORIGEN *";
@@ -527,7 +527,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(17, 290);
+            this.label17.Location = new System.Drawing.Point(290, 247);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(153, 21);
             this.label17.TabIndex = 16;
@@ -548,13 +548,13 @@
             this.cmbCiudadOrigen.FormattingEnabled = true;
             this.cmbCiudadOrigen.Location = new System.Drawing.Point(133, 165);
             this.cmbCiudadOrigen.Name = "cmbCiudadOrigen";
-            this.cmbCiudadOrigen.Size = new System.Drawing.Size(328, 29);
+            this.cmbCiudadOrigen.Size = new System.Drawing.Size(422, 29);
             this.cmbCiudadOrigen.TabIndex = 8;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 248);
+            this.label8.Location = new System.Drawing.Point(116, 250);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(63, 21);
             this.label8.TabIndex = 13;
@@ -563,10 +563,11 @@
             // cmbSucursalOrigen
             // 
             this.cmbSucursalOrigen.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbSucursalOrigen.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.cmbSucursalOrigen.FormattingEnabled = true;
             this.cmbSucursalOrigen.Location = new System.Drawing.Point(116, 31);
             this.cmbSucursalOrigen.Name = "cmbSucursalOrigen";
-            this.cmbSucursalOrigen.Size = new System.Drawing.Size(351, 29);
+            this.cmbSucursalOrigen.Size = new System.Drawing.Size(439, 28);
             this.cmbSucursalOrigen.TabIndex = 5;
             // 
             // rboRetiroDomicilio
@@ -611,7 +612,7 @@
             "TUCUMÁN"});
             this.cmbProvinciaOrigen.Location = new System.Drawing.Point(133, 121);
             this.cmbProvinciaOrigen.Name = "cmbProvinciaOrigen";
-            this.cmbProvinciaOrigen.Size = new System.Drawing.Size(328, 29);
+            this.cmbProvinciaOrigen.Size = new System.Drawing.Size(422, 29);
             this.cmbProvinciaOrigen.TabIndex = 7;
             this.cmbProvinciaOrigen.SelectedIndexChanged += new System.EventHandler(this.cmbProvinciaOrigen_SelectedIndexChanged);
             // 
@@ -649,7 +650,7 @@
             this.lblTitulo.AutoSize = true;
             this.lblTitulo.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.lblTitulo.ForeColor = System.Drawing.Color.Purple;
-            this.lblTitulo.Location = new System.Drawing.Point(235, -3);
+            this.lblTitulo.Location = new System.Drawing.Point(292, 9);
             this.lblTitulo.Name = "lblTitulo";
             this.lblTitulo.Size = new System.Drawing.Size(536, 25);
             this.lblTitulo.TabIndex = 11;
@@ -659,7 +660,7 @@
             // 
             this.btnCotizar.BackColor = System.Drawing.Color.DodgerBlue;
             this.btnCotizar.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btnCotizar.Location = new System.Drawing.Point(369, 509);
+            this.btnCotizar.Location = new System.Drawing.Point(451, 481);
             this.btnCotizar.Name = "btnCotizar";
             this.btnCotizar.Size = new System.Drawing.Size(206, 30);
             this.btnCotizar.TabIndex = 12;
@@ -687,7 +688,7 @@
             this.grpCotizacion.Controls.Add(this.label12);
             this.grpCotizacion.Font = new System.Drawing.Font("Segoe UI", 13F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.grpCotizacion.ForeColor = System.Drawing.Color.Purple;
-            this.grpCotizacion.Location = new System.Drawing.Point(972, 70);
+            this.grpCotizacion.Location = new System.Drawing.Point(1138, 70);
             this.grpCotizacion.Name = "grpCotizacion";
             this.grpCotizacion.Size = new System.Drawing.Size(580, 423);
             this.grpCotizacion.TabIndex = 13;
@@ -741,7 +742,6 @@
             this.lblCantidadDeBultos.Size = new System.Drawing.Size(16, 20);
             this.lblCantidadDeBultos.TabIndex = 23;
             this.lblCantidadDeBultos.Text = "x";
-            this.lblCantidadDeBultos.Click += new System.EventHandler(this.lblCantidadDeBultos_Click);
             // 
             // label24
             // 
@@ -945,12 +945,12 @@
             this.grpTipoEnvio.Controls.Add(this.rboInternacional);
             this.grpTipoEnvio.Controls.Add(this.rboNacional);
             this.grpTipoEnvio.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.grpTipoEnvio.Location = new System.Drawing.Point(235, 25);
+            this.grpTipoEnvio.Location = new System.Drawing.Point(292, 37);
             this.grpTipoEnvio.Name = "grpTipoEnvio";
             this.grpTipoEnvio.Size = new System.Drawing.Size(536, 56);
             this.grpTipoEnvio.TabIndex = 14;
             this.grpTipoEnvio.TabStop = false;
-            this.grpTipoEnvio.Text = "Elija el Tipo de DESTINO";
+            this.grpTipoEnvio.Text = "Elija el Tipo de DESTINO *";
             // 
             // rboInternacional
             // 

@@ -1,25 +1,60 @@
 ﻿España|Madrid|Europa
 España|Barcelona|Europa
 Francia|Paris|Europa
+Francia|Touluse|Europa
 Alemania|Munich|Europa
 Alemania|Berlin|Europa
 Suiza|Berna|Europa
+Suiza|Zurich|Europa
+Suiza|Ginebra|Europa
 Dinamarca|Copenhague|Europa
-Paraguay|Asuncion |Limitrofes
+Dinamarca|Elsinor|Europa
+Paraguay|Asuncion|Limitrofes
+Paraguay|Encarnacio|Limitrofes
 Brasil|Brasilia|Limitrofes
+Brasil|Sao Pablo|Limitrofes
+Brasil|Rio de Janeiro|Limitrofes
 Bolivia|La Paz|Limitrofes
+Bolivia|Sucre|Limitrofes
 Chile|Santiago de Chile|Limitrofes
+Chile|Valparaiso|Limitrofes
 Uruguay|Montevideo|Limitrofes
+Uruguay|Colonia|Limitrofes
+Uruguay|Sacramento|Limitrofes
+Uruguay|Punta del Este|Limitrofes
 EEUU|Washington DC|America del Norte
+EEUU|New York|America del Norte
+EEUU|Los Angeles|America del Norte
+EEUU|Chicago|America del Norte
 Canada|Otawa|America del Norte
+Canada|Toronto|America del Norte
+Canada|Quebec|America del Norte
 Mexico|Ciudad de Mexico|America del Norte
+Mexico|Veracruz|America del Norte
+Mexico|Campeche|America del Norte
 India|Nueva Delhi|Asia
+India|Bombay|Asia
+India|Jaipur|Asia
 China|Pekin|Asia
+China|Beiging|Asia
+China|Shangai|Asia
 Corea del Sur|Seul|Asia
+Cora del Sur|Busan|Asia
 Japon|Tokio|Asia
+Japon|Hiroshima|Asia
+Japon|Nagasaki|Asia
 Iran|Teheran|Asia
+Iran|Shiraz|Asia
 Peru|Lima|America Latina
+Peru|Callo|America Latina
 Colombia|Bogota|America Latina
+Colombia|Medellin|America Latina
+Colombia|Cartagena|America Latina
 Cuba|La Habana|America Latina
+Cuba|Cienfuegos|America Latina
 Venezuela|Caracas|America Latina
+Venezuela|Maracaibo|America Latina
+Venezuela|Merida|America Latina
 Ecuador|Quito|America Latina
+Ecuador|Loja|America Latina
+Ecuador|Guayaquil|America Latina
