@@ -28,39 +28,6 @@ namespace grupoB_TP
             }
         }
 
-        internal static string PedirLongitudFija(string campo, int longitud, string text)
-        {
-            if (text.Length == longitud)
-            {
-                return "";
-            }
-            else
-            {
-                return $"El valor {campo} debe tener una longitud de {longitud} caracteres. \n";
-            }
-        }
-
-        internal static string PedirNumerico(string campo, string ingreso)
-        {
-            while (true)
-            {
-                bool estaOK = true;
-                foreach (char caracter in ingreso)
-                {
-                    if (caracter > '0' && caracter < '9')
-                    {
-                        estaOK = false;
-                        return ($" El {campo} debe tener solamente números.");
-                    }
-                }
-                if (!estaOK)
-                {
-                    continue;
-                }
-            }
-
-        }
-
         internal static string PedirVacio(string campo, string text)
         {
             if (string.IsNullOrEmpty(text))

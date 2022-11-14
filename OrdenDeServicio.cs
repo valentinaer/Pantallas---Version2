@@ -30,51 +30,5 @@ namespace grupoB_TP
         public string Estado { get; set; } = string.Empty;
         public string Facturado { get; set; } = string.Empty;
 
-        /*  public OrdenDeServicio(
-             int numeroTrackeo_       ,
-             int fecha_               ,
-             string CUIT_             ,
-             string tipoDeEnvio_       ,
-             string paisOrigen_        ,
-             string provinciaOrigen_   ,
-             string ciudadOrigen_      ,
-             string calleOrigen_       ,
-             int alturaOrigen_         ,
-             string pisodeptoOrigen_   ,
-             string paisDestino_       ,
-             string provinciaDestino_  ,
-             string ciudadDestino_     ,
-             string calleDestino_      ,
-             int alturaDestino_        ,
-             string pisodeptoDestino_  ,
-             string rangoDePeso_       ,
-             int cantidadDeBultos_     ,
-             string urgente_           ,
-             string estado_            ,
-             string facturado_        
-         )
-         {
-              numeroTrackeo        =      numeroTrackeo_            ;
-              fecha                =      fecha_                    ;
-              CUIT                 =      CUIT_                     ;
-              tipoDeEnvio          =      tipoDeEnvio_              ;
-              paisOrigen           =      paisOrigen_               ;
-              provinciaOrigen      =      provinciaOrigen_          ;
-              ciudadOrigen         =      ciudadOrigen_             ;
-              calleOrigen          =      calleOrigen_              ;
-              alturaOrigen         =      alturaOrigen_                ;
-              pisodeptoOrigen      =      pisodeptoOrigen_          ;
-              paisDestino          =      paisDestino_              ;
-              provinciaDestino     =      provinciaDestino_         ;
-              ciudadDestino        =      ciudadDestino_            ;
-              calleDestino         =      calleDestino_             ;
-              alturaDestino        =      alturaDestino_               ;
-              pisodeptoDestino     =      pisodeptoDestino_         ;
-              rangoDePeso          =      rangoDePeso_              ;
-              cantidadDeBultos     =      cantidadDeBultos_            ;
-              urgente              =      urgente_                  ;
-              estado               =      estado_                   ;
-              facturado            =      facturado_                ;
-         }  */
     }
 }
