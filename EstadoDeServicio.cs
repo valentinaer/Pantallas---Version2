@@ -63,7 +63,7 @@ namespace grupoB_TP
                             + orden.PaisDestino;
 
                         lblOrigen.Text = orden.CalleOrigen + " " + orden.AlturaOrigen + ", "
-                            + orden.CiudadOrigen + ", " + orden.ProvinciaDestino + ", " +
+                            + orden.CiudadOrigen + ", " + orden.ProvinciaOrigen + ", " +
                             orden.PaisOrigen;
                     }
                     else

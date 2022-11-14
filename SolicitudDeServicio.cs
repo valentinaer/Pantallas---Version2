@@ -553,6 +553,7 @@ namespace grupoB_TP
         //Mostrar Provincia Origen
         private void cmbProvinciaOrigen_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblCiudadOrigen.Text = "Ciudad *";
             ciudadesAMostrar.Clear();
             cmbCiudadOrigen.Items.Clear();
             string provincia = cmbProvinciaOrigen.Text;
@@ -561,12 +562,17 @@ namespace grupoB_TP
             foreach (var ciudad in ciudadesAMostrar)
             {
                 cmbCiudadOrigen.Items.Add(ciudad.Ciudad);
+                if (ciudad.Provincia == "C.A.B.A")
+                {
+                    lblCiudadOrigen.Text = "Barrio *";
+                }
             }
         }
 
         //Mostrar Provincia Destino
         private void cmbProvinciaDestino_SelectedIndexChanged(object sender, EventArgs e)
         {
+            lblCiudadDestinoNacional.Text = "Ciudad *";
             ciudadesAMostrar.Clear();
             cmbCiudadDestino.Items.Clear();
             string provincia = cmbProvinciaDestino.Text;
@@ -575,6 +581,11 @@ namespace grupoB_TP
             foreach (var ciudad in ciudadesAMostrar)
             {
                 cmbCiudadDestino.Items.Add(ciudad.Ciudad);
+
+                if (ciudad.Provincia == "C.A.B.A")
+                {
+                    lblCiudadDestinoNacional.Text = "Barrio *";
+                }
             }
         }
 
